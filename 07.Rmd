@@ -1,4 +1,4 @@
-# Preliminaries
+# Data Cleaning and Preparation
 
 **Learning objectives:**
 

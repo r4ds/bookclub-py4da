@@ -1,4 +1,4 @@
-# Preliminaries
+# Data Analysis Examples
 
 **Learning objectives:**
 

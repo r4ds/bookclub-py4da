@@ -1,4 +1,4 @@
-# Preliminaries
+# Plotting and Visualization
 
 **Learning objectives:**
 
