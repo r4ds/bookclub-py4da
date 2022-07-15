@@ -1,4 +1,4 @@
-# Preliminaries
+# Data Wrangling: Join, Combine, and Reshape
 
 **Learning objectives:**
 

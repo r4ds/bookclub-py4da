@@ -1,4 +1,4 @@
-# Preliminaries
+# Data Aggregation and Group Operations
 
 **Learning objectives:**
 

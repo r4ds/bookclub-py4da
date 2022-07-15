@@ -1,4 +1,4 @@
-# Preliminaries
+# Python Language Basics, IPython, and Jupyter Notebooks
 
 **Learning objectives:**
 

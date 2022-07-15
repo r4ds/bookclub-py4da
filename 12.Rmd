@@ -1,4 +1,4 @@
-# Preliminaries
+# Introduction to Modeling Libraries in Python
 
 **Learning objectives:**
 

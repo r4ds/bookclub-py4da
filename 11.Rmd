@@ -1,4 +1,4 @@
-# Preliminaries
+# Time Series
 
 **Learning objectives:**
 

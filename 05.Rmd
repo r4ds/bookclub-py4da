@@ -1,4 +1,4 @@
-# Preliminaries
+# Getting Started with pandas
 
 **Learning objectives:**
 
