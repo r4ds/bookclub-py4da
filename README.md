@@ -10,7 +10,7 @@ As we read, we are producing [notes about the book](https://r4ds.io/py4da).
 
 If you would like to present, please see the sign-up sheet for your cohort (linked below, and pinned in the [#book_club-py4da](https://rfordatascience.slack.com/archives/C03P2J90L30) channel on Slack)!
 
-- [Cohort 1](https://docs.google.com/spreadsheets/d/1T0yVSFYKeD-VUeO8uYlSpUzdijlA9ApDHiLIuR73KYQ/edit?usp=sharing) (started STARTDATE): [BOOKDAYS, BOOKTIMECST CST/CDT](TIMEANDDATEURL) | [meeting videos](https://www.youtube.com/playlist?list=PL3x6DOfs2NGh7IQIQ_pXNkjLVKa-7lgCw)
+- [Cohort 1](https://docs.google.com/spreadsheets/d/1T0yVSFYKeD-VUeO8uYlSpUzdijlA9ApDHiLIuR73KYQ/edit?usp=sharing) (started 2022-08-05): [Fridays, 15:00 CST/CDT](https://www.timeanddate.com/worldclock/converter.html?iso=20220805T200000&p1=24&p2=133&p3=1440) | [meeting videos](https://www.youtube.com/playlist?list=PL3x6DOfs2NGh7IQIQ_pXNkjLVKa-7lgCw)
 
 <hr>
 
