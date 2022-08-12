@@ -1,0 +1,33 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Python for Data Analysis"
+  subtitle: "The R4DS Online Learning Community"
+  logo: cover.png
+  site-url: https://wesmckinney.com/book/
+  repo-url: https://github.com/r4ds
+  sharing: [twitter, facebook, linkedin]
+  page-footer:
+    right: "1850 depiction of Ptilocercus lowii"
+  number-depth: 0
+
+  chapters:
+    - index.qmd
+    - part: 01_main.qmd
+      chapters:
+        - 01_notes.ipynb
+        - 01_video.qmd
+    - part: examples.md
+      chapters:
+        - example_quarto.qmd
+        - example_python.ipynb
+  appendices:
+    - how-to.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt

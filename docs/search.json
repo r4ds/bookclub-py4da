@@ -1,0 +1,401 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python for Data Analysis",
+    "section": "",
+    "text": "This is a companion for the book Python for Data Analysis, 3E by Wes McKinney.\nThis website is being developed by the R4DS Online Learning Community. Follow along and join the community to participate.\nThis companion follows the R4DS Online Learning Community Code of Conduct."
+  },
+  {
+    "objectID": "index.html#book-club-meetings",
+    "href": "index.html#book-club-meetings",
+    "title": "Python for Data Analysis",
+    "section": "Book club meetings",
+    "text": "Book club meetings\n\nEach week, a volunteer will present a chapter from the book.\n\nThis is the best way to learn the material.\n\nPresentations will usually consist of a review of the material, a discussion, and/or a demonstration of the principles presented in that chapter.\nMore information about how to present is available in the GitHub repo.\nPresentations will be recorded and will be available on the R4DS Online Learning Community YouTube Channel."
+  },
+  {
+    "objectID": "01_main.html",
+    "href": "01_main.html",
+    "title": "1. Preliminaries",
+    "section": "",
+    "text": "The goal of this first section is to introduce some Python basics from the ground up. Starting with nothing, you’ll learn how to edit, run, and debug small programs. Ultimately, you’ll write a short script that reads a CSV data file and performs a simple calculation."
+  },
+  {
+    "objectID": "01_notes.html",
+    "href": "01_notes.html",
+    "title": "1  Notes",
+    "section": "",
+    "text": "One of the most important languages for data science, machine learning, and general software development in academia and industry."
+  },
+  {
+    "objectID": "01_notes.html#more-stuff-from-the-author",
+    "href": "01_notes.html#more-stuff-from-the-author",
+    "title": "1  Notes",
+    "section": "1.1 More stuff from the author",
+    "text": "1.1 More stuff from the author\nHis website : https://dabeaz.com/advprog.html\n\nThe course is taught by David Beazley, author of the\n\n\nPython Essential Reference, 4th Edition (Addison Wesley)\nPython Cookbook, 3rd Edition (O’Reilly Media).\nDistilled Python"
+  },
+  {
+    "objectID": "01_notes.html#introducing-python",
+    "href": "01_notes.html#introducing-python",
+    "title": "1  Notes",
+    "section": "1.2 Introducing Python",
+    "text": "1.2 Introducing Python\n\n\nPython is an interpreted high level programming language. It is often classified as a “scripting language” and is considered similar to languages such as Perl, Tcl, or Ruby. The syntax of Python is loosely inspired by elements of C programming.\n\n\n1.2.1 How to Check Your Python Version\n\n1.2.1.1 Check Python Version: Command Line\n\npython –version\npython -V\npython -VV # Starting from Python 3.6 for more detailed information\n\n\n1.2.1.1.1 Check Python Version: Script\nThe sys module provides functions and variables used to manipulate different parts of the Python runtime environment.\n\nimport sys\nprint (sys.version)\n\n3.9.9 | packaged by conda-forge | (main, Dec 20 2021, 02:38:53) \n[Clang 11.1.0 ]\n\n\n\n# print (sys.version_info)\nimport sys\nprint (sys.version_info[0])\n\n\nPython 2 is no longer under development and HAS BEEN DISCONTINUED STARTING FROM JANUARY 1, 2020.\n\n\nBecause Python 2 and Python 3 might be installed on the same machine you might need to type python2 or python3 to pick a version."
+  },
+  {
+    "objectID": "01_notes.html#a-first-program",
+    "href": "01_notes.html#a-first-program",
+    "title": "1  Notes",
+    "section": "1.3 A First Program",
+    "text": "1.3 A First Program\n\nCreation of your first program\nrunning the interpreter\n\n\n1.3.1 Running Python\n\nPython programs always run inside an interpreter.\nThe interpreter is a “console-based” application that normally runs from a command shell.\n\n\n1.3.1.1 Interactive Mode\n\nWhen you start Python, you get an interactive mode where you can experiment.\nIf you start typing statements, they will run immediately.\n\n\n\n1.3.1.2 Creating programs\nPython Programs are put in .py files.\n\nRun program in Terminal\n\n\n%%bash\npython greeting.py\n\nWelcome to R4DS\n\n\n\nRun program in Jupyter\n\n\n%run greeting.py\n\nWelcome to R4DS\n\n\n\n!python greeting.py\n\nWelcome to R4DS\n\n\n\n\n1.3.1.3 Statements\nA python program is a sequence of statements:\n\na = 3 + 4\nb = a * 2\n\na+b\n\n21\n\n\nunderscore ( _ ) holds the result og last operation\n\n_ + 3\n\n24\n\n\n\na = 3 + 4 ; b = a * 2\nprint(b)\nprint(a)\n\n14\n7\n\n\n\na , b = 3 + 4 , a * 2\nprint(b)\n\n14\n\n\n\n\n1.3.1.4 Variables\n\nheight = 442 # valid\n_height = 442 # valid\nheight2 = 442 # valid\n#2height = 442 # invalid\n\n\n\n1.3.1.5 Types\nPython is dynamically typed.\n\nheight = 442           # An integer\nheight = 442.0         # Floating point\nheight = 'Really tall' # A string\n\n\n\n1.3.1.6 Case Sensitivity\nPython is case sensitive\n\nname = 'Jake'\nName = 'JAKE'\n\nname == Name\n\nFalse\n\n\n\nLanguage statements are always lower-case\n\n\n#while x < 0:   # OK\n#WHILE x < 0:   # ERROR\n\n\n\n1.3.1.7 Conditionals\nIF condition\n\nif a > b:\n    print('Computer says no')\nelse:\n    print('Computer says yes')\n\nComputer says yes\n\n\nelif for multiple condition\n\nif a > b:\n    print('Computer says no')\nelif a == b:\n    print('Computer says yes')\nelse:\n    print('Computer says maybe')\n\nComputer says maybe\n\n\n\n\n1.3.1.8 Print\n\nname = 'Jake'\nprint('My name is',           name) # Print the text 'My name is Jake'\n\nMy name is Jake\n\n\nprint() always puts a newline at the end\n\nprint('Hello') \nprint('My name is', 'Jake')\n\nHello\nMy name is Jake\n\n\n\nprint?\n\nDocstring:\nprint(value, ..., sep=' ', end='\\n', file=sys.stdout, flush=False)\n\nPrints the values to a stream, or to sys.stdout by default.\nOptional keyword arguments:\nfile:  a file-like object (stream); defaults to the current sys.stdout.\nsep:   string inserted between values, default a space.\nend:   string appended after the last value, default a newline.\nflush: whether to forcibly flush the stream.\nType:      builtin_function_or_method\n\n\nThe extra newline can be suppressed:\n\nprint('Hello', end = '')\nprint('My name is', 'Jake')\n\nHelloMy name is Jake\n\n\n\n\n1.3.1.9 User input\n\nname = input('Enter your name:')\nprint('Your name is', name)\n\nYour name is sham\n\n\nNote: Any input is string\n\nnum_1 = input('Enter first number:')\nnum_2 = input('Enter second numbe:')\nprint('Sume of numbers is', num_1 + num_2)\n\nSume of numbers is 45\n\n\n\nnum_1 = int(input('Enter first number:'))\nnum_2 = int(input('Enter second numbe:'))\nprint('Sume of numbers is', num_1 + num_2)\n\nSume of numbers is 9"
+  },
+  {
+    "objectID": "01_notes.html#numbers",
+    "href": "01_notes.html#numbers",
+    "title": "1  Notes",
+    "section": "1.4 Numbers",
+    "text": "1.4 Numbers\nPython has 4 types of numbers:\n\nBooleans (True and False)\nIntegers (1,3, 7)\nFloating point (1.2,4.1. 3.1)\nComplex (imaginary numbers) 1+2i\ncommon operations\n\n\n%%script false --no-raise-error\nx + y      #Add\nx - y      #Subtract\nx * y      #Multiply\nx / y      #Divide (produces a float)\nx // y     #Floor Divide (produces an integer)\nx % y      #Modulo (remainder)\nx ** y     #Power\nx << n     #Bit shift left\nx >> n     #Bit shift right\nx & y      #Bit-wise AND\nx | y      #Bit-wise OR\nx ^ y      #Bit-wise XOR\n~x         #Bit-wise NOT\nabs(x)     #Absolute value\n\n\nComparisons\n\n\n%%script false --no-raise-error\n\nx < y      #Less than\nx <= y     #Less than or equal\nx > y      #Greater than\nx >= y     #Greater than or equal\nx == y     #Equal to\nx != y     #Not equal to\n\n\nConverting Numbers\n\n\nx = 2.5\na = int(x)    # Convert x to integer\na\n\n2\n\n\n\nx = 2\nb = float(x)  # Convert x to float\nb\n\n2.0"
+  },
+  {
+    "objectID": "01_notes.html#strings",
+    "href": "01_notes.html#strings",
+    "title": "1  Notes",
+    "section": "1.5 Strings",
+    "text": "1.5 Strings\n\nRepresenting Literal Text\n\n\n# Single quote\na = 'Yeah but no but yeah but...'\n\n# Double quote\nb = \"computer says no\"\n\n# Triple quotes\nc = '''\nLook into my eyes, look into my eyes, the eyes, the eyes, the eyes,\nnot around the eyes,\ndon't look around the eyes,\nlook into my eyes, you're under.\n'''\n\n\nThere is no difference between using single (’) versus double (“) quotes. However, the same type of quote used to start a string must be used to terminate it.\n\n\nString escape codes\n\n\n'\\n'      #Line feed\n'\\r'      #Carriage return\n'\\t'      #Tab\n'\\''      #Literal single quote\n'\\\"'      #Literal double quote\n'\\\\'      #Literal backslash\n\n\na  = \"This is is two line \\nI love it\"\nprint(a)\n\nThis is is two line \nI love it\n\n\n\na  = \"This is  two line \\rI love it\"\nprint(a)\n\nI love ittwo line \n\n\n\nString Representation Each character in a string is stored internally as a so-called Unicode “code-point” which is an integer. You can specify an exact code-point value using the following escape sequences:\n\n\n\"café\".encode(\"utf-8\") # E is not inissed ASCI table\n\nb'caf\\xc3\\xa9'\n\n\n\n\"é\".encode(\"utf-8\")\n\nb'\\xc3\\xa9'\n\n\n\nString Indexing\n\nStrings work like an array for accessing individual characters. You use an integer index, starting at 0. Negative indices specify a position relative to the end of the string.\n\na = 'Hello world'\nb = a[0]          # 'H'\nb\n\n'H'\n\n\n\nd = a[-1]         # 'd' (end of string)\nd\n\n'd'\n\n\nString Slicing: You can also slice or select substrings specifying a range of indices with :.\n\nd = a[1:3]     # 'el'\nd\n\n'el'\n\n\n\ne = a[6:]     # 'world'\ne\n\n'world'\n\n\n\ng = a[-5:]    # 'world'\ng\n\n\nc =  a [:] # copy\nc\n\n'Hello world'\n\n\n\nString operations\n\nConcatenation, length, membership and replication.\n\n# Concatenation (+)\na = 'Hello' + 'World'   # 'HelloWorld'\nb = 'Say ' + a          # 'Say HelloWorld'\nb\n\n'Say HelloWorld'\n\n\n\n# Length (len)\ns = 'Hello'\nlen(s)                  # 5\n\n5\n\n\nMembership test (in, not in)\n\nt = 'e' in s            # True\nt\n\nTrue\n\n\n\nf = 'x' in s            # False\nf\n\nFalse\n\n\n\ng = 'hi' not in s       # True\ng\n\nTrue\n\n\nReplication (s * n)\n\nrep = s * 5             # 'HelloHelloHelloHelloHello'\nrep\n\n'HelloHelloHelloHelloHello'\n\n\n\nString methods\n\n\na = [1, 2, 3]\n\na.append(5)\n\n\na\n\n[1, 2, 3, 5]\n\n\n\ns = '  Hello '\nprint(s.strip())     # 'Hello'\n\nHello\n\n\n\ns = 'Hello'\nl = s.lower()     # 'hello'\nprint(l)\n\nhello\n\n\n\ns = 'Hello world'\nt = s.replace('Hello' , 'Hallo')   # 'Hallo world'\nprint(t)\n\nHallo world\n\n\n\nMore string methods:\n\n\n%%script false --no-raise-error\n\ns.endswith(suffix)     # Check if string ends with suffix\ns.find(t)              # First occurrence of t in s\ns.index(t)             # First occurrence of t in s\ns.isalpha()            # Check if characters are alphabetic\ns.isdigit()            # Check if characters are numeric\ns.islower()            # Check if characters are lower-case\ns.isupper()            # Check if characters are upper-case\ns.join(slist)          # Join a list of strings using s as delimiter\ns.lower()              # Convert to lower case\ns.replace(old,new)     # Replace text\ns.rfind(t)             # Search for t from end of string\ns.rindex(t)            # Search for t from end of string\ns.split([delim])       # Split string into list of substrings\ns.startswith(prefix)   # Check if string starts with prefix\ns.strip()              # Strip leading/trailing space\ns.upper()  \n\n\nString Mutability\nStrings are “immutable” or read-only. Once created, the value can’t be changed.\n\n\n%%script false --no-raise-error\n\ns = 'Hello World'\ns[1] = 'a' # gives an error\n\n\nAll operations and methods that manipulate string data, always create new strings.\n\n\nString Conversions\n\n\nUse str() to convert any value to a string. The result is a string holding the same text that would have been produced by the print() statement.\n\n\nx = 42\nstr(x)\n\n'42'\n\n\n\n1.5.0.1 Byte Strings\nThe only thing that a computer can store is bytes.\nTo store anything in a computer, you must first encode it, i.e. convert it to bytes. For example:\n\nIf you want to store music, you must first encode it using MP3, WAV, etc.\nIf you want to store a picture, you must first encode it using PNG, JPEG, etc.\nIf you want to store text, you must first encode it using ASCII, UTF-8, etc. MP3, WAV, PNG, JPEG, ASCII and UTF-8 are examples of encodings. An encoding is a format to represent audio, images, text, etc in bytes.\n\n\nIn Python, a byte string is just that: a sequence of bytes. It isn’t human-readable.\n\n\nOn the other hand, a character string, often just called a “string”, is a sequence of characters. It is human-readable. A character string can’t be directly stored in a computer, it has to be encoded first (converted into a byte string). There are multiple encodings through which a character string can be converted into a byte string, such as ASCII and UTF-8.\n\n\nSo, a byte string is similar to a string – but its content is a sequence of bytes instead of characters.\n\nBy putting a little b before the first quotation, you specify that it is a byte string as opposed to a text string.\n\ndata = b'Hello World'\n\n\ntype(data)\n\nbytes\n\n\nMost of the usual string operations work on byte rep\n\nlen(data)                         # 13\n\n11\n\n\n\ndata[0:5]                         \n\nb'Hello'\n\n\nIndexing is a bit different because it returns byte values as integers.\n\ndata[0]   # 72 (ASCII code for 'H')\n\n72\n\n\n\nConversion to/from text strings.\n\n\ntext = data.decode('utf-8') # bytes -> text\ndata = text.encode('utf-8') # text -> bytes\n\nprint(text)\nprint(data)\n\nHello World\nb'Hello World'\n\n\n\nThe ‘utf-8’ argument specifies a character encoding. Other common values include ‘ascii’ and ‘latin1’.\n\n\n\n1.5.0.2 f-Strings\nA string with formatted expression substitution.\n\nname = \"Eric\"\nage = 74\nf\"Hello, {name}. You are {age}.\"\n\n'Hello, Eric. You are 74.'\n\n\n\nprice = 91.1456\na = f'The price is {price:.2f}'\na\n\n'The price is 91.15'\n\n\n\nNote: This requires Python 3.6 or newer. The meaning of the format codes is covered later."
+  },
+  {
+    "objectID": "01_notes.html#lists",
+    "href": "01_notes.html#lists",
+    "title": "1  Notes",
+    "section": "1.6 Lists",
+    "text": "1.6 Lists\nPython’s primary type for holding an ordered collection of values.\n\n1.6.0.1 Creating a List\n\nnames = [ 'Elwood', 'Jake', 'Curtis' , 8, 9]\n# nums = [ 39, 38, 42, 65, 111]\n# emptyy_list = [] # empty list\n\n\nsham_asa_list = list(\"sham\")\nsham_asa_list \n\n['s', 'h', 'a', 'm']\n\n\n\nsham_asa_list = list()\nsham_asa_list\n\n[]\n\n\n\nSometimes lists are created by other methods. For example, a string can be split into a list using the split() method:\n\n\nline = 'GOOG,100,490.10'\nrow = line.split(',')\nrow\n\n['GOOG', '100', '490.10']\n\n\n\na = [1, 2, 3]\nb =  [x*x for x in a ] # return square of a\nb\n\n[1, 4, 9]\n\n\n\n\n1.6.0.2 List operations\nAdding new item\n\n# names.append('Murphy')    # Adds at end\nnames.insert(2, 'Aretha') # Inserts in middle\nnames\n\n['Elwood', 'Jake', 'Aretha', 'Curtis', 8, 9, 'Murphy']\n\n\nconcatenating list\n\ns = [1, 2, 3]\nt = ['a', 'b']\ns + t           # [1, 2, 3, 'a', 'b']\n\n[1, 2, 3, 'a', 'b']\n\n\nIndexing lists by integers\n\nnames = [ 'Elwood', 'Jake', 'Curtis' ]\n\nnames[0]  # 'Elwood'\nnames[1]  # 'Jake'\n# names[2]  # 'Curtis'\n\n'Jake'\n\n\nNegative indices count from the end.\n\nnames[-1] # 'Curtis'\n\nupdate list items\n\nnames[1] = 'Joliet Jake'\nnames                     # [ 'Elwood', 'Joliet Jake', 'Curtis' ]\n\n['Elwood', 'Joliet Jake', 'Curtis']\n\n\nLength of the list.\n\nnames = ['Elwood','Jake','Curtis']\nlen(names)  # 3\n\n3\n\n\nMembership test (in, not in).\n\n# 'Elwood' in names       # True\n'Britney' not in names  # True\n\nTrue\n\n\nlists Replication (s * n)\n\ns = [1, 2, 3]\ns * 3   # [1, 2, 3, 1, 2, 3, 1, 2, 3]\n\n[1, 2, 3, 1, 2, 3, 1, 2, 3]\n\n\nList Iteration\n\nnames = ['james', 'David', \"Daniel\" ]\nfor name in names:\n    print(name)\n\njames\nDavid\nDaniel\n\n\nSearching item in a list\n\nnames = ['Elwood','Jake','Curtis']\nnames.index('Curtis')   # 2\n\n2\n\n\n\n\n1.6.0.3 List Removal\nYou can remove items either by element value or by index:\n\n# Using the value\nnames.remove('Curtis')\n\n\n# Using the index\ndel names[1]\nnames\n\n\n\n1.6.0.4 List Sorting\nLists can be sorted “in-place”.\n\na = 12\n\n\ns = [10, 1, 7, 3]\ns.sort()  \ns# [1, 3, 7, 10]\n\n[1, 3, 7, 10]\n\n\n\nresult = s.sort()     # sort is in-place\nprint(result)\n\nNone\n\n\n\n# Reverse order\ns = [10, 1, 7, 3]\ns.sort(reverse=True)        # [10, 7, 3, 1]\n\n\n# It works with any ordered data\ns = ['foo', 'bar', 'BAR', 'spam']\ns.sort()                    # ['bar', 'foo', 'spam']\n\n\ns\n\n['BAR', 'bar', 'foo', 'spam']\n\n\n\nUse sorted() if you’d like to make a new list instead:\n\n\ns = [2,1]\nt = sorted(s)  \nt             # s unchanged, t holds sorted values\n\n[1, 2]\n\n\n\ns\n\n[2, 1]\n\n\n\n\n1.6.0.5 Lists and Math\n\nnums = [1, 2, 3, 4, 5]\nnums * 2\n\n[1, 2, 3, 4, 5, 1, 2, 3, 4, 5]\n\n\n\nSpecifically, lists don’t represent vectors/matrices as in MATLAB, Octave, R, etc. However, there are some packages to help you with that (e.g. numpy)."
+  },
+  {
+    "objectID": "01_notes.html#file-management",
+    "href": "01_notes.html#file-management",
+    "title": "1  Notes",
+    "section": "1.7 File Management",
+    "text": "1.7 File Management\nWhen you want to work with the information in a text file, the first step is to read the file into memory. You can read the entire contents of a file, or you can work through the file one line at a time.\nnames[-1] # ‘Curtis’\n\n1.7.0.1 open a file\n\nf = open('foo.txt', 'rt')     # Open for reading (text)\ng = open('foo.txt', 'wt')     # Open for writing (text)\n\nRead all of the data.\n\ndata = f.read()\nprint(data)\n\n\n\n1.7.0.2 close a file\n\nf.close()\ng.close()\n\n\nFiles should be properly closed and it’s an easy step to forget. Thus, the preferred approach is to use the with statement like this.\n\n\nwith open('foo.txt') as file_object:\n    contents = file_object.read()\n\nprint(contents)\n\n\nThe open() function returns a new file object. The with statement that precedes it declares a block of statements (or context) where the file (file) is going to be used. Once control leaves this block, the file is automatically closed. If you don’t use the with statement, the code would need to look like this\n\n\nfile = open('data.txt') \n\nfor line in file: # The for-loop iterates line-by-line over the file until no   more data is    available.\n    print(line, end='') #   end=''  omits   the extra   newline \n\nfile.close()\n\n\nIt’s easy to forget the extra step of calling close() so it’s usually better to use the with statement and have the file closed for you\n\nIf you want to read the file in its entirety as a string, use the read() method like this:\n\nwith open('data.txt') as    file:\n    data = file.read()\n\nTo make the output of a program go to a file, supply a file argument to the print() function as shown in this example\n\nwith open('out.txt','wt') as out: \n    while year  <=  numyears: \n          principal =   principal   *   (1  + rate)     \n          print(f'{year:>3d}    {principal:0.2f}',  file=out)\n          year  +=  1\n\n\nBy default, files contain text encoded as UTF-8 Unicode. If you’re working with a different text encoding, use the extra encoding argument when opening the file.\n\n\nwith open('data.txt', encoding='latin-1')   as  file:\n    data = file.read()\n\n\nSometimes you might want to read data typed interactively at the keyboard. To do that, use the input() function.\n\n\nname =  input('Enter your name: ') \nprint('Hello',  name)"
+  },
+  {
+    "objectID": "01_notes.html#functions",
+    "href": "01_notes.html#functions",
+    "title": "1  Notes",
+    "section": "1.8 Functions",
+    "text": "1.8 Functions\nAs your programs start to get larger, you’ll want to get organized. This section briefly introduces functions and library modules. Error handling with exceptions is also introduced.\n\nYou use the def statement to define a function, as shown in the following example:\n\n\ndef reminder(a,b):  \n    '''  \n    Computes    the remainder   of  dividing    a   by  b               \n    '''                 \n    q   =   a//b\n    r   =   a - q * b \n    return  r\n\n\nreminder?\n\nSignature: reminder(a, b)\nDocstring: Computes    the     remainder       of      dividing        a       by      b                               \nFile:      /var/folders/l_/499_8k_5387b9tz3wp5g8lg00000gn/T/ipykernel_98880/2422504948.py\nType:      function\n\n\nTo invoke a function, use the name of the function followed by its arguments enclosed in parentheses, such as result = remainder(37, 15).\n\nresult = reminder(37, 15)\nresult\n\n7\n\n\nIf the inputs and outputs of a function aren’t clear from their names, they might be annotated with types:\n\ndef remainder(a: int, b: int) -> int:\n    '''  \n    Computes    the remainder   of  dividing    a   by  b               \n    '''                 \n    q   =   a//b\n    r   =   a - q * b \n    return  r\n\n\nSuch annotations are merely informational and are not actually enforced at runtime. Thus, someone could still call the above function with non-integer values such as:\n\n\nresult  = remainder(37.5,   3.2)\nresult\n\n2.299999999999997\n\n\n\nUse a tuple to return multiple values from a function, as shown here:\n\n\ndef divide(a: int, b: int) -> int:\n    '''  \n    Computes the remainder of dividing a by b               \n    d'''                \n    q   =   a//b ## If  a and b are integers, q is integer\n    r   =   a - q * b \n    return  (q,r)\n\nWhen returning multiple values in a tuple, they can be unpacked into separate variables like this:\n\nquotient, remainder = divide(1456,  33)\n\n\nprint(quotient)\nprint(remainder)\n\n44\n4\n\n\n\n1.8.0.1 Library Functions\nPython comes with a large standard library. Library modules are accessed using import.\n\nimport math\nx = math.sqrt(10)\nx\n\n3.1622776601683795\n\n\n\n\n1.8.0.2 Errors and exceptions\nFunctions report errors as exceptions. An exception causes a function to abort and may cause your entire program to stop if unhandled.\n\n(1/0)\n\nZeroDivisionError: division by zero\n\n\n\n\n1.8.0.3 Catching and Handling Exceptions\nTo catch, use the try - except statement.\n\ntry: \n    print(5/0) \n    \nexcept ZeroDivisionError: \n    \n    print(\"You can't divide by zero!\")\n\nYou can't divide by zero!"
+  },
+  {
+    "objectID": "02_main.html",
+    "href": "02_main.html",
+    "title": "2. Working with Data",
+    "section": "",
+    "text": "This section introduces Python’s core data structures of tuples, lists, sets, and dictionaries and discusses common data handling idioms. The last part of this section dives a little deeper into Python’s underlying object model"
+  },
+  {
+    "objectID": "02_notes.html",
+    "href": "02_notes.html",
+    "title": "3  Notes",
+    "section": "",
+    "text": "Python has a few primitive types of data:\n\nIntegers\nFloating point numbers\nStrings (text)\n\n\n\n\n\nTupple\nList\nDictionary\n\n\n\n\n\nA tuple is a collection of values grouped together.\nTuples are often used to represent simple records or structures. Typically, it is a single object of multiple parts\n\n\ns = (\"GOOG\", 100, 490.1)\n\n\ns = \"GOOG\", 100, 490.1\n\nSpecial cases (0-tuple, 1-tuple).\n\nt = ()  # An empty tuple\nw = (\"GOOG\",)  # A 1-item tuple\n\nTuple contents are ordered (like an array).\n\ns = (\"GOOG\", 100, 490.1)\nname = s[0]  # 'GOOG'\nshares = s[1]  # 100\nprice = s[2]  # 490.1\n\nHowever, the contents can’t be modified.\ns[1] = 75\nYou can, however, make a new tuple based on a current tuple.\n\ns = (s[0], 75, s[2])\n\n\n\nTuples are more about packing related items together into a single entity.\n\ns = (\"GOOG\", 100, 490.1)\n\n\n\n\n\nname, shares, price = s\nprint(\"Cost\", shares * price)"
+  },
+  {
+    "objectID": "03_main.html",
+    "href": "03_main.html",
+    "title": "3. Program Organization",
+    "section": "",
+    "text": "To write better programs, we want to understand how to:\n\nwrite functions\nhandle errors\nuse modules"
+  },
+  {
+    "objectID": "03_notes.html",
+    "href": "03_notes.html",
+    "title": "5  Notes",
+    "section": "",
+    "text": "A script is a program that runs a series of statements and stops.\n\nOrder is important. Put definitions of variables and functions near the top.\nNames must always be defined before they are used.\n\n\ndef square(x):\n    return x*x\n\na = 42\nb = a + 2     # Requires that `a` is defined\n\nz = square(b) # Requires `square` and `b` to be defined\n\n\n\nA function is a named sequence of statements.\nWhy?\n\nUse a function to put all of the code related to a single task all in one place.\nFunctions simplify complex operations.\nThey also simplify repeated operations.\n\nHow?\n\nLike variables, define functions prior to actually being used (or called) during program execution.\n\nBest practices\n\nUse a “bottom-up” style: the smaller/simpler functions go at the top of your script.\nFunctions should only operate on passed inputs and avoid global variables and mysterious side-effects.\n\nUsing global variables from functions -> use classes to have assess all the variables\n\nUse a ‘doc-string’ to include documentation for your function. Include at least a short one sentence summary of what the function does.\n\nFirst line defines purpose of the function\nNext lines explain the arguments and return type\n\nUse type annotations to inform users about function definitions.\n\n\n# define function - put all tasks in one place\ndef read_prices(filename: str) -> dict: # add type annotation\n    # add documentation with a doc string\n    ''' \n    Read prices from a CSV file of name,price data\n    '''\n    prices = {}\n    with open(filename) as f:\n        f_csv = csv.reader(f)\n        for row in f_csv:\n            prices[row[0]] = float(row[1])\n    return prices"
+  },
+  {
+    "objectID": "03_notes.html#more-on-functions",
+    "href": "03_notes.html#more-on-functions",
+    "title": "5  Notes",
+    "section": "5.2 More on Functions",
+    "text": "5.2 More on Functions\n\n5.2.1 Calling a function\n\nPositional arguments prices = read_prices('prices.csv', True)\nKeyword arguments prices = read_prices(filename='prices.csv', debug=True)\n\n\n\n5.2.2 Default arguments\n\nDefine a default that needs to be overwritten\nAll non-optional arguments go first\nKeyword arguments improve code clarity\nAlways give short, but meaningful names to functions arguments\n\ndefault: def read_prices(filename, debug=False)\noptional argument: d = read_prices('prices.csv')\noverride argument: e = read_prices('prices.dat', True)\neven better override argument: d = read_prices('prices.csv', debug=True)\n\n\n5.2.3 Returning values\n\nThe return statement returns a value.\n\n\ndef square(x):\n    return x * x\n\nsquare(2)\n\n4\n\n\n\nIf no return value is given or return is missing, None is returned.\n\n\ndef square(x):\n    x * x\n\nsquare(2)\n\nFunctions can only return one value OR return them in a tuple.\n\ndef divide(a,b):\n    q = a // b      # Quotient\n    r = a % b       # Remainder\n    return q, r     # Return a tuple\n\nx, y = divide(37,5) # x = 7, y = 2\n\nx, y\n\n(7, 2)\n\n\n\n\n5.2.4 Variable scope\nVariables assignments occur outside and inside function definitions. * Variables defined outside are “global”. - Functions can freely access the values of globals defined in the same file. - However, functions cannot modify globals. - There is a global keyword that lets you modify global variables. - globals() will list all of your global variables. * Variables inside a function are “local”. - Local variables are not retained or accessible after the function call.\n\ndef greeting():\n    name = 'Dave' # Using `name` local variable\n    print('Hello', name)  \n    \ngreeting()\n\nHello Dave\n\n\n\nname = 'Dave'\n\ndef greeting():\n    print('Hello', name)  # Using `name` global variable\n\ngreeting()\n\nHello Dave\n\n\n\n\n5.2.5 Argument passing\n\nValues are not copies\nCan be modified in-place\nVariable assignment never overwrites memory. The name is merely bound to a new value.\n\n\ndef foo(items):\n    items.append(42)    # Modifies the input object\n\na = [1, 2, 3]\nfoo(a)\nprint(a)                # [1, 2, 3, 42]\n\n[1, 2, 3, 42]\n\n\n\ndef bar(items):\n    items = [4,5,6]    # Changes local `items` variable to point to a different object\n\nb = [1, 2, 3]\nbar(b)\nprint(b)                # [1, 2, 3]"
+  },
+  {
+    "objectID": "03_notes.html#error-checking",
+    "href": "03_notes.html#error-checking",
+    "title": "5  Notes",
+    "section": "5.3 Error Checking",
+    "text": "5.3 Error Checking\n\nPython performs no checking or validation of function argument types or values.\nErrors appear at run time.\n\n\n5.3.1 Exceptions\n\nUse raise to raise exceptions.\nExceptions have an associated value (f'{name} not authorized' below).\n\n“Don’t catch exceptions. Fail fast and loud. If it’s important, someone else will take care of the problem. Only catch an exception if you are that someone. That is, only catch errors where you can recover and sanely keep going.”\n\nauthorized = [\"Alpha\", \"Bravo\", \"Delta\"]\n\nif name not in authorized:\n    raise RuntimeError(f'{name} not authorized')\n\nRuntimeError: Dave not authorized\n\n\n\n\n5.3.2 Exception Handling\n\nUse try-except to catch exceptions.\nExceptions propagate to the first matching except.\nSee built-in exceptions.\n\n\ndef grok():\n    ...\n    raise RuntimeError('Whoa!')   # Exception raised here\n\ndef spam():\n    grok()                        # Call that will raise exception\n\ndef bar():\n    try:\n       spam()\n    except RuntimeError as e:     # Exception caught here\n        ...\n\ndef foo():\n    try:\n         bar()\n    except RuntimeError as e:     # Exception does NOT arrive here\n        ...\n\nfoo()\n\n\n\n5.3.3 Catching Multiple Errors\n\nYou can catch different kinds of exceptions using multiple except blocks.\n\n\ntry:\n  ...\nexcept LookupError as e:\n  ...\nexcept RuntimeError as e:\n  ...\nexcept IOError as e:\n  ...\nexcept KeyboardInterrupt as e:\n  ...\n\n\n\n5.3.4 Catching All Errors\n\nThis method tells you the reason something failed.\n\n\ntry:\n    go_do_something()\nexcept Exception as e:\n    print('Computer says no. Reason :', e)\n\nComputer says no. Reason : name 'go_do_something' is not defined\n\n\n\n\n5.3.5 finally and with statements\n\nSpecifies code that must run regardless of whether or not an exception occurs.\n\nlock = Lock()\n...\nlock.acquire()\ntry:\n    ...\nfinally:\n    lock.release()  # this will ALWAYS be executed. With and without exception.\n\nIn modern code, try-finally is often replaced with the with statement.\n\nlock = Lock()\nwith lock:\n    # lock acquired\n    ...\n# lock released"
+  },
+  {
+    "objectID": "03_notes.html#modules",
+    "href": "03_notes.html#modules",
+    "title": "5  Notes",
+    "section": "5.4 Modules",
+    "text": "5.4 Modules\n\nAny Python source file is a module (file = module).\nThe import statement loads and executes a module: import foo.\n\n\n5.4.1 Namespace\nA module is sometimes said to be a namespace. The module name is directly tied to the file name.\n\nThe module name is used as a prefix: a = foo.grok(2)\nThe names are all of the global variables and functions defined in the source file.\nYou can refer to a variable of the same name if in two different modules (modules are isolated).\nEach module is its own little universe (global variables are always bound to the enclosing module).\n\n\n\n5.4.2 Module execution\nWhen a module is imported, all of the statements in the module execute one after another until the end of the file is reached. - Python consults a path list (sys.path) when looking for modules. This can be adjusted.\n\n5.4.2.1 import as statement\nYou can change the name of a module as you import it: import pandas as pd\n\nEach module loads and executes only once.\n\nThe safest way to load modified code into Python is to quit and restart the interpreter.\n\nVariations on import do not change the way that modules work.\n\n\n\n5.4.2.2 from module import\nThis picks certain statements from a module rather than all of them: from math import sin, cos"
+  },
+  {
+    "objectID": "03_notes.html#main-module",
+    "href": "03_notes.html#main-module",
+    "title": "5  Notes",
+    "section": "5.5 Main Module",
+    "text": "5.5 Main Module\nThe main module is the source file that runs first.\nAny Python file can either run as main or as a library import.\nbash % python3 prog.py # Running as main\nimport prog   # Running as library import\nUsually, you don’t want statements that are part of the main program to execute on a library import.\n\nhttps://stackoverflow.com/questions/419163/what-does-if-name-main-do\n\nif __name__ == '__main__':\n    # Does not execute if loaded with import ...\n\n5.5.1 Command Line\nPython is often used for command-line tools.\n\nThe command line is a list of text strings: bash % python3 report.py portfolio.csv prices.csv\n\n\n\n5.5.2 Standard S/I\nStandard Input / Output (or stdio) are files that work the same as normal files.\n\nPrint is directed to sys.stdout\nInput is read from sys.stderr\nTracebacks and errors are directed to sys.stdin\n\n\n\n5.5.3 Environment Variables\n\nEnvironment variables are set in the shell: bash % setenv NAME dave\nos.environ is a dictionary that contains these values.\n\nimport os\n\nname = os.environ['NAME'] # 'dave'\n\n\n5.5.4 Program Exit\nProgram exit is handled through exceptions: raise SystemExit."
+  },
+  {
+    "objectID": "03_notes.html#design-discussion",
+    "href": "03_notes.html#design-discussion",
+    "title": "5  Notes",
+    "section": "5.6 Design Discussion",
+    "text": "5.6 Design Discussion\n\n5.6.1 Filenames versus Iterables\n\nWhich of these functions do you prefer? Why?\nWhich of these functions is more flexible?\n\nOption 1:\n# Provide a filename\ndef read_data(filename):\n    records = []\n    with open(filename) as f:\n        for line in f:\n            ...\n            records.append(r)\n    return records\n\nd = read_data('file.csv')\nOption 2:\n# Provide lines\ndef read_data(lines):\n    records = []\n    for line in lines:\n        ...\n        records.append(r)\n    return records\n\nwith open('file.csv') as f:\n    d = read_data(f)\nDuck typing: If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.\nIn the second version of read_data() above, the function expects any iterable object, not just the lines of a file. There is considerable flexibility with this design. Question: Should we embrace or fight this flexibility?"
+  },
+  {
+    "objectID": "03_exercises.html",
+    "href": "03_exercises.html",
+    "title": "7  Exercises",
+    "section": "",
+    "text": "# report.py\nimport csv\n\ndef read_portfolio(filename):\n    '''\n    Read a stock portfolio file into a list of dictionaries with keys\n    name, shares, and price.\n    '''\n    portfolio = []\n    with open(filename) as f:\n        rows = csv.reader(f)\n        headers = next(rows)\n\n        for row in rows:\n            record = dict(zip(headers, row))\n            stock = {\n                'name' : record['name'],\n                'shares' : int(record['shares']),\n                'price' : float(record['price'])\n            }\n            portfolio.append(stock)\n    return portfolio\n...\nModify your report.py program so that all major operations, including calculations and output, are carried out by a collection of functions. Specifically:\n\nCreate a function print_report(report) that prints out the report.\nChange the last part of the program so that it is nothing more than a series of function calls and no other computation.\n\nOriginal operation:\nheaders = ('Name', 'Shares', 'Price', 'Change')\nprint('%10s %10s %10s %10s'  % headers)\nprint(('-' * 10 + ' ') * len(headers))\n\nfor row in report:\n    print('%10s %10d %10.2f %10.2f' % row)\nFunction option:\ndef print_report(reportdata):\n    '''\n    Print a nicely formated table from a list of (name, shares, price, change) tuples.\n    '''\n    headers = ('Name','Shares','Price','Change')\n    print('%10s %10s %10s %10s' % headers)\n    print(('-'*10 + ' ')*len(headers))\n    for row in reportdata:\n        print('%10s %10d %10.2f %10.2f' % row)"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.2-creating-a-top-level-function-for-program-execution",
+    "href": "03_exercises.html#exercise-3.2-creating-a-top-level-function-for-program-execution",
+    "title": "7  Exercises",
+    "section": "7.2 Exercise 3.2: Creating a top-level function for program execution",
+    "text": "7.2 Exercise 3.2: Creating a top-level function for program execution\n\n# report.py\nimport csv\n\ndef read_portfolio(filename):\n    '''\n    Read a stock portfolio file into a list of dictionaries with keys\n    name, shares, and price.\n    '''\n    portfolio = []\n    with open(filename) as f:\n        rows = csv.reader(f)\n        headers = next(rows)\n\n        for row in rows:\n            record = dict(zip(headers, row))\n            stock = {\n                'name' : record['name'],\n                'shares' : int(record['shares']),\n                'price' : float(record['price'])\n            }\n            portfolio.append(stock)\n\n    return portfolio\n\ndef read_prices(filename):\n    '''\n    Read a CSV file of price data into a dict mapping names to prices.\n    '''\n    prices = {}\n    with open(filename) as f:\n        rows = csv.reader(f)\n        for row in rows:\n            try:\n                prices[row[0]] = float(row[1])\n            except IndexError:\n                pass\n\n    return prices\n\ndef make_report_data(portfolio,prices):\n    '''\n    Make a list of (name, shares, price, change) tuples given a portfolio list\n    and prices dictionary.\n    '''\n    rows = []\n    for stock in portfolio:\n        current_price = prices[stock['name']]\n        change = current_price - stock['price']\n        summary = (stock['name'], stock['shares'], current_price, change)\n        rows.append(summary)\n    return rows\n\ndef print_report(reportdata):\n    '''\n    Print a nicely formated table from a list of (name, shares, price, change) tuples.\n    '''\n    headers = ('Name','Shares','Price','Change')\n    print('%10s %10s %10s %10s' % headers)\n    print(('-'*10 + ' ')*len(headers))\n    for row in reportdata:\n        print('%10s %10d %10.2f %10.2f' % row)\n\ndef portfolio_report(portfoliofile,pricefile):        \n    '''\n    Make a stock report given portfolio and price data files.\n    '''\n    # Read data files \n    portfolio = read_portfolio(portfoliofile)\n    prices = read_prices(pricefile)\n\n    # Create the report data\n    report = make_report_data(portfolio,prices)\n\n    # Print it out\n    print_report(report)\n    \nportfolio_report('Data/portfolio.csv', 'Data/prices.csv')\n\n      Name     Shares      Price     Change\n---------- ---------- ---------- ---------- \n        AA        100       9.22     -22.98\n       IBM         50     106.28      15.18\n       CAT        150      35.46     -47.98\n      MSFT        200      20.89     -30.34\n        GE         95      13.48     -26.89\n      MSFT         50      20.89     -44.21\n       IBM        100     106.28      35.84"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.3-reading-csv-files",
+    "href": "03_exercises.html#exercise-3.3-reading-csv-files",
+    "title": "7  Exercises",
+    "section": "7.3 Exercise 3.3: Reading CSV Files",
+    "text": "7.3 Exercise 3.3: Reading CSV Files\nDefine this function:\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename):\n    '''\n    Parse a CSV file into a list of records\n    '''\n    with open(filename) as f:\n        rows = csv.reader(f)\n\n        # Read the file headers\n        headers = next(rows)\n        records = []\n        for row in rows:\n            if not row:    # Skip rows with no data\n                continue\n            record = dict(zip(headers, row))\n            records.append(record)\n\n    return records\n\n\nportfolio = parse_csv('Data/portfolio.csv')\nportfolio\n\n# This function reads a CSV file into a list of dictionaries while\n# hiding the details of opening the file, wrapping it with the csv module,\n# ignoring blank lines, and so forth.\n\n[{'name': 'AA', 'shares': '100', 'price': '32.20'},\n {'name': 'IBM', 'shares': '50', 'price': '91.10'},\n {'name': 'CAT', 'shares': '150', 'price': '83.44'},\n {'name': 'MSFT', 'shares': '200', 'price': '51.23'},\n {'name': 'GE', 'shares': '95', 'price': '40.37'},\n {'name': 'MSFT', 'shares': '50', 'price': '65.10'},\n {'name': 'IBM', 'shares': '100', 'price': '70.44'}]"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.4-building-a-column-selector",
+    "href": "03_exercises.html#exercise-3.4-building-a-column-selector",
+    "title": "7  Exercises",
+    "section": "7.4 Exercise 3.4: Building a Column Selector",
+    "text": "7.4 Exercise 3.4: Building a Column Selector\nModify the parse_csv() function so that it optionally allows user-specified columns to be picked out.\n        if select:\n            indices = [headers.index(colname) for colname in select]\n            headers = select\n        else:\n            indices = []\n\ndef parse_csv(filename, select=None):\n    '''\n    Parse a CSV file into a list of records\n    '''\n    with open(filename) as f:\n        rows = csv.reader(f)\n\n        # Read the file headers\n        headers = next(rows)\n\n        # If a column selector was given, find indices of the specified columns.\n        # This maps the column selections to row indices.\n        # Also narrow the set of headers used for resulting dictionaries.\n        if select:\n            indices = [headers.index(colname) for colname in select]\n            headers = select\n        else:\n            indices = []\n\n        records = []\n        for row in rows:\n            if not row:    # Skip rows with no data\n                continue\n            # Filter the row if specific columns were selected\n            if indices:\n                row = [ row[index] for index in indices ]\n\n            # Make a dictionary\n            record = dict(zip(headers, row))\n            records.append(record)\n\n    return records\n\n\nshares_held = parse_csv('Data/portfolio.csv', select=['name','shares'])\nshares_held\n\n[{'name': 'AA', 'shares': '100'},\n {'name': 'IBM', 'shares': '50'},\n {'name': 'CAT', 'shares': '150'},\n {'name': 'MSFT', 'shares': '200'},\n {'name': 'GE', 'shares': '95'},\n {'name': 'MSFT', 'shares': '50'},\n {'name': 'IBM', 'shares': '100'}]"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.5-performing-type-conversion",
+    "href": "03_exercises.html#exercise-3.5-performing-type-conversion",
+    "title": "7  Exercises",
+    "section": "7.5 Exercise 3.5: Performing Type Conversion",
+    "text": "7.5 Exercise 3.5: Performing Type Conversion\nModify the parse_csv() function so that it optionally allows type-conversions to be applied to the returned data.\nif types:\n    row = [func(val) for func, val in zip(types, row) ]\n\ndef parse_csv(filename, select=None, types=None):\n    '''\n    Parse a CSV file into a list of records\n    '''\n    with open(filename) as f:\n        rows = csv.reader(f)\n\n        # Read the file headers\n        headers = next(rows)\n\n        # If a column selector was given, find indices of the specified columns.\n        # Also narrow the set of headers used for resulting dictionaries\n        if select:\n            indices = [headers.index(colname) for colname in select]\n            headers = select\n        else:\n            indices = []\n\n        records = []\n        for row in rows:\n            if not row:    # Skip rows with no data\n                continue\n            \n            # Filter the row if specific columns were selected\n            if indices:\n                row = [ row[index] for index in indices ]\n            \n            # func is an argument given to the function `identity_decorator()`\n            # zip an iterator of tuples where the items in each passed iterator are paired together\n            if types:\n                row = [func(val) for func, val in zip(types, row) ]\n\n            # Make a dictionary\n            record = dict(zip(headers, row))\n            records.append(record)\n\n    return records\n\n\nportfolio = parse_csv('Data/portfolio.csv', types=[str, int, float])\nportfolio\n\n[{'name': 'AA', 'shares': 100, 'price': 32.2},\n {'name': 'IBM', 'shares': 50, 'price': 91.1},\n {'name': 'CAT', 'shares': 150, 'price': 83.44},\n {'name': 'MSFT', 'shares': 200, 'price': 51.23},\n {'name': 'GE', 'shares': 95, 'price': 40.37},\n {'name': 'MSFT', 'shares': 50, 'price': 65.1},\n {'name': 'IBM', 'shares': 100, 'price': 70.44}]"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.6-working-without-headers",
+    "href": "03_exercises.html#exercise-3.6-working-without-headers",
+    "title": "7  Exercises",
+    "section": "7.6 Exercise 3.6: Working without Headers",
+    "text": "7.6 Exercise 3.6: Working without Headers\nModify the parse_csv() function so that it can work with such files by creating a list of tuples instead.\n    if headers:\n        record = dict(zip(headers, row))\n    else:\n        record = tuple(row)\n        records.append(record)\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','):\n    '''\n    Parse a CSV file into a list of records with type conversion.\n    '''\n    with open(filename) as f:\n        rows = csv.reader(f, delimiter=delimiter)\n\n        # If has headers, use next(rows), otherwise blank\n        # The next() function returns the next item in an iterator.\n        if has_headers:\n            headers = next(rows)\n        else:\n            headers = []\n\n        # If specific columns have been selected, make indices for filtering \n        if select:\n            indices = [ headers.index(colname) for colname in select ]\n            headers = select\n\n        records = []\n        for row in rows:\n            if not row:     # Skip rows with no data\n                continue\n\n            # If specific column indices are selected, pick them out\n            if select:\n                row = [ row[index] for index in indices]\n\n            # Apply type conversion to the row\n            if types:\n                row = [func(val) for func, val in zip(types, row)]\n\n            # Make a dictionary or a tuple\n            if headers:\n                record = dict(zip(headers, row))\n            else:\n                record = tuple(row)\n            records.append(record)\n\n        return records\n\n\nprices = parse_csv('Data/prices.csv', types=[str,float], has_headers=False)\nprices\n\n[('AA', 9.22),\n ('AXP', 24.85),\n ('BA', 44.85),\n ('BAC', 11.27),\n ('C', 3.72),\n ('CAT', 35.46),\n ('CVX', 66.67),\n ('DD', 28.47),\n ('DIS', 24.22),\n ('GE', 13.48),\n ('GM', 0.75),\n ('HD', 23.16),\n ('HPQ', 34.35),\n ('IBM', 106.28),\n ('INTC', 15.72),\n ('JNJ', 55.16),\n ('JPM', 36.9),\n ('KFT', 26.11),\n ('KO', 49.16),\n ('MCD', 58.99),\n ('MMM', 57.1),\n ('MRK', 27.58),\n ('MSFT', 20.89),\n ('PFE', 15.19),\n ('PG', 51.94),\n ('T', 24.79),\n ('UTX', 52.61),\n ('VZ', 29.26),\n ('WMT', 49.74),\n ('XOM', 69.35)]"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.7-picking-a-different-column-delimitier",
+    "href": "03_exercises.html#exercise-3.7-picking-a-different-column-delimitier",
+    "title": "7  Exercises",
+    "section": "7.7 Exercise 3.7: Picking a different column delimitier",
+    "text": "7.7 Exercise 3.7: Picking a different column delimitier\nModify your parse_csv() function so that it also allows the delimiter to be changed.\ndelimiter=','\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','):\n    '''\n    Parse a CSV file into a list of records with type conversion.\n    '''\n    with open(filename) as f:\n        rows = csv.reader(f, delimiter=delimiter)\n\n        # If has headers, use next(rows), otherwise blank\n        if has_headers:\n            headers = next(rows)\n        else:\n            headers = []\n\n        # If specific columns have been selected, make indices for filtering \n        if select:\n            indices = [ headers.index(colname) for colname in select ]\n            headers = select\n\n        records = []\n        for row in rows:\n            if not row:     # Skip rows with no data\n                continue\n\n            # If specific column indices are selected, pick them out\n            if select:\n                row = [ row[index] for index in indices]\n\n            # Apply type conversion to the row\n            if types:\n                row = [func(val) for func, val in zip(types, row)]\n\n            # Make a dictionary or a tuple\n            if headers:\n                record = dict(zip(headers, row))\n            else:\n                record = tuple(row)\n            records.append(record)\n\n        return records"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.8-raising-exceptions",
+    "href": "03_exercises.html#exercise-3.8-raising-exceptions",
+    "title": "7  Exercises",
+    "section": "7.8 Exercise 3.8: Raising exceptions",
+    "text": "7.8 Exercise 3.8: Raising exceptions\nModify the code so that an exception gets raised if both the select and has_headers=False arguments are passed.\n    if select and not has_headers:\n        raise RuntimeError('select requires column headers')\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','):\n    '''\n    Parse a CSV file into a list of records with type conversion.\n    '''\n    if select and not has_headers:\n        raise RuntimeError('select requires column headers')\n        \n    with open(filename) as f:\n        rows = csv.reader(f, delimiter=delimiter)\n\n        # If has headers, use next(rows), otherwise blank\n        if has_headers:\n            headers = next(rows)\n        else:\n            headers = []\n\n        # If specific columns have been selected, make indices for filtering \n        if select:\n            indices = [ headers.index(colname) for colname in select ]\n            headers = select\n\n        records = []\n        for row in rows:\n            if not row:     # Skip rows with no data\n                continue\n\n            # If specific column indices are selected, pick them out\n            if select:\n                row = [ row[index] for index in indices]\n\n            # Apply type conversion to the row\n            if types:\n                row = [func(val) for func, val in zip(types, row)]\n\n            # Make a dictionary or a tuple\n            if headers:\n                record = dict(zip(headers, row))\n            else:\n                record = tuple(row)\n            records.append(record)\n\n        return records"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.9-catching-exceptions",
+    "href": "03_exercises.html#exercise-3.9-catching-exceptions",
+    "title": "7  Exercises",
+    "section": "7.9 Exercise 3.9: Catching exceptions",
+    "text": "7.9 Exercise 3.9: Catching exceptions\nModify the parse_csv() function to catch all ValueError exceptions generated during record creation and print a warning message for rows that can’t be converted.\nif types:\n    try:\n        row = [func(val) for func, val in zip(types, row)]\n    except ValueError as e:\n        print(f\"Row {rowno}: Couldn't convert {row}\")\n        print(f\"Row {rowno}: Reason {e}\")\n    continue\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename, select=None, types=None, has_headers=True, delimiter=','):\n    '''\n    Parse a CSV file into a list of records with type conversion.\n    '''\n    if select and not has_headers:\n        raise RuntimeError('select requires column headers')\n        \n    with open(filename) as f:\n        rows = csv.reader(f, delimiter=delimiter)\n\n        # If has headers, use next(rows), otherwise blank\n        if has_headers:\n            headers = next(rows)\n        else:\n            headers = []\n\n        # If specific columns have been selected, make indices for filtering \n        if select:\n            indices = [ headers.index(colname) for colname in select ]\n            headers = select\n\n        records = []\n        for row in rows:\n            if not row:     # Skip rows with no data\n                continue\n\n            # If specific column indices are selected, pick them out\n            if select:\n                row = [ row[index] for index in indices]\n\n            # Apply type conversion to the row\n            if types:\n                row = [func(val) for func, val in zip(types, row)]\n        \n            if types:\n                try:\n                    row = [func(val) for func, val in zip(types, row)]\n                except ValueError as e:\n                        print(f\"Row {rowno}: Couldn't convert {row}\")\n                        print(f\"Row {rowno}: Reason {e}\")\n                    continue\n\n            # Make a dictionary or a tuple\n            if headers:\n                record = dict(zip(headers, row))\n            else:\n                record = tuple(row)\n            records.append(record)\n\n        return records\n\nIndentationError: unindent does not match any outer indentation level (<tokenize>, line 44)"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.10-silencing-errors",
+    "href": "03_exercises.html#exercise-3.10-silencing-errors",
+    "title": "7  Exercises",
+    "section": "7.10 Exercise 3.10: Silencing Errors",
+    "text": "7.10 Exercise 3.10: Silencing Errors\nModify the parse_csv() function so that parsing error messages can be silenced if explicitly desired by the user.\n        if types:\n                try:\n                    row = [func(val) for func, val in zip(types, row)]\n                except ValueError as e:\n                    if not silence_errors:\n                        print(f\"Row {rowno}: Couldn't convert {row}\")\n                        print(f\"Row {rowno}: Reason {e}\")\n                    continue\n\n# fileparse.py\nimport csv\n\ndef parse_csv(filename, select=None, types=None, has_headers=True, delimiter=',', silence_errors=False):\n    '''\n    Parse a CSV file into a list of records with type conversion.\n    '''\n    if select and not has_headers:\n        raise RuntimeError('select requires column headers')\n        \n    with open(filename) as f:\n        rows = csv.reader(f, delimiter=delimiter)\n\n        # If has headers, use next(rows), otherwise blank\n        if has_headers:\n            headers = next(rows)\n        else:\n            headers = []\n\n        # If specific columns have been selected, make indices for filtering \n        if select:\n            indices = [ headers.index(colname) for colname in select ]\n            headers = select\n\n        records = []\n        for row in rows:\n            if not row:     # Skip rows with no data\n                continue\n\n            # If specific column indices are selected, pick them out\n            if select:\n                row = [ row[index] for index in indices]\n\n            # Apply type conversion to the row\n            if types:\n                row = [func(val) for func, val in zip(types, row)]\n        \n            if types:\n                try:\n                    row = [func(val) for func, val in zip(types, row)]\n                except ValueError as e:\n                    if not silence_errors:\n                        print(f\"Row {rowno}: Couldn't convert {row}\")\n                        print(f\"Row {rowno}: Reason {e}\")\n                    continue\n\n            # Make a dictionary or a tuple\n            if headers:\n                record = dict(zip(headers, row))\n            else:\n                record = tuple(row)\n            records.append(record)\n\n        return records"
+  },
+  {
+    "objectID": "03_exercises.html#exercise-3.11-module-imports",
+    "href": "03_exercises.html#exercise-3.11-module-imports",
+    "title": "7  Exercises",
+    "section": "7.11 Exercise 3.11: Module imports",
+    "text": "7.11 Exercise 3.11: Module imports\ncd Work python import fileparse Ctrl+D cd ../ python portfolio = fileparse.parse_csv(‘Data/portfolio.csv’,select=[‘name’,‘shares’,‘price’], types=[str,int,float])"
+  },
+  {
+    "objectID": "example_quarto.html",
+    "href": "example_quarto.html",
+    "title": "3  Example Quarto Document",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "example_quarto.html#running-code",
+    "href": "example_quarto.html#running-code",
+    "title": "3  Example Quarto Document",
+    "section": "3.2 Running Code",
+    "text": "3.2 Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n2\n\n\nYou can add options to executable code like this\n\n\n4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "example_python.html",
+    "href": "example_python.html",
+    "title": "9  Example Jupyter Notebook",
+    "section": "",
+    "text": "import numpy as np\na = np.arange(15).reshape(3, 5)\na\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])"
+  },
+  {
+    "objectID": "example_python.html#matplotlib",
+    "href": "example_python.html#matplotlib",
+    "title": "9  Example Jupyter Notebook",
+    "section": "9.2 Matplotlib",
+    "text": "9.2 Matplotlib\n\nimport matplotlib.pyplot as plt\n\nfig = plt.figure()\nx = np.arange(10)\ny = 2.5 * np.sin(x / 20 * np.pi)\nyerr = np.linspace(0.05, 0.2, 10)\n\nplt.errorbar(x, y + 3, yerr=yerr, label='both limits (default)')\nplt.errorbar(x, y + 2, yerr=yerr, uplims=True, label='uplims=True')\nplt.errorbar(x, y + 1, yerr=yerr, uplims=True, lolims=True,\n             label='uplims=True, lolims=True')\n\nupperlimits = [True, False] * 5\nlowerlimits = [False, True] * 5\nplt.errorbar(x, y, yerr=yerr, uplims=upperlimits, lolims=lowerlimits,\n             label='subsets of uplims and lolims')\n\nplt.legend(loc='lower right')\nplt.show(fig)"
+  },
+  {
+    "objectID": "how-to.html",
+    "href": "how-to.html",
+    "title": "How to add to the book",
+    "section": "",
+    "text": "This book is made with Quarto. Please see the Get Started chapter of the Quarto documentation to learn how to install and run Quarto in your IDE."
+  },
+  {
+    "objectID": "how-to.html#add-to-book",
+    "href": "how-to.html#add-to-book",
+    "title": "How to add to the book",
+    "section": "Add to book",
+    "text": "Add to book\nOnce you have everything set up, forked the repo, and cloned to your computer, you can add a new chapter to the book.\nCreate a new file in the repository folder. For example, to create a new file called 01_exercises.qmd, navigate to the folder then create one using touch 01_exercises.qmd. If you are using VSCode, you can use the Quarto plug-in. You can use plain .md files, Quarto .qmd, or Jupyter .ipynb files in this book. Check out the files under Examples to see the various options.\nWrite in what you would like in the file.\nThen, in the _quarto.yml file, under chapters, add a part with your chapter. The file listed after part is the first page of chapter; the ones under chapters will be subpages.\n  - part: 01_main.qmd\n      chapters: \n      - 01_notes.qmd\n      - 01_video.qmd\n      - 01_exercises.qmd"
+  },
+  {
+    "objectID": "how-to.html#render-the-book",
+    "href": "how-to.html#render-the-book",
+    "title": "How to add to the book",
+    "section": "Render the book",
+    "text": "Render the book\nOnce you have added and edited your files, don’t forget to render the book. Run this in the terminal:\nquarto render --to html"
+  },
+  {
+    "objectID": "how-to.html#push-up-to-github",
+    "href": "how-to.html#push-up-to-github",
+    "title": "How to add to the book",
+    "section": "Push up to GitHub",
+    "text": "Push up to GitHub\nPush your changes to your forked repo and then create a pull request for the R4DS admins to merge your changes.\ngit add .\ngit commit -m \"Message here\"\ngit push"
+  },
+  {
+    "objectID": "01_notes.html#essential-python-libraries",
+    "href": "01_notes.html#essential-python-libraries",
+    "title": "1  Notes",
+    "section": "1.1 Essential Python Libraries",
+    "text": "1.1 Essential Python Libraries\n\nNumPy ( Numerical Python)\nPandas\nMatplotlib\nIpython and Jupyter\nScipy\nSklearn\nStatsModel"
+  },
+  {
+    "objectID": "01_notes.html#numpy",
+    "href": "01_notes.html#numpy",
+    "title": "1  Notes",
+    "section": "1.2 Numpy",
+    "text": "1.2 Numpy\n\nShort for Numerical Python, has long been a cornerstone of numerical computing in Python. It provides the data structures, algorithms, and library glue needed for most scientific applications involving numerical data in Python"
+  },
+  {
+    "objectID": "01_notes.html#pandas",
+    "href": "01_notes.html#pandas",
+    "title": "1  Notes",
+    "section": "1.3 Pandas",
+    "text": "1.3 Pandas\n\npandas provides high-level data structures and functions designed to make working with structured or tabular data intuitive and flexible.\n\n\nIt provides convenient indexing functionality to enable you to reshape, slice and dice, perform aggregations, and select subsets of data. Since data manipulation, preparation, and cleaning is such an important skill in data analysis,\nSee R vs Pandas comparison"
+  },
+  {
+    "objectID": "01_notes.html#matplotlib",
+    "href": "01_notes.html#matplotlib",
+    "title": "1  Notes",
+    "section": "1.4 Matplotlib",
+    "text": "1.4 Matplotlib\n\nis the most popular Python library for producing plots and other two-dimensional data visualizations"
+  },
+  {
+    "objectID": "01_notes.html#ipython-and-jupyter",
+    "href": "01_notes.html#ipython-and-jupyter",
+    "title": "1  Notes",
+    "section": "1.5 IPython and Jupyter",
+    "text": "1.5 IPython and Jupyter\n\nThe IPython system can now be used as a kernel (a programming language mode) for using Python with Jupyter."
+  },
+  {
+    "objectID": "01_notes.html#scipy",
+    "href": "01_notes.html#scipy",
+    "title": "1  Notes",
+    "section": "1.6 SciPy",
+    "text": "1.6 SciPy\n\nSciPy is a collection of packages addressing a number of foundational problems in scientific computing."
+  },
+  {
+    "objectID": "01_notes.html#scikit-learn",
+    "href": "01_notes.html#scikit-learn",
+    "title": "1  Notes",
+    "section": "1.7 Scikit-learn",
+    "text": "1.7 Scikit-learn\n\ngeneral-purpose machine learning toolkit for Python programmers."
+  },
+  {
+    "objectID": "01_notes.html#statsmodels",
+    "href": "01_notes.html#statsmodels",
+    "title": "1  Notes",
+    "section": "1.8 Statsmodels",
+    "text": "1.8 Statsmodels\n\nis a statistical analysis package\n\n\nCompared with scikit-learn, statsmodels contains algorithms for classical (primarily frequentist) statistics and econometrics."
+  },
+  {
+    "objectID": "01_notes.html#other-packages",
+    "href": "01_notes.html#other-packages",
+    "title": "1  Notes",
+    "section": "1.9 Other Packages",
+    "text": "1.9 Other Packages\n\nTensorFlow or PyTorch or Keras"
+  },
+  {
+    "objectID": "01_notes.html#installing-necessary-packages",
+    "href": "01_notes.html#installing-necessary-packages",
+    "title": "1  Notes",
+    "section": "1.10 Installing Necessary Packages",
+    "text": "1.10 Installing Necessary Packages\n\nWe can install Python packages using “Pip” or “Conda”. Read more about pip vs python\n\nThe author recommends:\n\nMiniconda, a minimal installation of the conda package manager, along with conda-forge, a community-maintained software distribution based on conda.\nThis book uses Python 3.10 throughout."
+  },
+  {
+    "objectID": "01_notes.html#mini-conda",
+    "href": "01_notes.html#mini-conda",
+    "title": "1  Notes",
+    "section": "1.11 Mini-conda",
+    "text": "1.11 Mini-conda\n\nConda is a packaging tool and installer that aims to do more than what pip does; handle library dependencies outside of the Python packages as well as the Python packages themselves. Conda also creates a virtual environment, like virtualenv does"
+  },
+  {
+    "objectID": "01_notes.html#mini-forge",
+    "href": "01_notes.html#mini-forge",
+    "title": "1  Notes",
+    "section": "1.12 Mini-forge",
+    "text": "1.12 Mini-forge\n\nminiforge is the community (conda-forge) driven minimalistic conda installer. Subsequent package installations come thus from conda-forge channel. Mini-forge\nminiconda is the Anaconda (company) driven minimalistic conda installer. Subsequent package installations come from the anaconda channels (default or otherwise).\nminiforge started because miniconda doens’t support aarch64, very quickly the ‘PyPy’ people jumped on board, and in the mean time there are also miniforge versions for all Linux architectures, as well as MacOS.\nAARCH64, sometimes also referred to as ARM64, is a CPU architecture developed by ARM Ltd., and a 64-bit extension of the pre-existing ARM architecture. ARM architectures are primarily known for their energy efficiency and low power consumption. For that reason, virtually all mobile phones and tablets today use ARM architecture-based CPUs.\nAlthough AARCH64 and x64 (Intel, AMD, …) are both 64-bit CPU architectures, their inner basics are vastly different. Programs compiled for one platform, won’t work on the other (except with some magic), and vice-versa. That means, software does not only need to be recompiled, but often requires extensive optimization for either platform.\n\n\nThe first step is to configure conda-forge as your default package channel by running the following commands in a shell:\n\n\n! conda config --add channels conda-forge\n! conda config --set channel_priority strict\n\nWarning: 'conda-forge' already in 'channels' list, moving to the top\n\n\nNow, we will install the essential packages used throughout the book (along with their dependencies) with conda install\n\nconda create -y -n pydata-book python=3.10 # create enviroment with python 3.10 installed\nconda activate pydata-book # activate enviroment \n(pydata-book) $ conda install -y pandas jupyter matplotlib # install a\n\nInstall complete packages used in the the book\nconda install lxml beautifulsoup4 html5lib openpyxl\nrequests sqlalchemy seaborn scipy statsmodels\npatsy scikit-learn pyarrow pytables numba"
+  },
+  {
+    "objectID": "01_notes.html#should-i-use-pip-or-conda",
+    "href": "01_notes.html#should-i-use-pip-or-conda",
+    "title": "1  Notes",
+    "section": "1.13 Should I use Pip or Conda ?",
+    "text": "1.13 Should I use Pip or Conda ?\n\nWhile you can use both conda and pip to install packages, you should avoid updating packages originally installed with conda using pip (and vice versa), as doing so can lead to environment problems. I recommend sticking to conda if you can and falling back on pip only for packages which are unavailable with conda install.\n\n\nconda install should always be preferred, but some packages are not available through conda so if conda install $package_name fails, try pip install $package_name."
+  },
+  {
+    "objectID": "01_notes.html#what-can-we-do-with-conda",
+    "href": "01_notes.html#what-can-we-do-with-conda",
+    "title": "1  Notes",
+    "section": "1.14 What can we do with Conda?",
+    "text": "1.14 What can we do with Conda?\n\nMany commands : create env, activate env, delete env, lists env\nInstall tldr (https://github.com/tldr-pages/tldr) : The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional"
+  },
+  {
+    "objectID": "01_notes.html#navigating-this-book",
+    "href": "01_notes.html#navigating-this-book",
+    "title": "1  Notes",
+    "section": "1.15 Navigating This Book",
+    "text": "1.15 Navigating This Book\n\nChapter two and three: provides prerequisite knowledge for the remainder of the book. If you have Python experienc you can skip\n\n\nChapter four : Numpy\n\n\nChapter five : Pandas\n\n\nChapter six : Data loading, Storage and File format\n\n\nChapter seven : Data cleaning and Preparation\n\n\nChpater eight : Data wrangling\n\n\nChapter Nine : Plotting and Visualization\n\n\nChapter 10 : Data agreegation and Group operation"
+  },
+  {
+    "objectID": "01_notes.html#import-conventions",
+    "href": "01_notes.html#import-conventions",
+    "title": "1  Notes",
+    "section": "1.16 Import Conventions",
+    "text": "1.16 Import Conventions\n\nThe Python community has adopted a number of naming conventions for commonly used modules:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nimport statsmodels as\n\nSyntaxError: invalid syntax (1580968464.py, line 5)\n\n\n\nThis means that when you see np.arange, this is a reference to the arange function in NumPy. This is done because it’s considered bad practice in Python software development to import everything (from numpy import *) from a large package like NumPy\n\n\nimport numpy as np \n\nx = np.random.random((64, 3, 32, 10)) \ny = np.random.random((32, 10)) \n\nz = np.maximum(x, y)"
+  },
+  {
+    "objectID": "01_video.html",
+    "href": "01_video.html",
+    "title": "2  Video",
+    "section": "",
+    "text": "00:22:16    Isabella Velásquez: For more info on TidyTuesday: https://github.com/rfordatascience/tidytuesday#readme\n00:26:23    shamsuddeen:    https://docs.google.com/spreadsheets/d/1io_R_ZaGtzJcDF5KcY4hbgMBsJVi_4USE4JGsHcv9ug/edit#gid=0\n00:45:23    shamsuddeen:    https://github.com/conda-forge/miniforge\n00:59:07    shamsuddeen:    https://github.com/conda-forge/miniforge\n01:03:03    shamsuddeen:    https://blogs.shmuhammad.com/"
+  }
+]

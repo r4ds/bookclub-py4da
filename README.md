@@ -14,34 +14,48 @@ If you would like to present, please see the sign-up sheet for your cohort (link
 
 <hr>
 
-
 ## How to Present
 
-This repository is structured as a [{bookdown}](https://CRAN.R-project.org/package=bookdown) site.
+This repository is made with [Quarto](https://quarto.org/).
+
 To present, follow these instructions:
 
 Do these steps once:
 
-1. [Setup Github Locally](https://www.youtube.com/watch?v=hNUNPkoledI) (also see [_Happy Git and GitHub for the useR_](https://happygitwithr.com/github-acct.html))
-2. Install {usethis} and {devtools} `install.packages(c("usethis", "devtools"))`
-3. Set up a default {usethis} directory:
-  - `usethis::edit_r_profile()` to open your profile for editing.
-  - Add this line: `options(usethis.destdir = "YOURDIR")` (replace `YOURDIR` with the root directory under which you want your R projects to appear; or you can skip these steps, and the project will be saved to your Desktop).
-  - Restart your R session (Session/Restart R in Rstudio).
-4. `usethis::create_from_github("r4ds/bookclub-py4da")` (cleanly creates your own copy of this repository).
+* [Setup Github Locally](https://www.youtube.com/watch?v=hNUNPkoledI) (also see [_Happy Git and GitHub for the useR_](https://happygitwithr.com/github-acct.html))
+* Fork and clone this repository to your local computer.
+* Install [Quarto](https://quarto.org/docs/get-started/) and follow the Get Started chapter.
 
 Do these steps each time you present another chapter:
 
-1. Open your project for this book.
-2. `usethis::pr_init("my-chapter")` (creates a branch for your work, to avoid confusion, making sure that you have the latest changes from other contributors; replace `my-chapter` with a descriptive name, ideally).
-3. `devtools::install_dev_deps()` (installs any packages used by the book that you don't already have installed).
-4. Edit the appropriate chapter file, if necessary. Use `##` to indicate new slides (new sections).
-5. If you use any packages that are not already in the `DESCRIPTION`, add them. You can use `usethis::use_package("myCoolPackage")` to add them quickly!
-6. Build the book! ctrl-shift-b (or command-shift-b) will render the full book, or ctrl-shift-k (command-shift-k) to render just your slide. Please do this to make sure it works before you push your changes up to the main repo!
-7. Commit your changes (either through the command line or using Rstudio's Git tab).
-8. `usethis::pr_push()` (pushes the changes up to github, and opens a "pull request" (PR) to let us know your work is ready).
-9. (If we request changes, make them)
-10. When your PR has been accepted ("merged"), `usethis::pr_finish()` to close out your branch and prepare your local repository for future work.
-11. Now that your local copy is up-to-date with the main repo, you need to update your remote fork. Run `gert::git_push("origin")` or click the `Push` button on the `Git` tab of Rstudio.
+* Open your project for this book.
+* Create a new file in the folder. For example, to create a new file called `01_exercises.qmd`, navigate to the folder then create run `touch 01_exercises.qmd` in the Terminal. 
+* Write in what you would like in the file.
+* Then, in the `_quarto.yml` file, under chapters, add a section with your chapter. The file listed after `part` is the first page of chapter; the ones under chapters will be subpages.
 
-When your PR is checked into the main branch, the bookdown site will rebuild, adding your slides to [this site](https://r4ds.io/py4da).
+```
+  - part: 01_main.qmd
+      chapters: 
+      - 01_notes.qmd
+      - 01_video.qmd
+      - 01_exercises.qmd
+```
+
+* Once you have added and edited your files, don’t forget to render the book. Run this in the terminal:
+
+```
+quarto render --to html
+```
+
+Once you are ready to finalize your changes:
+
+* Commit your changes.
+* Push your changes to your forked repo and then create a pull request for the R4DS admins to merge your changes.
+* (If they request changes, make them)
+* When your PR has been accepted ("merged"), close out your branch and prepare your local repository for future work.
+
+## On Using Quarto
+
+Quarto is an open-source scientific and technical publishing system built on Pandoc.
+
+You can weave together narrative text and code to produce elegantly formatted output. Quarto documents are fully reproducible. You can use plain `.md` files, Quarto `.qmd`, or Jupyter `.ipynb` files. Check out the files under Examples to see the various options.
