@@ -1,4 +1,4 @@
-# 1. Preliminaries
+# Preliminaries
 
 ## Learning Objectives
 

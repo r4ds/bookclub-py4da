@@ -3,11 +3,11 @@ project:
   output-dir: docs
 
 book:
-  title: "Python for Data Analysis"
+  title: "Python for Data Analysis Book Club"
   subtitle: "The R4DS Online Learning Community"
   logo: cover.png
   site-url: https://wesmckinney.com/book/
-  repo-url: https://github.com/r4ds
+  repo-url: https://github.com/r4ds/bookclub-py4da
   sharing: [twitter, facebook, linkedin]
   page-footer:
     right: "1850 depiction of Ptilocercus lowii"
@@ -31,3 +31,6 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+
+execute:
+  freeze: auto
