@@ -12,6 +12,7 @@ book:
   page-footer:
     right: "1850 depiction of Ptilocercus lowii"
   number-depth: 0
+  toc-depth: 0
 
   chapters:
     - index.qmd
@@ -19,6 +20,39 @@ book:
       chapters:
         - 01_notes.ipynb
         - 01_video.qmd
+    - part: 02_main.qmd
+      chapters:
+        - 02_video.qmd
+    - part: 03_main.qmd
+      chapters:
+        - 03_video.qmd
+    - part: 04_main.qmd
+      chapters:
+        - 04_video.qmd
+    - part: 05_main.qmd
+      chapters:
+        - 05_video.qmd
+    - part: 06_main.qmd
+      chapters:
+        - 06_video.qmd
+    - part: 07_main.qmd
+      chapters:
+        - 07_video.qmd
+    - part: 08_main.qmd
+      chapters:
+        - 08_video.qmd
+    - part: 09_main.qmd
+      chapters:
+        - 09_video.qmd
+    - part: 10_main.qmd
+      chapters:
+        - 10_video.qmd
+    - part: 11_main.qmd
+      chapters:
+        - 11_video.qmd
+    - part: 12_main.qmd
+      chapters:
+        - 12_video.qmd
     - part: examples.md
       chapters:
         - example_quarto.qmd
@@ -29,8 +63,7 @@ book:
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
+    fontsize: 16pt
 
 execute:
   freeze: auto
