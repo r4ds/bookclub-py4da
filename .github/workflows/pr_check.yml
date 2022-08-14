@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-deploy:
+  render:
     runs-on: ubuntu-latest
     permissions:
       contents: write
