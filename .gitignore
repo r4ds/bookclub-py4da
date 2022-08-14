@@ -4,12 +4,6 @@
 .httr-oauth
 .DS_Store
 /.quarto/
-*.html
-*.log
-*.aux
-*.pdf
-*.tex
-*.toc
-site_libs
-example_python_files
 docs
+*.html
+*.pdf
