@@ -1,8 +1,4 @@
----
-title: "Example Quarto Document"
-format: html
-jupyter: python3
----
+# Example Quarto Document {-}
 
 ## Quarto
 
