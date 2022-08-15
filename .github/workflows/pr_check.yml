@@ -6,6 +6,8 @@ on:
 
 jobs:
   test_render:
+    if: startsWith(github.repository, 'r4ds/') # Only here to make sure it works.
+
     runs-on: ubuntu-latest
     permissions:
       contents: write
