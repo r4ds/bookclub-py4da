@@ -1,0 +1,275 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Python for Data Analysis Book Club",
+    "section": "",
+    "text": "This is a companion for the book Python for Data Analysis, 3E by Wes McKinney.\nThis website is being developed by the R4DS Online Learning Community. Follow along and join the community to participate.\nThis companion follows the R4DS Online Learning Community Code of Conduct."
+  },
+  {
+    "objectID": "index.html#book-club-meetings",
+    "href": "index.html#book-club-meetings",
+    "title": "Python for Data Analysis Book Club",
+    "section": "Book club meetings",
+    "text": "Book club meetings\n\nEach week, a volunteer will present a chapter from the book.\n\nThis is the best way to learn the material.\n\nPresentations will usually consist of a review of the material, a discussion, and/or a demonstration of the principles presented in that chapter.\nMore information about how to present is available in the GitHub repo.\nPresentations will be recorded and will be available on the R4DS Online Learning Community YouTube Channel."
+  },
+  {
+    "objectID": "01_notes.html",
+    "href": "01_notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "One of the most important languages for data science, machine learning, and general software development in academia and industry."
+  },
+  {
+    "objectID": "01_notes.html#essential-python-libraries",
+    "href": "01_notes.html#essential-python-libraries",
+    "title": "Notes",
+    "section": "Essential Python Libraries",
+    "text": "Essential Python Libraries\n\nNumPy ( Numerical Python)\nPandas\nMatplotlib\nIpython and Jupyter\nScipy\nSklearn\nStatsModel"
+  },
+  {
+    "objectID": "01_notes.html#numpy",
+    "href": "01_notes.html#numpy",
+    "title": "Notes",
+    "section": "Numpy",
+    "text": "Numpy\n\nShort for Numerical Python, has long been a cornerstone of numerical computing in Python. It provides the data structures, algorithms, and library glue needed for most scientific applications involving numerical data in Python"
+  },
+  {
+    "objectID": "01_notes.html#pandas",
+    "href": "01_notes.html#pandas",
+    "title": "Notes",
+    "section": "Pandas",
+    "text": "Pandas\n\npandas provides high-level data structures and functions designed to make working with structured or tabular data intuitive and flexible.\n\n\nIt provides convenient indexing functionality to enable you to reshape, slice and dice, perform aggregations, and select subsets of data. Since data manipulation, preparation, and cleaning is such an important skill in data analysis,\nSee R vs Pandas comparison"
+  },
+  {
+    "objectID": "01_notes.html#matplotlib",
+    "href": "01_notes.html#matplotlib",
+    "title": "Notes",
+    "section": "Matplotlib",
+    "text": "Matplotlib\n\nis the most popular Python library for producing plots and other two-dimensional data visualizations"
+  },
+  {
+    "objectID": "01_notes.html#ipython-and-jupyter",
+    "href": "01_notes.html#ipython-and-jupyter",
+    "title": "Notes",
+    "section": "IPython and Jupyter",
+    "text": "IPython and Jupyter\n\nThe IPython system can now be used as a kernel (a programming language mode) for using Python with Jupyter."
+  },
+  {
+    "objectID": "01_notes.html#scipy",
+    "href": "01_notes.html#scipy",
+    "title": "Notes",
+    "section": "SciPy",
+    "text": "SciPy\n\nSciPy is a collection of packages addressing a number of foundational problems in scientific computing."
+  },
+  {
+    "objectID": "01_notes.html#scikit-learn",
+    "href": "01_notes.html#scikit-learn",
+    "title": "Notes",
+    "section": "Scikit-learn",
+    "text": "Scikit-learn\n\ngeneral-purpose machine learning toolkit for Python programmers."
+  },
+  {
+    "objectID": "01_notes.html#statsmodels",
+    "href": "01_notes.html#statsmodels",
+    "title": "Notes",
+    "section": "Statsmodels",
+    "text": "Statsmodels\n\nis a statistical analysis package\n\n\nCompared with scikit-learn, statsmodels contains algorithms for classical (primarily frequentist) statistics and econometrics."
+  },
+  {
+    "objectID": "01_notes.html#other-packages",
+    "href": "01_notes.html#other-packages",
+    "title": "Notes",
+    "section": "Other Packages",
+    "text": "Other Packages\n\nTensorFlow or PyTorch or Keras"
+  },
+  {
+    "objectID": "01_notes.html#installing-necessary-packages",
+    "href": "01_notes.html#installing-necessary-packages",
+    "title": "Notes",
+    "section": "Installing Necessary Packages",
+    "text": "Installing Necessary Packages\n\nWe can install Python packages using “Pip” or “Conda”. Read more about pip vs python\n\nThe author recommends:\n\nMiniconda, a minimal installation of the conda package manager, along with conda-forge, a community-maintained software distribution based on conda.\nThis book uses Python 3.10 throughout."
+  },
+  {
+    "objectID": "01_notes.html#mini-conda",
+    "href": "01_notes.html#mini-conda",
+    "title": "Notes",
+    "section": "Mini-conda",
+    "text": "Mini-conda\n\nConda is a packaging tool and installer that aims to do more than what pip does; handle library dependencies outside of the Python packages as well as the Python packages themselves. Conda also creates a virtual environment, like virtualenv does"
+  },
+  {
+    "objectID": "01_notes.html#mini-forge",
+    "href": "01_notes.html#mini-forge",
+    "title": "Notes",
+    "section": "Mini-forge",
+    "text": "Mini-forge\n\nminiforge is the community (conda-forge) driven minimalistic conda installer. Subsequent package installations come thus from conda-forge channel. Mini-forge\nminiconda is the Anaconda (company) driven minimalistic conda installer. Subsequent package installations come from the anaconda channels (default or otherwise).\nminiforge started because miniconda doens’t support aarch64, very quickly the ‘PyPy’ people jumped on board, and in the mean time there are also miniforge versions for all Linux architectures, as well as MacOS.\nAARCH64, sometimes also referred to as ARM64, is a CPU architecture developed by ARM Ltd., and a 64-bit extension of the pre-existing ARM architecture. ARM architectures are primarily known for their energy efficiency and low power consumption. For that reason, virtually all mobile phones and tablets today use ARM architecture-based CPUs.\nAlthough AARCH64 and x64 (Intel, AMD, …) are both 64-bit CPU architectures, their inner basics are vastly different. Programs compiled for one platform, won’t work on the other (except with some magic), and vice-versa. That means, software does not only need to be recompiled, but often requires extensive optimization for either platform.\n\n\nThe first step is to configure conda-forge as your default package channel by running the following commands in a shell:\n\n\n! conda config --add channels conda-forge\n! conda config --set channel_priority strict\n\nWarning: 'conda-forge' already in 'channels' list, moving to the top\n\n\nNow, we will install the essential packages used throughout the book (along with their dependencies) with conda install\n\nconda create -y -n pydata-book python=3.10 # create enviroment with python 3.10 installed\nconda activate pydata-book # activate enviroment \n(pydata-book) $ conda install -y pandas jupyter matplotlib # install a\n\nInstall complete packages used in the the book\nconda install lxml beautifulsoup4 html5lib openpyxl\nrequests sqlalchemy seaborn scipy statsmodels\npatsy scikit-learn pyarrow pytables numba"
+  },
+  {
+    "objectID": "01_notes.html#should-i-use-pip-or-conda",
+    "href": "01_notes.html#should-i-use-pip-or-conda",
+    "title": "Notes",
+    "section": "Should I use Pip or Conda ?",
+    "text": "Should I use Pip or Conda ?\n\nWhile you can use both conda and pip to install packages, you should avoid updating packages originally installed with conda using pip (and vice versa), as doing so can lead to environment problems. I recommend sticking to conda if you can and falling back on pip only for packages which are unavailable with conda install.\n\n\nconda install should always be preferred, but some packages are not available through conda so if conda install $package_name fails, try pip install $package_name."
+  },
+  {
+    "objectID": "01_notes.html#what-can-we-do-with-conda",
+    "href": "01_notes.html#what-can-we-do-with-conda",
+    "title": "Notes",
+    "section": "What can we do with Conda?",
+    "text": "What can we do with Conda?\n\nMany commands : create env, activate env, delete env, lists env\nInstall tldr (https://github.com/tldr-pages/tldr) : The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional"
+  },
+  {
+    "objectID": "01_notes.html#navigating-this-book",
+    "href": "01_notes.html#navigating-this-book",
+    "title": "Notes",
+    "section": "Navigating This Book",
+    "text": "Navigating This Book\n\nChapter two and three: provides prerequisite knowledge for the remainder of the book. If you have Python experienc you can skip\n\n\nChapter four : Numpy\n\n\nChapter five : Pandas\n\n\nChapter six : Data loading, Storage and File format\n\n\nChapter seven : Data cleaning and Preparation\n\n\nChpater eight : Data wrangling\n\n\nChapter Nine : Plotting and Visualization\n\n\nChapter 10 : Data agreegation and Group operation"
+  },
+  {
+    "objectID": "01_notes.html#import-conventions",
+    "href": "01_notes.html#import-conventions",
+    "title": "Notes",
+    "section": "Import Conventions",
+    "text": "Import Conventions\n\nThe Python community has adopted a number of naming conventions for commonly used modules:\n\n\nimport numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\nimport seaborn as sns\nimport statsmodels as\n\nSyntaxError: invalid syntax (1580968464.py, line 5)\n\n\n\nThis means that when you see np.arange, this is a reference to the arange function in NumPy. This is done because it’s considered bad practice in Python software development to import everything (from numpy import *) from a large package like NumPy\n\n\nimport numpy as np \n\nx = np.random.random((64, 3, 32, 10)) \ny = np.random.random((32, 10)) \n\nz = np.maximum(x, y)"
+  },
+  {
+    "objectID": "01_video.html",
+    "href": "01_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "00:22:16    Isabella Velásquez: For more info on TidyTuesday: https://github.com/rfordatascience/tidytuesday#readme\n00:26:23    shamsuddeen:    https://docs.google.com/spreadsheets/d/1io_R_ZaGtzJcDF5KcY4hbgMBsJVi_4USE4JGsHcv9ug/edit#gid=0\n00:45:23    shamsuddeen:    https://github.com/conda-forge/miniforge\n00:59:07    shamsuddeen:    https://github.com/conda-forge/miniforge\n01:03:03    shamsuddeen:    https://blogs.shmuhammad.com/"
+  },
+  {
+    "objectID": "02_video.html",
+    "href": "02_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "03_video.html",
+    "href": "03_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "04_video.html",
+    "href": "04_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "05_video.html",
+    "href": "05_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "06_video.html",
+    "href": "06_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "07_video.html",
+    "href": "07_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "08_video.html",
+    "href": "08_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "09_video.html",
+    "href": "09_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "10_video.html",
+    "href": "10_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "11_video.html",
+    "href": "11_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "12_video.html",
+    "href": "12_video.html",
+    "title": "Video",
+    "section": "",
+    "text": "LOG"
+  },
+  {
+    "objectID": "example_quarto.html",
+    "href": "example_quarto.html",
+    "title": "Example Quarto Document",
+    "section": "",
+    "text": "Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see https://quarto.org."
+  },
+  {
+    "objectID": "example_quarto.html#running-code",
+    "href": "example_quarto.html#running-code",
+    "title": "Example Quarto Document",
+    "section": "Running Code",
+    "text": "Running Code\nWhen you click the Render button a document will be generated that includes both content and the output of embedded code. You can embed code like this:\n\n1 + 1\n\n2\n\n\nYou can add options to executable code like this\n\n\n4\n\n\nThe echo: false option disables the printing of code (only output is displayed)."
+  },
+  {
+    "objectID": "example_python.html",
+    "href": "example_python.html",
+    "title": "Example Jupyter Notebook",
+    "section": "",
+    "text": "import numpy as np\na = np.arange(15).reshape(3, 5)\na\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])"
+  },
+  {
+    "objectID": "example_python.html#matplotlib",
+    "href": "example_python.html#matplotlib",
+    "title": "Example Jupyter Notebook",
+    "section": "Matplotlib",
+    "text": "Matplotlib\n\nimport matplotlib.pyplot as plt\n\nfig = plt.figure()\nx = np.arange(10)\ny = 2.5 * np.sin(x / 20 * np.pi)\nyerr = np.linspace(0.05, 0.2, 10)\n\nplt.errorbar(x, y + 3, yerr=yerr, label='both limits (default)')\nplt.errorbar(x, y + 2, yerr=yerr, uplims=True, label='uplims=True')\nplt.errorbar(x, y + 1, yerr=yerr, uplims=True, lolims=True,\n             label='uplims=True, lolims=True')\n\nupperlimits = [True, False] * 5\nlowerlimits = [False, True] * 5\nplt.errorbar(x, y, yerr=yerr, uplims=upperlimits, lolims=lowerlimits,\n             label='subsets of uplims and lolims')\n\nplt.legend(loc='lower right')\nplt.show(fig)"
+  },
+  {
+    "objectID": "how-to.html",
+    "href": "how-to.html",
+    "title": "How to add to the book",
+    "section": "",
+    "text": "This book is made with Quarto. Please see the Get Started chapter of the Quarto documentation to learn how to install and run Quarto in your IDE."
+  },
+  {
+    "objectID": "how-to.html#add-to-book",
+    "href": "how-to.html#add-to-book",
+    "title": "How to add to the book",
+    "section": "Add to book",
+    "text": "Add to book\nOnce you have everything set up, forked the repo, and cloned to your computer, you can add a new chapter to the book.\nCreate a new file in the repository folder. For example, to create a new file called 01_exercises.qmd, navigate to the folder then create one using touch 01_exercises.qmd. If you are using VSCode, you can use the Quarto plug-in. You can use plain .md files, Quarto .qmd, or Jupyter .ipynb files in this book. Check out the files under Examples to see the various options.\nWrite in what you would like in the file.\nThen, in the _quarto.yml file, under chapters, add a part with your chapter. The file listed after part is the first page of chapter; the ones under chapters will be subpages.\n  - part: 01_main.qmd\n      chapters: \n      - 01_notes.qmd\n      - 01_video.qmd\n      - 01_exercises.qmd"
+  },
+  {
+    "objectID": "how-to.html#render-the-book",
+    "href": "how-to.html#render-the-book",
+    "title": "How to add to the book",
+    "section": "Render the book",
+    "text": "Render the book\nOnce you have added and edited your files, don’t forget to render the book. Run this in the terminal:\nquarto render --to html"
+  },
+  {
+    "objectID": "how-to.html#push-up-to-github",
+    "href": "how-to.html#push-up-to-github",
+    "title": "How to add to the book",
+    "section": "Push up to GitHub",
+    "text": "Push up to GitHub\nPush your changes to your forked repo and then create a pull request for the R4DS admins to merge your changes.\ngit add .\ngit commit -m \"Message here\"\ngit push"
+  }
+]

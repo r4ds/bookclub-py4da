@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python for Data Analysis Book Club</title>
+<title>Python for Data Analysis Book Club - 8. Data Wrangling: Join, Combine, and Reshape</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01_main.html" rel="next">
+<link href="./08_video.html" rel="next">
+<link href="./07_video.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +65,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Python for Data Analysis Book Club</h1>
+      <h1 class="quarto-secondary-nav-title">8. Data Wrangling: Join, Combine, and Reshape</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -116,7 +117,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -231,7 +232,7 @@ ul.task-list{list-style: none;}
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./08_main.html" class="sidebar-item-text sidebar-link">8. Data Wrangling: Join, Combine, and Reshape</a>
+            <a href="./08_main.html" class="sidebar-item-text sidebar-link active">8. Data Wrangling: Join, Combine, and Reshape</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -348,8 +349,7 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a></li>
-  <li><a href="#book-club-meetings" id="toc-book-club-meetings" class="nav-link" data-scroll-target="#book-club-meetings">Book club meetings</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
   </ul>
 </nav>
     </div>
@@ -358,8 +358,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Python for Data Analysis Book Club</h1>
-<p class="subtitle lead">The R4DS Online Learning Community</p>
+<h1 class="title d-none d-lg-block">8. Data Wrangling: Join, Combine, and Reshape</h1>
 </div>
 
 
@@ -373,23 +372,8 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="welcome" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="welcome">Welcome</h2>
-<p>This is a companion for the book <a href="https://wesmckinney.com/book/">Python for Data Analysis, 3E</a> by Wes McKinney.</p>
-<p>This website is being developed by the <a href="https://rfordatasci.com/">R4DS Online Learning Community</a>. Follow along and <a href="https://r4ds.io/join">join the community</a> to participate.</p>
-<p>This companion follows the <a href="https://r4ds.io/conduct">R4DS Online Learning Community Code of Conduct</a>.</p>
-</section>
-<section id="book-club-meetings" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="book-club-meetings">Book club meetings</h2>
-<ul>
-<li><p>Each week, a volunteer will present a chapter from the book.</p>
-<ul>
-<li>This is the best way to learn the material.</li>
-</ul></li>
-<li><p>Presentations will usually consist of a review of the material, a discussion, and/or a demonstration of the principles presented in that chapter.</p></li>
-<li><p>More information about how to present is available in the GitHub repo.</p></li>
-<li><p>Presentations will be recorded and will be available on the <a href="https://r4ds.io/youtube">R4DS Online Learning Community YouTube Channel</a>.</p></li>
-</ul>
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
 
 
 </section>
@@ -494,10 +478,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./07_video.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Video</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_main.html" class="pagination-link">
-        <span class="nav-page-text">1. Preliminaries</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./08_video.html" class="pagination-link">
+        <span class="nav-page-text">Video</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
