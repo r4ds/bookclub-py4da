@@ -147,6 +147,118 @@
     "text": "LOG"
   },
   {
+    "objectID": "03_main.html",
+    "href": "03_main.html",
+    "title": "3. Built-in Data Structures, Functions, and Files",
+    "section": "",
+    "text": "The data structures tuples, lists, dictionaries, and sets\nFunctions\nErrors and Exception Handling\nFiles and the Operating System"
+  },
+  {
+    "objectID": "03_notes.html",
+    "href": "03_notes.html",
+    "title": "1  Data Structures and Sequences",
+    "section": "",
+    "text": "A tuple is a fixed-length, immutable sequence of Python objects which, once assigned, cannot be changed. The easiest way to create one is with a comma-separated sequence of values wrapped in parentheses:\n\ntup = (4, 5, 6)\ntup\n\n(4, 5, 6)\n\n\nIn many contexts, the parentheses can be omitted\n\ntup = 4, 5, 6\ntup\n\n(4, 5, 6)\n\n\nYou can convert any sequence or iterator to a tuple by invoking\n\ntuple([4,0,2])\n\ntup = tuple('string')\n\ntup\n\n('s', 't', 'r', 'i', 'n', 'g')\n\n\nElements can be accessed with square brackets []\nNote the zero indexing\n\ntup[0]\n\n's'\n\n\nTuples of tuples\n\nnested_tup = (4,5,6),(7,8)\n\nnested_tup\n\n((4, 5, 6), (7, 8))\n\n\n\nnested_tup[0]\n\n(4, 5, 6)\n\n\n\nnested_tup[1]\n\n(7, 8)\n\n\nWhile the objects stored in a tuple may be mutable themselves, once the tuple is created it’s not possible to modify which object is stored in each slot:\n\ntup = tuple(['foo', [1, 2], True])\n\ntup[2]\n\nTrue\n\n\n```{python}\n\ntup[2] = False\n\n```\nTypeError                                 Traceback (most recent call last)\nInput In [9], in <cell line: 1>()\n----> 1 tup[2] = False\n\nTypeError: 'tuple' object does not support item assignment\nTypeError: 'tuple' object does not support item assignment\nIf an object inside a tuple is mutable, such as a list, you can modify it in place\n\ntup[1].append(3)\n\ntup\n\n('foo', [1, 2, 3], True)\n\n\nYou can concatenate tuples using the + operator to produce longer tuples:\n\n(4, None, 'foo') + (6, 0) + ('bar',)\n\n(4, None, 'foo', 6, 0, 'bar')\n\n\n\n\nIf you try to assign to a tuple-like expression of variables, Python will attempt to unpack the value on the righthand side of the equals sign:\n\ntup = (4, 5, 6)\ntup\n\n(4, 5, 6)\n\n\n\na, b, c = tup\n\nc\n\n6\n\n\nEven sequences with nested tuples can be unpacked:\n\ntup = 4, 5, (6,7)\n\na, b, (c, d) = tup\n\nd\n\n7\n\n\nTo easily swap variable names\n\na, b = 1, 4\n\na\n\n1\n\n\n\nb\n\n4\n\n\n\nb, a = a, b\n\na\n\n4\n\n\n\nb\n\n1\n\n\nA common use of variable unpacking is iterating over sequences of tuples or lists\n\nseq = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]\n\nseq\n\n[(1, 2, 3), (4, 5, 6), (7, 8, 9)]\n\n\n\nfor a, b, c in seq:\n     print(f'a={a}, b={b}, c={c}')\n\na=1, b=2, c=3\na=4, b=5, c=6\na=7, b=8, c=9\n\n\n*rest syntax for plucking elements\n\nvalues = 1,2,3,4,5\n\na, b, *rest = values\n\nrest\n\n[3, 4, 5]\n\n\nAs a matter of convention, many Python programmers will use the underscore (_) for unwanted variables:\n\na, b, *_ = values\n\n\n\n\nSince the size and contents of a tuple cannot be modified, it is very light on instance methods. A particularly useful one (also available on lists) is count\n\na = (1,2,2,2,2,3,4,5,7,8,9)\n\na.count(2)\n\n4"
+  },
+  {
+    "objectID": "03_notes.html#list",
+    "href": "03_notes.html#list",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.2 List",
+    "text": "1.2 List\n\nIn contrast with tuples, lists are variable length and their contents can be modified in place.\nLists are mutable.\nLists use [] square brackts or the list function\n\na_list = [2, 3, 7, None]\n\ntup = (\"foo\", \"bar\", \"baz\")\n\nb_list = list(tup)\n\nb_list\n\n['foo', 'bar', 'baz']\n\n\n\nb_list[1] = \"peekaboo\"\n\nb_list\n\n['foo', 'peekaboo', 'baz']\n\n\nLists and tuples are semantically similar (though tuples cannot be modified) and can be used interchangeably in many functions.\n\ngen = range(10)\n\ngen\n\nrange(0, 10)\n\n\n\nlist(gen)\n\n[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]\n\n\n\n1.2.1 Adding and removing list elements\nthe append method\n\nb_list.append(\"dwarf\")\n\nb_list\n\n['foo', 'peekaboo', 'baz', 'dwarf']\n\n\nthe insert method\n\nb_list.insert(1, \"red\")\n\nb_list\n\n['foo', 'red', 'peekaboo', 'baz', 'dwarf']\n\n\ninsert is computationally more expensive than append\nthe pop method, the inverse of insert\n\nb_list.pop(2)\n\n'peekaboo'\n\n\n\nb_list\n\n['foo', 'red', 'baz', 'dwarf']\n\n\nthe remove method\n\nb_list.append(\"foo\")\n\nb_list\n\n['foo', 'red', 'baz', 'dwarf', 'foo']\n\n\n\nb_list.remove(\"foo\")\n\nb_list\n\n['red', 'baz', 'dwarf', 'foo']\n\n\nCheck if a list contains a value using the in keyword:\n\n\"dwarf\" in b_list\n\nTrue\n\n\nThe keyword not can be used to negate an in\n\n\"dwarf\" not in b_list\n\nFalse\n\n\n\n\n1.2.2 Concatenating and combining lists\nsimilar with tuples, use + to concatenate\n\n[4, None, \"foo\"] + [7, 8, (2, 3)]\n\n[4, None, 'foo', 7, 8, (2, 3)]\n\n\nthe extend method\n\nx = [4, None, \"foo\"]\n\nx.extend([7,8,(2,3)])\n\nx\n\n[4, None, 'foo', 7, 8, (2, 3)]\n\n\nlist concatenation by addition is an expensive operation\nusing extend is preferable\n```{python}\neverything = []\nfor chunk in list_of_lists:\n    everything.extend(chunk)\n\n```\nis generally faster than\n```{python}\n\neverything = []\nfor chunk in list_of_lists:\n    everything = everything + chunk\n\n```\n\n\n1.2.3 Sorting\nthe sort method\n\na = [7, 2, 5, 1, 3]\n\na.sort()\n\na\n\n[1, 2, 3, 5, 7]\n\n\nsort options\n\nb = [\"saw\", \"small\", \"He\", \"foxes\", \"six\"]\n\nb.sort(key = len)\n\nb\n\n['He', 'saw', 'six', 'small', 'foxes']\n\n\n\n\n1.2.4 Slicing\nSlicing semantics takes a bit of getting used to, especially if you’re coming from R or MATLAB.\nusing the indexing operator []\n\nseq = [7, 2, 3, 7, 5, 6, 0, 1]\n\nseq[3:5]\n\n[7, 5]\n\n\nalso assigned with a sequence\n\nseq[3:5] = [6,3]\n\nseq\n\n[7, 2, 3, 6, 3, 6, 0, 1]\n\n\nEither the start or stop can be omitted\n\nseq[:5]\n\n[7, 2, 3, 6, 3]\n\n\n\nseq[3:]\n\n[6, 3, 6, 0, 1]\n\n\nNegative indices slice the sequence relative to the end:\n\nseq[-4:]\n\n[3, 6, 0, 1]\n\n\nA step can also be used after a second colon to, say, take every other element:\n\nseq[::2]\n\n[7, 3, 3, 0]\n\n\nA clever use of this is to pass -1, which has the useful effect of reversing a list or tuple:\n\nseq[::-1]\n\n[1, 0, 6, 3, 6, 3, 2, 7]"
+  },
+  {
+    "objectID": "03_notes.html#dictionary",
+    "href": "03_notes.html#dictionary",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.3 Dictionary",
+    "text": "1.3 Dictionary\n\nThe dictionary or dict may be the most important built-in Python data structure.\nOne approach for creating a dictionary is to use curly braces {} and colons to separate keys and values:\n\nempty_dict = {}\n\nd1 = {\"a\": \"some value\", \"b\": [1, 2, 3, 4]}\n\nd1\n\n{'a': 'some value', 'b': [1, 2, 3, 4]}\n\n\naccess, insert, or set elements\n\nd1[7] = \"an integer\"\n\nd1\n\n{'a': 'some value', 'b': [1, 2, 3, 4], 7: 'an integer'}\n\n\nand as before\n\n\"b\" in d1\n\nTrue\n\n\nthe del and pop methods\n\ndel d1[7]\n\nd1\n\n{'a': 'some value', 'b': [1, 2, 3, 4]}\n\n\n\nret = d1.pop(\"a\")\n\nret\n\n'some value'\n\n\nThe keys and values methods\n\nlist(d1.keys())\n\n['b']\n\n\n\nlist(d1.values())\n\n[[1, 2, 3, 4]]\n\n\nthe items method\n\nlist(d1.items())\n\n[('b', [1, 2, 3, 4])]\n\n\nthe update method to merge one dictionary into another\n\nd1.update({\"b\": \"foo\", \"c\": 12})\n\nd1\n\n{'b': 'foo', 'c': 12}\n\n\n### Creating dictionaries from sequences\n\nlist(range(5))\n\n[0, 1, 2, 3, 4]\n\n\n\ntuples = zip(range(5), reversed(range(5)))\n\ntuples\n\nmapping = dict(tuples)\n\nmapping\n\n{0: 4, 1: 3, 2: 2, 3: 1, 4: 0}\n\n\n\n1.3.1 Default values\nimagine categorizing a list of words by their first letters as a dictionary of lists\n\nwords = [\"apple\", \"bat\", \"bar\", \"atom\", \"book\"]\n\nby_letter = {}\n\nfor word in words:\n        letter = word[0]\n        if letter not in by_letter:\n            by_letter[letter] = [word]\n        else:\n            by_letter[letter].append(word)\n\nby_letter\n\n{'a': ['apple', 'atom'], 'b': ['bat', 'bar', 'book']}\n\n\nThe setdefault dictionary method can be used to simplify this workflow. The preceding for loop can be rewritten as:\n\nby_letter = {}\n\nfor word in words:\n        letter = word[0]\n        by_letter.setdefault(letter, []).append(word)\n\nby_letter\n\n{'a': ['apple', 'atom'], 'b': ['bat', 'bar', 'book']}\n\n\nThe built-in collectionsmodule has a useful class, defaultdict, which makes this even easier.\n\nfrom collections import defaultdict\n\nby_letter = defaultdict(list)\n\nfor word in words:\n        by_letter[word[0]].append(word)\n\nby_letter\n\ndefaultdict(list, {'a': ['apple', 'atom'], 'b': ['bat', 'bar', 'book']})\n\n\n\n\n1.3.2 Valid dictionary key types\nkeys generally have to be immutable objects like scalars or tuples for hashability\nTo use a list as a key, one option is to convert it to a tuple, which can be hashed as long as its elements also can be:\n\nd = {}\n\nd[tuple([1,2,3])] = 5\n\nd\n\n{(1, 2, 3): 5}"
+  },
+  {
+    "objectID": "03_notes.html#set",
+    "href": "03_notes.html#set",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.4 Set",
+    "text": "1.4 Set\n\ncan be created in two ways: via the set function or via a set literal with curly braces:\n\nset([2, 2, 2, 1, 3, 3])\n\n{2,2,1,3,3}\n\n{1, 2, 3}\n\n\nSets support mathematical set operations like union, intersection, difference, and symmetric difference.\nThe union of these two sets:\n\na = {1, 2, 3, 4, 5}\n\nb = {3, 4, 5, 6, 7, 8}\n\na.union(b)\n\na | b\n\n{1, 2, 3, 4, 5, 6, 7, 8}\n\n\nThe &operator or the intersection method\n\na.intersection(b)\n\na & b\n\n{3, 4, 5}\n\n\nA table of commonly used set methods\nAll of the logical set operations have in-place counterparts, which enable you to replace the contents of the set on the left side of the operation with the result. For very large sets, this may be more efficient\n\nc = a.copy()\n\nc |= b\n\nc\n\n{1, 2, 3, 4, 5, 6, 7, 8}\n\n\n\nd = a.copy()\n\nd &= b\n\nd\n\n{3, 4, 5}\n\n\nset elements generally must be immutable, and they must be hashable\nyou can convert them to tuples\nYou can also check if a set is a subset of (is contained in) or a superset of (contains all elements of) another set\n\na_set = {1, 2, 3, 4, 5}\n\n{1, 2, 3}.issubset(a_set)\n\nTrue\n\n\n\na_set.issuperset({1, 2, 3})\n\nTrue"
+  },
+  {
+    "objectID": "03_notes.html#built-in-sequence-functions",
+    "href": "03_notes.html#built-in-sequence-functions",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.5 Built-In Sequence Functions",
+    "text": "1.5 Built-In Sequence Functions\n\n1.5.1 enumerate\nenumerate returns a sequence of (i, value) tuples\n\n\n1.5.2 sorted\nsorted returns a new sorted list\n\nsorted([7,1,2,9,3,6,5,0,22])\n\n[0, 1, 2, 3, 5, 6, 7, 9, 22]\n\n\n\n\n1.5.3 zip\nzip “pairs” up the elements of a number of lists, tuples, or other sequences to create a list of tuples\n\nseq1 = [\"foo\", \"bar\", \"baz\"]\n\nseq2 = [\"one\", \"two\", \"three\"]\n\nzipped = zip(seq1, seq2)\n\nlist(zipped)\n\n[('foo', 'one'), ('bar', 'two'), ('baz', 'three')]\n\n\nzip can take an arbitrary number of sequences, and the number of elements it produces is determined by the shortest sequence\n\nseq3 = [False, True]\n\nlist(zip(seq1, seq2, seq3))\n\n[('foo', 'one', False), ('bar', 'two', True)]\n\n\nA common use of zip is simultaneously iterating over multiple sequences, possibly also combined with enumerate\n\nfor index, (a, b) in enumerate(zip(seq1, seq2)):\n    print(f\"{index}: {a}, {b}\")\n\n0: foo, one\n1: bar, two\n2: baz, three\n\n\nreversed iterates over the elements of a sequence in reverse order\n\nlist(reversed(range(10)))\n\n[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]"
+  },
+  {
+    "objectID": "03_notes.html#list-set-and-dictionary-comprehensions",
+    "href": "03_notes.html#list-set-and-dictionary-comprehensions",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.6 List, Set, and Dictionary Comprehensions",
+    "text": "1.6 List, Set, and Dictionary Comprehensions\n[expr for value in collection if condition]\nFor example, given a list of strings, we could filter out strings with length 2 or less and convert them to uppercase like this\n\nstrings = [\"a\", \"as\", \"bat\", \"car\", \"dove\", \"python\"]\n\n[x.upper() for x in strings if len(x) > 2]\n\n['BAT', 'CAR', 'DOVE', 'PYTHON']\n\n\nA dictionary comprehension looks like this\ndict_comp = {key-expr: value-expr for value in collection\n             if condition}\nSuppose we wanted a set containing just the lengths of the strings contained in the collection\n\nunique_lengths = {len(x) for x in strings}\n\nunique_lengths\n\n{1, 2, 3, 4, 6}\n\n\nwe could create a lookup map of these strings for their locations in the list\n\nloc_mapping = {value: index for index, value in enumerate(strings)}\n\nloc_mapping\n\n{'a': 0, 'as': 1, 'bat': 2, 'car': 3, 'dove': 4, 'python': 5}"
+  },
+  {
+    "objectID": "03_notes.html#nested-list-comprehensions",
+    "href": "03_notes.html#nested-list-comprehensions",
+    "title": "1  Data Structures and Sequences",
+    "section": "1.7 Nested list comprehensions",
+    "text": "1.7 Nested list comprehensions\nSuppose we have a list of lists containing some English and Spanish names. We want to get a single list containing all names with two or more a’s in them\n\nall_data = [[\"John\", \"Emily\", \"Michael\", \"Mary\", \"Steven\"],\n            [\"Maria\", \"Juan\", \"Javier\", \"Natalia\", \"Pilar\"]]\n\nresult = [name for names in all_data for name in names\n          if name.count(\"a\") >= 2]\n\nresult\n\n['Maria', 'Natalia']\n\n\nHere is another example where we “flatten” a list of tuples of integers into a simple list of integers\n\nsome_tuples = [(1, 2, 3), (4, 5, 6), (7, 8, 9)]\n\nflattened = [x for tup in some_tuples for x in tup]\n\nflattened\n\n[1, 2, 3, 4, 5, 6, 7, 8, 9]"
+  },
+  {
+    "objectID": "03_notes.html#namespaces-scope-and-local-functions",
+    "href": "03_notes.html#namespaces-scope-and-local-functions",
+    "title": "1  Data Structures and Sequences",
+    "section": "2.1 Namespaces, Scope, and Local Functions",
+    "text": "2.1 Namespaces, Scope, and Local Functions\nA more descriptive name describing a variable scope in Python is a namespace.\nConsider the following function\n\na = []\n\ndef func():\n    for i in range(5):\n        a.append(i)\n\nWhen func() is called, the empty list a is created, five elements are appended, and then a is destroyed when the function exits.\n\nfunc()\n\nfunc()\n\na\n\n[0, 1, 2, 3, 4, 0, 1, 2, 3, 4]"
+  },
+  {
+    "objectID": "03_notes.html#returing-multiple-values",
+    "href": "03_notes.html#returing-multiple-values",
+    "title": "1  Data Structures and Sequences",
+    "section": "2.2 Returing Multiple Values",
+    "text": "2.2 Returing Multiple Values\nWhat’s happening here is that the function is actually just returning one object, a tuple, which is then being unpacked into the result variables.\n\ndef f():\n    a = 5\n    b = 6\n    c = 7\n    return a, b, c\n\na, b, c = f()\n\na\n\n5"
+  },
+  {
+    "objectID": "03_notes.html#functions-are-objects",
+    "href": "03_notes.html#functions-are-objects",
+    "title": "1  Data Structures and Sequences",
+    "section": "2.3 Functions are Objects",
+    "text": "2.3 Functions are Objects\nSuppose we were doing some data cleaning and needed to apply a bunch of transformations to the following list of strings:\n\nstates = [\"   Alabama \", \"Georgia!\", \"Georgia\", \"georgia\", \"FlOrIda\",\n          \"south   carolina##\", \"West virginia?\"]\n\nimport re\n\ndef clean_strings(strings):\n    result = []\n    for value in strings:\n        value = value.strip()\n        value = re.sub(\"[!#?]\", \"\", value)\n        value = value.title()\n        result.append(value)\n    return result\n\nclean_strings(states)\n\n['Alabama',\n 'Georgia',\n 'Georgia',\n 'Georgia',\n 'Florida',\n 'South   Carolina',\n 'West Virginia']\n\n\nAnother approach\n\ndef remove_punctuation(value):\n    return re.sub(\"[!#?]\", \"\", value)\n\nclean_ops = [str.strip, remove_punctuation, str.title]\n\ndef clean_strings(strings, ops):\n    result = []\n    for value in strings:\n        for func in ops:\n            value = func(value)\n        result.append(value)\n    return result\n\nclean_strings(states, clean_ops)\n\n['Alabama',\n 'Georgia',\n 'Georgia',\n 'Georgia',\n 'Florida',\n 'South   Carolina',\n 'West Virginia']\n\n\nYou can use functions as arguments to other functions like the built-in map function\n\nfor x in map(remove_punctuation, states):\n    print(x)\n\n   Alabama \nGeorgia\nGeorgia\ngeorgia\nFlOrIda\nsouth   carolina\nWest virginia"
+  },
+  {
+    "objectID": "03_notes.html#anonymous-lambda-functions",
+    "href": "03_notes.html#anonymous-lambda-functions",
+    "title": "1  Data Structures and Sequences",
+    "section": "2.4 Anonymous Lambda Functions",
+    "text": "2.4 Anonymous Lambda Functions\na way of writing functions consisting of a single statement\nsuppose you wanted to sort a collection of strings by the number of distinct letters in each string\n\nstrings = [\"foo\", \"card\", \"bar\", \"aaaaaaa\", \"ababdo\"]\n\nstrings.sort(key=lambda x: len(set(x)))\n\nstrings\n\n['aaaaaaa', 'foo', 'bar', 'card', 'ababdo']"
+  },
+  {
+    "objectID": "03_notes.html#generator-expressions",
+    "href": "03_notes.html#generator-expressions",
+    "title": "1  Data Structures and Sequences",
+    "section": "3.1 Generator expressions",
+    "text": "3.1 Generator expressions\nThis is a generator analogue to list, dictionary, and set comprehensions. To create one, enclose what would otherwise be a list comprehension within parentheses instead of brackets:\n\ngen = (x ** 2 for x in range(100))\n\ngen\n\n<generator object <genexpr> at 0x0000022D635052A0>\n\n\nGenerator expressions can be used instead of list comprehensions as function arguments in some cases:\n\nsum(x ** 2 for x in range(100))\n\n328350\n\n\n\ndict((i, i ** 2) for i in range(5))\n\n{0: 0, 1: 1, 2: 4, 3: 9, 4: 16}"
+  },
+  {
+    "objectID": "03_notes.html#itertools-module",
+    "href": "03_notes.html#itertools-module",
+    "title": "1  Data Structures and Sequences",
+    "section": "3.2 itertools module",
+    "text": "3.2 itertools module\nitertools module has a collection of generators for many common data algorithms.\ngroupby takes any sequence and a function, grouping consecutive elements in the sequence by return value of the function\n\nimport itertools\n\ndef first_letter(x):\n    return x[0]\n\nnames = [\"Alan\", \"Adam\", \"Jackie\", \"Lily\", \"Katie\", \"Molly\"]\n\nfor letter, names in itertools.groupby(names, first_letter):\n    print(letter, list(names))\n\nA ['Alan', 'Adam']\nJ ['Jackie']\nL ['Lily']\nK ['Katie']\nM ['Molly']\n\n\nTable of other itertools functions"
+  },
+  {
+    "objectID": "03_notes.html#exceptions-in-ipython",
+    "href": "03_notes.html#exceptions-in-ipython",
+    "title": "1  Data Structures and Sequences",
+    "section": "4.1 Exceptions in IPython",
+    "text": "4.1 Exceptions in IPython\nIf an exception is raised while you are %run-ing a script or executing any statement, IPython will by default print a full call stack trace. Having additional context by itself is a big advantage over the standard Python interpreter"
+  },
+  {
+    "objectID": "03_notes.html#byte-and-unicode-with-files",
+    "href": "03_notes.html#byte-and-unicode-with-files",
+    "title": "1  Data Structures and Sequences",
+    "section": "5.1 Byte and Unicode with Files",
+    "text": "5.1 Byte and Unicode with Files\nThe default behavior for Python files (whether readable or writable) is text mode, which means that you intend to work with Python strings (i.e., Unicode)."
+  },
+  {
     "objectID": "03_video.html",
     "href": "03_video.html",
     "title": "Video",
