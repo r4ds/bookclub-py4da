@@ -1,14 +1,3 @@
----
-title: "Notes"
-format: 
-  html: 
-    toc: true
-    number-sections: false
-    code-fold: false
-    code-overflow: wrap
-
----
-
 # Data Structures and Sequences
 
 ## Tuples
