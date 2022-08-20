@@ -25,6 +25,7 @@ book:
         - 02_video.qmd
     - part: 03_main.qmd
       chapters:
+        - 03_notes.qmd
         - 03_video.qmd
     - part: 04_main.qmd
       chapters:
