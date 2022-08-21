@@ -2,7 +2,7 @@
 
 ## Cohort 01
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEOURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hlWTh7gDgVM" title="Python for Data Analysis: Built-in Data Structures, Functions, and Files (py4da01 3)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <summary><details>
 ```
@@ -10,4 +10,3 @@ LOG
 ```
 </details>
 </summary>
-
