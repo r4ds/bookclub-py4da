@@ -3,7 +3,7 @@
 ## Learning Objectives
 
 - Learn about NumPy, a package for numerical computing in Python
-- Use NumPy for array-based data
+- Use NumPy for array-based data: operations, algorithms
 
 ## Import NumPy
 
@@ -22,14 +22,15 @@ import numpy as np # Recommended standard NumPy convention
 
 ## Create an array
 ```{python}
-data = np.array([[1.5, -0.1, 3], [0, -3, 6.5]])
-data
+arr = np.array([[1.5, -0.1, 3], [0, -3, 6.5]])
+arr
 ```
 
 ## Perform operation
 All of the elements have been multiplied by 10.
+
 ```{python}
-data * 10
+arr * 10
 ```
 :::
 
@@ -40,12 +41,12 @@ data * 10
 
 ## Shape
 ```{python}
-data.shape
+arr.shape
 ```
 
 ## dtype
 ```{python}
-data.dtype
+arr.dtype
 ```
 :::
 
@@ -210,6 +211,92 @@ arr[5:8] = 12
 
 :::
 
+Example of "not copied data"
+
+**Original**
+
+```{python}
+arr_slice = arr[5:8]
+arr
+```
+
+**Change values in new array**
+
+Notice that arr is now changed.
+
+```{python}
+arr_slice[1] = 123
+arr
+```
+
+**Change all values in an array**
+
+This is done with bare slice `[:]`:
+
+```{python}
+arr_slice[:] = 64
+arr_slice
+```
+
+Higher dimensional arrays have 1D arrays at each index:
+
+```{python}
+arr2d = np.array([[1,2,3], [4,5,6], [7,8,9]])
+arr2d
+```
+
+To slice, can pass a comma-separated list to select individual elements:
+
+```{python}
+arr2d[0][2]
+```
+
+![](https://media.geeksforgeeks.org/wp-content/uploads/Numpy1.jpg)
+
+Omitting indicies will reduce number of dimensions:
+
+```{python}
+arr2d[0]
+```
+
+Can assign scalar values or arrays:
+
+```{python}
+arr2d[0] = 9
+arr2d
+```
+
+Or create an array of the indices. This is like indexing in two steps:
+
+```{python}
+arr2d = np.array([[1,2,3], [4,5,6], [7,8,9]])
+arr2d[1,0]
+```
+
+### Indexing with slices
+
+ndarrays can be sliced with the same syntax as Python lists:
+
+```{python}
+arr = np.arange(10)
+
+arr[1:6]
+```
+
+This slices a range of elements ("select the first row of `arr2d`"):
+
+```{python}
+# arr2d[row, column]
+arr2d[:1]
+```
+
+Can pass multiple indicies:
+
+```{python}
+arr2d[:3, :1] # colons keep the dimensions
+# arr2d[0:3, 0] # does not keep the dimensions
+```
+
 ## Boolean Indexing
 
 ```{python}
@@ -219,6 +306,7 @@ names
 
 ```{python}
 data = np.array([[4, 7], [0, 2], [-5, 6], [0, 0], [1, 2], [-12, -4], [3, 4]])
+data
 ```
 
 Like arithmetic operations, comparisons (such as `==`) with arrays are also vectorized. 
@@ -288,6 +376,7 @@ arr[[4, 3, 0, 6]]
 ```
 
 Use negative indices selects rows from the end:
+
 ```{python}
 arr[[-3, -5, -7]]
 ```
@@ -306,7 +395,7 @@ arr[[1, 5, 7, 2], [0, 3, 1, 2]]
 ```
 
 :::{.column-margin}
-Fancy indexing, unlike slicing, always copies the data into a new array when assigning the result to a new variable
+Fancy indexing, unlike slicing, always copies the data into a new array when assigning the result to a new variable.
 :::
 
 ## Transposing Arrays and Swapping Axes
@@ -342,9 +431,9 @@ arr.T @ arr
 ndarray has the method `swapaxes`, which takes a pair of axis numbers and switches the indicated axes to rearrange the data:
 
 ```{python}
-arr = np.array([[0, 1, 0], [1, 2, -2], [6, 3, 2], [-1, 0, -1], [1, 0, 1]])
+arr = np.array([[0, 1, 0], [1, 2, -2], [6, 3, 2], [-1, 0, -1], [1, 0, 1], [3, 5, 6]])
 arr
-arr.swapaxes(1, 0)
+arr.swapaxes(0, 1)
 ```
 
 ## Pseudorandom Number Generation
@@ -400,7 +489,7 @@ remainder
 
 :::
 
-Use the `out` argument to assign their results into an existing array rather than create a new one
+Use the `out` argument to assign results into an existing array rather than create a new one:
 
 ```{python}
 out = np.zeros_like(arr)
@@ -409,7 +498,7 @@ np.add(arr, 1, out=out)
 
 ## Array-Oriented Programming with Arrays
 
-Evaluate the function `sqrt(x^2 + y^2)` across a regular grid of values: use the `numpy.meshgrid` function takes two one-dimensional arrays and produces two two-dimensional matrices corresponding to all pairs of (x, y) in the two arrays:
+Evaluate the function `sqrt(x^2 + y^2)` across a regular grid of values: use the `numpy.meshgrid` function takes two one-dimensional arrays and produce two two-dimensional matrices corresponding to all pairs of (x, y) in the two arrays:
 
 ```{python}
 points = np.arange(-5, 5, 0.01) # 100 equally spaced points
@@ -428,6 +517,19 @@ z = np.sqrt(xs ** 2 + ys ** 2)
 z
 ```
 
+### Bonus: matplotlib visualization
+
+```{python}
+import matplotlib.pyplot as plt
+
+plt.imshow(z, cmap=plt.cm.gray)  #, extent=[-25, 10, -10, 10])
+plt.colorbar() 
+plt.title("Image plot of $\sqrt{x^2 + y^2}$ for a grid of values")
+```
+
+```{python}
+plt.close("all")
+```
 
 ## Expressing Conditional Logic as Array Operations
 
@@ -444,7 +546,8 @@ cond = np.array([True, False, True, True, False])
 
 Take a value from `xarr` whenever the corresponding value in `cond` is `True`, and otherwise take the value from `yarr`:
 
-:::{.panel-tab}
+:::{.panel-tabset}
+
 ## `x if condition else`
 ```{python}
 result = [(x if c else y)
@@ -459,6 +562,22 @@ result = np.where(cond, xarr, yarr)
 result
 ```
 :::
+
+Can also do this with scalars, or combine arrays and scalars:
+
+```{python}
+arr = rng.standard_normal((4,4))
+arr
+```
+
+```{python}
+np.where(arr > 0, 2, -2)
+```
+
+```{python}
+# set only positive to 2
+np.where(arr > 0,2,arr)
+```
 
 ## Mathematical and Statistical Methods
 
@@ -518,7 +637,7 @@ arr.cumsum(axis=0)
 
 ## Methods for Boolean Arrays
 
-Boolean values are coerced to 1 (True) and 0 (False) in the preceding methods. Thus, sum is often used as a means of counting True values in a boolean array:
+Boolean values are coerced to 1 (`True`) and 0 (`False`) in the preceding methods. Thus, sum is often used as a means of counting True values in a boolean array:
 
 ```{python}
 (arr > 0).sum() # Number of positive values
@@ -538,6 +657,7 @@ NumPy arrays can be sorted in place with the `sort` method:
 ```{python}
 arr = rng.standard_normal(6)
 arr.sort()
+arr
 ```
 
 Can sort multidimensional section by providing an axis:
@@ -546,6 +666,7 @@ Can sort multidimensional section by providing an axis:
 arr = rng.standard_normal((5, 3))
 ```
 
+:::{.panel-tabset}
 ## "compute across the columns"
 ```{python}
 arr.cumsum(axis=1)
@@ -623,5 +744,6 @@ for _ in range(nsteps):
 #! blockend
 
 plt.plot(walk[:100])
+plt.show()
 ```
 
