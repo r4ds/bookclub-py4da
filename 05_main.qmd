@@ -2,3 +2,9 @@
 
 ## Learning Objectives
 
+* Learn about Pandas two major data structures: Series and DataFrame
+
+* Learn some essential functoinality
+
+* Learn to Summarize and Compute statistics on a Pandas object
+

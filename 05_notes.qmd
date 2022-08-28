@@ -1,0 +1,83 @@
+# Notes {.unnumbered}
+
+## Conventions
+```{python}
+import numpy as np
+import pandas as pd
+```
+
+
+```{python}
+
+test = pd.DataFrame({"cars":[1,2,3,4],'trucks':[4,5,6,7]})
+test
+```
+
+
+## Summarizing and Computing Descriptive Statistics
+
+```{python}
+df = pd.DataFrame([[1.4, np.nan], [7.1, -4.5],
+                      [np.nan, np.nan], [0.75, -1.3]],
+                      index=["a", "b", "c", "d"],
+                      columns=["one", "two"])
+df
+```
+
+### Some Examples:
+
+
+Sum Columns:
+```{python}
+df.sum()
+```
+
+Sum Rows:
+```{python}
+# Sum Rows
+df.sum(axis="columns")
+```
+
+Extremely useful is 'describe':
+
+```{python}
+df.describe()
+```
+
+Book contains more examples and a full list of summary statistics and related methods.
+
+### Correlation and Covariance
+
+* These need a pair of arguments. 
+  
+* Corr is a method on Series that takes a second Series as argument:
+
+
+```{python}
+df = pd.DataFrame({"A":np.random.normal(size=20), 
+                   "B":np.random.normal(size=20)})
+df['A'].corr(df['B'])
+```
+
+* DataFrame corr / cov return full corr / cov matrix as a DataFrame:
+
+
+```{python}
+df.corr()
+```
+
+* To do pairwise correlations there is also corrwith  
+
+### Unique Values / Counts
+
+
+* unique: return unique values
+
+* value_counts: value frequencies
+
+* isin: vectorized set membership, useful for generating masks!
+
+
+## Next Chapter
+
+* Loading and writing data sets!
