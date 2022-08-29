@@ -1,17 +1,326 @@
 # Notes {.unnumbered}
 
-## Conventions
+
+## Introduction
+
+:::{.callout-note}
+his is a long chapter, these notes are intended to highlight and are not intended to be complete!
+:::
+
+* Pandas is a major tool in all Python data analysis
+
+* Works with (and similiar too) Numpy except designed for tabular / heterogenous data
+
+* import conventions: 
+
 ```{python}
 import numpy as np
 import pandas as pd
 ```
 
 
+## Panda's primary data structions
+
+* Series: One dimensional object containing a sequence of values of the same type.
+
+* DataFrame is tabular, similar (and inspired by) R dataframe.
+
+* Other structures will be introduced as they arise, e.g. Index and Groupby objects.
+
+### Series
+
+```{python}
+obj = pd.Series([4,7,-4,3], index = ["A","B","C","D"])
+obj
+```
+
+* The index is optional, if not specified it will default to 0 through N-1 
+
+* Index by:
+
+    - Labels or sets of labels
+    
+```{python}
+obj['A']
+```
+
+- boolean array (as in NumPy)
+
+```{python}
+obj[['A','C']]
+```
+
+```{python}
+obj[obj > 3]
+```
+
+* Other things you can do:
+
+```{python}
+obj*3
+```
+
+```{python}
+'A' in obj
+```
+
+* Series can be created from and converted to a dictionary
+
+```{python}
+obj.to_dict()
+```
+
+* Missing values and can be tested for with `isna` or `notna` methods
+
+```{python}
+test = pd.Series([np.nan, 3, 4, 5])
+pd.isna(test)
+```
+
+
+### DataFrame
+
+* Represents table of data
+
+* Has row index *index* and column index *column*
+
+* Common way to create is from a dictionary, but see *Table 5.1* for more!
+
 ```{python}
 
-test = pd.DataFrame({"cars":[1,2,3,4],'trucks':[4,5,6,7]})
+test = pd.DataFrame({"cars":['Chevy','Ford','Dodge','BMW'],'MPG':[14,15,16,12], 'Year':[1979, 1980, 2001, 2020]})
 test
 ```
+
+* If you want a non-default index, it can be specified just like with Series.
+
+* `head(n)` / `tail(n)` - return the first / last n rows, 5 by default
+
+* Can retrieve columns or sets of columns by indexing:
+
+```{python}
+test['cars']
+```
+
+```{python}
+test[['cars','MPG']]
+```
+
+* Dot notation can also be used (`test.cars`) as long as the column names are valid identifiers
+
+* *Rows* can be retrieved with `iloc` and `loc`:
+
+   - `loc` retrieves by index
+
+   - `iloc` retrieves by position. 
+
+ 
+
+* Columns can be modified (and created) by assignment:
+
+```{python}
+test['MPG^2'] = test['MPG']**2
+test
+```
+ 
+* `del` keyword can be used to drop columns, or `drop` method can be used to do so non-destructively
+
+
+### Index object 
+
+* Index objects are used for holding axis labels and other metadata
+
+```{python}
+test.index
+```
+
+* Can add a different index then the default:
+
+```{python}
+# Create index from one of the columns
+test.index = test['cars']  
+
+ # remove column since i am using as an index. Note axis = 1 also works
+test=test.drop('cars', axis = "columns") 
+test
+```
+
+* Note the `axis` keyword argument above, many DataFrame methods use this.
+
+* Often  you want to make the index a column, this can be done with `reset_index`: (N.B. reset_index makes a copy, unless you specify `in_place = True`, so the following command does not change `test`:
+
+```{python}
+test.reset_index()
+```
+
+
+* Columns are an index as well:
+```{python}
+test.columns
+```
+
+* Indexes act like immutable sets,  see *Table 5.2* in book for Index methods and properties
+
+## Essential Functionality
+
+### Reindexing and dropping
+
+* `reindex` creats a *new* object with the values arranged according to the new index.  Missing values are used if necessary, or you can use optional fill methods.  You can use `iloc` and `loc` to reindex as well.
+
+* `drop` , illustrated above can drop rows or columns. In addition to using `axis` you can use `columns` or `index`. Again these make copies.
+
+```{python}
+test.drop(columns = 'MPG')
+```
+
+```{python}
+test.drop(index = ['Ford', 'BMW'])
+```
+
+### Indexing, Selection and Filtering
+
+#### Series
+* For Series, indexing is similar to Numpy, except you can use the index as well as integers.
+
+```{python}
+obj = pd.Series(np.arange(4.), index=["a", "b", "c", "d"])
+obj[0:3]
+```
+
+```{python}
+obj['a':'c']
+```
+
+```{python}
+obj[obj<2]
+```
+
+```{python}
+obj[['a','d']]
+```
+
+* *However*, preferred way is to use `loc` for indexing and `iloc` for selection by position. This is to avoid the issue where the `index` is itself integers.
+
+```{python}
+obj.loc[['a','d']]
+```
+
+```{python}
+obj.iloc[1]
+```
+
+* Note that as with Numpy, if a range or a set of indexes is used, a Series is returned. If a single item is requested, you get just that item.
+
+#### DataFrame
+
+* Indexing into a DataFrame retrieves one or more columns as we have seen, if you select a single column you get a Series
+
+* There are some special cases, indexing with a boolean selects *rows*, as does selecting with a slice:
+
+```{python}
+test[0:1]
+```
+
+```{python}
+test[test['MPG'] < 15]
+```
+
+* `iloc` and `loc` can be used to select rows as illustrated before, but can also be used to select columns or subsets of rows/columns
+
+
+```{python}
+test.loc[:,['Year','MPG']]
+```
+
+```{python}
+test.loc['Ford','MPG']
+```
+
+* These work with slices and booleans as well!  The following says "give me all the rows with MPG more then 15, and the columns starting from Year"
+
+```{python}
+test.loc[test['MPG'] > 15, 'Year':]
+```
+
+* Indexing options are fully illustrated in the book and *Table 5.4* 
+
+* Be careful with *chained indexing*:
+
+```{python}
+test[test['MPG']> 15].loc[:,'MPG'] = 18
+```
+
+Here we are assigning to a 'slice', which is probably not what is intended. You will get  a warning and a recommendation to fix it by using one `loc`:
+
+```{python}
+test.loc[test['MPG']> 15 ,'MPG'] = 18
+test
+```
+
+:::{.callout-tip}
+### Rule of Thumb
+
+Avoid chained indexing when doing assignments
+:::
+
+### Arithmetic and Data Alignment
+
+* Pandas can make it simpler to work with objects that have different indexes, usually 'doing the right thing'
+
+```{python}
+s1 = pd.Series([7.3, -2.5, 3.4, 1.5], index=["a", "c", "d", "e"])
+s2 = pd.Series([-2.1, 3.6, -1.5, 4, 3.1], index=["a", "c", "e", "f", "g"])
+s1+s2
+```
+
+* Fills can be specified by using methods:
+
+```{python}
+s1.add(s2, fill_value = 0)
+```
+
+* See *Table 5.5* for list of these methods.
+
+* You can also do arithmetic between *DataFrame*s and *Series* in a way that is similar to Numpy. 
+
+### Function Application and Mapping
+
+* Numpy *ufuncs* also work with Pandas objects. 
+
+```{python}
+frame = pd.DataFrame(np.random.standard_normal((4, 3)),
+                         columns=list("bde"),
+                         index=["Utah", "Ohio", "Texas", "Oregon"])
+np.abs(frame)
+```
+
+* `apply` can be used to apply a function on 1D arrays to each column or row:
+
+```{python}
+frame.apply(np.max, axis = 'rows') #'axis' is optional here, default is rows
+```
+
+Applying accross columns is common, especially to combine different columns in some way:
+
+```{python}
+
+frame['max'] = frame.apply(np.max, axis = 'columns')
+frame
+```
+
+* Many more examples of this in the book.
+
+
+### Sorting and Ranking
+
+* `sort_index` will sort with the index (on either axis for *DataFrame*)
+* `sort_values` is used to sort by values or a particular column
+
+```{python}
+test.sort_values('MPG')
+```
+
+* `rank` will assign ranks from on through the number of data points.
 
 
 ## Summarizing and Computing Descriptive Statistics
@@ -38,7 +347,7 @@ Sum Rows:
 df.sum(axis="columns")
 ```
 
-Extremely useful is 'describe':
+Extremely useful is `describe`:
 
 ```{python}
 df.describe()
@@ -50,7 +359,7 @@ Book contains more examples and a full list of summary statistics and related me
 
 * These need a pair of arguments. 
   
-* Corr is a method on Series that takes a second Series as argument:
+* `corr` is a method on Series that takes a second Series as argument:
 
 
 ```{python}
@@ -59,23 +368,23 @@ df = pd.DataFrame({"A":np.random.normal(size=20),
 df['A'].corr(df['B'])
 ```
 
-* DataFrame corr / cov return full corr / cov matrix as a DataFrame:
+* DataFrame `corr` / `cov` return full corr / cov matrix as a DataFrame:
 
 
 ```{python}
 df.corr()
 ```
 
-* To do pairwise correlations there is also corrwith  
+* To do pairwise correlations there is also `corrwith`  
 
 ### Unique Values / Counts
 
 
-* unique: return unique values
+* `unique`: return unique values
 
-* value_counts: value frequencies
+* `value_counts`: value frequencies
 
-* isin: vectorized set membership, useful for generating masks!
+* `isin`: vectorized set membership, useful for generating masks!
 
 
 ## Next Chapter
