@@ -4,7 +4,7 @@
 ## Introduction
 
 :::{.callout-note}
-his is a long chapter, these notes are intended to highlight and are not intended to be complete!
+This is a long chapter, these notes are intended to highlight and are not intended to be complete!
 :::
 
 * Pandas is a major tool in all Python data analysis
@@ -19,11 +19,11 @@ import pandas as pd
 ```
 
 
-## Panda's primary data structions
+## Panda's primary data structures
 
 * Series: One dimensional object containing a sequence of values of the same type.
 
-* DataFrame is tabular, similar (and inspired by) R dataframe.
+* DataFrame: Tabular data, similar (and inspired by) R dataframe.
 
 * Other structures will be introduced as they arise, e.g. Index and Groupby objects.
 
@@ -36,15 +36,11 @@ obj
 
 * The index is optional, if not specified it will default to 0 through N-1 
 
-* Index by:
-
-    - Labels or sets of labels
+* Index by labels, sets of labels, boolean arrays ...
     
 ```{python}
 obj['A']
 ```
-
-- boolean array (as in NumPy)
 
 ```{python}
 obj[['A','C']]
@@ -386,6 +382,9 @@ df.corr()
 
 * `isin`: vectorized set membership, useful for generating masks!
 
+```{python}
+test[test.index.isin(['Chevy','Ford'])] # remeber boolean index selects *rows*
+```
 
 ## Next Chapter
 
