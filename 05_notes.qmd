@@ -228,7 +228,7 @@ obj.iloc[1]
 ```
 
 :::{.callout-note}
-Note that as with Numpy, if a range or a set of indexes is used, a Series is returned. If a single item is requested, you get just that item.
+Note if a range or a set of indexes is used, a Series is returned. If a single item is requested, you get just that item.
 :::
 
 #### DataFrame
