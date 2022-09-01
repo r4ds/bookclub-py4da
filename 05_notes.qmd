@@ -4,10 +4,11 @@
 ## Introduction
 
 :::{.callout-note}
-This is a long chapter, these notes are intended to highlight and are not intended to be complete!
+This is a long chapter, these notes are intended to highlight some concepts! 
 :::
 
-* Pandas is a major tool in all Python data analysis
+* Pandas is a major tool in Python data analysis
+
 
 * Works with (and similiar too) Numpy except designed for tabular / heterogenous data
 
@@ -98,6 +99,8 @@ test
 test['cars']
 ```
 
+Note that we got a `Series` here.
+
 ```{python}
 test[['cars','MPG']]
 ```
@@ -130,23 +133,23 @@ test
 test.index
 ```
 
-* Can add a different index then the default:
+* Can change the index, in this case replacing the default:
 
 ```{python}
 # Create index from one of the columns
 test.index = test['cars']  
 
- # remove column since i am using as an index. Note axis = 1 also works
-test=test.drop('cars', axis = "columns") 
+ # remove 'cars' column since i am using as an index now.  s
+test=test.drop('cars', axis = "columns")  # or axis  = 1
 test
 ```
 
 * Note the `axis` keyword argument above, many DataFrame methods use this.
 
-* Often  you want to make the index a column, this can be done with `reset_index`: (N.B. reset_index makes a copy, unless you specify `in_place = True`, so the following command does not change `test`:
+* Above a changed a column into an index.  Often you want to go the other way, this can be done with `reset_index`: 
 
 ```{python}
-test.reset_index()
+test.reset_index()  # Note this doesn't actually change test
 ```
 
 
@@ -287,6 +290,10 @@ s1.add(s2, fill_value = 0)
 frame = pd.DataFrame(np.random.standard_normal((4, 3)),
                          columns=list("bde"),
                          index=["Utah", "Ohio", "Texas", "Oregon"])
+frame
+```
+
+```{python}
 np.abs(frame)
 ```
 
@@ -332,12 +339,12 @@ df
 ### Some Examples:
 
 
-Sum Columns:
+Sum over rows:
 ```{python}
 df.sum()
 ```
 
-Sum Rows:
+Sum over columns:
 ```{python}
 # Sum Rows
 df.sum(axis="columns")
@@ -385,6 +392,35 @@ df.corr()
 ```{python}
 test[test.index.isin(['Chevy','Ford'])] # remeber boolean index selects *rows*
 ```
+
+## Summary
+
+* Primary Panda's data structures:
+
+    - Series
+
+    - DataFrame
+
+* Many ways to access and transform these objects.  Key ones are:
+
+   - `[]` : access an element(s) of a `Series` or columns(s) of a `DataFrame`
+
+   - `loc[r ,c]` : access a row / column / cell by the `index`.
+
+   - `iloc[i, j]` : access ar row / column / cell by the integer position.
+
+* [Online reference.](https://pandas.pydata.org/docs/reference/index.html)
+
+:::{.callout-tip}
+## Suggestion
+Work though the chapter's code and try stuff!
+:::
+
+## References
+
+* [Chapter's code.](https://nbviewer.org/github/pydata/pydata-book/blob/3rd-edition/ch05.ipynb)
+
+* [Panda reference.](https://pandas.pydata.org/docs/reference/index.html)
 
 ## Next Chapter
 
