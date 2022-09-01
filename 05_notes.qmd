@@ -175,7 +175,7 @@ test.columns
 
 ```{python}
 s = pd.Series([1,2,3,4,5], index = list("abcde"))
-s2 = s.reindex(list("abcu"))  #  not a song by GAYLE 
+s2 = s.reindex(list("abcfu"))  #  not a song by GAYLE 
 s2
 ```
 
