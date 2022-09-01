@@ -4,8 +4,10 @@
 ## Introduction
 
 :::{.callout-note}
-This is a long chapter, these notes are intended to highlight some concepts! 
+This is a long chapter, these notes are intended as a tour of main ideas! 
 :::
+
+![Panda bus tour!](images/pandabus.jpg)
 
 * Pandas is a major tool in Python data analysis
 
