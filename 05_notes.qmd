@@ -223,7 +223,9 @@ obj.loc[['a','d']]
 obj.iloc[1]
 ```
 
-* Note that as with Numpy, if a range or a set of indexes is used, a Series is returned. If a single item is requested, you get just that item.
+:::{.callout-note}
+Note that as with Numpy, if a range or a set of indexes is used, a Series is returned. If a single item is requested, you get just that item.
+:::
 
 #### DataFrame
 
@@ -351,7 +353,7 @@ df = pd.DataFrame([[1.4, np.nan], [7.1, -4.5],
 df
 ```
 
-### Some Examples:
+Some Examples:
 
 
 Sum over rows:
@@ -371,43 +373,8 @@ Extremely useful is `describe`:
 df.describe()
 ```
 
-Book contains more examples and a full list of summary statistics and related methods.
-
-### Correlation and Covariance
-
-* These need a pair of arguments. 
-  
-* `corr` is a method on Series that takes a second Series as argument:
-
-
-```{python}
-df = pd.DataFrame({"A":np.random.normal(size=20), 
-                   "B":np.random.normal(size=20)})
-df['A'].corr(df['B'])
-```
-
-* DataFrame `corr` / `cov` return full corr / cov matrix as a DataFrame:
-
-
-```{python}
-df.corr()
-```
-
-* To do pairwise correlations there is also `corrwith`  
-
-### Unique Values / Counts
-
-
-* `unique`: return unique values
-
-* `value_counts`: value frequencies
-
-* `isin`: vectorized set membership, useful for generating masks!
-
-```{python}
-test[test.index.isin(['Chevy','Ford'])] # remeber boolean index selects *rows*
-```
-
+**Book chapter contains *many* more examples and a full list of summary statistics and related methods.**
+ 
 ## Summary
 
 * Primary Panda's data structures:
