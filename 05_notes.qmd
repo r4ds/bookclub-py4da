@@ -128,7 +128,7 @@ test[['cars','MPG']]
    - `iloc` retrieves by position. 
 
  
-#### MOdifying / Creating Columns
+#### Modifying / Creating Columns
 
 * Columns can be modified (and created) by assignment:
 
