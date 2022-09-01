@@ -7,14 +7,13 @@
 This is a long chapter, these notes are intended as a tour of main ideas! 
 :::
 
-![Panda bus tour!](images/pandabus.jpg)
+![Panda bus tour!](images/pandabus.jpg){width=300px}
 
 * Pandas is a major tool in Python data analysis
 
+* Works with Numpy, adding support for tabular / heterogenous data
 
-* Works with (and similiar too) Numpy except designed for tabular / heterogenous data
-
-* import conventions: 
+## Import conventions: 
 
 ```{python}
 import numpy as np
@@ -37,9 +36,11 @@ obj = pd.Series([4,7,-4,3], index = ["A","B","C","D"])
 obj
 ```
 
-* The index is optional, if not specified it will default to 0 through N-1 
+The `index` is optional, if not specified it will default to 0 through N-1 
 
-* Index by labels, sets of labels, boolean arrays ...
+#### Selection
+
+Select elements or sub-Series by labels, sets of labels, boolean arrays ...
     
 ```{python}
 obj['A']
@@ -104,7 +105,9 @@ test
 
 * `head(n)` / `tail(n)` - return the first / last n rows, 5 by default
 
-* Can retrieve columns or sets of columns by indexing:
+#### Selecting 
+
+* Can retrieve columns or sets of columns by using `obj[...]`:
 
 ```{python}
 test['cars']
@@ -118,13 +121,14 @@ test[['cars','MPG']]
 
 * Dot notation can also be used (`test.cars`) as long as the column names are valid identifiers
 
-* *Rows* can be retrieved with `iloc` and `loc`:
+* *Rows* can be retrieved with `iloc[...]` and `loc[...]`:
 
    - `loc` retrieves by index
 
    - `iloc` retrieves by position. 
 
  
+#### MOdifying / Creating Columns
 
 * Columns can be modified (and created) by assignment:
 
@@ -157,7 +161,7 @@ test
 
 * Note the `axis` keyword argument above, many DataFrame methods use this.
 
-* Above a changed a column into an index.  Often you want to go the other way, this can be done with `reset_index`: 
+* Above I changed a column into an index.  Often you want to go the other way, this can be done with `reset_index`: 
 
 ```{python}
 test.reset_index()  # Note this doesn't actually change test
@@ -209,7 +213,7 @@ obj[obj<2]
 obj[['a','d']]
 ```
 
-* *However*, preferred way is to use `loc` for indexing and `iloc` for selection by position. This is to avoid the issue where the `index` is itself integers.
+* *However*, preferred way is to use `loc` for selection by *index* and `iloc` for selection by position. This is to avoid the issue where the `index` is itself integers.
 
 ```{python}
 obj.loc[['a','d']]
@@ -223,7 +227,7 @@ obj.iloc[1]
 
 #### DataFrame
 
-* Indexing into a DataFrame retrieves one or more columns as we have seen, if you select a single column you get a Series
+* Selecting with `df[...]` for a DataFrame retrieves one or more columns as we have seen, if you select a single column you get a Series
 
 * There are some special cases, indexing with a boolean selects *rows*, as does selecting with a slice:
 
