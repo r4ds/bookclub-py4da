@@ -79,14 +79,6 @@ obj.to_numpy()
 ```
 
 
-* Missing values and can be tested for with `isna` or `notna` methods
-
-```{python}
-test = pd.Series([np.nan, 3, 4, 5])
-pd.isna(test)
-```
-
-
 ### DataFrame
 
 * Represents table of data
@@ -180,6 +172,18 @@ test.columns
 ### Reindexing and dropping
 
 * `reindex` creats a *new* object with the values arranged according to the new index.  Missing values are used if necessary, or you can use optional fill methods.  You can use `iloc` and `loc` to reindex as well.
+
+```{python}
+s = pd.Series([1,2,3,4,5], index = list("abcde"))
+s2 = s.reindex(list("abcu"))  #  not a song by GAYLE 
+s2
+```
+
+* Missing values and can be tested for with `isna` or `notna` methods
+
+```{python}
+pd.isna(s2)
+```
 
 * `drop` , illustrated above can drop rows or columns. In addition to using `axis` you can use `columns` or `index`. Again these make copies.
 
