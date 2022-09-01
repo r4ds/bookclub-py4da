@@ -53,14 +53,16 @@ obj[['A','C']]
 obj[obj > 3]
 ```
 
-* Other things you can do:
+#### Other things you can do
+
+* Numpy functions and Numpy-like operations work as expected:
 
 ```{python}
 obj*3
 ```
-
+ 
 ```{python}
-'A' in obj
+np.exp(obj)
 ```
 
 * Series can be created from and converted to a dictionary
@@ -68,6 +70,13 @@ obj*3
 ```{python}
 obj.to_dict()
 ```
+
+* Series can be converted to numpy array:
+
+```{python}
+obj.to_numpy()
+```
+
 
 * Missing values and can be tested for with `isna` or `notna` methods
 
