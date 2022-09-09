@@ -36,6 +36,7 @@ book:
         - 05_video.qmd
     - part: 06_main.qmd
       chapters:
+        - 06_notes.qmd
         - 06_video.qmd
     - part: 07_main.qmd
       chapters:
