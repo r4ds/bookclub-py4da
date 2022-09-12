@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.179">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -289,6 +289,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_video.html" class="sidebar-item-text sidebar-link">Video</a>
@@ -592,7 +597,7 @@ dtype: float64</code></pre>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>obj.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>array([ 4,  7, -4,  3])</code></pre>
+<pre><code>array([ 4,  7, -4,  3], dtype=int64)</code></pre>
 </div>
 </div>
 </section>
@@ -1285,12 +1290,12 @@ Note
 <div class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>test[test[<span class="st">'MPG'</span>]<span class="op">&gt;</span> <span class="dv">15</span>].loc[:,<span class="st">'MPG'</span>] <span class="op">=</span> <span class="dv">18</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/Users/ronaldlegere/opt/anaconda3/lib/python3.7/site-packages/pandas/core/indexing.py:1951: SettingWithCopyWarning: 
+<pre><code>C:\Users\jryan\AppData\Local\Temp\ipykernel_13388\2484144822.py:1: SettingWithCopyWarning: 
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  self.obj[selected_item_labels] = value</code></pre>
+  test[test['MPG']&gt; 15].loc[:,'MPG'] = 18</code></pre>
 </div>
 </div>
 <p>Here we are assigning to a ‘slice’, which is probably not what is intended. You will get a warning and a recommendation to fix it by using one <code>loc</code>:</p>
@@ -1426,27 +1431,27 @@ dtype: float64</code></pre>
   <tbody>
     <tr>
       <th>Utah</th>
-      <td>0.206622</td>
-      <td>-0.462176</td>
-      <td>-0.094672</td>
+      <td>0.798548</td>
+      <td>-1.455476</td>
+      <td>0.507618</td>
     </tr>
     <tr>
       <th>Ohio</th>
-      <td>-1.750506</td>
-      <td>1.414785</td>
-      <td>3.003317</td>
+      <td>-0.405775</td>
+      <td>-0.132380</td>
+      <td>-0.563721</td>
     </tr>
     <tr>
       <th>Texas</th>
-      <td>0.703815</td>
-      <td>-1.269005</td>
-      <td>-1.327226</td>
+      <td>-0.404526</td>
+      <td>0.703566</td>
+      <td>1.661291</td>
     </tr>
     <tr>
       <th>Oregon</th>
-      <td>-1.637555</td>
-      <td>1.192798</td>
-      <td>-0.614113</td>
+      <td>-0.359775</td>
+      <td>-0.450894</td>
+      <td>-0.712254</td>
     </tr>
   </tbody>
 </table>
@@ -1471,27 +1476,27 @@ dtype: float64</code></pre>
   <tbody>
     <tr>
       <th>Utah</th>
-      <td>0.206622</td>
-      <td>0.462176</td>
-      <td>0.094672</td>
+      <td>0.798548</td>
+      <td>1.455476</td>
+      <td>0.507618</td>
     </tr>
     <tr>
       <th>Ohio</th>
-      <td>1.750506</td>
-      <td>1.414785</td>
-      <td>3.003317</td>
+      <td>0.405775</td>
+      <td>0.132380</td>
+      <td>0.563721</td>
     </tr>
     <tr>
       <th>Texas</th>
-      <td>0.703815</td>
-      <td>1.269005</td>
-      <td>1.327226</td>
+      <td>0.404526</td>
+      <td>0.703566</td>
+      <td>1.661291</td>
     </tr>
     <tr>
       <th>Oregon</th>
-      <td>1.637555</td>
-      <td>1.192798</td>
-      <td>0.614113</td>
+      <td>0.359775</td>
+      <td>0.450894</td>
+      <td>0.712254</td>
     </tr>
   </tbody>
 </table>
@@ -1504,9 +1509,9 @@ dtype: float64</code></pre>
 <div class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>frame.<span class="bu">apply</span>(np.<span class="bu">max</span>, axis <span class="op">=</span> <span class="st">'rows'</span>) <span class="co">#'axis' is optional here, default is rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
-<pre><code>b    0.703815
-d    1.414785
-e    3.003317
+<pre><code>b    0.798548
+d    0.703566
+e    1.661291
 dtype: float64</code></pre>
 </div>
 </div>
@@ -1531,31 +1536,31 @@ dtype: float64</code></pre>
   <tbody>
     <tr>
       <th>Utah</th>
-      <td>0.206622</td>
-      <td>-0.462176</td>
-      <td>-0.094672</td>
-      <td>0.206622</td>
+      <td>0.798548</td>
+      <td>-1.455476</td>
+      <td>0.507618</td>
+      <td>0.798548</td>
     </tr>
     <tr>
       <th>Ohio</th>
-      <td>-1.750506</td>
-      <td>1.414785</td>
-      <td>3.003317</td>
-      <td>3.003317</td>
+      <td>-0.405775</td>
+      <td>-0.132380</td>
+      <td>-0.563721</td>
+      <td>-0.132380</td>
     </tr>
     <tr>
       <th>Texas</th>
-      <td>0.703815</td>
-      <td>-1.269005</td>
-      <td>-1.327226</td>
-      <td>0.703815</td>
+      <td>-0.404526</td>
+      <td>0.703566</td>
+      <td>1.661291</td>
+      <td>1.661291</td>
     </tr>
     <tr>
       <th>Oregon</th>
-      <td>-1.637555</td>
-      <td>1.192798</td>
-      <td>-0.614113</td>
-      <td>1.192798</td>
+      <td>-0.359775</td>
+      <td>-0.450894</td>
+      <td>-0.712254</td>
+      <td>-0.359775</td>
     </tr>
   </tbody>
 </table>

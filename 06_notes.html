@@ -1,0 +1,2838 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Python for Data Analysis Book Club - Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06_video.html" rel="next">
+<link href="./06_main.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Notes</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./" class="sidebar-logo-link">
+      <img src="./cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Python for Data Analysis Book Club</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/r4ds/bookclub-py4da" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01_main.html" class="sidebar-item-text sidebar-link">1. Preliminaries</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02_main.html" class="sidebar-item-text sidebar-link">2. Python Language Basics, IPython, and Jupyter Notebooks</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03_main.html" class="sidebar-item-text sidebar-link">3. Built-in Data Structures, Functions, and Files</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Structures and Sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04_main.html" class="sidebar-item-text sidebar-link">4. NumPy Basics: Arrays and Vectorized Computation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05_main.html" class="sidebar-item-text sidebar-link">5. Getting Started with pandas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06_main.html" class="sidebar-item-text sidebar-link">6. Data Loading, Storage, and File Formats</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_notes.html" class="sidebar-item-text sidebar-link active">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07_main.html" class="sidebar-item-text sidebar-link">7. Data Cleaning and Preparation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08_main.html" class="sidebar-item-text sidebar-link">8. Data Wrangling: Join, Combine, and Reshape</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./09_main.html" class="sidebar-item-text sidebar-link">9. Plotting and Visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./10_main.html" class="sidebar-item-text sidebar-link">10. Data Aggregation and Group Operations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./11_main.html" class="sidebar-item-text sidebar-link">11. Time Series</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./12_main.html" class="sidebar-item-text sidebar-link">12. Introduction to Modeling Libraries in Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./examples.html" class="sidebar-item-text sidebar-link">Examples</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_quarto.html" class="sidebar-item-text sidebar-link">Example Quarto Document</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_python.html" class="sidebar-item-text sidebar-link">Example Jupyter Notebook</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./how-to.html" class="sidebar-item-text sidebar-link">How to add to the book</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#reading-and-writing-data-in-text-format" id="toc-reading-and-writing-data-in-text-format" class="nav-link active" data-scroll-target="#reading-and-writing-data-in-text-format">Reading and Writing Data in Text Format</a>
+  <ul class="collapse">
+  <li><a href="#read_csv-arguments" id="toc-read_csv-arguments" class="nav-link" data-scroll-target="#read_csv-arguments"><code>read_csv</code> Arguments</a></li>
+  <li><a href="#writing-data-to-text-format" id="toc-writing-data-to-text-format" class="nav-link" data-scroll-target="#writing-data-to-text-format">Writing Data to Text Format</a></li>
+  <li><a href="#working-with-other-delimited-formats" id="toc-working-with-other-delimited-formats" class="nav-link" data-scroll-target="#working-with-other-delimited-formats">Working with Other Delimited Formats</a></li>
+  <li><a href="#web-scraping" id="toc-web-scraping" class="nav-link" data-scroll-target="#web-scraping">Web Scraping</a></li>
+  <li><a href="#binary-data-formats" id="toc-binary-data-formats" class="nav-link" data-scroll-target="#binary-data-formats">Binary Data Formats</a></li>
+  <li><a href="#interacting-with-web-apis" id="toc-interacting-with-web-apis" class="nav-link" data-scroll-target="#interacting-with-web-apis">Interacting with Web APIs</a></li>
+  <li><a href="#interacting-with-databases" id="toc-interacting-with-databases" class="nav-link" data-scroll-target="#interacting-with-databases">Interacting with Databases</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Before we can even get to the fun of data analysis, we first need to learn how to load in our data!</p>
+<p><img src="images/DAmeme.png" class="img-fluid" data-dpi="300" width="425"></p>
+<p>Today, we’ll learn to work with the following categories of data inputs and outputs:</p>
+<ul>
+<li>Text</li>
+<li>Binary</li>
+<li>Web APIs</li>
+<li>Databases</li>
+</ul>
+<section id="reading-and-writing-data-in-text-format" class="level2">
+<h2 class="anchored" data-anchor-id="reading-and-writing-data-in-text-format">Reading and Writing Data in Text Format</h2>
+<section id="read_csv-arguments" class="level3">
+<h3 class="anchored" data-anchor-id="read_csv-arguments"><code>read_csv</code> Arguments</h3>
+<p><a href="https://wesmckinney.com/book/accessing-data.html#tbl-table_parsing_functions">Table 6.1</a> lists the various data types pandas can read.</p>
+<p>Each function can be called with <code>pd.read_*</code> (for example, <code>pd.read_csv</code>).</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wes points out that the number of arguments can be overwhelming. <code>pd.read_csv</code> has about 50. The <a href="https://pandas.pydata.org/docs/reference/io.html">pandas documentation</a> is a good resource for finding the right arguments.</p>
+</div>
+</div>
+<p><a href="https://wesmckinney.com/book/accessing-data.html#tbl-table_read_csv_function">Table 6.2</a> lists frequently used options in <code>pd.read_csv</code>.</p>
+<p>Let’s import the <a href="https://github.com/allisonhorst/palmerpenguins/blob/main/inst/extdata/penguins.csv">Palmer Penguins dataset</a> to explore this function and some of the csv arguments. <em>Note</em>: I added random numbers for month and day to demonstrate date parsing.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="op">=</span> pd.read_csv(<span class="st">"data/penguins.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>penguins.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="index-columns" class="level4">
+<h4 class="anchored" data-anchor-id="index-columns">Index Columns</h4>
+<p><strong>Indexing</strong> gets column names from the file or from this argument</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>penguins_indexed <span class="op">=</span> pd.read_csv(<span class="st">"data/penguins.csv"</span>, index_col <span class="op">=</span> <span class="st">"species"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>penguins_indexed.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="infer-or-convert-data-type" class="level4">
+<h4 class="anchored" data-anchor-id="infer-or-convert-data-type">Infer or Convert Data Type</h4>
+<p><strong>Type inference and data conversion</strong> converts values (including missing) to a user-defined value.</p>
+<p>If you data uses another string value as the missing placeholder, you can add it to <code>na_values</code>.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>penguins_NA <span class="op">=</span> pd.read_csv(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/penguins.csv"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  na_values <span class="op">=</span> [<span class="st">"male"</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>penguins_NA.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>NaN</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="parse-date-and-time" class="level4">
+<h4 class="anchored" data-anchor-id="parse-date-and-time">Parse Date and Time</h4>
+<p><strong>Date and time parsing</strong> combines date and time from multiple columns into a single column</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>penguins_dates <span class="op">=</span> pd.read_csv(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/penguins.csv"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  parse_dates <span class="op">=</span> {<span class="st">"date"</span>: [<span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"year"</span>]}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>penguins_dates[<span class="st">"date"</span>] <span class="op">=</span> pd.to_datetime(</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  penguins_dates.date, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">format</span> <span class="op">=</span> <span class="st">"%m</span><span class="sc">%d</span><span class="st">%Y"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(penguins_dates.date.head(<span class="dv">5</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(penguins_dates.date.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0   2007-04-10
+1   2007-03-06
+2   2007-07-22
+3   2007-02-13
+4   2007-08-21
+Name: date, dtype: datetime64[ns]
+datetime64[ns]</code></pre>
+</div>
+</div>
+</section>
+<section id="iterate-through-large-files" class="level4">
+<h4 class="anchored" data-anchor-id="iterate-through-large-files">Iterate Through Large Files</h4>
+<p><strong>Iterating</strong> allows iteration over chunks of very large files</p>
+<p>Using <code>nrows</code> to read in only 5 rows:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">"data/penguins.csv"</span>, nrows <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Using <code>chunksize</code> and the <code>TextFileReader</code> to aggregate and summarize the data by species:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>chunker <span class="op">=</span> pd.read_csv(<span class="st">"data/penguins.csv"</span>, chunksize <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(chunker))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tot <span class="op">=</span> pd.Series([], dtype <span class="op">=</span> <span class="st">'int64'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> piece <span class="kw">in</span> chunker:</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    tot <span class="op">=</span> tot.add(piece[<span class="st">"species"</span>].value_counts(), fill_value <span class="op">=</span> <span class="dv">0</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>tot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.io.parsers.readers.TextFileReader'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>Adelie       152.0
+Chinstrap     68.0
+Gentoo       124.0
+dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="import-semi-clean-data" class="level4">
+<h4 class="anchored" data-anchor-id="import-semi-clean-data">Import Semi-Clean Data</h4>
+<p><strong>Unclean data issues</strong> skips rows, comments, punctuation, etc.</p>
+<p>We can import a subset of the columns using <code>usecols</code> and change their names (<code>header = 0</code>; <code>names = [list]</code>).</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>penguins_custom <span class="op">=</span> pd.read_csv(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/penguins.csv"</span>, </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  usecols <span class="op">=</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">6</span>],</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  header <span class="op">=</span> <span class="dv">0</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  names <span class="op">=</span> [<span class="st">"Species"</span>, <span class="st">"Island"</span>, <span class="st">"Sex"</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>penguins_custom.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Species</th>
+      <th>Island</th>
+      <th>Sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="writing-data-to-text-format" class="level3">
+<h3 class="anchored" data-anchor-id="writing-data-to-text-format">Writing Data to Text Format</h3>
+<p>To write to a csv file, we can use pandas DataFrame’s <code>to_csv</code> method with <code>index = False</code> so the row numbers are not stored in the first column. Missing values are written as empty strings, we can specify a placeholder with <code>na_rep = "NA"</code>:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>penguins_custom.to_csv(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/penguins_custom.csv"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  index <span class="op">=</span> <span class="va">False</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  na_rep <span class="op">=</span> <span class="st">"NA"</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 56.2%;justify-content: center;">
+<p><img src="images/penguins_custom_noArgs.png" class="img-fluid" width="317"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 43.8%;justify-content: center;">
+<p><img src="images/penguins_custom.png" class="img-fluid" width="247"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="working-with-other-delimited-formats" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-other-delimited-formats">Working with Other Delimited Formats</h3>
+<section id="reading" class="level4">
+<h4 class="anchored" data-anchor-id="reading">Reading</h4>
+<p>In case your tabular data makes pandas trip up and you need a little extra manual processing, you can use Python’s built in <code>csv</code> module.</p>
+<p>Let’s read in the penguins dataset the hard, manual way.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>penguin_reader <span class="op">=</span> csv.reader(penguins)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(penguin_reader)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;_csv.reader object at 0x0000026704996340&gt;</code></pre>
+</div>
+</div>
+<p>Now we have the <code>_csv_reader</code> object.</p>
+<p>Next, Wes iterated through the reader to print the lines, which seems to only give me the row with my headings.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> penguin_reader:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(line)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['species']
+['island']
+['bill_length_mm']
+['bill_depth_mm']
+['flipper_length_mm']
+['body_mass_g']
+['sex']
+['month']
+['day']
+['year']</code></pre>
+</div>
+</div>
+<p>We’ll keep following along to wrangle it into a form we can use:</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data/penguins.csv"</span>) <span class="im">as</span> penguin_reader:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  lines <span class="op">=</span> <span class="bu">list</span>(csv.reader(penguin_reader))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>header, values <span class="op">=</span> lines[<span class="dv">0</span>], lines[<span class="dv">1</span>:]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(header)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(values[<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm', 'body_mass_g', 'sex', 'month', 'day', 'year']
+['Adelie', 'Torgersen', '39.3', '20.6', '190', '3650', 'male', '3', '3', '2007']</code></pre>
+</div>
+</div>
+<p>Now we have two lists: header and values. We use a dictionary of data columns and the expression <code>zip(*values)</code>. This combination of dictionary comprehension and expression is generally faster than iterating through a loop. However, Wes warns that this can use a lot of memory on large files.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>penguin_dict <span class="op">=</span> {h: v <span class="cf">for</span> h, v <span class="kw">in</span> <span class="bu">zip</span>(header, <span class="bu">zip</span>(<span class="op">*</span>values))}</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># too big to print and I'm not sure how to print a select few key-value pairs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Recall
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a reminder on dictionary comprehensions, see <a href="https://wesmckinney.com/book/python-builtin.html#comprehensions">Chapter 3</a>.</p>
+</div>
+</div>
+<p>Now to finally get this into a usable dataframe we’ll use pandas DataFrame <code>from_dict</code> method!</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>penguin_df <span class="op">=</span> pd.DataFrame.from_dict(penguin_dict)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>penguin_df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181</td>
+      <td>3750</td>
+      <td>male</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186</td>
+      <td>3800</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18</td>
+      <td>195</td>
+      <td>3250</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>NA</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193</td>
+      <td>3450</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="csv.dialect" class="level4">
+<h4 class="anchored" data-anchor-id="csv.dialect"><code>csv.Dialect</code></h4>
+<p>Since there are many kinds of delimited files, string quoting conventions, and line terminators, you may find yourself wanting to define a “Dialect” to read in your delimited file. The options available are found in <a href="https://wesmckinney.com/book/accessing-data.html#tbl-table_csv_dialect">Table 6.3</a>.</p>
+<p>You can either define a <code>csv.Dialect</code> subclass or pass dialect parameters to <code>csv.reader</code>.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># option 1</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co">## define a dialect subclass</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> my_dialect(csv.Dialect):</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    lineterminator <span class="op">=</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    delimiter <span class="op">=</span> <span class="st">";"</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    quotechar <span class="op">=</span> <span class="st">'"'</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    quoting <span class="op">=</span> csv.QUOTE_MINIMAL</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co">## use the subclass</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>reader <span class="op">=</span> csv.reader(penguins, dialect <span class="op">=</span> my_dialect)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># option 2</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="co">## pass just dialect parameters</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>reader <span class="op">=</span> csv.reader(penguins, delimiter <span class="op">=</span> <span class="st">","</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Recap for when to use what?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For most data, pandas <code>read_*</code> functions, plus the overwhelming number of options, will likely get you close to what you need.</p>
+<p>If there are additional, minor wrangling needs, you can try using Python’s <code>csv.reader</code> with either a <code>csv.Dialect</code> subclass or just by passing in dialect parameters.</p>
+<p>If you have complicated or multicharacter delimiters, you’ll likely need to import the string module and use the <code>split</code> method or regular expression method <code>re.split</code>.</p>
+</div>
+</div>
+</section>
+<section id="writing" class="level4">
+<h4 class="anchored" data-anchor-id="writing">Writing</h4>
+<p><code>csv.writer</code> is the companion to <code>csv.reader</code> with the same dialect and format options. The first argument in <code>open</code> is the path and filename you want to write to and the second argument <code>"w"</code> makes the file writeable.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://docs.python.org/3/library/csv.html#id3">Python documentation</a> notes that <code>newline=""</code> should be specified in case there are newlines embedded inside quoted fields to ensure they are interpreted correctly.</p>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">"data/write_data.csv"</span>, <span class="st">"w"</span>, newline <span class="op">=</span> <span class="st">""</span>) <span class="im">as</span> f:</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    writer <span class="op">=</span> csv.writer(f, dialect <span class="op">=</span> my_dialect)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    writer.writerow((<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>))</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    writer.writerow((<span class="st">"1"</span>, <span class="st">"2"</span>, <span class="st">"3"</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    writer.writerow((<span class="st">"4"</span>, <span class="st">"5"</span>, <span class="st">"6"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    writer.writerow((<span class="st">"7"</span>, <span class="st">"8"</span>, <span class="st">"9"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="javascript-object-notation-json-data" class="level4">
+<h4 class="anchored" data-anchor-id="javascript-object-notation-json-data">JavaScript Object Notation (JSON) Data</h4>
+<p>Standard format for HTTP requests between web browsers, applications, and APIs. Its almost valid Python code:</p>
+<ul>
+<li><p>Instead of <code>NaN</code>, it uses <code>null</code></p></li>
+<li><p>Doesn’t allow trailing commas at end of lists</p></li>
+<li><p>Data types: objects (dictionaries), arrays (lists), strings, numbers, booleans, and nulls.</p></li>
+</ul>
+<p>We’ll make up a simple file of my pets’ names, types, and sex to demonstrate JSON data loading and writing.</p>
+<p><img src="images/mts.jpg" class="img-fluid" width="319"></p>
+<p>Import the json module and use <code>json.loads</code> to convert a JSON string to Python. There are multiple ways to convert JSON objects to a DataFrame.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>obj <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="st">{"name": "Jadey",</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="st"> "pets": [{"name": "Mai", "type": "cat", "sex": "Female"},</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="st">          {"name": "Tai", "type": "cat", "sex": "Male"},</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="st">          {"name": "Skye", "type": "cat", "sex": "Female"}]</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="st">"""</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>json_to_py <span class="op">=</span> json.loads(obj)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(json_to_py)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(json_to_py)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'name': 'Jadey', 'pets': [{'name': 'Mai', 'type': 'cat', 'sex': 'Female'}, {'name': 'Tai', 'type': 'cat', 'sex': 'Male'}, {'name': 'Skye', 'type': 'cat', 'sex': 'Female'}]}</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="53">
+<pre><code>dict</code></pre>
+</div>
+</div>
+<p>Since this imported the object as a dictionary, we can use <code>pd.DataFrame</code> to create a DataFrame of the pets’ names, type, and sex.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pets_df <span class="op">=</span> pd.DataFrame(json_to_py[<span class="st">"pets"</span>], columns <span class="op">=</span> [<span class="st">"name"</span>, <span class="st">"type"</span>, <span class="st">"sex"</span>])</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(pets_df))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>pets_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>type</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mai</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tai</td>
+      <td>cat</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Skye</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Use <code>json.dumps</code> to convert from Python (class: dictionary) back to JSON (class: string).</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>py_to_json <span class="op">=</span> json.dumps(json_to_py)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"json_to_py type:"</span>, <span class="bu">type</span>(json_to_py))</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"py_to_json type:"</span>, <span class="bu">type</span>(py_to_json))</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>py_to_json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>json_to_py type: &lt;class 'dict'&gt;
+py_to_json type: &lt;class 'str'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>'{"name": "Jadey", "pets": [{"name": "Mai", "type": "cat", "sex": "Female"}, {"name": "Tai", "type": "cat", "sex": "Male"}, {"name": "Skye", "type": "cat", "sex": "Female"}]}'</code></pre>
+</div>
+</div>
+<p>We can use pandas <code>pd.read_json</code> function and <code>to_json</code> DataFrame method to read and write JSON files.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>pets_df.to_json(<span class="st">"data/pets.json"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can easily import a JSON file using <code>pandas.read_json</code>.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pet_data <span class="op">=</span> pd.read_json(<span class="st">"data/pets.json"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>pet_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>type</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mai</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tai</td>
+      <td>cat</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Skye</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="web-scraping" class="level3">
+<h3 class="anchored" data-anchor-id="web-scraping">Web Scraping</h3>
+<section id="html" class="level4">
+<h4 class="anchored" data-anchor-id="html">HTML</h4>
+<p><code>pd.read_html</code> uses libraries to read and write HTML and XML:</p>
+<ul>
+<li><p>Try: xlml [faster]</p></li>
+<li><p>Catch: beautifulsoup4 and html5lib [better equipped for malformed files]</p></li>
+</ul>
+<p>If you want to specify which parsing engine is used, you can use the <code>flavor</code> argument.</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tables <span class="op">=</span> pd.read_html(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://www.fdic.gov/resources/resolutions/bank-failures/failed-bank-list/"</span>, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  flavor <span class="op">=</span> <span class="st">"html5lib"</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Table Length:"</span>, <span class="bu">len</span>(tables))</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># since this outputs a list of tables, we can grab just the first table</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>tables[<span class="dv">0</span>].head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Table Length: 1</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Bank NameBank</th>
+      <th>CityCity</th>
+      <th>StateSt</th>
+      <th>CertCert</th>
+      <th>Acquiring InstitutionAI</th>
+      <th>Closing DateClosing</th>
+      <th>FundFund</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Almena State Bank</td>
+      <td>Almena</td>
+      <td>KS</td>
+      <td>15426</td>
+      <td>Equity Bank</td>
+      <td>October 23, 2020</td>
+      <td>10538</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>First City Bank of Florida</td>
+      <td>Fort Walton Beach</td>
+      <td>FL</td>
+      <td>16748</td>
+      <td>United Fidelity Bank, fsb</td>
+      <td>October 16, 2020</td>
+      <td>10537</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>The First State Bank</td>
+      <td>Barboursville</td>
+      <td>WV</td>
+      <td>14361</td>
+      <td>MVB Bank, Inc.</td>
+      <td>April 3, 2020</td>
+      <td>10536</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ericson State Bank</td>
+      <td>Ericson</td>
+      <td>NE</td>
+      <td>18265</td>
+      <td>Farmers and Merchants Bank</td>
+      <td>February 14, 2020</td>
+      <td>10535</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>City National Bank of New Jersey</td>
+      <td>Newark</td>
+      <td>NJ</td>
+      <td>21111</td>
+      <td>Industrial Bank</td>
+      <td>November 1, 2019</td>
+      <td>10534</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="xml" class="level4">
+<h4 class="anchored" data-anchor-id="xml">XML</h4>
+<p>XML format is more general than HTML, but they are structurally similar. See <a href="https://pandas.pydata.org/docs/reference/api/pandas.read_xml.html">pandas documentation</a> for <code>pd.read_xml</code>.</p>
+<p>This snippet of an xml file is from <a href="https://docs.microsoft.com/en-us/previous-versions/windows/desktop/ms762271(v=vs.85)">Microsoft</a>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode xml code-with-copy"><code class="sourceCode xml"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">catalog</span>&gt;</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">book</span><span class="ot"> id=</span><span class="st">"bk101"</span>&gt;</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">author</span>&gt;Gambardella, Matthew&lt;/<span class="kw">author</span>&gt;</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">title</span>&gt;XML Developer's Guide&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">genre</span>&gt;Computer&lt;/<span class="kw">genre</span>&gt;</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">price</span>&gt;44.95&lt;/<span class="kw">price</span>&gt;</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">publish_date</span>&gt;2000-10-01&lt;/<span class="kw">publish_date</span>&gt;</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">description</span>&gt;An in-depth look at creating applications </span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>      with XML.&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">book</span>&gt;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>books <span class="op">=</span> pd.read_xml(<span class="st">"data/books.xml"</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>books.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>id</th>
+      <th>author</th>
+      <th>title</th>
+      <th>genre</th>
+      <th>price</th>
+      <th>publish_date</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>bk101</td>
+      <td>Gambardella, Matthew</td>
+      <td>XML Developer's Guide</td>
+      <td>Computer</td>
+      <td>44.95</td>
+      <td>2000-10-01</td>
+      <td>An in-depth look at creating applications \n  ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>bk102</td>
+      <td>Ralls, Kim</td>
+      <td>Midnight Rain</td>
+      <td>Fantasy</td>
+      <td>5.95</td>
+      <td>2000-12-16</td>
+      <td>A former architect battles corporate zombies, ...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>bk103</td>
+      <td>Corets, Eva</td>
+      <td>Maeve Ascendant</td>
+      <td>Fantasy</td>
+      <td>5.95</td>
+      <td>2000-11-17</td>
+      <td>After the collapse of a nanotechnology \n     ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>bk104</td>
+      <td>Corets, Eva</td>
+      <td>Oberon's Legacy</td>
+      <td>Fantasy</td>
+      <td>5.95</td>
+      <td>2001-03-10</td>
+      <td>In post-apocalypse England, the mysterious \n ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>bk105</td>
+      <td>Corets, Eva</td>
+      <td>The Sundered Grail</td>
+      <td>Fantasy</td>
+      <td>5.95</td>
+      <td>2001-09-10</td>
+      <td>The two daughters of Maeve, half-sisters, \n  ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>If you’d like to manually parse a file, Wes demonstrates this process in the <a href="https://wesmckinney.com/book/accessing-data.html#io_file_formats_xml">textbook</a>, before demonstrating how the following steps are turned into one line of code using <code>pd.read_xml</code>.</p>
+<ol type="1">
+<li><code>from lxml import objectify</code></li>
+<li>Use <code>lxml.objectify</code>,</li>
+<li>Create a dictionary of tag names to data values</li>
+<li>Cnvert that list of dictionaries into a DataFrame.</li>
+</ol>
+</section>
+</section>
+<section id="binary-data-formats" class="level3">
+<h3 class="anchored" data-anchor-id="binary-data-formats">Binary Data Formats</h3>
+<section id="pickle" class="level4">
+<h4 class="anchored" data-anchor-id="pickle">Pickle</h4>
+<p>Python has a built-in <code>pickle</code> module that converts pandas objects into the pickle format (serializes the data into a byte stream), which is generally readable only in Python.</p>
+<p>More information can be found in Python <a href="https://docs.python.org/3/library/pickle.html">documentation</a>.</p>
+<p>Here’s a demo to show pickling and unpickling the penguins dataset.</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Unpickled penguins type:"</span>, <span class="bu">type</span>(penguins))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>penguins.to_pickle(<span class="st">"data/penguins_pickle"</span>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># do some machine learning</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>pickled_penguins <span class="op">=</span> pd.read_pickle(<span class="st">"data/penguins_pickle"</span>)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>pickled_penguins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Unpickled penguins type: &lt;class 'pandas.core.frame.DataFrame'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+      <td>4</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+      <td>3</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+      <td>7</td>
+      <td>22</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>13</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Adelie</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+      <td>8</td>
+      <td>21</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>339</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>55.8</td>
+      <td>19.8</td>
+      <td>207.0</td>
+      <td>4000.0</td>
+      <td>male</td>
+      <td>6</td>
+      <td>4</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>340</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>43.5</td>
+      <td>18.1</td>
+      <td>202.0</td>
+      <td>3400.0</td>
+      <td>female</td>
+      <td>6</td>
+      <td>8</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>49.6</td>
+      <td>18.2</td>
+      <td>193.0</td>
+      <td>3775.0</td>
+      <td>male</td>
+      <td>4</td>
+      <td>8</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>342</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>50.8</td>
+      <td>19.0</td>
+      <td>210.0</td>
+      <td>4100.0</td>
+      <td>male</td>
+      <td>8</td>
+      <td>24</td>
+      <td>2009</td>
+    </tr>
+    <tr>
+      <th>343</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>50.2</td>
+      <td>18.7</td>
+      <td>198.0</td>
+      <td>3775.0</td>
+      <td>female</td>
+      <td>2</td>
+      <td>11</td>
+      <td>2009</td>
+    </tr>
+  </tbody>
+</table>
+<p>344 rows × 10 columns</p>
+</div>
+</div>
+</div>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>pickle</code> is recommended only as a short-term storage format (i.e.&nbsp;loading and unloading your machine learning models) because the format may not be stable over time. Also, the module is not secure – pickle data can be maliciously tampered with. <a href="https://docs.python.org/3/library/pickle.html">Python docs</a> recommend signing data with <code>hmac</code> to ensure it hasn’t been tampered with.</p>
+</div>
+</div>
+</section>
+<section id="microsoft-excel-files" class="level4">
+<h4 class="anchored" data-anchor-id="microsoft-excel-files">Microsoft Excel Files</h4>
+<p><code>pd.ExcelFile</code> class or <code>pd.read_excel</code> functions use packages <code>xlrd</code> (for older .xlx files) and <code>openpyxl</code> (for newer .xlsx files), which must be installed separately from pandas.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install xlrd openpyxl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>pd.read_excel</code> takes most of the same arguments as <code>pd.read_csv</code>.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>penguins_excel <span class="op">=</span> pd.read_excel(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"data/penguins.xlsx"</span>, </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  index_col <span class="op">=</span> <span class="st">"species"</span>,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  parse_dates <span class="op">=</span> {<span class="st">"date"</span>: [<span class="st">"month"</span>, <span class="st">"day"</span>, <span class="st">"year"</span>]}</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>penguins_excel.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>date</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+    </tr>
+    <tr>
+      <th>species</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Adelie</th>
+      <td>2007-04-10</td>
+      <td>Torgersen</td>
+      <td>39.1</td>
+      <td>18.7</td>
+      <td>181.0</td>
+      <td>3750.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>2007-03-06</td>
+      <td>Torgersen</td>
+      <td>39.5</td>
+      <td>17.4</td>
+      <td>186.0</td>
+      <td>3800.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>2007-07-22</td>
+      <td>Torgersen</td>
+      <td>40.3</td>
+      <td>18.0</td>
+      <td>195.0</td>
+      <td>3250.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>2007-02-13</td>
+      <td>Torgersen</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>Adelie</th>
+      <td>2007-08-21</td>
+      <td>Torgersen</td>
+      <td>36.7</td>
+      <td>19.3</td>
+      <td>193.0</td>
+      <td>3450.0</td>
+      <td>female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>To read multiple sheets, use <code>pd.ExcelFile</code>.</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>penguins_sheets <span class="op">=</span> pd.ExcelFile(<span class="st">"data/penguins_sheets.xlsx"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Available sheet names:"</span>, penguins_sheets.sheet_names)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>penguins_sheets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Available sheet names: ['chinstrap', 'gentoo', 'adelie']</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>&lt;pandas.io.excel._base.ExcelFile at 0x26705acdd90&gt;</code></pre>
+</div>
+</div>
+<p>Then we can <code>parse</code> all sheets into a dictionary by specifying the <code>sheet_name</code> argument as <code>None</code>. Or, we can read in a subset of sheets.</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sheets <span class="op">=</span> penguins_sheets.parse(sheet_name <span class="op">=</span> <span class="va">None</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>sheets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>{'chinstrap':       species island  bill_length_mm  bill_depth_mm  flipper_length_mm  \
+ 0   Chinstrap  Dream            46.5           17.9                192   
+ 1   Chinstrap  Dream            50.0           19.5                196   
+ 2   Chinstrap  Dream            51.3           19.2                193   
+ 3   Chinstrap  Dream            45.4           18.7                188   
+ 4   Chinstrap  Dream            52.7           19.8                197   
+ ..        ...    ...             ...            ...                ...   
+ 63  Chinstrap  Dream            55.8           19.8                207   
+ 64  Chinstrap  Dream            43.5           18.1                202   
+ 65  Chinstrap  Dream            49.6           18.2                193   
+ 66  Chinstrap  Dream            50.8           19.0                210   
+ 67  Chinstrap  Dream            50.2           18.7                198   
+ 
+     body_mass_g     sex  month  day  year  
+ 0          3500  female      7    4  2007  
+ 1          3900    male      9    6  2007  
+ 2          3650    male      4   15  2007  
+ 3          3525  female      6   10  2007  
+ 4          3725    male      8   19  2007  
+ ..          ...     ...    ...  ...   ...  
+ 63         4000    male      6    4  2009  
+ 64         3400  female      6    8  2009  
+ 65         3775    male      4    8  2009  
+ 66         4100    male      8   24  2009  
+ 67         3775  female      2   11  2009  
+ 
+ [68 rows x 10 columns],
+ 'gentoo':     species  island  bill_length_mm  bill_depth_mm  flipper_length_mm  \
+ 0    Gentoo  Biscoe            46.1           13.2              211.0   
+ 1    Gentoo  Biscoe            50.0           16.3              230.0   
+ 2    Gentoo  Biscoe            48.7           14.1              210.0   
+ 3    Gentoo  Biscoe            50.0           15.2              218.0   
+ 4    Gentoo  Biscoe            47.6           14.5              215.0   
+ ..      ...     ...             ...            ...                ...   
+ 119  Gentoo  Biscoe             NaN            NaN                NaN   
+ 120  Gentoo  Biscoe            46.8           14.3              215.0   
+ 121  Gentoo  Biscoe            50.4           15.7              222.0   
+ 122  Gentoo  Biscoe            45.2           14.8              212.0   
+ 123  Gentoo  Biscoe            49.9           16.1              213.0   
+ 
+      body_mass_g     sex  month  day  year  
+ 0         4500.0  female      3    8  2007  
+ 1         5700.0    male      2    4  2007  
+ 2         4450.0  female      7    1  2007  
+ 3         5700.0    male      9   15  2007  
+ 4         5400.0    male     11   19  2007  
+ ..           ...     ...    ...  ...   ...  
+ 119          NaN     NaN     12   11  2009  
+ 120       4850.0  female      7   20  2009  
+ 121       5750.0    male      9   18  2009  
+ 122       5200.0  female     12   11  2009  
+ 123       5400.0    male      6   15  2009  
+ 
+ [124 rows x 10 columns],
+ 'adelie':     species     island  bill_length_mm  bill_depth_mm  flipper_length_mm  \
+ 0    Adelie  Torgersen            39.1           18.7              181.0   
+ 1    Adelie  Torgersen            39.5           17.4              186.0   
+ 2    Adelie  Torgersen            40.3           18.0              195.0   
+ 3    Adelie  Torgersen             NaN            NaN                NaN   
+ 4    Adelie  Torgersen            36.7           19.3              193.0   
+ ..      ...        ...             ...            ...                ...   
+ 147  Adelie      Dream            36.6           18.4              184.0   
+ 148  Adelie      Dream            36.0           17.8              195.0   
+ 149  Adelie      Dream            37.8           18.1              193.0   
+ 150  Adelie      Dream            36.0           17.1              187.0   
+ 151  Adelie      Dream            41.5           18.5              201.0   
+ 
+      body_mass_g     sex  month  day  year  
+ 0         3750.0    male      4   10  2007  
+ 1         3800.0  female      3    6  2007  
+ 2         3250.0  female      7   22  2007  
+ 3            NaN     NaN      2   13  2007  
+ 4         3450.0  female      8   21  2007  
+ ..           ...     ...    ...  ...   ...  
+ 147       3475.0  female     11    4  2009  
+ 148       3450.0  female      5   21  2009  
+ 149       3750.0    male      8   15  2009  
+ 150       3700.0  female      1   16  2009  
+ 151       4000.0    male      5    8  2009  
+ 
+ [152 rows x 10 columns]}</code></pre>
+</div>
+</div>
+<p>Then we can subset one of the sheets as a pandas DataFrame object.</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>chinstrap <span class="op">=</span> sheets[<span class="st">"chinstrap"</span>].head(<span class="dv">5</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>chinstrap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>species</th>
+      <th>island</th>
+      <th>bill_length_mm</th>
+      <th>bill_depth_mm</th>
+      <th>flipper_length_mm</th>
+      <th>body_mass_g</th>
+      <th>sex</th>
+      <th>month</th>
+      <th>day</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>46.5</td>
+      <td>17.9</td>
+      <td>192</td>
+      <td>3500</td>
+      <td>female</td>
+      <td>7</td>
+      <td>4</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>50.0</td>
+      <td>19.5</td>
+      <td>196</td>
+      <td>3900</td>
+      <td>male</td>
+      <td>9</td>
+      <td>6</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>51.3</td>
+      <td>19.2</td>
+      <td>193</td>
+      <td>3650</td>
+      <td>male</td>
+      <td>4</td>
+      <td>15</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>45.4</td>
+      <td>18.7</td>
+      <td>188</td>
+      <td>3525</td>
+      <td>female</td>
+      <td>6</td>
+      <td>10</td>
+      <td>2007</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Chinstrap</td>
+      <td>Dream</td>
+      <td>52.7</td>
+      <td>19.8</td>
+      <td>197</td>
+      <td>3725</td>
+      <td>male</td>
+      <td>8</td>
+      <td>19</td>
+      <td>2007</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Write one sheet to using <code>to_excel:</code></p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>chinstrap.to_excel(<span class="st">"data/chinstrap.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you want to write to multiple sheets, create an <code>ExcelWriter</code> class and then write the data to it:</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>gentoo <span class="op">=</span> sheets[<span class="st">"gentoo"</span>].head(<span class="dv">5</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>writer <span class="op">=</span> pd.ExcelWriter(<span class="st">"data/chinstrap_gentoo.xlsx"</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>chinstrap.to_excel(writer, sheet_name <span class="op">=</span> <span class="st">"chinstrap"</span>)</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>gentoo.to_excel(writer, sheet_name <span class="op">=</span> <span class="st">"gentoo"</span>)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>writer.save()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="hdf5-format" class="level4">
+<h4 class="anchored" data-anchor-id="hdf5-format">HDF5 Format</h4>
+<p>Hierarchical data format (HDF) is used in Python, C, Java, Julia, MATLAB, and others for storing big scientific array data (multiple datasets and metadata within one file). HDF5 can be used to efficiently read/write chunks of large arrays.</p>
+<p>The PyTables package must first be installed.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytables</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install tables <span class="co"># the package is called "tables" in PyPI</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>pandas provides an dictionary-like-class for HDF5 files called <code>HDFStore</code>:</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>store <span class="op">=</span> pd.HDFStore(<span class="st">"data/pets.h5"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>store[<span class="st">"pets"</span>] <span class="op">=</span> pets_df</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>store[<span class="st">"pets"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>type</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mai</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tai</td>
+      <td>cat</td>
+      <td>Male</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Skye</td>
+      <td>cat</td>
+      <td>Female</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p><code>HDFStore</code> can store data as a <code>fixed</code> or as a <code>table</code> schema. Table allows querying but is generally slower.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>pets_df.to_hdf(<span class="st">"data/petnames.h5"</span>, <span class="st">"pets"</span>, <span class="bu">format</span> <span class="op">=</span> <span class="st">"table"</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pd.read_hdf(<span class="st">"data/petnames.h5"</span>, <span class="st">"pets"</span>, where<span class="op">=</span>[<span class="st">"columns = name"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="68">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mai</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tai</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Skye</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+When should I use HDF5?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wes recommends using HDF5 for write-once, read-many datasets that are worked with locally. If your data is stored on remote servers, then you may try other binary formats designed for distributed storage (for example, <a href="https://parquet.apache.org/">Apache Parquet</a>).</p>
+</div>
+</div>
+</section>
+</section>
+<section id="interacting-with-web-apis" class="level3">
+<h3 class="anchored" data-anchor-id="interacting-with-web-apis">Interacting with Web APIs</h3>
+<p>To access data from APIs, Wes suggests using the <a href="http://docs.python-requests.org/">requests</a> package.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s pull from this free zoo animal API.</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">"https://zoo-animal-api.herokuapp.com/animals/rand"</span></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> requests.get(url)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>resp.raise_for_status()</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"HTTP status"</span>, resp)</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>animal <span class="op">=</span> resp.json()</span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>animal</span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>animal_df <span class="op">=</span> pd.DataFrame([animal]) <span class="co"># important to wrap the dictionary object into a list</span></span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>animal_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>HTTP status &lt;Response [200]&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>latin_name</th>
+      <th>animal_type</th>
+      <th>active_time</th>
+      <th>length_min</th>
+      <th>length_max</th>
+      <th>weight_min</th>
+      <th>weight_max</th>
+      <th>lifespan</th>
+      <th>habitat</th>
+      <th>diet</th>
+      <th>geo_range</th>
+      <th>image_link</th>
+      <th>id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brazilian Porcupine</td>
+      <td>Coendou prehensilis</td>
+      <td>Mammal</td>
+      <td>Nocturnal</td>
+      <td>1.5</td>
+      <td>1.7</td>
+      <td>9</td>
+      <td>11</td>
+      <td>17</td>
+      <td>Tropical rainforest</td>
+      <td>Leaves, bark, fruits, shoots and small animals</td>
+      <td>Northern and eastern South America</td>
+      <td>https://upload.wikimedia.org/wikipedia/commons...</td>
+      <td>45</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is important to note that the dictionary is wrapped into a list. If it isn’t, then you will get the following error: <code>ValueError: If using all scalar values, you must pass an index</code>.</p>
+</div>
+</div>
+</section>
+<section id="interacting-with-databases" class="level3">
+<h3 class="anchored" data-anchor-id="interacting-with-databases">Interacting with Databases</h3>
+<p>Some popular SQL-based relational databases are: SQL Server, PostgreSQL, MySQL, SQLite3. We can use pandas to load the results of a SQL query into a DataFrame.</p>
+<p>Import sqlite3 and create a database.</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(<span class="st">"data/data.sqlite"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This creates a table.</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="st">  CREATE TABLE states</span></span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="st">  (Capital VARCHAR(20), State VARCHAR(20),</span></span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="st">  x1 REAL, x2 INTEGER</span></span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="st">);"""</span></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>con.execute(query)</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>con.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This inserts the rows of data:</p>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [(<span class="st">"Atlanta"</span>, <span class="st">"Georgia"</span>, <span class="fl">1.25</span>, <span class="dv">6</span>), (<span class="st">"Seattle"</span>, <span class="st">"Washington"</span>, <span class="fl">2.6</span>, <span class="dv">3</span>), (<span class="st">"Sacramento"</span>, <span class="st">"California"</span>, <span class="fl">1.7</span>, <span class="dv">5</span>)]</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>stmt <span class="op">=</span> <span class="st">"INSERT INTO states VALUES(?, ?, ?, ?)"</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>con.executemany(stmt, data)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>con.commit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can look at the data:</p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> con.execute(<span class="st">"SELECT * FROM states"</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> cursor.fetchall()</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>[('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5),
+ ('Atlanta', 'Georgia', 1.25, 6),
+ ('Seattle', 'Washington', 2.6, 3),
+ ('Sacramento', 'California', 1.7, 5)]</code></pre>
+</div>
+</div>
+<p>To get the data into a pandas DataFrame, we’ll need to provide column names in the <code>cursor.description</code>.</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cursor.description)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(rows, columns <span class="op">=</span> [x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="kw">in</span> cursor.description])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(('Capital', None, None, None, None, None, None), ('State', None, None, None, None, None, None), ('x1', None, None, None, None, None, None), ('x2', None, None, None, None, None, None))</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Capital</th>
+      <th>State</th>
+      <th>x1</th>
+      <th>x2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>As per usual, Wes likes to show us the manual way first and then the easier version. Using <a href="http://www.sqlalchemy.org/">SQLAlchemy</a>, we can must less verbosely create our DataFrame.</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlalchemy <span class="im">as</span> sqla</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> sqla.create_engine(<span class="st">"sqlite:///data/data.sqlite"</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>pd.read_sql(<span class="st">"SELECT * FROM states"</span>, db)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Capital</th>
+      <th>State</th>
+      <th>x1</th>
+      <th>x2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Atlanta</td>
+      <td>Georgia</td>
+      <td>1.25</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Seattle</td>
+      <td>Washington</td>
+      <td>2.60</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Sacramento</td>
+      <td>California</td>
+      <td>1.70</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06_main.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">6. Data Loading, Storage, and File Formats</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06_video.html" class="pagination-link">
+        <span class="nav-page-text">Video</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-right">1850 depiction of Ptilocercus lowii</div>
+  </div>
+</footer>
+
+
+
+</body></html>
