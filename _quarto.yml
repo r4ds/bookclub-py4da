@@ -69,4 +69,4 @@ format:
     fontsize: 16pt
 
 execute:
-  freeze: auto
+  freeze: true
