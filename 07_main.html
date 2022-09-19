@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -60,6 +123,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -370,6 +436,31 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">7.1 Handling Missing Data</a>
+  <ul class="collapse">
+  <li><a href="#filtering-missing-data" id="toc-filtering-missing-data" class="nav-link" data-scroll-target="#filtering-missing-data">Filtering Missing Data</a></li>
+  </ul></li>
+  <li><a href="#data-transformation" id="toc-data-transformation" class="nav-link" data-scroll-target="#data-transformation">7.2 Data Transformation</a>
+  <ul class="collapse">
+  <li><a href="#removing-duplicates" id="toc-removing-duplicates" class="nav-link" data-scroll-target="#removing-duplicates">Removing Duplicates</a></li>
+  <li><a href="#transforming-data-with-a-function-or-mapping" id="toc-transforming-data-with-a-function-or-mapping" class="nav-link" data-scroll-target="#transforming-data-with-a-function-or-mapping">Transforming Data with a Function or Mapping</a></li>
+  <li><a href="#replace-values" id="toc-replace-values" class="nav-link" data-scroll-target="#replace-values">Replace Values</a></li>
+  <li><a href="#renaming-axis-indices" id="toc-renaming-axis-indices" class="nav-link" data-scroll-target="#renaming-axis-indices">Renaming Axis Indices</a></li>
+  <li><a href="#discretization-and-binning" id="toc-discretization-and-binning" class="nav-link" data-scroll-target="#discretization-and-binning">Discretization and Binning</a></li>
+  <li><a href="#detecting-and-filtering-outliers" id="toc-detecting-and-filtering-outliers" class="nav-link" data-scroll-target="#detecting-and-filtering-outliers">Detecting and Filtering Outliers</a></li>
+  <li><a href="#permutation-and-random-sampling" id="toc-permutation-and-random-sampling" class="nav-link" data-scroll-target="#permutation-and-random-sampling">Permutation and Random Sampling</a></li>
+  <li><a href="#computing-indicatordummy-vars" id="toc-computing-indicatordummy-vars" class="nav-link" data-scroll-target="#computing-indicatordummy-vars">Computing Indicator/Dummy Vars</a></li>
+  </ul></li>
+  <li><a href="#extension-data-types" id="toc-extension-data-types" class="nav-link" data-scroll-target="#extension-data-types">7.3 Extension Data Types</a></li>
+  <li><a href="#string-manipulation" id="toc-string-manipulation" class="nav-link" data-scroll-target="#string-manipulation">7.4 String Manipulation</a>
+  <ul class="collapse">
+  <li><a href="#regular-expressions" id="toc-regular-expressions" class="nav-link" data-scroll-target="#regular-expressions">Regular Expressions</a></li>
+  <li><a href="#string-functions" id="toc-string-functions" class="nav-link" data-scroll-target="#string-functions">String Functions</a></li>
+  </ul></li>
+  <li><a href="#categorical-data" id="toc-categorical-data" class="nav-link" data-scroll-target="#categorical-data">7.5 Categorical Data</a>
+  <ul class="collapse">
+  <li><a href="#computations-with-categoricals" id="toc-computations-with-categoricals" class="nav-link" data-scroll-target="#computations-with-categoricals">Computations with Categoricals</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -394,8 +485,1940 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<ul>
+<li>Know which tools to use for missing data</li>
+<li>Know how to filter out missing data</li>
+<li>Understand methods to fill in missing values</li>
+<li>Know when and how to transform data</li>
+<li>Know how to use certain <code>numpy</code> functions to handle outliers, permute, and take random samples</li>
+<li>Know how to manipulate strings</li>
+<li>Understand some useful methods for regular expressions</li>
+<li>Learn about some helpful methods in <code>pandas</code> to explore strings</li>
+<li>Understand how to handle categorical data more optimally</li>
+</ul>
+<hr>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>food <span class="op">=</span> pd.read_csv(<span class="st">"https://openmv.net/file/food-consumption.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(food.head(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Country  Real coffee  Instant coffee  Tea  Sweetener  Biscuits  \
+0  Germany           90              49   88       19.0      57.0   
+1    Italy           82              10   60        2.0      55.0   
+2   France           88              42   63        4.0      76.0   
+3  Holland           96              62   98       32.0      62.0   
+4  Belgium           94              38   48       11.0      74.0   
+
+   Powder soup  Tin soup  Potatoes  Frozen fish  ...  Apples  Oranges  \
+0           51        19        21           27  ...      81       75   
+1           41         3         2            4  ...      67       71   
+2           53        11        23           11  ...      87       84   
+3           67        43         7           14  ...      83       89   
+4           37        23         9           13  ...      76       76   
+
+   Tinned fruit  Jam  Garlic  Butter  Margarine  Olive oil  Yoghurt  \
+0            44   71      22      91         85         74     30.0   
+1             9   46      80      66         24         94      5.0   
+2            40   45      88      94         47         36     57.0   
+3            61   81      15      31         97         13     53.0   
+4            42   57      29      84         80         83     20.0   
+
+   Crisp bread  
+0           26  
+1           18  
+2            3  
+3           15  
+4            5  
+
+[5 rows x 21 columns]</code></pre>
+</div>
+</div>
+<p><em>dataset: The relative consumption of certain food items in European and Scandinavian countries. The numbers represent the percentage of the population consuming that food type</em></p>
+</section>
+<section id="handling-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-data">7.1 Handling Missing Data</h2>
+<p>Some things to note:</p>
+<ul>
+<li><p>ALL DESCRIPTIVE STATISTICS ON <code>pandas</code> OBJECTS EXLUDE MISSING DATA - BY DEFAULT</p></li>
+<li><p><code>NaN</code> is used for missing values of type: <code>float64</code></p></li>
+<li><p>Values like <code>NaN</code> are called <em>sentinel values</em></p>
+<ul>
+<li><p>a value that is not part of the input but indicates a special meaning; a signal value</p></li>
+<li><p><code>NaN</code> for missing integers, <code>-1</code> as a value to be inserted in a function that computes only non-negative integers, etc.</p></li>
+</ul></li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(food.Yoghurt.isna())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0     False
+1     False
+2     False
+3     False
+4     False
+5     False
+6     False
+7     False
+8     False
+9     False
+10    False
+11    False
+12    False
+13     True
+14    False
+15    False
+Name: Yoghurt, dtype: bool</code></pre>
+</div>
+</div>
+<p>We do have an <code>NaN</code> in our midst!</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># descriptive stats</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.mean(food[<span class="st">'Yoghurt'</span>]), <span class="st">"</span><span class="ch">\n</span><span class="st"> versus"</span>, np.average(food[<span class="st">'Yoghurt'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>20.533333333333335 
+ versus nan</code></pre>
+</div>
+</div>
+<p>Different results! Why?? According to <code>numpy</code> documentation:</p>
+<p><code>np.mean</code> always calculates the arithmetic mean along a specified axis. The first argument requires the type to be of <code>int64</code> so will take the mean of those that fit. The average is taken over the flattened array by default. <code>np.average</code> computes the <em>weighted</em> average along the specified axis.</p>
+<p><code>sum(food.Yoghurt) –&gt; nan</code></p>
+<p>from <code>average</code> source:</p>
+<pre><code>        avg = avg_as_array = np.multiply(a, wgt,
+                          dtype=result_dtype).sum(axis, **keepdims_kw) / scl</code></pre>
+<p>from <code>mean</code> source:</p>
+<pre><code>if type(a) is not mu.ndarray:
+        try:
+            mean = a.mean
+        except AttributeError:
+            pass
+        else:
+            return mean(axis=axis, dtype=dtype, out=out, **kwargs)
+
+    return _methods._mean(a, axis=axis, dtype=dtype,
+                          out=out, **kwargs)</code></pre>
+<p>FYI: the <code>statistics</code> <a href="https://docs.python.org/3/library/statistics.html?highlight=mean#statistics.mean">module</a> includes <code>mean()</code></p>
+<p>Something weird to consider….</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.nan <span class="op">==</span> np.nan)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># apparently, according to the floating-point standard, NaN is not equal to itself!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>I digress…</p>
+<section id="filtering-missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-missing-data">Filtering Missing Data</h3>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># method dropna</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"`dropna`: option to include `how = all` to only remove rows where every value is NaN </span><span class="ch">\n</span><span class="st">"</span>,food.Yoghurt.dropna().tail(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">"`fillna`: pass fillna a dictionary (fillna({1: 0.5, 2: 0})) to specify a different value for each column</span><span class="ch">\n</span><span class="st">"</span>, food.Yoghurt.fillna(<span class="dv">0</span>).tail(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">"`isna`</span><span class="ch">\n</span><span class="st">"</span>, food.Yoghurt.isna().tail(), <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="st">"`notna`</span><span class="ch">\n</span><span class="st">"</span>, food.Yoghurt.notna().tail())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>`dropna`: option to include `how = all` to only remove rows where every value is NaN 
+ 10     2.0
+11    11.0
+12     2.0
+14    16.0
+15     3.0
+Name: Yoghurt, dtype: float64 
+ `fillna`: pass fillna a dictionary (fillna({1: 0.5, 2: 0})) to specify a different value for each column
+ 11    11.0
+12     2.0
+13     0.0
+14    16.0
+15     3.0
+Name: Yoghurt, dtype: float64 
+ `isna`
+ 11    False
+12    False
+13     True
+14    False
+15    False
+Name: Yoghurt, dtype: bool 
+ `notna`
+ 11     True
+12     True
+13    False
+14     True
+15     True
+Name: Yoghurt, dtype: bool</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="data-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="data-transformation">7.2 Data Transformation</h2>
+<section id="removing-duplicates" class="level3">
+<h3 class="anchored" data-anchor-id="removing-duplicates">Removing Duplicates</h3>
+<p>Check to see is duplicates exists:</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>food.duplicated()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>0     False
+1     False
+2     False
+3     False
+4     False
+5     False
+6     False
+7     False
+8     False
+9     False
+10    False
+11    False
+12    False
+13    False
+14    False
+15    False
+dtype: bool</code></pre>
+</div>
+</div>
+<p>If you were to have duplicates, you can use the function <code>drop_duplicates()</code>.</p>
+<p>*NOTE: by default, <code>drop_duplicates</code> will only return the first observed value*</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dup_food <span class="op">=</span> food[[<span class="st">'Yoghurt'</span>,<span class="st">'Yoghurt'</span>]]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dup_food.columns <span class="op">=</span> [<span class="st">'a'</span>,<span class="st">'b'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index 11,12 are dropped - dont understand this at all</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dup_food.drop_duplicates()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>57.0</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53.0</td>
+      <td>53.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>31.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>11.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>13.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>48.0</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>16.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># index 6, 10 are dropped- also dont understand this at all</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dup_food.drop_duplicates(keep <span class="op">=</span> <span class="st">'last'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>57.0</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53.0</td>
+      <td>53.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>31.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>13.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>48.0</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>16.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># again 11,12 are dropped - still dont understand - help</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>dup_food.drop_duplicates(subset<span class="op">=</span>[<span class="st">'a'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>30.0</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>57.0</td>
+      <td>57.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>53.0</td>
+      <td>53.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>20.0</td>
+      <td>20.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>31.0</td>
+      <td>31.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>11.0</td>
+      <td>11.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>6.0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>13.0</td>
+      <td>13.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>48.0</td>
+      <td>48.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>16.0</td>
+      <td>16.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="transforming-data-with-a-function-or-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-data-with-a-function-or-mapping">Transforming Data with a Function or Mapping</h3>
+<p>Since mapping a function over a series has already been covered, this section will only go over a few more helpful ways to map.</p>
+<ul>
+<li><p>define your own function - similar to how we would do in <code>apply</code> functions or <code>purrr:map()</code></p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>food_sub <span class="op">=</span> food[:<span class="dv">5</span>][[<span class="st">'Country'</span>,<span class="st">'Yoghurt'</span>]]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>country_yogurt <span class="op">=</span> {</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Germany'</span>:<span class="st">'Quark'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Italy'</span>:<span class="st">'Yomo'</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">'France'</span>:<span class="st">'Danone'</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Holland'</span>:<span class="st">'Campina'</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">'Belgium'</span>:<span class="st">'Activia'</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+</ul>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_yogurt(x):</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">return</span> country_yogurt[x]</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>food_sub[<span class="st">'Brand'</span>] <span class="op">=</span> food_sub[<span class="st">'Country'</span>].<span class="bu">map</span>(get_yogurt)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>food_sub[<span class="st">'Country'</span>].<span class="bu">map</span>(get_yogurt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>0      Quark
+1       Yomo
+2     Danone
+3    Campina
+4    Activia
+Name: Country, dtype: object</code></pre>
+</div>
+</div>
+</section>
+<section id="replace-values" class="level3">
+<h3 class="anchored" data-anchor-id="replace-values">Replace Values</h3>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"using `replace`: </span><span class="ch">\n</span><span class="st">"</span>, food_sub.replace([<span class="dv">30</span>],<span class="dv">50</span>), <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="st">"using `replace` for more than one value: </span><span class="ch">\n</span><span class="st">"</span>, food_sub.replace([<span class="dv">30</span>, <span class="dv">20</span>],[<span class="dv">50</span>, <span class="dv">40</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>using `replace`: 
+    Country  Yoghurt    Brand
+0  Germany     50.0    Quark
+1    Italy      5.0     Yomo
+2   France     57.0   Danone
+3  Holland     53.0  Campina
+4  Belgium     20.0  Activia 
+ using `replace` for more than one value: 
+    Country  Yoghurt    Brand
+0  Germany     50.0    Quark
+1    Italy      5.0     Yomo
+2   France     57.0   Danone
+3  Holland     53.0  Campina
+4  Belgium     40.0  Activia</code></pre>
+</div>
+</div>
+</section>
+<section id="renaming-axis-indices" class="level3">
+<h3 class="anchored" data-anchor-id="renaming-axis-indices">Renaming Axis Indices</h3>
+<p>As we’ve seen, standard indices are labelled as such:</p>
+<pre><code>&gt;&gt;&gt; food_sub.index
+RangeIndex(start=0, stop=5, step=1)</code></pre>
+<p>That can also be changed with the mapping of a function:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(food_sub.index.<span class="bu">map</span>(<span class="kw">lambda</span> x: x <span class="op">+</span> <span class="dv">10</span>))</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'or'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(food_sub.index.<span class="bu">map</span>({<span class="dv">0</span>:<span class="st">'G'</span>, <span class="dv">1</span>:<span class="st">'I'</span>, <span class="dv">2</span>:<span class="st">'F'</span>, <span class="dv">3</span>:<span class="st">'H'</span>, <span class="dv">4</span>:<span class="st">'B'</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Int64Index([10, 11, 12, 13, 14], dtype='int64')
+or
+Index(['G', 'I', 'F', 'H', 'B'], dtype='object')</code></pre>
+</div>
+</div>
+</section>
+<section id="discretization-and-binning" class="level3">
+<h3 class="anchored" data-anchor-id="discretization-and-binning">Discretization and Binning</h3>
+<p>It is common to convert continuous variables into discrete and group them. Let’s group the affinity for yogurt into random bins:</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>scale <span class="op">=</span> [<span class="dv">0</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">50</span>, <span class="dv">70</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reasonable, ok, interesting, why</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>pd.cut(food.Yoghurt, scale)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>0     (20.0, 30.0]
+1      (0.0, 20.0]
+2     (50.0, 70.0]
+3     (50.0, 70.0]
+4      (0.0, 20.0]
+5     (30.0, 50.0]
+6      (0.0, 20.0]
+7      (0.0, 20.0]
+8      (0.0, 20.0]
+9     (30.0, 50.0]
+10     (0.0, 20.0]
+11     (0.0, 20.0]
+12     (0.0, 20.0]
+13             NaN
+14     (0.0, 20.0]
+15     (0.0, 20.0]
+Name: Yoghurt, dtype: category
+Categories (4, interval[int64, right]): [(0, 20] &lt; (20, 30] &lt; (30, 50] &lt; (50, 70]]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>scaled <span class="op">=</span> pd.cut(food.Yoghurt.values, scale)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>scaled.categories</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>pd.value_counts(scaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>(0, 20]     10
+(30, 50]     2
+(50, 70]     2
+(20, 30]     1
+dtype: int64</code></pre>
+</div>
+</div>
+<p>Apply the labels to the bins to have it make more sense:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>scale_names <span class="op">=</span> [<span class="st">'reasonable'</span>, <span class="st">'ok'</span>, <span class="st">'interesting'</span>, <span class="st">'why'</span>]</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>pd.value_counts(pd.cut(food.Yoghurt.values, scale, labels <span class="op">=</span> scale_names))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>reasonable     10
+interesting     2
+why             2
+ok              1
+dtype: int64</code></pre>
+</div>
+</div>
+<p>Finally, let <code>pandas</code> do the work for you by supplying a number of bins and a precision point. It will bin your data equally while limiting the decimal point based on the value of <code>precision</code></p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.qcut(food.Yoghurt.values, <span class="dv">4</span>, precision <span class="op">=</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>[(13.0, 30.5], (1.99, 5.5], (30.5, 57.0], (30.5, 57.0], (13.0, 30.5], ..., (5.5, 13.0], (1.99, 5.5], NaN, (13.0, 30.5], (1.99, 5.5]]
+Length: 16
+Categories (4, interval[float64, right]): [(1.99, 5.5] &lt; (5.5, 13.0] &lt; (13.0, 30.5] &lt; (30.5, 57.0]]</code></pre>
+</div>
+</div>
+</section>
+<section id="detecting-and-filtering-outliers" class="level3">
+<h3 class="anchored" data-anchor-id="detecting-and-filtering-outliers">Detecting and Filtering Outliers</h3>
+<p>We often have to face the decision of how to handle outliers. We can choose to exclude them or to transform them.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># let's say any country who's percentage of yogurt consumption is over 50% is an outlier</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>yog <span class="op">=</span> food.Yoghurt</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>yog[yog.<span class="bu">abs</span>() <span class="op">&gt;</span> <span class="dv">50</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>2    57.0
+3    53.0
+Name: Yoghurt, dtype: float64</code></pre>
+</div>
+</div>
+<p>More interestingly, what if we wanted to know if the consumption of ANY food was over 50% ?</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>food2 <span class="op">=</span> food.drop(<span class="st">'Country'</span>, axis <span class="op">=</span> <span class="st">'columns'</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>food2[(food2.<span class="bu">abs</span>() <span class="op">&gt;</span> <span class="dv">95</span>).<span class="bu">any</span>(axis <span class="op">=</span> <span class="st">'columns'</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Real coffee</th>
+      <th>Instant coffee</th>
+      <th>Tea</th>
+      <th>Sweetener</th>
+      <th>Biscuits</th>
+      <th>Powder soup</th>
+      <th>Tin soup</th>
+      <th>Potatoes</th>
+      <th>Frozen fish</th>
+      <th>Frozen veggies</th>
+      <th>Apples</th>
+      <th>Oranges</th>
+      <th>Tinned fruit</th>
+      <th>Jam</th>
+      <th>Garlic</th>
+      <th>Butter</th>
+      <th>Margarine</th>
+      <th>Olive oil</th>
+      <th>Yoghurt</th>
+      <th>Crisp bread</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>96</td>
+      <td>62</td>
+      <td>98</td>
+      <td>32.0</td>
+      <td>62.0</td>
+      <td>67</td>
+      <td>43</td>
+      <td>7</td>
+      <td>14</td>
+      <td>14</td>
+      <td>83</td>
+      <td>89</td>
+      <td>61</td>
+      <td>81</td>
+      <td>15</td>
+      <td>31</td>
+      <td>97</td>
+      <td>13</td>
+      <td>53.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>97</td>
+      <td>61</td>
+      <td>86</td>
+      <td>28.0</td>
+      <td>79.0</td>
+      <td>73</td>
+      <td>12</td>
+      <td>7</td>
+      <td>26</td>
+      <td>23</td>
+      <td>85</td>
+      <td>94</td>
+      <td>83</td>
+      <td>20</td>
+      <td>91</td>
+      <td>94</td>
+      <td>94</td>
+      <td>84</td>
+      <td>31.0</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>27</td>
+      <td>86</td>
+      <td>99</td>
+      <td>22.0</td>
+      <td>91.0</td>
+      <td>55</td>
+      <td>76</td>
+      <td>17</td>
+      <td>20</td>
+      <td>24</td>
+      <td>76</td>
+      <td>68</td>
+      <td>89</td>
+      <td>91</td>
+      <td>11</td>
+      <td>95</td>
+      <td>94</td>
+      <td>57</td>
+      <td>11.0</td>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>97</td>
+      <td>13</td>
+      <td>93</td>
+      <td>31.0</td>
+      <td>NaN</td>
+      <td>43</td>
+      <td>43</td>
+      <td>39</td>
+      <td>54</td>
+      <td>45</td>
+      <td>56</td>
+      <td>78</td>
+      <td>53</td>
+      <td>75</td>
+      <td>9</td>
+      <td>68</td>
+      <td>32</td>
+      <td>48</td>
+      <td>2.0</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>96</td>
+      <td>17</td>
+      <td>92</td>
+      <td>35.0</td>
+      <td>66.0</td>
+      <td>32</td>
+      <td>17</td>
+      <td>11</td>
+      <td>51</td>
+      <td>42</td>
+      <td>81</td>
+      <td>72</td>
+      <td>50</td>
+      <td>64</td>
+      <td>11</td>
+      <td>92</td>
+      <td>91</td>
+      <td>30</td>
+      <td>11.0</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>98</td>
+      <td>12</td>
+      <td>84</td>
+      <td>20.0</td>
+      <td>64.0</td>
+      <td>27</td>
+      <td>10</td>
+      <td>8</td>
+      <td>18</td>
+      <td>12</td>
+      <td>50</td>
+      <td>57</td>
+      <td>22</td>
+      <td>37</td>
+      <td>15</td>
+      <td>96</td>
+      <td>94</td>
+      <td>17</td>
+      <td>NaN</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>30</td>
+      <td>52</td>
+      <td>99</td>
+      <td>11.0</td>
+      <td>80.0</td>
+      <td>75</td>
+      <td>18</td>
+      <td>2</td>
+      <td>5</td>
+      <td>3</td>
+      <td>57</td>
+      <td>52</td>
+      <td>46</td>
+      <td>89</td>
+      <td>5</td>
+      <td>97</td>
+      <td>25</td>
+      <td>31</td>
+      <td>3.0</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="permutation-and-random-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="permutation-and-random-sampling">Permutation and Random Sampling</h3>
+<ul>
+<li><p>Permuting = random reordering</p>
+<ul>
+<li><code>np.random.permutation</code> = takes the length of the axis you want to permute</li>
+</ul></li>
+<li><p>Random sampling = each sample has an equal probability of being chosen</p></li>
+</ul>
+<p>Let’s randomly reorder yogurt affinity:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.random.permutation(<span class="dv">5</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>food.take(np.random.permutation(<span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[2 3 0 1 4]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Country</th>
+      <th>Real coffee</th>
+      <th>Instant coffee</th>
+      <th>Tea</th>
+      <th>Sweetener</th>
+      <th>Biscuits</th>
+      <th>Powder soup</th>
+      <th>Tin soup</th>
+      <th>Potatoes</th>
+      <th>Frozen fish</th>
+      <th>...</th>
+      <th>Apples</th>
+      <th>Oranges</th>
+      <th>Tinned fruit</th>
+      <th>Jam</th>
+      <th>Garlic</th>
+      <th>Butter</th>
+      <th>Margarine</th>
+      <th>Olive oil</th>
+      <th>Yoghurt</th>
+      <th>Crisp bread</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>France</td>
+      <td>88</td>
+      <td>42</td>
+      <td>63</td>
+      <td>4.0</td>
+      <td>76.0</td>
+      <td>53</td>
+      <td>11</td>
+      <td>23</td>
+      <td>11</td>
+      <td>...</td>
+      <td>87</td>
+      <td>84</td>
+      <td>40</td>
+      <td>45</td>
+      <td>88</td>
+      <td>94</td>
+      <td>47</td>
+      <td>36</td>
+      <td>57.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Italy</td>
+      <td>82</td>
+      <td>10</td>
+      <td>60</td>
+      <td>2.0</td>
+      <td>55.0</td>
+      <td>41</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>...</td>
+      <td>67</td>
+      <td>71</td>
+      <td>9</td>
+      <td>46</td>
+      <td>80</td>
+      <td>66</td>
+      <td>24</td>
+      <td>94</td>
+      <td>5.0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Holland</td>
+      <td>96</td>
+      <td>62</td>
+      <td>98</td>
+      <td>32.0</td>
+      <td>62.0</td>
+      <td>67</td>
+      <td>43</td>
+      <td>7</td>
+      <td>14</td>
+      <td>...</td>
+      <td>83</td>
+      <td>89</td>
+      <td>61</td>
+      <td>81</td>
+      <td>15</td>
+      <td>31</td>
+      <td>97</td>
+      <td>13</td>
+      <td>53.0</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>Germany</td>
+      <td>90</td>
+      <td>49</td>
+      <td>88</td>
+      <td>19.0</td>
+      <td>57.0</td>
+      <td>51</td>
+      <td>19</td>
+      <td>21</td>
+      <td>27</td>
+      <td>...</td>
+      <td>81</td>
+      <td>75</td>
+      <td>44</td>
+      <td>71</td>
+      <td>22</td>
+      <td>91</td>
+      <td>85</td>
+      <td>74</td>
+      <td>30.0</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Belgium</td>
+      <td>94</td>
+      <td>38</td>
+      <td>48</td>
+      <td>11.0</td>
+      <td>74.0</td>
+      <td>37</td>
+      <td>23</td>
+      <td>9</td>
+      <td>13</td>
+      <td>...</td>
+      <td>76</td>
+      <td>76</td>
+      <td>42</td>
+      <td>57</td>
+      <td>29</td>
+      <td>84</td>
+      <td>80</td>
+      <td>83</td>
+      <td>20.0</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+</div>
+<p>This method can be helpful when using <code>iloc</code> indexing!</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>food.take(np.random.permutation(<span class="dv">5</span>), axis <span class="op">=</span> <span class="st">'columns'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Country</th>
+      <th>Sweetener</th>
+      <th>Instant coffee</th>
+      <th>Real coffee</th>
+      <th>Tea</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Germany</td>
+      <td>19.0</td>
+      <td>49</td>
+      <td>90</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Italy</td>
+      <td>2.0</td>
+      <td>10</td>
+      <td>82</td>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>France</td>
+      <td>4.0</td>
+      <td>42</td>
+      <td>88</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Holland</td>
+      <td>32.0</td>
+      <td>62</td>
+      <td>96</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Belgium</td>
+      <td>11.0</td>
+      <td>38</td>
+      <td>94</td>
+      <td>48</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Luxembourg</td>
+      <td>28.0</td>
+      <td>61</td>
+      <td>97</td>
+      <td>86</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>England</td>
+      <td>22.0</td>
+      <td>86</td>
+      <td>27</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Portugal</td>
+      <td>2.0</td>
+      <td>26</td>
+      <td>72</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Austria</td>
+      <td>15.0</td>
+      <td>31</td>
+      <td>55</td>
+      <td>61</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Switzerland</td>
+      <td>25.0</td>
+      <td>72</td>
+      <td>73</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Sweden</td>
+      <td>31.0</td>
+      <td>13</td>
+      <td>97</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Denmark</td>
+      <td>35.0</td>
+      <td>17</td>
+      <td>96</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Norway</td>
+      <td>13.0</td>
+      <td>17</td>
+      <td>92</td>
+      <td>83</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Finland</td>
+      <td>20.0</td>
+      <td>12</td>
+      <td>98</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Spain</td>
+      <td>NaN</td>
+      <td>40</td>
+      <td>70</td>
+      <td>40</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Ireland</td>
+      <td>11.0</td>
+      <td>52</td>
+      <td>30</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Let’s try taking a random subset without replacement:<br>
+</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>food.sample(n <span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># you can always add `replace=True` if you want replacement</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Country</th>
+      <th>Real coffee</th>
+      <th>Instant coffee</th>
+      <th>Tea</th>
+      <th>Sweetener</th>
+      <th>Biscuits</th>
+      <th>Powder soup</th>
+      <th>Tin soup</th>
+      <th>Potatoes</th>
+      <th>Frozen fish</th>
+      <th>...</th>
+      <th>Apples</th>
+      <th>Oranges</th>
+      <th>Tinned fruit</th>
+      <th>Jam</th>
+      <th>Garlic</th>
+      <th>Butter</th>
+      <th>Margarine</th>
+      <th>Olive oil</th>
+      <th>Yoghurt</th>
+      <th>Crisp bread</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>Spain</td>
+      <td>70</td>
+      <td>40</td>
+      <td>40</td>
+      <td>NaN</td>
+      <td>62.0</td>
+      <td>43</td>
+      <td>2</td>
+      <td>14</td>
+      <td>23</td>
+      <td>...</td>
+      <td>59</td>
+      <td>77</td>
+      <td>30</td>
+      <td>38</td>
+      <td>86</td>
+      <td>44</td>
+      <td>51</td>
+      <td>91</td>
+      <td>16.0</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Italy</td>
+      <td>82</td>
+      <td>10</td>
+      <td>60</td>
+      <td>2.0</td>
+      <td>55.0</td>
+      <td>41</td>
+      <td>3</td>
+      <td>2</td>
+      <td>4</td>
+      <td>...</td>
+      <td>67</td>
+      <td>71</td>
+      <td>9</td>
+      <td>46</td>
+      <td>80</td>
+      <td>66</td>
+      <td>24</td>
+      <td>94</td>
+      <td>5.0</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Switzerland</td>
+      <td>73</td>
+      <td>72</td>
+      <td>85</td>
+      <td>25.0</td>
+      <td>31.0</td>
+      <td>69</td>
+      <td>10</td>
+      <td>17</td>
+      <td>19</td>
+      <td>...</td>
+      <td>79</td>
+      <td>70</td>
+      <td>46</td>
+      <td>61</td>
+      <td>64</td>
+      <td>82</td>
+      <td>48</td>
+      <td>61</td>
+      <td>48.0</td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Belgium</td>
+      <td>94</td>
+      <td>38</td>
+      <td>48</td>
+      <td>11.0</td>
+      <td>74.0</td>
+      <td>37</td>
+      <td>23</td>
+      <td>9</td>
+      <td>13</td>
+      <td>...</td>
+      <td>76</td>
+      <td>76</td>
+      <td>42</td>
+      <td>57</td>
+      <td>29</td>
+      <td>84</td>
+      <td>80</td>
+      <td>83</td>
+      <td>20.0</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Finland</td>
+      <td>98</td>
+      <td>12</td>
+      <td>84</td>
+      <td>20.0</td>
+      <td>64.0</td>
+      <td>27</td>
+      <td>10</td>
+      <td>8</td>
+      <td>18</td>
+      <td>...</td>
+      <td>50</td>
+      <td>57</td>
+      <td>22</td>
+      <td>37</td>
+      <td>15</td>
+      <td>96</td>
+      <td>94</td>
+      <td>17</td>
+      <td>NaN</td>
+      <td>64</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="computing-indicatordummy-vars" class="level3">
+<h3 class="anchored" data-anchor-id="computing-indicatordummy-vars">Computing Indicator/Dummy Vars</h3>
+<p>This kind of transformation is really helpful for machine learning. It converts categorical variables into indicator or <em>dummy</em> variable through a transformation that results in 0’s and 1’s.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pd.get_dummies(food[<span class="st">'Country'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Austria</th>
+      <th>Belgium</th>
+      <th>Denmark</th>
+      <th>England</th>
+      <th>Finland</th>
+      <th>France</th>
+      <th>Germany</th>
+      <th>Holland</th>
+      <th>Ireland</th>
+      <th>Italy</th>
+      <th>Luxembourg</th>
+      <th>Norway</th>
+      <th>Portugal</th>
+      <th>Spain</th>
+      <th>Sweden</th>
+      <th>Switzerland</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>This example is not the most helpful since this set of countries are <em>unique</em> but I hope you get the idea..</p>
+<p>This is topic will make more sense in Ch.13 when data analysis examples are worked out.</p>
+</section>
+</section>
+<section id="extension-data-types" class="level2">
+<h2 class="anchored" data-anchor-id="extension-data-types">7.3 Extension Data Types</h2>
+<p>Extension types addresses some of the shortcomings brought on by <code>numpy</code> such as:</p>
+<ul>
+<li><p>expensive string computations</p></li>
+<li><p>missing data conversions</p></li>
+<li><p>lack of support for time related objects</p></li>
+</ul>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>])</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>s.dtype</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>dtype('float64')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="va">None</span>], dtype<span class="op">=</span>pd.Int64Dtype())</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>s</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.dtype)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Int64</code></pre>
+</div>
+</div>
+<p>Note that this extension type indicates missing with <code>&lt;NA&gt;</code></p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s.isna())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0    False
+1    False
+2    False
+3     True
+dtype: bool</code></pre>
+</div>
+</div>
+<p><code>&lt;NA&gt;</code> uses the <code>pandas.NA</code> sentinal value</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>s[<span class="dv">3</span>] <span class="kw">is</span> pd.NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Types can be set with <code>astype()</code></p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">"A"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="va">None</span>, <span class="dv">4</span>],</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="st">"B"</span>: [<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>, <span class="va">None</span>],</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="st">"C"</span>: [<span class="va">False</span>, <span class="va">None</span>, <span class="va">False</span>, <span class="va">True</span>]})</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"A"</span>] <span class="op">=</span> df[<span class="st">"A"</span>].astype(<span class="st">"Int64"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"B"</span>] <span class="op">=</span> df[<span class="st">"B"</span>].astype(<span class="st">"string"</span>)</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">"C"</span>] <span class="op">=</span> df[<span class="st">"C"</span>].astype(<span class="st">"boolean"</span>)</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>one</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>two</td>
+      <td>&lt;NA&gt;</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>&lt;NA&gt;</td>
+      <td>three</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>&lt;NA&gt;</td>
+      <td>True</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Find a table of extension types <a href="https://wesmckinney.com/book/data-cleaning.html#pandas-ext-types">here</a></p>
+</section>
+<section id="string-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="string-manipulation">7.4 String Manipulation</h2>
+<p>Functions that are built in:</p>
+<ul>
+<li><p><code>split()</code> : break a string into pieces</p></li>
+<li><p><code>join()</code></p></li>
+<li><p><code>strip()</code> : trim whitespace</p></li>
+<li><p><code>in()</code>: good for locating a substring</p></li>
+<li><p><code>count()</code> : returns the number of occurrences of a substring</p></li>
+<li><p><code>replace()</code> : substitute occurrences of one pattern for another</p></li>
+</ul>
+<p>See more function <a href="https://wesmckinney.com/book/data-cleaning.html#text_string_methods">here</a></p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>lb <span class="op">=</span> <span class="st">" layla is smart, witty, charming, and... "</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>lb.split(<span class="st">" "</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>lb.strip()</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co">'-'</span>.join(lb)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="co">'smart'</span> <span class="kw">in</span> lb</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>lb.count(<span class="st">','</span>)</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>lb.replace(<span class="st">'...'</span>, <span class="st">' bad at python.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>' layla is smart, witty, charming, and bad at python. '</code></pre>
+</div>
+</div>
+<section id="regular-expressions" class="level3">
+<h3 class="anchored" data-anchor-id="regular-expressions">Regular Expressions</h3>
+<p>RegEx is not easy. It takes some getting used to. It is really useful for programatically applying any of the string functions to particular pattern.</p>
+<p>I often refer to this handy [cheat sheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/strings.pdf)</p>
+<p>To use regular expression in python, you must import the module <code>re</code>:</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">"layla has lived in philadelphia county, miami-dade county, and rockdale county"</span></span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="co"># split on whitespace</span></span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>re.split(<span class="vs">r"\s+"</span>, text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>['layla',
+ 'has',
+ 'lived',
+ 'in',
+ 'philadelphia',
+ 'county,',
+ 'miami-dade',
+ 'county,',
+ 'and',
+ 'rockdale',
+ 'county']</code></pre>
+</div>
+</div>
+<p>To avoid repeating a common expression, you can <em>compile it</em> and store it as it’s own object.</p>
+<pre><code>regex = re.compile(r"\s+")</code></pre>
+<p><strong>Don’t forget</strong>: there are certain characters you must escape before using like: ‘\,., +, :’ and more</p>
+<p>What if I wanted to get the counties?</p>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>regex <span class="op">=</span> re.<span class="bu">compile</span>(<span class="vs">r"\w+(?=\s+county)"</span>)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>regex.findall(text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>['philadelphia', 'dade', 'rockdale']</code></pre>
+</div>
+</div>
+</section>
+<section id="string-functions" class="level3">
+<h3 class="anchored" data-anchor-id="string-functions">String Functions</h3>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {<span class="st">"Dave"</span>: <span class="st">"dave@google.com"</span>, <span class="st">"Steve"</span>: <span class="st">"steve@gmail.com"</span>,</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="st">"Rob"</span>: <span class="st">"rob@gmail.com"</span>, <span class="st">"Wes"</span>: np.nan}</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to series</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.Series(data)</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>Dave     dave@google.com
+Steve    steve@gmail.com
+Rob        rob@gmail.com
+Wes                  NaN
+dtype: object</code></pre>
+</div>
+</div>
+<p>To get certain information, we can apply string functions from <code>Series</code> array-oriented methods:</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># does the string contain something</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>data.<span class="bu">str</span>.contains(<span class="st">"gmail"</span>)</span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="co"># change the extension tryp</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>data_as_string_ext <span class="op">=</span> data.astype(<span class="st">'string'</span>)</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>data_as_string_ext</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>Dave     dave@google.com
+Steve    steve@gmail.com
+Rob        rob@gmail.com
+Wes                 &lt;NA&gt;
+dtype: string</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># vectorized element retrieval</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>pattern <span class="op">=</span> <span class="vs">r"([A-Z0-9._%+-]+)@([A-Z0-9.-]+)\.([A-Z]{2,4})"</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>data.<span class="bu">str</span>.findall(pattern, flags<span class="op">=</span>re.IGNORECASE).<span class="bu">str</span>[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>Dave     (dave, google, com)
+Steve    (steve, gmail, com)
+Rob        (rob, gmail, com)
+Wes                      NaN
+dtype: object</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="categorical-data" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-data">7.5 Categorical Data</h2>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> pd.Series([<span class="st">'apple'</span>, <span class="st">'orange'</span>, <span class="st">'apple'</span>,</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">'apple'</span>] <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>                   </span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>pd.unique(values)</span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>pd.value_counts(values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>apple     6
+orange    2
+dtype: int64</code></pre>
+</div>
+</div>
+<p>You can improve performance by creating categorical representations that are numerical:</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> pd.Series([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>] <span class="op">*</span> <span class="dv">2</span>)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>dim <span class="op">=</span> pd.Series([<span class="st">'apple'</span>, <span class="st">'orange'</span>])</span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>dim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>0     apple
+1    orange
+dtype: object</code></pre>
+</div>
+</div>
+<p>Retrieve the original set of strings with <code>take</code></p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>dim.take(values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>0     apple
+1    orange
+0     apple
+0     apple
+0     apple
+1    orange
+0     apple
+0     apple
+dtype: object</code></pre>
+</div>
+</div>
+<section id="computations-with-categoricals" class="level3">
+<h3 class="anchored" data-anchor-id="computations-with-categoricals">Computations with Categoricals</h3>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">12345</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>draws <span class="op">=</span> rng.standard_normal(<span class="dv">1000</span>)</span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> pd.qcut(draws, <span class="dv">4</span>)</span>
+<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>bins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>[(-3.121, -0.675], (0.687, 3.211], (-3.121, -0.675], (-0.675, 0.0134], (-0.675, 0.0134], ..., (0.0134, 0.687], (0.0134, 0.687], (-0.675, 0.0134], (0.0134, 0.687], (-0.675, 0.0134]]
+Length: 1000
+Categories (4, interval[float64, right]): [(-3.121, -0.675] &lt; (-0.675, 0.0134] &lt; (0.0134, 0.687] &lt; (0.687, 3.211]]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> pd.qcut(draws, <span class="dv">4</span>, labels<span class="op">=</span>[<span class="st">'Q1'</span>, <span class="st">'Q2'</span>, <span class="st">'Q3'</span>, <span class="st">'Q4'</span>])</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>bins</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># then use groupby</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> pd.Series(bins, name<span class="op">=</span><span class="st">'quartile'</span>)</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> (pd.Series(draws)</span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>               .groupby(bins)</span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>               .agg([<span class="st">'count'</span>, <span class="st">'min'</span>, <span class="st">'max'</span>])</span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>               .reset_index())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Leads to better performance</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
