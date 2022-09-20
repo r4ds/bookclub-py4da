@@ -266,6 +266,139 @@
     "text": "LOG\n00:30:39    Karim Badr: Is there a difference between append and extend?\n00:30:57    Ron:    Append is for adding a single element\n00:31:11    Karim Badr: Thanks!\n00:36:34    Ron:    Some discussion of this here: https://stackoverflow.com/questions/11364533/why-are-slice-and-range-upper-bound-exclusive\n00:36:49    Ron:    if you are wondering (like I am) why it is like that :)"
   },
   {
+    "objectID": "04_main.html",
+    "href": "04_main.html",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "",
+    "text": "Learn about NumPy, a package for numerical computing in Python\nUse NumPy for array-based data: operations, algorithms"
+  },
+  {
+    "objectID": "04_main.html#import-numpy",
+    "href": "04_main.html#import-numpy",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Import NumPy",
+    "text": "Import NumPy\n\nimport numpy as np # Recommended standard NumPy convention"
+  },
+  {
+    "objectID": "04_main.html#array-based-operations",
+    "href": "04_main.html#array-based-operations",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Array-based operations",
+    "text": "Array-based operations\n\nA fast, flexible container for large datasets in Python\nStores multiple items of the same type together\nCan perform operations on whole blocks of data with similar syntax\n\n\n\n\nImage of an array with 10 length and the first index, 8th element, and indicies denoted by text\n\n\n\nCreate an arrayPerform operation\n\n\n\narr = np.array([[1.5, -0.1, 3], [0, -3, 6.5]])\narr\n\narray([[ 1.5, -0.1,  3. ],\n       [ 0. , -3. ,  6.5]])\n\n\n\n\nAll of the elements have been multiplied by 10.\n\narr * 10\n\narray([[ 15.,  -1.,  30.],\n       [  0., -30.,  65.]])\n\n\n\n\n\n\nEvery array has a shape indicating the size of each dimension\nand a dtype, an object describing the data type of the array\n\n\nShapedtype\n\n\n\narr.shape\n\n(2, 3)\n\n\n\n\n\narr.dtype\n\ndtype('float64')\n\n\n\n\n\n\nndarray\n\nGeneric one/multi-dimensional container where all elements are the same type\nCreated using numpy.array function\n\n\n1DMulti-dimensional\n\n\n\ndata1 = [6, 7.5, 8, 0, 1]\narr1 = np.array(data1)\narr1\n\narray([6. , 7.5, 8. , 0. , 1. ])\n\n\n\nprint(arr1.ndim)\nprint(arr1.shape)\n\n1\n(5,)\n\n\n\n\n\ndata2 = [[1, 2, 3, 4], [5, 6, 7, 8]]\narr2 = np.array(data2)\narr2\n\narray([[1, 2, 3, 4],\n       [5, 6, 7, 8]])\n\n\n\nprint(arr2.ndim)\nprint(arr2.shape)\n\n2\n(2, 4)\n\n\n\n\n\n\nSpecial array creation\n\nnumpy.zeros creates an array of zeros with a given length or shape\nnumpy.ones creates an array of ones with a given length or shape\nnumpy.empty creates an array without initialized values\nnumpy.arange creates a range\nPass a tuple for the shape to create a higher dimensional array\n\n\nZerosMulti-dimensional\n\n\n\nnp.zeros(10)\n\narray([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])\n\n\n\n\n\nnp.zeros((3, 6))\n\narray([[0., 0., 0., 0., 0., 0.],\n       [0., 0., 0., 0., 0., 0.],\n       [0., 0., 0., 0., 0., 0.]])\n\n\n\n\n\n\n\nnumpy.empty does not return an array of zeros, though it may look like it.\n\nnp.empty(1)\n\narray([0.])\n\n\nWes provides a table of array creation functions in the book.\n\n\nData types for ndarrays\n\nUnless explicitly specified, numpy.array tries to infer a good data created arrays.\nData type is stored in a special dtype metadata object.\nCan be explict or converted (cast)\nIt is important to care about the general kind of data you’re dealing with.\n\n\nInferred dtypeExplicit dtypeCast dtypeCast dtype using another array\n\n\n\narr1.dtype\n\ndtype('float64')\n\n\n\n\n\narr2 = np.array([1, 2, 3], dtype=np.int32)\narr2.dtype\n\ndtype('int32')\n\n\n\n\n\nfloat_arr = arr1.astype(np.float64)\nfloat_arr.dtype\n\ndtype('float64')\n\n\n\n\n\nint_array = arr1.astype(arr2.dtype)\nint_array.dtype\n\ndtype('int32')\n\n\n\n\n\n\n\nCalling astype always creates a new array (a copy of the data), even if the new data type is the same as the old data type.\nWes provides a table of supported data types in the book."
+  },
+  {
+    "objectID": "04_main.html#arithmetic-with-numpy-arrays",
+    "href": "04_main.html#arithmetic-with-numpy-arrays",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Arithmetic with NumPy Arrays",
+    "text": "Arithmetic with NumPy Arrays\n\nVectorizationArithmetic operations with scalarsComparisons between arrays\n\n\nBatch operations on data without for loops\n\narr = np.array([[1., 2., 3.], [4., 5., 6.]])\narr * arr\n\narray([[ 1.,  4.,  9.],\n       [16., 25., 36.]])\n\n\n\n\nPropagate the scalar argument to each element in the array\n\n1 / arr\n\narray([[1.        , 0.5       , 0.33333333],\n       [0.25      , 0.2       , 0.16666667]])\n\n\n\n\nof the same size yield boolean arrays\n\narr2 = np.array([[0., 4., 1.], [7., 2., 12.]])\n\narr2 > arr\n\narray([[False,  True, False],\n       [ True, False,  True]])"
+  },
+  {
+    "objectID": "04_main.html#basic-indexing-and-slicing",
+    "href": "04_main.html#basic-indexing-and-slicing",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Basic Indexing and Slicing",
+    "text": "Basic Indexing and Slicing\n\nselect a subset of your data or individual elements\n\n\narr = np.arange(10)\narr\n\narray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])\n\n\n\n\nArray views are on the original data. Data is not copied, and any modifications to the view will be reflected in the source array. If you want a copy of a slice of an ndarray instead of a view, you will need to explicitly copy the array—for example, arr[5:8].copy().\n\nselect the sixth elementselect sixth through eighthbroadcast data\n\n\n\narr[5]\n\n5\n\n\n\n\n\narr[5:8]\n\narray([5, 6, 7])\n\n\n\n\n\narr[5:8] = 12\n\n\n\n\nExample of “not copied data”\nOriginal\n\narr_slice = arr[5:8]\narr\n\narray([ 0,  1,  2,  3,  4, 12, 12, 12,  8,  9])\n\n\nChange values in new array\nNotice that arr is now changed.\n\narr_slice[1] = 123\narr\n\narray([  0,   1,   2,   3,   4,  12, 123,  12,   8,   9])\n\n\nChange all values in an array\nThis is done with bare slice [:]:\n\narr_slice[:] = 64\narr_slice\n\narray([64, 64, 64])\n\n\nHigher dimensional arrays have 1D arrays at each index:\n\narr2d = np.array([[1,2,3], [4,5,6], [7,8,9]])\narr2d\n\narray([[1, 2, 3],\n       [4, 5, 6],\n       [7, 8, 9]])\n\n\nTo slice, can pass a comma-separated list to select individual elements:\n\narr2d[0][2]\n\n3\n\n\n\nOmitting indicies will reduce number of dimensions:\n\narr2d[0]\n\narray([1, 2, 3])\n\n\nCan assign scalar values or arrays:\n\narr2d[0] = 9\narr2d\n\narray([[9, 9, 9],\n       [4, 5, 6],\n       [7, 8, 9]])\n\n\nOr create an array of the indices. This is like indexing in two steps:\n\narr2d = np.array([[1,2,3], [4,5,6], [7,8,9]])\narr2d[1,0]\n\n4\n\n\n\nIndexing with slices\nndarrays can be sliced with the same syntax as Python lists:\n\narr = np.arange(10)\n\narr[1:6]\n\narray([1, 2, 3, 4, 5])\n\n\nThis slices a range of elements (“select the first row of arr2d”):\n\n# arr2d[row, column]\narr2d[:1]\n\narray([[1, 2, 3]])\n\n\nCan pass multiple indicies:\n\narr2d[:3, :1] # colons keep the dimensions\n# arr2d[0:3, 0] # does not keep the dimensions\n\narray([[1],\n       [4],\n       [7]])"
+  },
+  {
+    "objectID": "04_main.html#boolean-indexing",
+    "href": "04_main.html#boolean-indexing",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Boolean Indexing",
+    "text": "Boolean Indexing\n\nnames = np.array([\"Bob\", \"Joe\", \"Will\", \"Bob\", \"Will\", \"Joe\", \"Joe\"])\nnames\n\narray(['Bob', 'Joe', 'Will', 'Bob', 'Will', 'Joe', 'Joe'], dtype='<U4')\n\n\n\ndata = np.array([[4, 7], [0, 2], [-5, 6], [0, 0], [1, 2], [-12, -4], [3, 4]])\ndata\n\narray([[  4,   7],\n       [  0,   2],\n       [ -5,   6],\n       [  0,   0],\n       [  1,   2],\n       [-12,  -4],\n       [  3,   4]])\n\n\nLike arithmetic operations, comparisons (such as ==) with arrays are also vectorized.\n\nnames == \"Bob\"\n\narray([ True, False, False,  True, False, False, False])\n\n\nThis boolean array can be passed when indexing the array:\n\ndata[names == \"Bob\"]\n\narray([[4, 7],\n       [0, 0]])\n\n\nSelect from the rows where names == “Bob” and index the columns, too:\n\ndata[names == \"Bob\", 1:]\n\narray([[7],\n       [0]])\n\n\nSelect everything but “Bob”:\n\nnames != \"Bob\" # or ~(names == \"Bob\")\n\narray([False,  True,  True, False,  True,  True,  True])\n\n\nUse boolean arithmetic operators like & (and) and | (or):\n\nmask = (names == \"Bob\") | (names == \"Will\")\nmask\n\narray([ True, False,  True,  True,  True, False, False])\n\n\n\n\nSelecting data from an array by boolean indexing and assigning the result to a new variable always creates a copy of the data.\nSetting values with boolean arrays works by substituting the value or values on the righthand side into the locations where the boolean array’s values are True.\n\ndata[data < 0] = 0\n\nYou can also set whole rows or columns using a one-dimensional boolean array:\n\ndata[names != \"Joe\"] = 7"
+  },
+  {
+    "objectID": "04_main.html#fancy-indexing",
+    "href": "04_main.html#fancy-indexing",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Fancy Indexing",
+    "text": "Fancy Indexing\nA term adopted by NumPy to describe indexing using integer arrays.\n\narr = np.zeros((8, 4)) # 8 × 4 array\n\nfor i in range(8):\n  arr[i] = i\n\narr\n\narray([[0., 0., 0., 0.],\n       [1., 1., 1., 1.],\n       [2., 2., 2., 2.],\n       [3., 3., 3., 3.],\n       [4., 4., 4., 4.],\n       [5., 5., 5., 5.],\n       [6., 6., 6., 6.],\n       [7., 7., 7., 7.]])\n\n\nPass a list or ndarray of integers specifying the desired order to subset rows in a particular order:\n\narr[[4, 3, 0, 6]]\n\narray([[4., 4., 4., 4.],\n       [3., 3., 3., 3.],\n       [0., 0., 0., 0.],\n       [6., 6., 6., 6.]])\n\n\nUse negative indices selects rows from the end:\n\narr[[-3, -5, -7]]\n\narray([[5., 5., 5., 5.],\n       [3., 3., 3., 3.],\n       [1., 1., 1., 1.]])\n\n\nPassing multiple index arrays selects a one-dimensional array of elements corresponding to each tuple of indices (go down then across):\n\narr = np.arange(32).reshape((8, 4))\narr\n\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11],\n       [12, 13, 14, 15],\n       [16, 17, 18, 19],\n       [20, 21, 22, 23],\n       [24, 25, 26, 27],\n       [28, 29, 30, 31]])\n\n\nHere, the elements (1, 0), (5, 3), (7, 1), and (2, 2) are selected.\n\narr[[1, 5, 7, 2], [0, 3, 1, 2]]\n\narray([ 4, 23, 29, 10])\n\n\n\n\nFancy indexing, unlike slicing, always copies the data into a new array when assigning the result to a new variable."
+  },
+  {
+    "objectID": "04_main.html#transposing-arrays-and-swapping-axes",
+    "href": "04_main.html#transposing-arrays-and-swapping-axes",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Transposing Arrays and Swapping Axes",
+    "text": "Transposing Arrays and Swapping Axes\nTransposing is a special form of reshaping using the special T attribute:\n\narr = np.arange(15).reshape((3, 5))\narr\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])\n\n\n\narr.T\n\narray([[ 0,  5, 10],\n       [ 1,  6, 11],\n       [ 2,  7, 12],\n       [ 3,  8, 13],\n       [ 4,  9, 14]])\n\n\n\nMatrix multiplication\n\nusing Tusing @ infix operator\n\n\n\nnp.dot(arr.T, arr)\n\narray([[125, 140, 155, 170, 185],\n       [140, 158, 176, 194, 212],\n       [155, 176, 197, 218, 239],\n       [170, 194, 218, 242, 266],\n       [185, 212, 239, 266, 293]])\n\n\n\n\n\narr.T @ arr\n\narray([[125, 140, 155, 170, 185],\n       [140, 158, 176, 194, 212],\n       [155, 176, 197, 218, 239],\n       [170, 194, 218, 242, 266],\n       [185, 212, 239, 266, 293]])\n\n\n\n\n\nndarray has the method swapaxes, which takes a pair of axis numbers and switches the indicated axes to rearrange the data:\n\narr = np.array([[0, 1, 0], [1, 2, -2], [6, 3, 2], [-1, 0, -1], [1, 0, 1], [3, 5, 6]])\narr\narr.swapaxes(0, 1)\n\narray([[ 0,  1,  6, -1,  1,  3],\n       [ 1,  2,  3,  0,  0,  5],\n       [ 0, -2,  2, -1,  1,  6]])"
+  },
+  {
+    "objectID": "04_main.html#pseudorandom-number-generation",
+    "href": "04_main.html#pseudorandom-number-generation",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Pseudorandom Number Generation",
+    "text": "Pseudorandom Number Generation\nThe numpy.random module supplements the built-in Python random module with functions for efficiently generating whole arrays of sample values from many kinds of probability distributions.\n\nMuch faster than Python’s built-in random module\n\n\nsamples = np.random.standard_normal(size=(4, 4))\nsamples\n\narray([[-1.49503386,  1.01785152,  0.47179091, -1.28631804],\n       [ 0.70659991, -0.56871359,  1.14751144, -0.3632851 ],\n       [ 0.67640042, -0.25943702, -1.43040126,  0.7785265 ],\n       [-0.94711384,  0.12836998, -0.83929185,  0.02158598]])\n\n\nCan use an explicit generator:\n\nseed determines initial state of generator\n\n\nrng = np.random.default_rng(seed=12345)\ndata = rng.standard_normal((2, 3))\ndata\n\narray([[-1.42382504,  1.26372846, -0.87066174],\n       [-0.25917323, -0.07534331, -0.74088465]])\n\n\nWes provides a table of NumPy random number generator methods"
+  },
+  {
+    "objectID": "04_main.html#universal-functions-fast-element-wise-array-functions",
+    "href": "04_main.html#universal-functions-fast-element-wise-array-functions",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Universal Functions: Fast Element-Wise Array Functions",
+    "text": "Universal Functions: Fast Element-Wise Array Functions\nA universal function, or ufunc, is a function that performs element-wise operations on data in ndarrays.\nMany ufuncs are simple element-wise transformations:\n\nunarybinarymultiple\n\n\nOne array\n\narr = np.arange(10)\nnp.sqrt(arr)\n\narray([0.        , 1.        , 1.41421356, 1.73205081, 2.        ,\n       2.23606798, 2.44948974, 2.64575131, 2.82842712, 3.        ])\n\n\n\n\n\narr1 = rng.standard_normal(10)\narr2 = rng.standard_normal(10)\nnp.maximum(arr1, arr2)\n\narray([ 0.78884434,  0.6488928 ,  0.57585751,  1.39897899,  2.34740965,\n        0.96849691,  0.90291934,  0.90219827, -0.15818926,  0.44948393])\n\n\n\n\n\nremainder, whole_part = np.modf(arr1)\nremainder\n\narray([-0.3677927 ,  0.6488928 ,  0.36105811, -0.95286306,  0.34740965,\n        0.96849691, -0.75938718,  0.90219827, -0.46695317, -0.06068952])\n\n\n\n\n\nUse the out argument to assign results into an existing array rather than create a new one:\n\nout = np.zeros_like(arr)\nnp.add(arr, 1, out=out)\n\narray([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10])"
+  },
+  {
+    "objectID": "04_main.html#array-oriented-programming-with-arrays",
+    "href": "04_main.html#array-oriented-programming-with-arrays",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Array-Oriented Programming with Arrays",
+    "text": "Array-Oriented Programming with Arrays\nEvaluate the function sqrt(x^2 + y^2) across a regular grid of values: use the numpy.meshgrid function takes two one-dimensional arrays and produce two two-dimensional matrices corresponding to all pairs of (x, y) in the two arrays:\n\npoints = np.arange(-5, 5, 0.01) # 100 equally spaced points\nxs, ys = np.meshgrid(points, points)\nxs\n\narray([[-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],\n       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],\n       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],\n       ...,\n       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],\n       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99],\n       [-5.  , -4.99, -4.98, ...,  4.97,  4.98,  4.99]])\n\n\n\nys\n\narray([[-5.  , -5.  , -5.  , ..., -5.  , -5.  , -5.  ],\n       [-4.99, -4.99, -4.99, ..., -4.99, -4.99, -4.99],\n       [-4.98, -4.98, -4.98, ..., -4.98, -4.98, -4.98],\n       ...,\n       [ 4.97,  4.97,  4.97, ...,  4.97,  4.97,  4.97],\n       [ 4.98,  4.98,  4.98, ...,  4.98,  4.98,  4.98],\n       [ 4.99,  4.99,  4.99, ...,  4.99,  4.99,  4.99]])\n\n\nEvaluate the function as if it were two points:\n\nz = np.sqrt(xs ** 2 + ys ** 2)\nz\n\narray([[7.07106781, 7.06400028, 7.05693985, ..., 7.04988652, 7.05693985,\n        7.06400028],\n       [7.06400028, 7.05692568, 7.04985815, ..., 7.04279774, 7.04985815,\n        7.05692568],\n       [7.05693985, 7.04985815, 7.04278354, ..., 7.03571603, 7.04278354,\n        7.04985815],\n       ...,\n       [7.04988652, 7.04279774, 7.03571603, ..., 7.0286414 , 7.03571603,\n        7.04279774],\n       [7.05693985, 7.04985815, 7.04278354, ..., 7.03571603, 7.04278354,\n        7.04985815],\n       [7.06400028, 7.05692568, 7.04985815, ..., 7.04279774, 7.04985815,\n        7.05692568]])\n\n\n\nBonus: matplotlib visualization\n\nimport matplotlib.pyplot as plt\n\nplt.imshow(z, cmap=plt.cm.gray)  #, extent=[-25, 10, -10, 10])\nplt.colorbar() \nplt.title(\"Image plot of $\\sqrt{x^2 + y^2}$ for a grid of values\")\n\nText(0.5, 1.0, 'Image plot of $\\\\sqrt{x^2 + y^2}$ for a grid of values')\n\n\n\n\n\n\nplt.close(\"all\")"
+  },
+  {
+    "objectID": "04_main.html#expressing-conditional-logic-as-array-operations",
+    "href": "04_main.html#expressing-conditional-logic-as-array-operations",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Expressing Conditional Logic as Array Operations",
+    "text": "Expressing Conditional Logic as Array Operations\nThe numpy.where function is a vectorized version of the ternary expression x if condition else.\n\nsecond and third arguments to numpy.where can also be scalars\ncan also combine scalars and arrays\n\n\nxarr = np.array([1.1, 1.2, 1.3, 1.4, 1.5])\nyarr = np.array([2.1, 2.2, 2.3, 2.4, 2.5])\ncond = np.array([True, False, True, True, False])\n\nTake a value from xarr whenever the corresponding value in cond is True, and otherwise take the value from yarr:\n\nx if condition elsenumpy.where\n\n\n\nresult = [(x if c else y)\n  for x, y, c in zip(xarr, yarr, cond)]\n  \nresult\n\n[1.1, 2.2, 1.3, 1.4, 2.5]\n\n\n\n\n\nresult = np.where(cond, xarr, yarr)\nresult\n\narray([1.1, 2.2, 1.3, 1.4, 2.5])\n\n\n\n\n\nCan also do this with scalars, or combine arrays and scalars:\n\narr = rng.standard_normal((4,4))\narr\n\narray([[-1.34360107, -0.08168759,  1.72473993,  2.61815943],\n       [ 0.77736134,  0.8286332 , -0.95898831, -1.20938829],\n       [-1.41229201,  0.54154683,  0.7519394 , -0.65876032],\n       [-1.22867499,  0.25755777,  0.31290292, -0.13081169]])\n\n\n\nnp.where(arr > 0, 2, -2)\n\narray([[-2, -2,  2,  2],\n       [ 2,  2, -2, -2],\n       [-2,  2,  2, -2],\n       [-2,  2,  2, -2]])\n\n\n\n# set only positive to 2\nnp.where(arr > 0,2,arr)\n\narray([[-1.34360107, -0.08168759,  2.        ,  2.        ],\n       [ 2.        ,  2.        , -0.95898831, -1.20938829],\n       [-1.41229201,  2.        ,  2.        , -0.65876032],\n       [-1.22867499,  2.        ,  2.        , -0.13081169]])"
+  },
+  {
+    "objectID": "04_main.html#mathematical-and-statistical-methods",
+    "href": "04_main.html#mathematical-and-statistical-methods",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Mathematical and Statistical Methods",
+    "text": "Mathematical and Statistical Methods\nUse “aggregations’ like sum, mean, and std\n\nIf using NumPy, must pass the array you want to aggregate as the first argument\n\n\narr = rng.standard_normal((5, 4))\n\narr.mean()\n\n0.06622379901441691\n\n\n\nnp.mean(arr)\n\n0.06622379901441691\n\n\nCan use axis to specify which axis to computer the statistic\n\n“compute across the columns”“compute across the rows”\n\n\n\narr.mean(axis=1)\n\narray([ 0.00066383,  0.40377331,  0.44452789, -0.36983452, -0.14801151])\n\n\n\n\n\narr.mean(axis=0)\n\narray([ 0.54494867, -0.10500845,  0.15080113, -0.32584615])\n\n\n\n\n\nOther methods like cumsum and cumprod do not aggregate, instead producing an array of the intermediate results:\n\narr.cumsum()\n\narray([1.26998312e+00, 1.17702066e+00, 1.11086977e+00, 2.65530664e-03,\n       1.38612157e-01, 1.48568992e+00, 1.54683394e+00, 1.61774854e+00,\n       2.05140308e+00, 2.32888674e+00, 2.85913913e+00, 3.39586010e+00,\n       4.01421011e+00, 3.21919265e+00, 3.51922360e+00, 1.91652201e+00,\n       2.18332084e+00, 9.21697056e-01, 8.50426250e-01, 1.32447598e+00])\n\n\nIn multidimensional arrays, accumulation functions like cumsum compute along the indicated axis:\n\n“compute across the columns”“compute across the rows”\n\n\n\narr.cumsum(axis=1)\n\narray([[ 1.26998312,  1.17702066,  1.11086977,  0.00265531],\n       [ 0.13595685,  1.48303461,  1.54417864,  1.61509324],\n       [ 0.43365454,  0.7111382 ,  1.24139058,  1.77811155],\n       [ 0.61835001, -0.17666744,  0.1233635 , -1.47933809],\n       [ 0.26679883, -0.99482495, -1.06609576, -0.59204603]])\n\n\n\n\n\narr.cumsum(axis=0)\n\narray([[ 1.26998312, -0.09296246, -0.06615089, -1.10821447],\n       [ 1.40593997,  1.25411531, -0.00500687, -1.03729987],\n       [ 1.83959451,  1.53159897,  0.52524552, -0.5005789 ],\n       [ 2.45794452,  0.73658151,  0.82527646, -2.10328049],\n       [ 2.72474335, -0.52504227,  0.75400566, -1.62923076]])"
+  },
+  {
+    "objectID": "04_main.html#methods-for-boolean-arrays",
+    "href": "04_main.html#methods-for-boolean-arrays",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Methods for Boolean Arrays",
+    "text": "Methods for Boolean Arrays\nBoolean values are coerced to 1 (True) and 0 (False) in the preceding methods. Thus, sum is often used as a means of counting True values in a boolean array:\n\n(arr > 0).sum() # Number of positive values\n\n13\n\n\nany tests whether one or more values in an array is True, while all checks if every value is True:\n\nbools = np.array([False, False, True, False])\nbools.any()\n\nTrue"
+  },
+  {
+    "objectID": "04_main.html#sorting",
+    "href": "04_main.html#sorting",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Sorting",
+    "text": "Sorting\nNumPy arrays can be sorted in place with the sort method:\n\narr = rng.standard_normal(6)\narr.sort()\narr\n\narray([-1.64041784, -1.15452958, -0.85725882, -0.41485376,  0.0977165 ,\n        0.68828179])\n\n\nCan sort multidimensional section by providing an axis:\n\narr = rng.standard_normal((5, 3))\n\n\n“compute across the columns”“compute across the rows”\n\n\n\narr.cumsum(axis=1)\n\narray([[ 0.65045239, -0.73790756, -1.64529002],\n       [-1.09542531, -1.08827961, -0.55391971],\n       [-1.06580785, -1.24728059,  0.37467121],\n       [-0.31739195, -1.13320691, -0.7466279 ],\n       [-0.22363893, -0.92532973, -2.72104291]])\n\n\n\n\n\narr.cumsum(axis=0)\n\narray([[ 0.65045239, -1.38835995, -0.90738246],\n       [-0.44497292, -1.38121426, -0.37302255],\n       [-1.51078076, -1.562687  ,  1.24892924],\n       [-1.82817271, -2.37850196,  1.63550826],\n       [-2.05181164, -3.08019277, -0.16020491]])\n\n\n\n\n\nThe top-level method numpy.sort returns a sorted copy of an array (like the Python built-in function sorted) instead of modifying the array in place:\n\narr2 = np.array([5, -10, 7, 1, 0, -3])\nsorted_arr2 = np.sort(arr2)\nsorted_arr2\n\narray([-10,  -3,   0,   1,   5,   7])"
+  },
+  {
+    "objectID": "04_main.html#unique-and-other-set-logic",
+    "href": "04_main.html#unique-and-other-set-logic",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Unique and Other Set Logic",
+    "text": "Unique and Other Set Logic\nnumpy.unique returns the sorted unique values in an array:\n\nnp.unique(names)\n\narray(['Bob', 'Joe', 'Will'], dtype='<U4')\n\n\nnumpy.in1d tests membership of the values in one array in another, returning a boolean array:\n\nnp.in1d(arr1, arr2)\n\narray([False, False, False, False, False, False, False, False, False,\n       False])"
+  },
+  {
+    "objectID": "04_main.html#file-input-and-output-with-arrays",
+    "href": "04_main.html#file-input-and-output-with-arrays",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "File Input and Output with Arrays",
+    "text": "File Input and Output with Arrays\nNumPy is able to save np.save and load np.load data to and from disk in some text or binary formats.\nArrays are saved by default in an uncompressed raw binary format with file extension .npy:\n\narr = np.arange(10)\nnp.save(\"some_array\", arr)\n\n\nnp.load(\"some_array.npy\")\n\narray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])\n\n\n\nSave multiple arrays in an uncompressed archive using numpy.savez\nIf your data compresses well, use numpy.savez_compressed instead"
+  },
+  {
+    "objectID": "04_main.html#linear-algebra",
+    "href": "04_main.html#linear-algebra",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "4.6 Linear Algebra",
+    "text": "4.6 Linear Algebra\nLinear algebra operations, like matrix multiplication, decompositions, determinants, and other square matrix math, can be done with Numpy (np.dot(y) vs x.dot(y)):\n\nnp.dot(arr1, arr)\n\n7.221776767282354"
+  },
+  {
+    "objectID": "04_main.html#example-random-walks",
+    "href": "04_main.html#example-random-walks",
+    "title": "4. NumPy Basics: Arrays and Vectorized Computation",
+    "section": "Example: Random Walks",
+    "text": "Example: Random Walks\n\nimport matplotlib.pyplot as plt\n#! blockstart\nimport random\nposition = 0\nwalk = [position]\nnsteps = 1000\nfor _ in range(nsteps):\n    step = 1 if random.randint(0, 1) else -1\n    position += step\n    walk.append(position)\n#! blockend\n\nplt.plot(walk[:100])\nplt.show()"
+  },
+  {
     "objectID": "04_video.html",
     "href": "04_video.html",
     "title": "Video",
