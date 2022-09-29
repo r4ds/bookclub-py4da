@@ -1,4 +1,116 @@
 # 9. Plotting and Visualization
 
 ## Learning Objectives
+::: {.incremental}
+- Learn about matplotlib, a package for Data Visualization in Python
+- We are going to use matplotlib to create different type of chart in python
+:::
+
+
+# Introduction
+
+Making informative visualizations is one of the most important tasks in every exploratory data analysis process and this can be done using matplotlib.
+
+
+## import the matplotlib library
+```{python}
+import matplotlib.pyplot as plt
+
+import numpy as np
+```
+
+## Demo dataset
+
+```{python}
+data = np.arange(10)
+
+data
+```
+
+## Plot 
+```{python}
+plt.plot(data)
+```
+
+## We can use plt.show() function to display the plot in quarto
+```{python}
+plt.show()
+```
+
+When we are in jupyter or Ipython we can use **%matplotlib notebook** so that we can display the plot in a separate plotting windows.
+
+## Customization of the visualization
+
+While libraries like seaborn and pandas’s built-in plotting functions will deal with many of the mundane details of making plots, should you wish to customize them beyond the function options provided, you will need to learn a bit about the matplotlib API.
+
+
+## Figures and Subplots
+Plots in matplotlib reside within a Figure object. You can create a new figure with **plt.figure ()**
+
+```{python}
+fig = plt.figure()
+```
+
+In IPython, if you first run %matplotlib to set up the matplotlib integration, an empty plot window will appear, but in Jupyter nothing will be shown until we use a few more commands such as %matplotlib qt and then when we type plt.show() it will then display the plot.
+
+plt.figure has a number of options; notably, figsize will guarantee the figure has a certain size and aspect ratio if saved to disk.
+
+You can’t make a plot with a blank figure. You have to create one or more subplots using add_subplot
+
+## Add Subplot
+```{python}
+ax1 = fig.add_subplot(2, 2, 1)
+
+ax1
+
+```
+This means that the figure should be 2 × 2, and we’re selecting the first of four subplots (numbered from 1). We can add more subplot
+
+## We can add more subplot
+```{python}
+ax2 = fig.add_subplot(2, 2, 2)
+
+ax3 = fig.add_subplot(2, 2, 3)
+
+ax2
+
+ax3
+```
+
+## Adding axis methods to the plot
+These plot axis objects have various methods that create different types of plots, and it is preferred to use the axis methods over the top-level plotting functions like plt.show(). For example, we could make a line plot with the plot method.
+
+```{python}
+fig = plt.figure()
+
+ax1 = fig.add_subplot(2, 2, 1)
+
+ax2 = fig.add_subplot(2, 2, 2)
+
+ax3 = fig.add_subplot(2, 2, 3)
+
+ax3.plot(np.random.standard_normal(50).cumsum(), color="black",
+linestyle="dashed")
+
+```
+
+
+We may notice output like <matplotlib.lines.Line2D at …> when we are creating our visualization. matplotlib returns objects that reference the plot subcomponent that was just added. A lot of the time you can safely ignore this output, or you can put a semicolon at the end of the line to suppress the output.
+
+The additional options instruct matplotlib to plot a black dashed line. The objects returned by fig.add_subplot here are AxesSubplot objects, on which you can directly plot on the other empty subplots by calling each one’s instance method.
+
+```{python}
+fig, axes = plt.subplots(2, 3)
+
+axes
+```
+
+## Basic plot with gridline
+```{python}
+fig = plt.figure()
+ax = plt.axes()
+plt.grid(color='r')
+
+```
+
 
