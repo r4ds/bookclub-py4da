@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -370,6 +433,42 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#import-the-necessary-library" id="toc-import-the-necessary-library" class="nav-link" data-scroll-target="#import-the-necessary-library">import the necessary library</a></li>
+  <li><a href="#we-can-use-plt.show-function-to-display-the-plot-in-quarto" id="toc-we-can-use-plt.show-function-to-display-the-plot-in-quarto" class="nav-link" data-scroll-target="#we-can-use-plt.show-function-to-display-the-plot-in-quarto">We can use plt.show() function to display the plot in quarto</a></li>
+  <li><a href="#customization-of-the-visualization" id="toc-customization-of-the-visualization" class="nav-link" data-scroll-target="#customization-of-the-visualization">Customization of the visualization</a></li>
+  <li><a href="#figures-and-subplots" id="toc-figures-and-subplots" class="nav-link" data-scroll-target="#figures-and-subplots">Figures and Subplots</a></li>
+  <li><a href="#add-subplot" id="toc-add-subplot" class="nav-link" data-scroll-target="#add-subplot">Add Subplot</a></li>
+  <li><a href="#we-can-add-more-subplot" id="toc-we-can-add-more-subplot" class="nav-link" data-scroll-target="#we-can-add-more-subplot">We can add more subplot</a></li>
+  <li><a href="#adding-axis-methods-to-the-plot" id="toc-adding-axis-methods-to-the-plot" class="nav-link" data-scroll-target="#adding-axis-methods-to-the-plot">Adding axis methods to the plot</a></li>
+  <li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot">Scatter Plot</a></li>
+  <li><a href="#bar-plot" id="toc-bar-plot" class="nav-link" data-scroll-target="#bar-plot">Bar Plot</a></li>
+  <li><a href="#box-plot" id="toc-box-plot" class="nav-link" data-scroll-target="#box-plot">Box Plot</a></li>
+  <li><a href="#adjusting-the-spacing-around-subplots" id="toc-adjusting-the-spacing-around-subplots" class="nav-link" data-scroll-target="#adjusting-the-spacing-around-subplots">Adjusting the spacing around subplots</a></li>
+  <li><a href="#colors-markers-and-line-styles" id="toc-colors-markers-and-line-styles" class="nav-link" data-scroll-target="#colors-markers-and-line-styles"><strong>Colors, Markers, and Line Styles</strong></a></li>
+  <li><a href="#ticks-labels-and-legends" id="toc-ticks-labels-and-legends" class="nav-link" data-scroll-target="#ticks-labels-and-legends">Ticks, Labels, and Legends</a></li>
+  <li><a href="#setting-the-title-axis-labels-ticks-and-tick-labels" id="toc-setting-the-title-axis-labels-ticks-and-tick-labels" class="nav-link" data-scroll-target="#setting-the-title-axis-labels-ticks-and-tick-labels">Setting the title, axis labels, ticks, and tick labels</a></li>
+  <li><a href="#adding-legends" id="toc-adding-legends" class="nav-link" data-scroll-target="#adding-legends">Adding legends</a></li>
+  <li><a href="#saving-plots-to-file" id="toc-saving-plots-to-file" class="nav-link" data-scroll-target="#saving-plots-to-file">Saving Plots to File</a>
+  <ul class="collapse">
+  <li><a href="#matplotlib-configuration" id="toc-matplotlib-configuration" class="nav-link" data-scroll-target="#matplotlib-configuration"><strong>matplotlib Configuration</strong></a></li>
+  </ul></li>
+  <li><a href="#plotting-with-pandas-and-seaborn" id="toc-plotting-with-pandas-and-seaborn" class="nav-link" data-scroll-target="#plotting-with-pandas-and-seaborn">Plotting with pandas and seaborn</a></li>
+  <li><a href="#plotting-with-pandas" id="toc-plotting-with-pandas" class="nav-link" data-scroll-target="#plotting-with-pandas">Plotting with Pandas</a></li>
+  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots">Line Plots</a></li>
+  <li><a href="#line-graph" id="toc-line-graph" class="nav-link" data-scroll-target="#line-graph">Line Graph</a></li>
+  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots">Bar Plots</a></li>
+  <li><a href="#with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value." id="toc-with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value." class="nav-link" data-scroll-target="#with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value.">With a DataFrame, bar plots group the values in each row in bars, side by side, for each value.</a></li>
+  <li><a href="#we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally" id="toc-we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally" class="nav-link" data-scroll-target="#we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally">We create stacked bar plots from a DataFrame by passing <strong>stacked=True</strong>, resulting in the value in each row being stacked together horizontally</a></li>
+  <li><a href="#visualizing-categorical-data-with-seaborn" id="toc-visualizing-categorical-data-with-seaborn" class="nav-link" data-scroll-target="#visualizing-categorical-data-with-seaborn">Visualizing categorical data with Seaborn</a></li>
+  <li><a href="#boxplot" id="toc-boxplot" class="nav-link" data-scroll-target="#boxplot">Boxplot</a></li>
+  <li><a href="#barplot" id="toc-barplot" class="nav-link" data-scroll-target="#barplot">Barplot</a></li>
+  <li><a href="#scatter-plot-1" id="toc-scatter-plot-1" class="nav-link" data-scroll-target="#scatter-plot-1">Scatter Plot</a></li>
+  <li><a href="#line-plot" id="toc-line-plot" class="nav-link" data-scroll-target="#line-plot">Line Plot</a></li>
+  <li><a href="#facet-grids-and-categorical-data" id="toc-facet-grids-and-categorical-data" class="nav-link" data-scroll-target="#facet-grids-and-categorical-data"><strong>Facet Grids and Categorical Data</strong></a></li>
+  <li><a href="#other-python-visualization-tools" id="toc-other-python-visualization-tools" class="nav-link" data-scroll-target="#other-python-visualization-tools"><strong>Other Python Visualization Tools</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -394,8 +493,744 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="learning-objectives" class="level2">
 <h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>We are going to learn the basic data visualization technique using matplotlib, pandas and seaborn.</li>
+</ul>
+</div>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Making informative visualizations is one of the most important tasks in every exploratory data analysis process and this can be done using <strong>matplotlib.</strong> It may be a part of the exploratory process for example, to help identify <strong>outliers</strong> or needed data transformations, or as a way of generating ideas for models. For others, building an interactive visualization for the web may be the end goal. Python has many add-on libraries for making static or dynamic visualizations, but I’ll be mainly focused on <strong>matplotlib</strong> and libraries that build on top of it.</p>
+<section id="import-the-necessary-library" class="level2">
+<h2 class="anchored" data-anchor-id="import-the-necessary-library">import the necessary library</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Demo_Dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Print</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Output</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.plot(data)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-6-output-1.png" width="558" height="404"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="we-can-use-plt.show-function-to-display-the-plot-in-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="we-can-use-plt.show-function-to-display-the-plot-in-quarto">We can use plt.show() function to display the plot in quarto</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>When we are in jupyter notebook we can use <strong>%matplotlib notebook</strong> so that we can display the plot, but when we are in Ipython we can use <strong>%matplotlib</strong> to display the plot.</p>
+</section>
+<section id="customization-of-the-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="customization-of-the-visualization">Customization of the visualization</h2>
+<p>While libraries like seaborn and pandas’s built-in plotting functions will deal with many of the mundane details of making plots, should you wish to customize them beyond the function options provided, you will need to learn a bit about the matplotlib API.</p>
+</section>
+<section id="figures-and-subplots" class="level2">
+<h2 class="anchored" data-anchor-id="figures-and-subplots">Figures and Subplots</h2>
+<p>Plots in <strong>matplotlib</strong> reside within a <strong>Figure</strong> object. You can create a new figure with <strong>plt.figure ()</strong></p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 672x480 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+<p><strong>plt.figure</strong> has a number of options; notably, <strong>figsize</strong> will guarantee the figure has a certain size and aspect ratio if saved to disk.</p>
+<p>You can’t make a plot with a blank figure. You have to create one or more subplots using add_subplot</p>
+</section>
+<section id="add-subplot" class="level2">
+<h2 class="anchored" data-anchor-id="add-subplot">Add Subplot</h2>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>,<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+</div>
+<p>This means that the figure should be 2 × 2, and we’re selecting the first of four subplots (numbered from 1). We can add more subplot</p>
+</section>
+<section id="we-can-add-more-subplot" class="level2">
+<h2 class="anchored" data-anchor-id="we-can-add-more-subplot">We can add more subplot</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>ax2</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ax3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="adding-axis-methods-to-the-plot" class="level2">
+<h2 class="anchored" data-anchor-id="adding-axis-methods-to-the-plot">Adding axis methods to the plot</h2>
+<p>These plot axis objects have various methods that create different types of plots, and it is preferred to use the axis methods over the top-level plotting functions like <strong>plt.show()</strong>. For example, we could make a line plot with the plot method.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>ax3.plot(np.random.standard_normal(<span class="dv">50</span>).cumsum(), color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>linestyle<span class="op">=</span><span class="st">"dashed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-11-output-1.png" width="581" height="409"></p>
+</div>
+</div>
+<p>We may notice output like <strong>matplotlib.lines.Line2D</strong> at when we are creating our visualization. matplotlib returns objects that reference the plot subcomponent that was just added. A lot of the time you can safely ignore this output, or you can put a <strong>semicolon</strong> at the end of the line to suppress the output.</p>
+<p>The additional options instruct matplotlib to plot a black dashed line. The objects returned by <strong>fig.add_subplot</strong> here are <strong>AxesSubplot</strong> objects, on which you can directly plot on the other empty subplots by calling each one’s instance method.</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ax1.hist(np.random.standard_normal(<span class="dv">100</span>),bins<span class="op">=</span><span class="dv">20</span>,color<span class="op">=</span><span class="st">"black"</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)<span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax2.scatter(np.arange(<span class="dv">30</span>), np.arange(<span class="dv">30</span>) <span class="op">+</span> <span class="dv">3</span><span class="op">*</span>np.random.standard_normal(<span class="dv">30</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To make creating a grid of subplots more convenient, matplotlib includes a <strong>plt.subplots</strong> method that creates a new figure and returns a NumPy array containing the created subplot objects:</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>(&lt;Figure size 672x480 with 6 Axes&gt;,
+ array([[&lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;],
+        [&lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;, &lt;AxesSubplot:&gt;]], dtype=object))</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-13-output-2.png" width="581" height="409"></p>
+</div>
+</div>
+<p>The axes array can then be indexed like a two-dimensional array; for example, <strong>axes[0, 1]</strong> refers to the subplot in the top row at the center</p>
+</section>
+<section id="scatter-plot" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot">Scatter Plot</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'_mpl-gallery'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make the data</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">3</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">4</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">24</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span> <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="dv">2</span>, <span class="bu">len</span>(x))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># size and color:</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>sizes <span class="op">=</span> np.random.uniform(<span class="dv">15</span>, <span class="dv">80</span>, <span class="bu">len</span>(x))</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> np.random.uniform(<span class="dv">15</span>, <span class="dv">80</span>, <span class="bu">len</span>(x))</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, y, s<span class="op">=</span>sizes, c<span class="op">=</span>colors, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), xticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>),</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>       ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), yticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>))</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-14-output-1.png" width="221" height="225"></p>
+</div>
+</div>
+</section>
+<section id="bar-plot" class="level2">
+<h2 class="anchored" data-anchor-id="bar-plot">Bar Plot</h2>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'_mpl-gallery'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make data:</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">3</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fl">0.5</span> <span class="op">+</span> np.arange(<span class="dv">8</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.random.uniform(<span class="dv">2</span>, <span class="dv">7</span>, <span class="bu">len</span>(x))</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>ax.bar(x, y, width<span class="op">=</span><span class="dv">1</span>, edgecolor<span class="op">=</span><span class="st">"white"</span>, linewidth<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), xticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>),</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>       ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), yticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>))</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-15-output-1.png" width="221" height="225"></p>
+</div>
+</div>
+</section>
+<section id="box-plot" class="level2">
+<h2 class="anchored" data-anchor-id="box-plot">Box Plot</h2>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'_mpl-gallery'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># make data:</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">10</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>D <span class="op">=</span> np.random.normal((<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">4</span>), (<span class="fl">1.25</span>, <span class="fl">1.00</span>, <span class="fl">1.25</span>), (<span class="dv">100</span>, <span class="dv">3</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>VP <span class="op">=</span> ax.boxplot(D, positions<span class="op">=</span>[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>], widths<span class="op">=</span><span class="fl">1.5</span>, patch_artist<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                showmeans<span class="op">=</span><span class="va">False</span>, showfliers<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                medianprops<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"white"</span>, <span class="st">"linewidth"</span>: <span class="fl">0.5</span>},</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>                boxprops<span class="op">=</span>{<span class="st">"facecolor"</span>: <span class="st">"C0"</span>, <span class="st">"edgecolor"</span>: <span class="st">"white"</span>,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"linewidth"</span>: <span class="fl">0.5</span>},</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>                whiskerprops<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"C0"</span>, <span class="st">"linewidth"</span>: <span class="fl">1.5</span>},</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>                capprops<span class="op">=</span>{<span class="st">"color"</span>: <span class="st">"C0"</span>, <span class="st">"linewidth"</span>: <span class="fl">1.5</span>})</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), xticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>),</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>       ylim<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">8</span>), yticks<span class="op">=</span>np.arange(<span class="dv">1</span>, <span class="dv">8</span>))</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-16-output-1.png" width="221" height="225"></p>
+</div>
+</div>
+<p><a href="https://matplotlib.org"><strong>We can learn more with the matplotlib documentation</strong></a></p>
+<table class="table">
+<caption>Table.1: Matplotlib.pyplot.subplots options</caption>
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>nrows</td>
+<td>Number of rows of subplots</td>
+</tr>
+<tr class="even">
+<td>ncols</td>
+<td>Number of columns of subplots</td>
+</tr>
+<tr class="odd">
+<td>sharex</td>
+<td>All subplots should use the same x-axis ticks (adjusting the xlim will affect all subplots)</td>
+</tr>
+<tr class="even">
+<td>sharey</td>
+<td>All subplots should use the same y-axis ticks (adjusting the ylim will affect all subplots)</td>
+</tr>
+<tr class="odd">
+<td>subplot_kw</td>
+<td>Dictionary of keywords passed to add_subplot call used to create each subplot</td>
+</tr>
+<tr class="even">
+<td><strong>fig_kw</strong></td>
+<td>Additional keywords to subplots are used when creating the figure, such as plt.subplots (2,2, figsize=(8,6))</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="adjusting-the-spacing-around-subplots" class="level2">
+<h2 class="anchored" data-anchor-id="adjusting-the-spacing-around-subplots">Adjusting the spacing around subplots</h2>
+<p>By default, matplotlib leaves a certain amount of padding around the outside of the subplots and in spacing between subplots. This spacing is all specified relative to the height and width of the plot, so that if you resize the plot either programmatically or manually using the GUI window, the plot will dynamically adjust itself. You can change the spacing using the subplots_adjust method on Figure objects:</p>
+<p>subplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)</p>
+<p><strong>wspace</strong> and <strong>hspace</strong> control the percent of the figure width and figure height, respectively, to use as spacing between subplots.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        axes[i, j].hist(np.random.standard_normal(<span class="dv">500</span>), bins<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>                        color<span class="op">=</span><span class="st">"black"</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>fig.subplots_adjust(wspace<span class="op">=</span><span class="dv">0</span>, hspace<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-17-output-1.png" width="229" height="225"></p>
+</div>
+</div>
+</section>
+<section id="colors-markers-and-line-styles" class="level2">
+<h2 class="anchored" data-anchor-id="colors-markers-and-line-styles"><strong>Colors, Markers, and Line Styles</strong></h2>
+<p>matplotlib’s line <code>plot</code> function accepts arrays of x and y coordinates and optional color styling options. For example, to plot <code>x</code> versus <code>y</code> with green dashes, you would execute:</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y, linestyle<span class="op">=</span><span class="st">"--"</span>, color<span class="op">=</span><span class="st">"green"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>ax.plot(np.random.standard_normal(<span class="dv">30</span>).cumsum(), color<span class="op">=</span><span class="st">"black"</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>linestyle<span class="op">=</span><span class="st">"dashed"</span>, marker<span class="op">=</span><span class="st">"o"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>line plots, you will notice that subsequent points are <strong>linearly interpolated</strong> by default. This can be altered with the <strong>drawstyle</strong> option.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure()</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_subplot()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.random.standard_normal(<span class="dv">30</span>).cumsum()</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>ax.plot(data, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"dashed"</span>, label<span class="op">=</span><span class="st">"Default"</span>)<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax.plot(data, color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"dashed"</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>drawstyle<span class="op">=</span><span class="st">"steps-post"</span>, label<span class="op">=</span><span class="st">"steps-post"</span>)<span class="op">;</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>&lt;matplotlib.legend.Legend at 0x2c090478040&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-20-output-2.png" width="237" height="227"></p>
+</div>
+</div>
+</section>
+<section id="ticks-labels-and-legends" class="level2">
+<h2 class="anchored" data-anchor-id="ticks-labels-and-legends">Ticks, Labels, and Legends</h2>
+<p>Most kinds of plot decorations can be accessed through methods on matplotlib axes objects. This includes methods like <strong>xlim</strong>, <strong>xticks</strong>, and <strong>xticklabels</strong>. These control the <strong>plot range</strong>, <strong>tick locations</strong>, and <strong>tick labels</strong>, respectively. They can be used in two ways:</p>
+<ul>
+<li><p>Called with no arguments returns the current parameter value (e.g., <strong>ax.xlim()</strong> returns the current <strong>x-axis</strong> plotting range)</p></li>
+<li><p>Called with parameters sets the parameter value (e.g., <strong>ax.xlim</strong>([0, 10]) sets the x-axis range to 0 to 10)</p></li>
+</ul>
+</section>
+<section id="setting-the-title-axis-labels-ticks-and-tick-labels" class="level2">
+<h2 class="anchored" data-anchor-id="setting-the-title-axis-labels-ticks-and-tick-labels">Setting the title, axis labels, ticks, and tick labels</h2>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.plot(np.random.standard_normal(<span class="dv">1000</span>).cumsum())<span class="op">;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-21-output-1.png" width="249" height="225"></p>
+</div>
+</div>
+<p>To change the <strong>x-axis ticks</strong>, it’s easiest to use <strong>set_xticks</strong> and <strong>set_xticklabels</strong>. The former instructs matplotlib where to place the ticks along the data range; by default these locations will also be the labels. But we can set any other values as the labels using <strong>set_xticklabels:</strong></p>
+<p>The rotation option sets the x tick labels at a 30-degree rotation. Lastly, <strong>set_xlabel</strong> gives a name to the x-axis, and set_title is the subplot title.</p>
+</section>
+<section id="adding-legends" class="level2">
+<h2 class="anchored" data-anchor-id="adding-legends">Adding legends</h2>
+<p>Legends are another critical element for identifying plot elements. There are a couple of ways to add one. The easiest is to pass the label argument when adding each piece of the plot:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>ax.plot(np.random.randn(<span class="dv">1000</span>).cumsum(), color<span class="op">=</span><span class="st">"black"</span>, label<span class="op">=</span><span class="st">"one"</span>)<span class="op">;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>ax.plot(np.random.randn(<span class="dv">1000</span>).cumsum(), color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"dashed"</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">"two"</span>)<span class="op">;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>ax.plot(np.random.randn(<span class="dv">1000</span>).cumsum(), color<span class="op">=</span><span class="st">"black"</span>, linestyle<span class="op">=</span><span class="st">"dotted"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>label<span class="op">=</span><span class="st">"three"</span>)<span class="op">;</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>ax.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>&lt;matplotlib.legend.Legend at 0x2c0904e2b90&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-22-output-2.png" width="249" height="225"></p>
+</div>
+</div>
+<p>The legend method has several other choices for the location <strong>loc argument</strong>. See the docstring (with <strong>ax.legend?</strong>) for more information. The <strong>loc legend</strong> option tells matplotlib where to place the plot. The default is <strong>“best”</strong>, which tries to choose a location that is most out of the way. To exclude one or more elements from the legend, pass <strong>no label</strong> or <strong>label=“<em>nolegend</em>”</strong>.</p>
+</section>
+<section id="saving-plots-to-file" class="level2">
+<h2 class="anchored" data-anchor-id="saving-plots-to-file">Saving Plots to File</h2>
+<p>You can save the active figure to file using the figure object’s savefig instance method. For example, to save an SVG version of a figure, you need only type:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"figpath.png"</span>, dpi<span class="op">=</span><span class="dv">400</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<table class="table">
+<caption>Table 9.2: Some fig.savefig options</caption>
+<colgroup>
+<col style="width: 23%">
+<col style="width: 76%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fname</td>
+<td>String containing a filepath or a Python file-like object. The figure format is inferred from the file extension (e.g., <code>.pdf</code> for PDF or <code>.png</code> for PNG).</td>
+</tr>
+<tr class="even">
+<td>dpi</td>
+<td>The figure resolution in dots per inch; defaults to 100 in IPython or 72 in Jupyter out of the box but can be configured.</td>
+</tr>
+<tr class="odd">
+<td>facecolor, edgecolor</td>
+<td>The color of the figure background outside of the subplots; <code>"w"</code> (white), by default.</td>
+</tr>
+<tr class="even">
+<td>format</td>
+<td>The explicit file format to use (<code>"png"</code>, <code>"pdf"</code>, <code>"svg"</code>, <code>"ps"</code>, <code>"eps"</code>, ...).</td>
+</tr>
+</tbody>
+</table>
+<section id="matplotlib-configuration" class="level3">
+<h3 class="anchored" data-anchor-id="matplotlib-configuration"><strong>matplotlib Configuration</strong></h3>
+<p>matplotlib comes configured with color schemes and defaults that are geared primarily toward preparing figures for publication. Fortunately, nearly all of the default behavior can be customized via global parameters governing figure size, subplot spacing, colors, font sizes, grid styles, and so on. One way to modify the configuration programmatically from Python is to use the <strong><code>rc</code></strong> method; for example, to set the global default figure size to be 10 × 10, you could enter:</p>
+<p>The first argument to <code>rc</code> is the component you wish to customize, such as <strong><code>"figure"</code></strong>, <strong><code>"axes"</code></strong>, <strong><code>"xtick"</code></strong>, <strong><code>"ytick"</code></strong>, <strong><code>"grid"</code></strong>, <strong><code>"legend"</code></strong>, or many others. After that can follow a sequence of keyword arguments indicating the new parameters. A convenient way to write down the options in your program is as a dictionary:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">"font"</span>, family<span class="op">=</span><span class="st">"monospace"</span>, weight<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">"figure"</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.rc(<span class="st">"font"</span>, family<span class="op">=</span><span class="st">"monospace"</span>, weight<span class="op">=</span><span class="st">"bold"</span>, size<span class="op">=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For more extensive customization and to see a list of all the options, matplotlib comes with a configuration file <strong><em>matplotlibrc</em></strong> in the <strong><em>matplotlib/mpl-data</em></strong> <strong>directory</strong>. If you customize this file and place it in your home directory <strong>titled <em>.matplotlibrc</em></strong>, it will be loaded each time you use <strong>matplotlib</strong>.</p>
+<p>All of the current configuration settings are found in the <strong>plt.rcParams dictionary</strong>, and they can be restored to their default values by calling the <strong>plt.rcdefaults()</strong> function.</p>
+<p>The first argument to <strong>rc</strong> is the component you wish to customize, such as <strong>“figure”</strong>, <strong>“axes”</strong>, <strong>“xtick”</strong>, <strong>“ytick”</strong>, <strong>“grid”</strong>, <strong>“legend”</strong>, or many others. After that can follow a sequence of keyword arguments indicating the new parameters. A convenient way to write down the options in your program is as a dictionary:</p>
+</section>
+</section>
+<section id="plotting-with-pandas-and-seaborn" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-with-pandas-and-seaborn">Plotting with pandas and seaborn</h2>
+<p><strong>matplotlib</strong> can be a fairly low-level tool. You assemble a plot from its base components: the data display (i.e., the type of plot: line, bar, box, scatter, contour, etc.), legend, title, tick labels, and other annotations. In <strong>pandas</strong>, we may have multiple columns of data, along with row and column labels. pandas itself has built-in methods that simplify creating visualizations from DataFrame and Series objects. Another library is <strong>seaborn</strong>, a high-level statistical graphics library built on matplotlib. seaborn simplifies creating many common visualization types.</p>
+</section>
+<section id="plotting-with-pandas" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-with-pandas">Plotting with Pandas</h2>
+</section>
+<section id="line-plots" class="level2">
+<h2 class="anchored" data-anchor-id="line-plots">Line Plots</h2>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series(np.random.standard_normal(<span class="dv">10</span>).cumsum(), index<span class="op">=</span>np.arange(<span class="dv">0</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">100</span>, <span class="dv">10</span>))</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>s.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-27-output-2.png" width="990" height="975"></p>
+</div>
+</div>
+<p>The Series object’s index is passed to <strong>matplotlib</strong> for plotting on the x-axis, though you can disable this by passing <strong>use_index=False</strong>. The x-axis ticks and limits can be adjusted with the <strong>xticks</strong> and <strong>xlim</strong> options, and the <strong>y-axis</strong> respectively with <strong>yticks</strong> and <strong>ylim</strong>.</p>
+<table class="table">
+<caption>Table 9.3: Series.plot method arguments</caption>
+<colgroup>
+<col style="width: 22%">
+<col style="width: 77%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>label</td>
+<td>Label for plot legend</td>
+</tr>
+<tr class="even">
+<td>ax</td>
+<td>matplotlib subplot object to plot on; if nothing passed, uses active matplotlib subplot</td>
+</tr>
+<tr class="odd">
+<td>style</td>
+<td>Style string, like <code>"ko--"</code>, to be passed to matplotlib</td>
+</tr>
+<tr class="even">
+<td>alpha</td>
+<td>The plot fill opacity (from 0 to 1)</td>
+</tr>
+<tr class="odd">
+<td>kind</td>
+<td>Can be <code>"area"</code>, <code>"bar"</code>, <code>"barh"</code>, <code>"density"</code>, <code>"hist"</code>, <code>"kde"</code>, <code>"line"</code>, or <code>"pie"</code>; defaults to <code>"line"</code></td>
+</tr>
+<tr class="even">
+<td>figsize</td>
+<td>Size of the figure object to create</td>
+</tr>
+<tr class="odd">
+<td>logx</td>
+<td>Pass <code>True</code> for logarithmic scaling on the x axis; pass <code>"sym"</code> for symmetric logarithm that permits negative values</td>
+</tr>
+<tr class="even">
+<td>logy</td>
+<td>Pass <code>True</code> for logarithmic scaling on the y axis; pass <code>"sym"</code> for symmetric logarithm that permits negative values</td>
+</tr>
+<tr class="odd">
+<td>title</td>
+<td>Title to use for the plot</td>
+</tr>
+<tr class="even">
+<td>use_index</td>
+<td>Use the object index for tick labels</td>
+</tr>
+<tr class="odd">
+<td>rot</td>
+<td>Rotation of tick labels (0 through 360)</td>
+</tr>
+<tr class="even">
+<td>xticks</td>
+<td>Values to use for x-axis ticks</td>
+</tr>
+<tr class="odd">
+<td>yticks</td>
+<td>Values to use for y-axis ticks</td>
+</tr>
+<tr class="even">
+<td>xlim</td>
+<td>x-axis limits (e.g., <code>[0, 10]</code>)</td>
+</tr>
+<tr class="odd">
+<td>ylim</td>
+<td>y-axis limits</td>
+</tr>
+<tr class="even">
+<td>grid</td>
+<td>Display axis grid (off by default)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="line-graph" class="level2">
+<h2 class="anchored" data-anchor-id="line-graph">Line Graph</h2>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.standard_normal((<span class="dv">10</span>, <span class="dv">4</span>)).cumsum(<span class="dv">0</span>),</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>[<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>],</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span>np.arange(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">10</span>))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'grayscale'</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>df.plot()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-28-output-2.png" width="978" height="975"></p>
+</div>
+</div>
+<p>Here I used <code>plt.style.use('grayscale')</code> to switch to a color scheme more suitable for black and white publication, since some readers will not be able to see the full color plots. The <code>plot</code> attribute contains a “family” of methods for different plot types. For example, <code>df.plot()</code> is equivalent to <code>df.plot.line()</code></p>
+</section>
+<section id="bar-plots" class="level2">
+<h2 class="anchored" data-anchor-id="bar-plots">Bar Plots</h2>
+<p>The <strong>plot.bar()</strong> and <strong>plot.barh()</strong> make vertical and horizontal bar plots, respectively. In this case, the Series or DataFrame index will be used as the x <strong>(bar)</strong> or y <strong>(barh)</strong> ticks</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">1</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.Series(np.random.uniform(size<span class="op">=</span><span class="dv">16</span>), index<span class="op">=</span><span class="bu">list</span>(<span class="st">"abcdefghijklmnop"</span>))</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>data.plot.bar(ax<span class="op">=</span>axes[<span class="dv">0</span>], color<span class="op">=</span><span class="st">"black"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>data.plot.barh(ax<span class="op">=</span>axes[<span class="dv">1</span>], color<span class="op">=</span><span class="st">"black"</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-29-output-2.png" width="984" height="975"></p>
+</div>
+</div>
+</section>
+<section id="with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value." class="level2">
+<h2 class="anchored" data-anchor-id="with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value.">With a DataFrame, bar plots group the values in each row in bars, side by side, for each value.</h2>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(np.random.uniform(size<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>)),</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>index<span class="op">=</span>[<span class="st">"one"</span>, <span class="st">"two"</span>, <span class="st">"three"</span>, <span class="st">"four"</span>, <span class="st">"five"</span>, <span class="st">"six"</span>],</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>columns<span class="op">=</span>pd.Index([<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>], name<span class="op">=</span><span class="st">"Genus"</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>df</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>df.plot.bar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-30-output-2.png" width="984" height="997"></p>
+</div>
+</div>
+</section>
+<section id="we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally" class="level2">
+<h2 class="anchored" data-anchor-id="we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally">We create stacked bar plots from a DataFrame by passing <strong>stacked=True</strong>, resulting in the value in each row being stacked together horizontally</h2>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df.plot.barh(stacked<span class="op">=</span><span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-31-output-2.png" width="997" height="975"></p>
+</div>
+</div>
+</section>
+<section id="visualizing-categorical-data-with-seaborn" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-categorical-data-with-seaborn">Visualizing categorical data with Seaborn</h2>
+<p>Plotting functions in seaborn take a <code>data</code> argument, which can be a pandas DataFrame. The other arguments refer to column names.</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>tips, x<span class="op">=</span><span class="st">"day"</span>, y<span class="op">=</span><span class="st">"total_bill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c08fd8c2b0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-32-output-2.png" width="476" height="476"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>tips, x<span class="op">=</span><span class="st">"day"</span>, y<span class="op">=</span><span class="st">"total_bill"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, kind<span class="op">=</span><span class="st">"swarm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c092177ac0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-33-output-2.png" width="551" height="476"></p>
+</div>
+</div>
+</section>
+<section id="boxplot" class="level2">
+<h2 class="anchored" data-anchor-id="boxplot">Boxplot</h2>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>tips, x<span class="op">=</span><span class="st">"day"</span>, y<span class="op">=</span><span class="st">"total_bill"</span>, kind<span class="op">=</span><span class="st">"box"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c0906cbfd0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-34-output-2.png" width="476" height="476"></p>
+</div>
+</div>
+</section>
+<section id="barplot" class="level2">
+<h2 class="anchored" data-anchor-id="barplot">Barplot</h2>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="op">=</span> sns.load_dataset(<span class="st">"titanic"</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"sex"</span>, y<span class="op">=</span><span class="st">"survived"</span>, hue<span class="op">=</span><span class="st">"class"</span>, kind<span class="op">=</span><span class="st">"bar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c0904e2bf0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-35-output-2.png" width="551" height="476"></p>
+</div>
+</div>
+</section>
+<section id="scatter-plot-1" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-1">Scatter Plot</h2>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>penguin<span class="op">=</span>pd.read_excel(<span class="st">'data/penguins.xlsx'</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> sns.regplot(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"flipper_length_mm"</span>, data<span class="op">=</span>penguin)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>ax</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>&lt;AxesSubplot:xlabel='bill_length_mm', ylabel='flipper_length_mm'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-36-output-2.png" width="1000" height="990"></p>
+</div>
+</div>
+<p>In exploratory data analysis, it’s helpful to be able to look at all the scatter plots among a group of variables; this is known as a <em>pairs</em> plot or <em>scatter plot matrix.</em></p>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a> sns.pairplot(penguin, diag_kind<span class="op">=</span><span class="st">"kde"</span>, plot_kws<span class="op">=</span>{<span class="st">"alpha"</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x2c0902b90c0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-37-output-2.png" width="1655" height="1654"></p>
+</div>
+</div>
+<p>This <strong>plot_kws</strong> enables us to pass down configuration options to the individual plotting calls on the off-diagonal elements.</p>
+<p><strong>Point Plot</strong></p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(data<span class="op">=</span>titanic, x<span class="op">=</span><span class="st">"sex"</span>, y<span class="op">=</span><span class="st">"survived"</span>, hue<span class="op">=</span><span class="st">"class"</span>, kind<span class="op">=</span><span class="st">"point"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c08fdda5c0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-38-output-2.png" width="551" height="476"></p>
+</div>
+</div>
+</section>
+<section id="line-plot" class="level2">
+<h2 class="anchored" data-anchor-id="line-plot">Line Plot</h2>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>)</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>rs <span class="op">=</span> np.random.RandomState(<span class="dv">365</span>)</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> rs.randn(<span class="dv">365</span>, <span class="dv">4</span>).cumsum(axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>dates <span class="op">=</span> pd.date_range(<span class="st">"1 1 2016"</span>, periods<span class="op">=</span><span class="dv">365</span>, freq<span class="op">=</span><span class="st">"D"</span>)</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame(values, dates, columns<span class="op">=</span>[<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>])</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> data.rolling(<span class="dv">7</span>).mean()</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, palette<span class="op">=</span><span class="st">"tab10"</span>, linewidth<span class="op">=</span><span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>&lt;AxesSubplot:&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-39-output-2.png" width="998" height="987"></p>
+</div>
+</div>
+</section>
+<section id="facet-grids-and-categorical-data" class="level2">
+<h2 class="anchored" data-anchor-id="facet-grids-and-categorical-data"><strong>Facet Grids and Categorical Data</strong></h2>
+<p>One way to visualize data with many categorical variables is to use a <strong><em>facet grid</em></strong>, which is a <strong>two-dimensional layout</strong> of plots where the data is split across the plots on each axis based on the distinct values of a certain variable. <strong>seaborn</strong> has a useful built-in function <strong><code>catplot</code></strong> that simplifies making many kinds of faceted plots split by <strong>categorical variables</strong></p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">"species"</span>, y<span class="op">=</span><span class="st">"bill_length_mm"</span>, hue<span class="op">=</span><span class="st">"sex"</span>, col<span class="op">=</span><span class="st">"island"</span>,</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>kind<span class="op">=</span><span class="st">"bar"</span>, data<span class="op">=</span>penguin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c09fc18280&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-40-output-2.png" width="1529" height="464"></p>
+</div>
+</div>
+<p><strong><code>catplot</code></strong> supports other plot types that may be useful depending on what you are trying to display. For example, <em>box plots</em> (which show the median, quartiles, and outliers) can be an effective visualization type.</p>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>sns.catplot(x<span class="op">=</span><span class="st">"bill_length_mm"</span>, y<span class="op">=</span><span class="st">"island"</span>, kind<span class="op">=</span><span class="st">"box"</span>,</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>data<span class="op">=</span>penguin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>&lt;seaborn.axisgrid.FacetGrid at 0x2c0984ba440&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="09_main_files\figure-html/cell-41-output-2.png" width="464" height="464"></p>
+</div>
+</div>
+</section>
+<section id="other-python-visualization-tools" class="level2">
+<h2 class="anchored" data-anchor-id="other-python-visualization-tools"><strong>Other Python Visualization Tools</strong></h2>
+<ul>
+<li><p>There are many other tools for data visualization in python such as [<a href="https://altair-viz.github.io/">Altair</a>](https://altair-viz.github.io/); [<a href="http://bokeh.pydata.org/">Bokeh</a>](http://bokeh.pydata.org/) and [<a href="https://plotly.com/python">Plotly</a>](https://plotly.com/python)</p></li>
+<li><p>For creating static graphics for print or web, I recommend using matplotlib and libraries that build on matplotlib, like pandas and seaborn, for your needs.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

@@ -326,7 +326,7 @@
     "href": "04_main.html#pseudorandom-number-generation",
     "title": "4. NumPy Basics: Arrays and Vectorized Computation",
     "section": "Pseudorandom Number Generation",
-    "text": "Pseudorandom Number Generation\nThe numpy.random module supplements the built-in Python random module with functions for efficiently generating whole arrays of sample values from many kinds of probability distributions.\n\nMuch faster than Python’s built-in random module\n\n\nsamples = np.random.standard_normal(size=(4, 4))\nsamples\n\narray([[-1.49503386,  1.01785152,  0.47179091, -1.28631804],\n       [ 0.70659991, -0.56871359,  1.14751144, -0.3632851 ],\n       [ 0.67640042, -0.25943702, -1.43040126,  0.7785265 ],\n       [-0.94711384,  0.12836998, -0.83929185,  0.02158598]])\n\n\nCan use an explicit generator:\n\nseed determines initial state of generator\n\n\nrng = np.random.default_rng(seed=12345)\ndata = rng.standard_normal((2, 3))\ndata\n\narray([[-1.42382504,  1.26372846, -0.87066174],\n       [-0.25917323, -0.07534331, -0.74088465]])\n\n\nWes provides a table of NumPy random number generator methods"
+    "text": "Pseudorandom Number Generation\nThe numpy.random module supplements the built-in Python random module with functions for efficiently generating whole arrays of sample values from many kinds of probability distributions.\n\nMuch faster than Python’s built-in random module\n\n\nsamples = np.random.standard_normal(size=(4, 4))\nsamples\n\narray([[ 0.17488936,  1.40484911,  0.15183398, -1.02194459],\n       [ 0.69530047,  1.69838274, -0.5782449 , -0.32245913],\n       [ 1.30932161, -0.48999345, -0.13171682,  0.67943756],\n       [-0.12637043, -0.82355441, -0.86697578, -0.06906716]])\n\n\nCan use an explicit generator:\n\nseed determines initial state of generator\n\n\nrng = np.random.default_rng(seed=12345)\ndata = rng.standard_normal((2, 3))\ndata\n\narray([[-1.42382504,  1.26372846, -0.87066174],\n       [-0.25917323, -0.07534331, -0.74088465]])\n\n\nWes provides a table of NumPy random number generator methods"
   },
   {
     "objectID": "04_main.html#universal-functions-fast-element-wise-array-functions",
@@ -551,6 +551,223 @@
     "title": "Video",
     "section": "",
     "text": "LOG"
+  },
+  {
+    "objectID": "09_main.html",
+    "href": "09_main.html",
+    "title": "9. Plotting and Visualization",
+    "section": "",
+    "text": "We are going to learn the basic data visualization technique using matplotlib, pandas and seaborn."
+  },
+  {
+    "objectID": "09_main.html#import-the-necessary-library",
+    "href": "09_main.html#import-the-necessary-library",
+    "title": "9. Plotting and Visualization",
+    "section": "import the necessary library",
+    "text": "import the necessary library\n\nimport matplotlib.pyplot as plt\nimport numpy as np\nimport seaborn as sns\n\n\nDemo_DatasetPrint\n\n\n\n```{python}\n#| eval: false\ndata = np.arange(10)\n```\n\n\n\n\n\narray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])\n\n\n\n\n\n\nCodeOutput\n\n\n\n```{python}\n#| eval: false\nplt.plot(data)\n```"
+  },
+  {
+    "objectID": "09_main.html#we-can-use-plt.show-function-to-display-the-plot-in-quarto",
+    "href": "09_main.html#we-can-use-plt.show-function-to-display-the-plot-in-quarto",
+    "title": "9. Plotting and Visualization",
+    "section": "We can use plt.show() function to display the plot in quarto",
+    "text": "We can use plt.show() function to display the plot in quarto\n\nplt.show()\n\nWhen we are in jupyter notebook we can use %matplotlib notebook so that we can display the plot, but when we are in Ipython we can use %matplotlib to display the plot."
+  },
+  {
+    "objectID": "09_main.html#customization-of-the-visualization",
+    "href": "09_main.html#customization-of-the-visualization",
+    "title": "9. Plotting and Visualization",
+    "section": "Customization of the visualization",
+    "text": "Customization of the visualization\nWhile libraries like seaborn and pandas’s built-in plotting functions will deal with many of the mundane details of making plots, should you wish to customize them beyond the function options provided, you will need to learn a bit about the matplotlib API."
+  },
+  {
+    "objectID": "09_main.html#figures-and-subplots",
+    "href": "09_main.html#figures-and-subplots",
+    "title": "9. Plotting and Visualization",
+    "section": "Figures and Subplots",
+    "text": "Figures and Subplots\nPlots in matplotlib reside within a Figure object. You can create a new figure with plt.figure ()\n\nfig = plt.figure()\n\n<Figure size 672x480 with 0 Axes>\n\n\nplt.figure has a number of options; notably, figsize will guarantee the figure has a certain size and aspect ratio if saved to disk.\nYou can’t make a plot with a blank figure. You have to create one or more subplots using add_subplot"
+  },
+  {
+    "objectID": "09_main.html#add-subplot",
+    "href": "09_main.html#add-subplot",
+    "title": "9. Plotting and Visualization",
+    "section": "Add Subplot",
+    "text": "Add Subplot\n\nax1 = fig.add_subplot(2,2, 1)\n\nax1\n\n<AxesSubplot:>\n\n\nThis means that the figure should be 2 × 2, and we’re selecting the first of four subplots (numbered from 1). We can add more subplot"
+  },
+  {
+    "objectID": "09_main.html#we-can-add-more-subplot",
+    "href": "09_main.html#we-can-add-more-subplot",
+    "title": "9. Plotting and Visualization",
+    "section": "We can add more subplot",
+    "text": "We can add more subplot\n\nax2 = fig.add_subplot(2, 2, 2)\n\nax3 = fig.add_subplot(2, 2, 3)\n\nax2\n\nax3\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "09_main.html#adding-axis-methods-to-the-plot",
+    "href": "09_main.html#adding-axis-methods-to-the-plot",
+    "title": "9. Plotting and Visualization",
+    "section": "Adding axis methods to the plot",
+    "text": "Adding axis methods to the plot\nThese plot axis objects have various methods that create different types of plots, and it is preferred to use the axis methods over the top-level plotting functions like plt.show(). For example, we could make a line plot with the plot method.\n\nfig = plt.figure()\n\nax1 = fig.add_subplot(2, 2, 1)\n\nax2 = fig.add_subplot(2, 2, 2)\n\nax3 = fig.add_subplot(2, 2, 3)\n\nax3.plot(np.random.standard_normal(50).cumsum(), color=\"black\",\nlinestyle=\"dashed\")\n\n\n\n\nWe may notice output like matplotlib.lines.Line2D at when we are creating our visualization. matplotlib returns objects that reference the plot subcomponent that was just added. A lot of the time you can safely ignore this output, or you can put a semicolon at the end of the line to suppress the output.\nThe additional options instruct matplotlib to plot a black dashed line. The objects returned by fig.add_subplot here are AxesSubplot objects, on which you can directly plot on the other empty subplots by calling each one’s instance method.\n\nax1.hist(np.random.standard_normal(100),bins=20,color=\"black\", alpha=0.3);\n\nax2.scatter(np.arange(30), np.arange(30) + 3*np.random.standard_normal(30));\n\nTo make creating a grid of subplots more convenient, matplotlib includes a plt.subplots method that creates a new figure and returns a NumPy array containing the created subplot objects:\n\naxes = plt.subplots(2, 3)\n\naxes\n\n(<Figure size 672x480 with 6 Axes>,\n array([[<AxesSubplot:>, <AxesSubplot:>, <AxesSubplot:>],\n        [<AxesSubplot:>, <AxesSubplot:>, <AxesSubplot:>]], dtype=object))\n\n\n\n\n\nThe axes array can then be indexed like a two-dimensional array; for example, axes[0, 1] refers to the subplot in the top row at the center"
+  },
+  {
+    "objectID": "09_main.html#scatter-plot",
+    "href": "09_main.html#scatter-plot",
+    "title": "9. Plotting and Visualization",
+    "section": "Scatter Plot",
+    "text": "Scatter Plot\n\nplt.style.use('_mpl-gallery')\n\n# make the data\nnp.random.seed(3)\nx = 4 + np.random.normal(0, 2, 24)\ny = 4 + np.random.normal(0, 2, len(x))\n# size and color:\nsizes = np.random.uniform(15, 80, len(x))\ncolors = np.random.uniform(15, 80, len(x))\n\n# plot\nfig, ax = plt.subplots()\n\nax.scatter(x, y, s=sizes, c=colors, vmin=0, vmax=100)\n\nax.set(xlim=(0, 8), xticks=np.arange(1, 8),\n       ylim=(0, 8), yticks=np.arange(1, 8))\n\nplt.show()"
+  },
+  {
+    "objectID": "09_main.html#bar-plot",
+    "href": "09_main.html#bar-plot",
+    "title": "9. Plotting and Visualization",
+    "section": "Bar Plot",
+    "text": "Bar Plot\n\nplt.style.use('_mpl-gallery')\n\n# make data:\nnp.random.seed(3)\nx = 0.5 + np.arange(8)\ny = np.random.uniform(2, 7, len(x))\n\n# plot\nfig, ax = plt.subplots()\n\nax.bar(x, y, width=1, edgecolor=\"white\", linewidth=0.7)\n\nax.set(xlim=(0, 8), xticks=np.arange(1, 8),\n       ylim=(0, 8), yticks=np.arange(1, 8))\n\nplt.show()"
+  },
+  {
+    "objectID": "09_main.html#box-plot",
+    "href": "09_main.html#box-plot",
+    "title": "9. Plotting and Visualization",
+    "section": "Box Plot",
+    "text": "Box Plot\n\nplt.style.use('_mpl-gallery')\n\n# make data:\nnp.random.seed(10)\nD = np.random.normal((3, 5, 4), (1.25, 1.00, 1.25), (100, 3))\n\n# plot\nfig, ax = plt.subplots()\nVP = ax.boxplot(D, positions=[2, 4, 6], widths=1.5, patch_artist=True,\n                showmeans=False, showfliers=False,\n                medianprops={\"color\": \"white\", \"linewidth\": 0.5},\n                boxprops={\"facecolor\": \"C0\", \"edgecolor\": \"white\",\n                          \"linewidth\": 0.5},\n                whiskerprops={\"color\": \"C0\", \"linewidth\": 1.5},\n                capprops={\"color\": \"C0\", \"linewidth\": 1.5})\n\nax.set(xlim=(0, 8), xticks=np.arange(1, 8),\n       ylim=(0, 8), yticks=np.arange(1, 8))\n\nplt.show()\n\n\n\n\nWe can learn more with the matplotlib documentation\n\nTable.1: Matplotlib.pyplot.subplots options\n\n\n\n\n\n\nArgument\nDescription\n\n\n\n\nnrows\nNumber of rows of subplots\n\n\nncols\nNumber of columns of subplots\n\n\nsharex\nAll subplots should use the same x-axis ticks (adjusting the xlim will affect all subplots)\n\n\nsharey\nAll subplots should use the same y-axis ticks (adjusting the ylim will affect all subplots)\n\n\nsubplot_kw\nDictionary of keywords passed to add_subplot call used to create each subplot\n\n\nfig_kw\nAdditional keywords to subplots are used when creating the figure, such as plt.subplots (2,2, figsize=(8,6))"
+  },
+  {
+    "objectID": "09_main.html#adjusting-the-spacing-around-subplots",
+    "href": "09_main.html#adjusting-the-spacing-around-subplots",
+    "title": "9. Plotting and Visualization",
+    "section": "Adjusting the spacing around subplots",
+    "text": "Adjusting the spacing around subplots\nBy default, matplotlib leaves a certain amount of padding around the outside of the subplots and in spacing between subplots. This spacing is all specified relative to the height and width of the plot, so that if you resize the plot either programmatically or manually using the GUI window, the plot will dynamically adjust itself. You can change the spacing using the subplots_adjust method on Figure objects:\nsubplots_adjust(left=None, bottom=None, right=None, top=None, wspace=None, hspace=None)\nwspace and hspace control the percent of the figure width and figure height, respectively, to use as spacing between subplots.\n\nfig, axes = plt.subplots(2, 2, sharex=True, sharey=True)\nfor i in range(2):\n    for j in range(2):\n        axes[i, j].hist(np.random.standard_normal(500), bins=50,\n                        color=\"black\", alpha=0.5)\nfig.subplots_adjust(wspace=0, hspace=0)"
+  },
+  {
+    "objectID": "09_main.html#colors-markers-and-line-styles",
+    "href": "09_main.html#colors-markers-and-line-styles",
+    "title": "9. Plotting and Visualization",
+    "section": "Colors, Markers, and Line Styles",
+    "text": "Colors, Markers, and Line Styles\nmatplotlib’s line plot function accepts arrays of x and y coordinates and optional color styling options. For example, to plot x versus y with green dashes, you would execute:\n\nax.plot(x, y, linestyle=\"--\", color=\"green\")\n\n\nax = fig.add_subplot()\n\nax.plot(np.random.standard_normal(30).cumsum(), color=\"black\",\nlinestyle=\"dashed\", marker=\"o\")\n\nplt.show()\n\nline plots, you will notice that subsequent points are linearly interpolated by default. This can be altered with the drawstyle option.\n\nfig = plt.figure()\n\nax = fig.add_subplot()\n\ndata = np.random.standard_normal(30).cumsum()\n\nax.plot(data, color=\"black\", linestyle=\"dashed\", label=\"Default\");\nax.plot(data, color=\"black\", linestyle=\"dashed\",\ndrawstyle=\"steps-post\", label=\"steps-post\");\nax.legend()\n\n<matplotlib.legend.Legend at 0x2c090478040>"
+  },
+  {
+    "objectID": "09_main.html#ticks-labels-and-legends",
+    "href": "09_main.html#ticks-labels-and-legends",
+    "title": "9. Plotting and Visualization",
+    "section": "Ticks, Labels, and Legends",
+    "text": "Ticks, Labels, and Legends\nMost kinds of plot decorations can be accessed through methods on matplotlib axes objects. This includes methods like xlim, xticks, and xticklabels. These control the plot range, tick locations, and tick labels, respectively. They can be used in two ways:\n\nCalled with no arguments returns the current parameter value (e.g., ax.xlim() returns the current x-axis plotting range)\nCalled with parameters sets the parameter value (e.g., ax.xlim([0, 10]) sets the x-axis range to 0 to 10)"
+  },
+  {
+    "objectID": "09_main.html#setting-the-title-axis-labels-ticks-and-tick-labels",
+    "href": "09_main.html#setting-the-title-axis-labels-ticks-and-tick-labels",
+    "title": "9. Plotting and Visualization",
+    "section": "Setting the title, axis labels, ticks, and tick labels",
+    "text": "Setting the title, axis labels, ticks, and tick labels\n\nfig, ax = plt.subplots()\n\nax.plot(np.random.standard_normal(1000).cumsum());\n\nplt.show()\n\n\n\n\nTo change the x-axis ticks, it’s easiest to use set_xticks and set_xticklabels. The former instructs matplotlib where to place the ticks along the data range; by default these locations will also be the labels. But we can set any other values as the labels using set_xticklabels:\nThe rotation option sets the x tick labels at a 30-degree rotation. Lastly, set_xlabel gives a name to the x-axis, and set_title is the subplot title."
+  },
+  {
+    "objectID": "09_main.html#adding-legends",
+    "href": "09_main.html#adding-legends",
+    "title": "9. Plotting and Visualization",
+    "section": "Adding legends",
+    "text": "Adding legends\nLegends are another critical element for identifying plot elements. There are a couple of ways to add one. The easiest is to pass the label argument when adding each piece of the plot:\n\nfig, ax = plt.subplots()\n\nax.plot(np.random.randn(1000).cumsum(), color=\"black\", label=\"one\");\nax.plot(np.random.randn(1000).cumsum(), color=\"black\", linestyle=\"dashed\",\nlabel=\"two\");\nax.plot(np.random.randn(1000).cumsum(), color=\"black\", linestyle=\"dotted\",\nlabel=\"three\");\n\n\nax.legend()\n\n<matplotlib.legend.Legend at 0x2c0904e2b90>\n\n\n\n\n\nThe legend method has several other choices for the location loc argument. See the docstring (with ax.legend?) for more information. The loc legend option tells matplotlib where to place the plot. The default is “best”, which tries to choose a location that is most out of the way. To exclude one or more elements from the legend, pass no label or label=“nolegend”."
+  },
+  {
+    "objectID": "09_main.html#saving-plots-to-file",
+    "href": "09_main.html#saving-plots-to-file",
+    "title": "9. Plotting and Visualization",
+    "section": "Saving Plots to File",
+    "text": "Saving Plots to File\nYou can save the active figure to file using the figure object’s savefig instance method. For example, to save an SVG version of a figure, you need only type:\n\nfig.savefig(\"figpath.png\", dpi=400)\n\n\nTable 9.2: Some fig.savefig options\n\n\n\n\n\n\nArgument\nDescription\n\n\n\n\nfname\nString containing a filepath or a Python file-like object. The figure format is inferred from the file extension (e.g., .pdf for PDF or .png for PNG).\n\n\ndpi\nThe figure resolution in dots per inch; defaults to 100 in IPython or 72 in Jupyter out of the box but can be configured.\n\n\nfacecolor, edgecolor\nThe color of the figure background outside of the subplots; \"w\" (white), by default.\n\n\nformat\nThe explicit file format to use (\"png\", \"pdf\", \"svg\", \"ps\", \"eps\", ...).\n\n\n\n\nmatplotlib Configuration\nmatplotlib comes configured with color schemes and defaults that are geared primarily toward preparing figures for publication. Fortunately, nearly all of the default behavior can be customized via global parameters governing figure size, subplot spacing, colors, font sizes, grid styles, and so on. One way to modify the configuration programmatically from Python is to use the rc method; for example, to set the global default figure size to be 10 × 10, you could enter:\nThe first argument to rc is the component you wish to customize, such as \"figure\", \"axes\", \"xtick\", \"ytick\", \"grid\", \"legend\", or many others. After that can follow a sequence of keyword arguments indicating the new parameters. A convenient way to write down the options in your program is as a dictionary:\n\nplt.rc(\"font\", family=\"monospace\", weight=\"bold\", size=8)\n\n\nplt.rc(\"figure\", figsize=(10, 10))\n\n\nplt.rc(\"font\", family=\"monospace\", weight=\"bold\", size=8)\n\nFor more extensive customization and to see a list of all the options, matplotlib comes with a configuration file matplotlibrc in the matplotlib/mpl-data directory. If you customize this file and place it in your home directory titled .matplotlibrc, it will be loaded each time you use matplotlib.\nAll of the current configuration settings are found in the plt.rcParams dictionary, and they can be restored to their default values by calling the plt.rcdefaults() function.\nThe first argument to rc is the component you wish to customize, such as “figure”, “axes”, “xtick”, “ytick”, “grid”, “legend”, or many others. After that can follow a sequence of keyword arguments indicating the new parameters. A convenient way to write down the options in your program is as a dictionary:"
+  },
+  {
+    "objectID": "09_main.html#plotting-with-pandas-and-seaborn",
+    "href": "09_main.html#plotting-with-pandas-and-seaborn",
+    "title": "9. Plotting and Visualization",
+    "section": "Plotting with pandas and seaborn",
+    "text": "Plotting with pandas and seaborn\nmatplotlib can be a fairly low-level tool. You assemble a plot from its base components: the data display (i.e., the type of plot: line, bar, box, scatter, contour, etc.), legend, title, tick labels, and other annotations. In pandas, we may have multiple columns of data, along with row and column labels. pandas itself has built-in methods that simplify creating visualizations from DataFrame and Series objects. Another library is seaborn, a high-level statistical graphics library built on matplotlib. seaborn simplifies creating many common visualization types."
+  },
+  {
+    "objectID": "09_main.html#plotting-with-pandas",
+    "href": "09_main.html#plotting-with-pandas",
+    "title": "9. Plotting and Visualization",
+    "section": "Plotting with Pandas",
+    "text": "Plotting with Pandas"
+  },
+  {
+    "objectID": "09_main.html#line-plots",
+    "href": "09_main.html#line-plots",
+    "title": "9. Plotting and Visualization",
+    "section": "Line Plots",
+    "text": "Line Plots\n\nimport pandas as pd\nimport numpy as np\n\ns = pd.Series(np.random.standard_normal(10).cumsum(), index=np.arange(0,\n 100, 10))\n\ns.plot()\n\n<AxesSubplot:>\n\n\n\n\n\nThe Series object’s index is passed to matplotlib for plotting on the x-axis, though you can disable this by passing use_index=False. The x-axis ticks and limits can be adjusted with the xticks and xlim options, and the y-axis respectively with yticks and ylim.\n\nTable 9.3: Series.plot method arguments\n\n\n\n\n\n\nArgument\nDescription\n\n\n\n\nlabel\nLabel for plot legend\n\n\nax\nmatplotlib subplot object to plot on; if nothing passed, uses active matplotlib subplot\n\n\nstyle\nStyle string, like \"ko--\", to be passed to matplotlib\n\n\nalpha\nThe plot fill opacity (from 0 to 1)\n\n\nkind\nCan be \"area\", \"bar\", \"barh\", \"density\", \"hist\", \"kde\", \"line\", or \"pie\"; defaults to \"line\"\n\n\nfigsize\nSize of the figure object to create\n\n\nlogx\nPass True for logarithmic scaling on the x axis; pass \"sym\" for symmetric logarithm that permits negative values\n\n\nlogy\nPass True for logarithmic scaling on the y axis; pass \"sym\" for symmetric logarithm that permits negative values\n\n\ntitle\nTitle to use for the plot\n\n\nuse_index\nUse the object index for tick labels\n\n\nrot\nRotation of tick labels (0 through 360)\n\n\nxticks\nValues to use for x-axis ticks\n\n\nyticks\nValues to use for y-axis ticks\n\n\nxlim\nx-axis limits (e.g., [0, 10])\n\n\nylim\ny-axis limits\n\n\ngrid\nDisplay axis grid (off by default)"
+  },
+  {
+    "objectID": "09_main.html#line-graph",
+    "href": "09_main.html#line-graph",
+    "title": "9. Plotting and Visualization",
+    "section": "Line Graph",
+    "text": "Line Graph\n\ndf = pd.DataFrame(np.random.standard_normal((10, 4)).cumsum(0),\ncolumns=[\"A\", \"B\", \"C\", \"D\"],\nindex=np.arange(0, 100, 10))\n\nplt.style.use('grayscale')\n\ndf.plot()\n\n<AxesSubplot:>\n\n\n\n\n\nHere I used plt.style.use('grayscale') to switch to a color scheme more suitable for black and white publication, since some readers will not be able to see the full color plots. The plot attribute contains a “family” of methods for different plot types. For example, df.plot() is equivalent to df.plot.line()"
+  },
+  {
+    "objectID": "09_main.html#bar-plots",
+    "href": "09_main.html#bar-plots",
+    "title": "9. Plotting and Visualization",
+    "section": "Bar Plots",
+    "text": "Bar Plots\nThe plot.bar() and plot.barh() make vertical and horizontal bar plots, respectively. In this case, the Series or DataFrame index will be used as the x (bar) or y (barh) ticks\n\nfig, axes = plt.subplots(2, 1)\n\ndata = pd.Series(np.random.uniform(size=16), index=list(\"abcdefghijklmnop\"))\n\ndata.plot.bar(ax=axes[0], color=\"black\", alpha=0.7)\n\ndata.plot.barh(ax=axes[1], color=\"black\", alpha=0.7)\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "09_main.html#with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value.",
+    "href": "09_main.html#with-a-dataframe-bar-plots-group-the-values-in-each-row-in-bars-side-by-side-for-each-value.",
+    "title": "9. Plotting and Visualization",
+    "section": "With a DataFrame, bar plots group the values in each row in bars, side by side, for each value.",
+    "text": "With a DataFrame, bar plots group the values in each row in bars, side by side, for each value.\n\ndf = pd.DataFrame(np.random.uniform(size=(6, 4)),\nindex=[\"one\", \"two\", \"three\", \"four\", \"five\", \"six\"],\ncolumns=pd.Index([\"A\", \"B\", \"C\", \"D\"], name=\"Genus\"))\n\ndf\n \n\ndf.plot.bar()\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "09_main.html#we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally",
+    "href": "09_main.html#we-create-stacked-bar-plots-from-a-dataframe-by-passing-stackedtrue-resulting-in-the-value-in-each-row-being-stacked-together-horizontally",
+    "title": "9. Plotting and Visualization",
+    "section": "We create stacked bar plots from a DataFrame by passing stacked=True, resulting in the value in each row being stacked together horizontally",
+    "text": "We create stacked bar plots from a DataFrame by passing stacked=True, resulting in the value in each row being stacked together horizontally\n\ndf.plot.barh(stacked=True, alpha=0.5)\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "09_main.html#visualizing-categorical-data-with-seaborn",
+    "href": "09_main.html#visualizing-categorical-data-with-seaborn",
+    "title": "9. Plotting and Visualization",
+    "section": "Visualizing categorical data with Seaborn",
+    "text": "Visualizing categorical data with Seaborn\nPlotting functions in seaborn take a data argument, which can be a pandas DataFrame. The other arguments refer to column names.\n\nimport seaborn as sns\ntips = sns.load_dataset(\"tips\")\nsns.catplot(data=tips, x=\"day\", y=\"total_bill\")\n\n<seaborn.axisgrid.FacetGrid at 0x2c08fd8c2b0>\n\n\n\n\n\n\nsns.catplot(data=tips, x=\"day\", y=\"total_bill\", hue=\"sex\", kind=\"swarm\")\n\n<seaborn.axisgrid.FacetGrid at 0x2c092177ac0>"
+  },
+  {
+    "objectID": "09_main.html#boxplot",
+    "href": "09_main.html#boxplot",
+    "title": "9. Plotting and Visualization",
+    "section": "Boxplot",
+    "text": "Boxplot\n\nsns.catplot(data=tips, x=\"day\", y=\"total_bill\", kind=\"box\")\n\n<seaborn.axisgrid.FacetGrid at 0x2c0906cbfd0>"
+  },
+  {
+    "objectID": "09_main.html#barplot",
+    "href": "09_main.html#barplot",
+    "title": "9. Plotting and Visualization",
+    "section": "Barplot",
+    "text": "Barplot\n\ntitanic = sns.load_dataset(\"titanic\")\nsns.catplot(data=titanic, x=\"sex\", y=\"survived\", hue=\"class\", kind=\"bar\")\n\n<seaborn.axisgrid.FacetGrid at 0x2c0904e2bf0>"
+  },
+  {
+    "objectID": "09_main.html#scatter-plot-1",
+    "href": "09_main.html#scatter-plot-1",
+    "title": "9. Plotting and Visualization",
+    "section": "Scatter Plot",
+    "text": "Scatter Plot\n\nimport pandas as pd\nimport seaborn as sns\npenguin=pd.read_excel('data/penguins.xlsx')\n\nax = sns.regplot(x=\"bill_length_mm\", y=\"flipper_length_mm\", data=penguin)\n\nax\n\n<AxesSubplot:xlabel='bill_length_mm', ylabel='flipper_length_mm'>\n\n\n\n\n\nIn exploratory data analysis, it’s helpful to be able to look at all the scatter plots among a group of variables; this is known as a pairs plot or scatter plot matrix.\n\n sns.pairplot(penguin, diag_kind=\"kde\", plot_kws={\"alpha\": 0.2})\n\n<seaborn.axisgrid.PairGrid at 0x2c0902b90c0>\n\n\n\n\n\nThis plot_kws enables us to pass down configuration options to the individual plotting calls on the off-diagonal elements.\nPoint Plot\n\nsns.catplot(data=titanic, x=\"sex\", y=\"survived\", hue=\"class\", kind=\"point\")\n\n<seaborn.axisgrid.FacetGrid at 0x2c08fdda5c0>"
+  },
+  {
+    "objectID": "09_main.html#line-plot",
+    "href": "09_main.html#line-plot",
+    "title": "9. Plotting and Visualization",
+    "section": "Line Plot",
+    "text": "Line Plot\n\nimport numpy as np\nimport pandas as pd\nimport seaborn as sns\nsns.set_theme(style=\"whitegrid\")\n\nrs = np.random.RandomState(365)\nvalues = rs.randn(365, 4).cumsum(axis=0)\ndates = pd.date_range(\"1 1 2016\", periods=365, freq=\"D\")\ndata = pd.DataFrame(values, dates, columns=[\"A\", \"B\", \"C\", \"D\"])\ndata = data.rolling(7).mean()\n\nsns.lineplot(data=data, palette=\"tab10\", linewidth=2.5)\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "09_main.html#facet-grids-and-categorical-data",
+    "href": "09_main.html#facet-grids-and-categorical-data",
+    "title": "9. Plotting and Visualization",
+    "section": "Facet Grids and Categorical Data",
+    "text": "Facet Grids and Categorical Data\nOne way to visualize data with many categorical variables is to use a facet grid, which is a two-dimensional layout of plots where the data is split across the plots on each axis based on the distinct values of a certain variable. seaborn has a useful built-in function catplot that simplifies making many kinds of faceted plots split by categorical variables\n\nsns.catplot(x=\"species\", y=\"bill_length_mm\", hue=\"sex\", col=\"island\",\nkind=\"bar\", data=penguin)\n\n<seaborn.axisgrid.FacetGrid at 0x2c09fc18280>\n\n\n\n\n\ncatplot supports other plot types that may be useful depending on what you are trying to display. For example, box plots (which show the median, quartiles, and outliers) can be an effective visualization type.\n\nsns.catplot(x=\"bill_length_mm\", y=\"island\", kind=\"box\",\ndata=penguin)\n\n<seaborn.axisgrid.FacetGrid at 0x2c0984ba440>"
+  },
+  {
+    "objectID": "09_main.html#other-python-visualization-tools",
+    "href": "09_main.html#other-python-visualization-tools",
+    "title": "9. Plotting and Visualization",
+    "section": "Other Python Visualization Tools",
+    "text": "Other Python Visualization Tools\n\nThere are many other tools for data visualization in python such as [Altair](https://altair-viz.github.io/); [Bokeh](http://bokeh.pydata.org/) and [Plotly](https://plotly.com/python)\nFor creating static graphics for print or web, I recommend using matplotlib and libraries that build on matplotlib, like pandas and seaborn, for your needs."
   },
   {
     "objectID": "09_video.html",
