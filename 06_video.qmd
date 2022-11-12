@@ -6,7 +6,6 @@
 
 <summary><details>
 ```
-LOG
 00:04:53	phanikumar tata:	hello everyone , got some issues with my camera
 00:57:00	Jim Gruman:	thank you Jadey!!
 00:57:30	phanikumar tata:	Great presentation

@@ -6,7 +6,6 @@
 
 <summary><details>
 ```
-LOG
 00:37:17	Serena DeStefani:	Sorry, I have to go today because I have some work left to do. But this session is very nice and hopefully I will be back! Thank you
 00:53:43	Karim Badr:	Quick google search about transpose vs swapaxes and other forms for this: https://blog.fearcat.in/a?ID=01750-160525d9-9c23-4590-9020-6a3f90d3bdbf
 ```
