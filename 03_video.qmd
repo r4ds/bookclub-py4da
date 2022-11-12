@@ -6,7 +6,6 @@
 
 <summary><details>
 ```
-LOG
 00:30:39	Karim Badr:	Is there a difference between append and extend?
 00:30:57	Ron:	Append is for adding a single element
 00:31:11	Karim Badr:	Thanks!

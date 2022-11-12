@@ -56,6 +56,9 @@ book:
     - part: 12_main.qmd
       chapters:
         - 12_video.qmd
+    - part: 13_main.qmd
+      chapters:
+        - 13_video.qmd
     - part: examples.md
       chapters:
         - example_quarto.qmd

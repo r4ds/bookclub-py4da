@@ -6,7 +6,6 @@
 
 <summary><details>
 ```
-LOG
 00:43:47	Karim Badr:	Great summary!
 00:44:18	Oluwafemi Oyedele:	Thank you !!!
 00:44:23	Jim Gruman:	Thank You!!!!
