@@ -5,14 +5,11 @@ project:
 book:
   title: "Python for Data Analysis Book Club"
   subtitle: "The R4DS Online Learning Community"
-  logo: cover.png
   site-url: https://wesmckinney.com/book/
   repo-url: https://github.com/r4ds/bookclub-py4da
   sharing: [twitter, facebook, linkedin]
   page-footer:
     right: "1850 depiction of Ptilocercus lowii"
-  number-depth: 0
-  toc-depth: 0
 
   chapters:
     - index.qmd
@@ -55,6 +52,7 @@ book:
         - 11_video.qmd
     - part: 12_main.qmd
       chapters:
+        - 12_notes.ipynb
         - 12_video.qmd
     - part: 13_main.qmd
       chapters:
