@@ -1,0 +1,2460 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Python for Data Analysis Book Club - Notes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./12_video.html" rel="next">
+<link href="./12_main.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Notes</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Python for Data Analysis Book Club</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/r4ds/bookclub-py4da" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
+    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+            <i class="bi bi-bi-twitter pe-1"></i>
+          Twitter
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <i class="bi bi-bi-facebook pe-1"></i>
+          Facebook
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <i class="bi bi-bi-linkedin pe-1"></i>
+          LinkedIn
+          </a>
+        </li>
+    </ul>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./01_main.html" class="sidebar-item-text sidebar-link">1. Preliminaries</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./02_main.html" class="sidebar-item-text sidebar-link">2. Python Language Basics, IPython, and Jupyter Notebooks</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./03_main.html" class="sidebar-item-text sidebar-link">3. Built-in Data Structures, Functions, and Files</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Structures and Sequences</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./04_main.html" class="sidebar-item-text sidebar-link">4. NumPy Basics: Arrays and Vectorized Computation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./05_main.html" class="sidebar-item-text sidebar-link">5. Getting Started with pandas</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./06_main.html" class="sidebar-item-text sidebar-link">6. Data Loading, Storage, and File Formats</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./07_main.html" class="sidebar-item-text sidebar-link">7. Data Cleaning and Preparation</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./08_main.html" class="sidebar-item-text sidebar-link">8. Data Wrangling: Join, Combine, and Reshape</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./09_main.html" class="sidebar-item-text sidebar-link">9. Plotting and Visualization</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./10_main.html" class="sidebar-item-text sidebar-link">10. Data Aggregation and Group Operations</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./11_main.html" class="sidebar-item-text sidebar-link">11. Time Series</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./12_main.html" class="sidebar-item-text sidebar-link">12. Introduction to Modeling Libraries in Python</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_notes.html" class="sidebar-item-text sidebar-link active">Notes</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./13_main.html" class="sidebar-item-text sidebar-link">13. Data Analysis Examples</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./examples.html" class="sidebar-item-text sidebar-link">Examples</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_quarto.html" class="sidebar-item-text sidebar-link">Example Quarto Document</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./example_python.html" class="sidebar-item-text sidebar-link">Example Jupyter Notebook</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./how-to.html" class="sidebar-item-text sidebar-link">How to add to the book</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction-to-modeling-libraries-in-python" id="toc-introduction-to-modeling-libraries-in-python" class="nav-link active" data-scroll-target="#introduction-to-modeling-libraries-in-python">Introduction to Modeling Libraries in Python</a></li>
+  <li><a href="#interfacing-between-pandas-and-model-code" id="toc-interfacing-between-pandas-and-model-code" class="nav-link" data-scroll-target="#interfacing-between-pandas-and-model-code">Interfacing Between pandas and Model Code</a></li>
+  <li><a href="#creating-model-descriptions-with-patsy" id="toc-creating-model-descriptions-with-patsy" class="nav-link" data-scroll-target="#creating-model-descriptions-with-patsy">Creating Model Descriptions with Patsy</a>
+  <ul class="collapse">
+  <li><a href="#data-transformations-in-patsy-formulas" id="toc-data-transformations-in-patsy-formulas" class="nav-link" data-scroll-target="#data-transformations-in-patsy-formulas">Data Transformations in Patsy Formulas</a></li>
+  </ul></li>
+  <li><a href="#categorical-data-and-patsy" id="toc-categorical-data-and-patsy" class="nav-link" data-scroll-target="#categorical-data-and-patsy">Categorical Data and Patsy</a></li>
+  <li><a href="#introduction-to-statsmodels" id="toc-introduction-to-statsmodels" class="nav-link" data-scroll-target="#introduction-to-statsmodels">Introduction to statsmodels</a></li>
+  <li><a href="#estimating-time-series-processes" id="toc-estimating-time-series-processes" class="nav-link" data-scroll-target="#estimating-time-series-processes">Estimating Time Series Processes</a></li>
+  <li><a href="#introduction-to-scikit-learn" id="toc-introduction-to-scikit-learn" class="nav-link" data-scroll-target="#introduction-to-scikit-learn">Introduction to scikit-learn</a></li>
+  <li><a href="#going-rogue" id="toc-going-rogue" class="nav-link" data-scroll-target="#going-rogue">Going rogue</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Notes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-scrolled="true" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> patsy</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> statsmodels.formula.api <span class="im">as</span> smf</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.tsa.ar_model <span class="im">import</span> AutoReg</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LinearRegression</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plot</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> yellowbrick.regressor <span class="im">import</span> prediction_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="introduction-to-modeling-libraries-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-modeling-libraries-in-python">Introduction to Modeling Libraries in Python</h2>
+<ul>
+<li>Use different libraries depending on the application</li>
+</ul>
+</section>
+<section id="interfacing-between-pandas-and-model-code" class="level2">
+<h2 class="anchored" data-anchor-id="interfacing-between-pandas-and-model-code">Interfacing Between pandas and Model Code</h2>
+<ul>
+<li>Pandas for data loading and cleaning</li>
+<li>Modeling library for building model</li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_excel(<span class="st">"data/Life Expectancy at Birth.xlsx"</span>, engine<span class="op">=</span><span class="st">"openpyxl"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df.columns <span class="op">=</span> df.columns.<span class="bu">map</span>(<span class="kw">lambda</span> row: <span class="st">"_"</span>.join(row.lower().split(<span class="st">" "</span>)))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> df.groupby(<span class="st">"region"</span>).sample(n<span class="op">=</span><span class="dv">20</span>).sort_values(by<span class="op">=</span><span class="st">"year"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sample</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>country_code</th>
+      <th>region</th>
+      <th>income_group</th>
+      <th>year</th>
+      <th>life_expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>187</th>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>High income</td>
+      <td>1960</td>
+      <td>67.680488</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>North America</td>
+      <td>High income</td>
+      <td>1960</td>
+      <td>69.770732</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>Pakistan</td>
+      <td>PAK</td>
+      <td>South Asia</td>
+      <td>Lower middle income</td>
+      <td>1961</td>
+      <td>46.223220</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>High income</td>
+      <td>1961</td>
+      <td>70.973171</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>Indonesia</td>
+      <td>IDN</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>Lower middle income</td>
+      <td>1961</td>
+      <td>49.269805</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>14254</th>
+      <td>Czech Republic</td>
+      <td>CZE</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>78.824390</td>
+    </tr>
+    <tr>
+      <th>14368</th>
+      <td>Malaysia</td>
+      <td>MYS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>Upper middle income</td>
+      <td>2014</td>
+      <td>74.718293</td>
+    </tr>
+    <tr>
+      <th>14235</th>
+      <td>Canada</td>
+      <td>CAN</td>
+      <td>North America</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>81.956610</td>
+    </tr>
+    <tr>
+      <th>14381</th>
+      <td>Oman</td>
+      <td>OMN</td>
+      <td>Middle East &amp; North Africa</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>77.085098</td>
+    </tr>
+    <tr>
+      <th>14509</th>
+      <td>Comoros</td>
+      <td>COM</td>
+      <td>Sub-Saharan Africa</td>
+      <td>Low income</td>
+      <td>2015</td>
+      <td>63.554024</td>
+    </tr>
+  </tbody>
+</table>
+<p>140 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>numeric_cols <span class="op">=</span> [<span class="st">"year"</span>, <span class="st">"life_expectancy"</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_num <span class="op">=</span> sample[numeric_cols]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df_num</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>year</th>
+      <th>life_expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>187</th>
+      <td>1960</td>
+      <td>67.680488</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>1960</td>
+      <td>69.770732</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>1961</td>
+      <td>46.223220</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>1961</td>
+      <td>70.973171</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>1961</td>
+      <td>49.269805</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>14254</th>
+      <td>2014</td>
+      <td>78.824390</td>
+    </tr>
+    <tr>
+      <th>14368</th>
+      <td>2014</td>
+      <td>74.718293</td>
+    </tr>
+    <tr>
+      <th>14235</th>
+      <td>2014</td>
+      <td>81.956610</td>
+    </tr>
+    <tr>
+      <th>14381</th>
+      <td>2014</td>
+      <td>77.085098</td>
+    </tr>
+    <tr>
+      <th>14509</th>
+      <td>2015</td>
+      <td>63.554024</td>
+    </tr>
+  </tbody>
+</table>
+<p>140 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<p>Turn a DataFrame into a NumPy array, use the <code>to_numpy</code> method:</p>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_num <span class="op">=</span> df_num.to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(df_num, np.ndarray) <span class="co"># an ndarray of Python objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>To convert back to a DataFrame, as you may recall from earlier chapters, you can pass a two-dimensional ndarray with optional column names:</p>
+<div class="cell" data-scrolled="true" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame(sample.to_numpy(), columns<span class="op">=</span>[<span class="st">'country'</span>, <span class="st">'country_code'</span>, <span class="st">'region'</span>, <span class="st">'income_group'</span>, <span class="st">'year'</span>, <span class="st">'life_expectancy'</span>])</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>country_code</th>
+      <th>region</th>
+      <th>income_group</th>
+      <th>year</th>
+      <th>life_expectancy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>High income</td>
+      <td>1960</td>
+      <td>67.680488</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>North America</td>
+      <td>High income</td>
+      <td>1960</td>
+      <td>69.770732</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pakistan</td>
+      <td>PAK</td>
+      <td>South Asia</td>
+      <td>Lower middle income</td>
+      <td>1961</td>
+      <td>46.22322</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>High income</td>
+      <td>1961</td>
+      <td>70.973171</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Indonesia</td>
+      <td>IDN</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>Lower middle income</td>
+      <td>1961</td>
+      <td>49.269805</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>Czech Republic</td>
+      <td>CZE</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>78.82439</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>Malaysia</td>
+      <td>MYS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>Upper middle income</td>
+      <td>2014</td>
+      <td>74.718293</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>Canada</td>
+      <td>CAN</td>
+      <td>North America</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>81.95661</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>Oman</td>
+      <td>OMN</td>
+      <td>Middle East &amp; North Africa</td>
+      <td>High income</td>
+      <td>2014</td>
+      <td>77.085098</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>Comoros</td>
+      <td>COM</td>
+      <td>Sub-Saharan Africa</td>
+      <td>Low income</td>
+      <td>2015</td>
+      <td>63.554024</td>
+    </tr>
+  </tbody>
+</table>
+<p>140 rows × 6 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df_mix <span class="op">=</span> sample.to_numpy()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>df_mix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>array([['Poland', 'POL', 'Europe &amp; Central Asia', 'High income', 1960,
+        67.680487805],
+       ['United States', 'USA', 'North America', 'High income', 1960,
+        69.770731707],
+       ['Pakistan', 'PAK', 'South Asia', 'Lower middle income', 1961,
+        46.223219512],
+       ['Australia', 'AUS', 'East Asia &amp; Pacific', 'High income', 1961,
+        70.973170732],
+       ['Indonesia', 'IDN', 'East Asia &amp; Pacific', 'Lower middle income',
+        1961, 49.269804878],
+       ['Kazakhstan', 'KAZ', 'Europe &amp; Central Asia',
+        'Upper middle income', 1962, 59.199073171],
+       ['Bangladesh', 'BGD', 'South Asia', 'Lower middle income', 1962,
+        47.08397561],
+       ['Cuba', 'CUB', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1962, 65.138219512],
+       ['Finland', 'FIN', 'Europe &amp; Central Asia', 'High income', 1962,
+        68.577804878],
+       ['Hungary', 'HUN', 'Europe &amp; Central Asia', 'High income', 1962,
+        67.865853659],
+       ['Azerbaijan', 'AZE', 'Europe &amp; Central Asia',
+        'Upper middle income', 1963, 62.052],
+       ['Nepal', 'NPL', 'South Asia', 'Low income', 1963, 36.425170732],
+       ['Macedonia, FYR', 'MKD', 'Europe &amp; Central Asia',
+        'Upper middle income', 1963, 62.459512195],
+       ['Micronesia, Fed. Sts.', 'FSM', 'East Asia &amp; Pacific',
+        'Lower middle income', 1963, 58.781585366],
+       ['Tunisia', 'TUN', 'Middle East &amp; North Africa',
+        'Lower middle income', 1963, 44.100780488],
+       ['Antigua and Barbuda', 'ATG', 'Latin America &amp; Caribbean',
+        'High income', 1963, 62.992585366],
+       ['Maldives', 'MDV', 'South Asia', 'Upper middle income', 1964,
+        39.806902439],
+       ['Saudi Arabia', 'SAU', 'Middle East &amp; North Africa',
+        'High income', 1964, 47.811268293],
+       ['Sao Tome and Principe', 'STP', 'Sub-Saharan Africa',
+        'Lower middle income', 1964, 52.674756098],
+       ['Maldives', 'MDV', 'South Asia', 'Upper middle income', 1965,
+        40.49602439],
+       ['Lebanon', 'LBN', 'Middle East &amp; North Africa',
+        'Upper middle income', 1965, 64.715],
+       ['Canada', 'CAN', 'North America', 'High income', 1967,
+        72.207804878],
+       ['Lao PDR', 'LAO', 'East Asia &amp; Pacific', 'Lower middle income',
+        1967, 45.316878049],
+       ['Egypt, Arab Rep.', 'EGY', 'Middle East &amp; North Africa',
+        'Lower middle income', 1968, 51.568682927],
+       ['Iran, Islamic Rep.', 'IRN', 'Middle East &amp; North Africa',
+        'Upper middle income', 1969, 50.158341463],
+       ['Samoa', 'WSM', 'East Asia &amp; Pacific', 'Upper middle income',
+        1970, 54.969512195],
+       ['Botswana', 'BWA', 'Sub-Saharan Africa', 'Upper middle income',
+        1970, 54.443463415],
+       ['Nepal', 'NPL', 'South Asia', 'Low income', 1970, 40.504439024],
+       ['Bermuda', 'BMU', 'North America', 'High income', 1970, 70.29],
+       ['Mexico', 'MEX', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1971, 61.819170732],
+       ['Trinidad and Tobago', 'TTO', 'Latin America &amp; Caribbean',
+        'High income', 1971, 65.260390244],
+       ['St. Lucia', 'LCA', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1971, 63.443170732],
+       ['Sudan', 'SDN', 'Sub-Saharan Africa', 'Lower middle income',
+        1971, 52.570146341],
+       ['Nepal', 'NPL', 'South Asia', 'Low income', 1971, 41.088146341],
+       ['Canada', 'CAN', 'North America', 'High income', 1972,
+        72.933902439],
+       ['Swaziland', 'SWZ', 'Sub-Saharan Africa', 'Lower middle income',
+        1972, 49.151121951],
+       ['Bhutan', 'BTN', 'South Asia', 'Lower middle income', 1973,
+        39.287487805],
+       ['Peru', 'PER', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1973, 55.758],
+       ['United States', 'USA', 'North America', 'High income', 1974,
+        71.956097561],
+       ['Romania', 'ROU', 'Europe &amp; Central Asia', 'Upper middle income',
+        1974, 69.499756098],
+       ['New Caledonia', 'NCL', 'East Asia &amp; Pacific', 'High income',
+        1975, 65.273170732],
+       ['Uruguay', 'URY', 'Latin America &amp; Caribbean', 'High income',
+        1975, 69.142829268],
+       ['Papua New Guinea', 'PNG', 'East Asia &amp; Pacific',
+        'Lower middle income', 1975, 49.270512195],
+       ['United States', 'USA', 'North America', 'High income', 1976,
+        72.856097561],
+       ['Afghanistan', 'AFG', 'South Asia', 'Low income', 1976,
+        39.575707317],
+       ['Bhutan', 'BTN', 'South Asia', 'Lower middle income', 1977,
+        42.600829268],
+       ['Lao PDR', 'LAO', 'East Asia &amp; Pacific', 'Lower middle income',
+        1977, 48.208390244],
+       ['Dominican Republic', 'DOM', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1977, 61.878902439],
+       ['Guatemala', 'GTM', 'Latin America &amp; Caribbean',
+        'Lower middle income', 1978, 56.391512195],
+       ['Ireland', 'IRL', 'Europe &amp; Central Asia', 'High income', 1978,
+        72.104756098],
+       ['Ecuador', 'ECU', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1978, 61.925195122],
+       ['Ecuador', 'ECU', 'Latin America &amp; Caribbean',
+        'Upper middle income', 1979, 62.506902439],
+       ['United States', 'USA', 'North America', 'High income', 1979,
+        73.804878049],
+       ['Sudan', 'SDN', 'Sub-Saharan Africa', 'Lower middle income',
+        1979, 54.149073171],
+       ['Bangladesh', 'BGD', 'South Asia', 'Lower middle income', 1979,
+        52.887292683],
+       ['Egypt, Arab Rep.', 'EGY', 'Middle East &amp; North Africa',
+        'Lower middle income', 1979, 57.641365854],
+       ['Cyprus', 'CYP', 'Europe &amp; Central Asia', 'High income', 1980,
+        74.756804878],
+       ['Qatar', 'QAT', 'Middle East &amp; North Africa', 'High income',
+        1980, 72.791658537],
+       ['Bermuda', 'BMU', 'North America', 'High income', 1980,
+        72.304634146],
+       ['Puerto Rico', 'PRI', 'Latin America &amp; Caribbean', 'High income',
+        1980, 73.702292683],
+       ['Myanmar', 'MMR', 'East Asia &amp; Pacific', 'Lower middle income',
+        1981, 55.334390244],
+       ['Qatar', 'QAT', 'Middle East &amp; North Africa', 'High income',
+        1981, 73.087365854],
+       ['St. Martin (French part)', 'MAF', 'Latin America &amp; Caribbean',
+        'High income', 1982, 73.219512195],
+       ['Kenya', 'KEN', 'Sub-Saharan Africa', 'Lower middle income',
+        1982, 58.799756098],
+       ['Greenland', 'GRL', 'Europe &amp; Central Asia', 'High income', 1982,
+        63.192682927],
+       ['Indonesia', 'IDN', 'East Asia &amp; Pacific', 'Lower middle income',
+        1983, 60.82295122],
+       ['Algeria', 'DZA', 'Middle East &amp; North Africa',
+        'Upper middle income', 1984, 63.117121951],
+       ['Central African Republic', 'CAF', 'Sub-Saharan Africa',
+        'Low income', 1984, 49.825634146],
+       ['New Caledonia', 'NCL', 'East Asia &amp; Pacific', 'High income',
+        1984, 68.063414634],
+       ['Somalia', 'SOM', 'Sub-Saharan Africa', 'Low income', 1984,
+        45.984365854],
+       ['France', 'FRA', 'Europe &amp; Central Asia', 'High income', 1984,
+        75.0],
+       ['Lao PDR', 'LAO', 'East Asia &amp; Pacific', 'Lower middle income',
+        1984, 50.544243902],
+       ['India', 'IND', 'South Asia', 'Lower middle income', 1985,
+        55.860902439],
+       ['Philippines', 'PHL', 'East Asia &amp; Pacific',
+        'Lower middle income', 1985, 63.798560976],
+       ['Kosovo', 'XKX', 'Europe &amp; Central Asia', 'Lower middle income',
+        1985, 66.797560976],
+       ['United Arab Emirates', 'ARE', 'Middle East &amp; North Africa',
+        'High income', 1985, 70.076634146],
+       ['Uzbekistan', 'UZB', 'Europe &amp; Central Asia',
+        'Lower middle income', 1986, 66.942439024],
+       ['United States', 'USA', 'North America', 'High income', 1987,
+        74.765853659],
+       ['South Sudan', 'SSD', 'Sub-Saharan Africa', 'Low income', 1987,
+        41.50802439],
+       ['Bhutan', 'BTN', 'South Asia', 'Lower middle income', 1988,
+        50.898487805],
+       ['Canada', 'CAN', 'North America', 'High income', 1988,
+        76.809268293],
+       ['Niger', 'NER', 'Sub-Saharan Africa', 'Low income', 1988,
+        42.962073171],
+       ['Tunisia', 'TUN', 'Middle East &amp; North Africa',
+        'Lower middle income', 1988, 67.607902439],
+       ['Guatemala', 'GTM', 'Latin America &amp; Caribbean',
+        'Lower middle income', 1989, 61.704658537],
+       ['Sri Lanka', 'LKA', 'South Asia', 'Lower middle income', 1989,
+        69.534341463],
+       ['Uruguay', 'URY', 'Latin America &amp; Caribbean', 'High income',
+        1990, 72.539536585],
+       ['United States', 'USA', 'North America', 'High income', 1990,
+        75.214634146],
+       ['United States', 'USA', 'North America', 'High income', 1991,
+        75.365853659],
+       ['Saudi Arabia', 'SAU', 'Middle East &amp; North Africa',
+        'High income', 1991, 69.592195122],
+       ['Philippines', 'PHL', 'East Asia &amp; Pacific',
+        'Lower middle income', 1991, 65.481268293],
+       ['Syrian Arab Republic', 'SYR', 'Middle East &amp; North Africa',
+        'Lower middle income', 1991, 70.396],
+       ['Libya', 'LBY', 'Middle East &amp; North Africa',
+        'Upper middle income', 1992, 69.275073171],
+       ['Albania', 'ALB', 'Europe &amp; Central Asia', 'Upper middle income',
+        1992, 71.900804878],
+       ['Bangladesh', 'BGD', 'South Asia', 'Lower middle income', 1993,
+        60.418804878],
+       ['United States', 'USA', 'North America', 'High income', 1993,
+        75.419512195],
+       ['Cameroon', 'CMR', 'Sub-Saharan Africa', 'Lower middle income',
+        1993, 53.524829268],
+       ['Aruba', 'ABW', 'Latin America &amp; Caribbean', 'High income', 1994,
+        73.535756098],
+       ['Ghana', 'GHA', 'Sub-Saharan Africa', 'Lower middle income',
+        1994, 57.594829268],
+       ['Canada', 'CAN', 'North America', 'High income', 1994,
+        77.86195122],
+       ['Pakistan', 'PAK', 'South Asia', 'Lower middle income', 1995,
+        61.485292683],
+       ['Rwanda', 'RWA', 'Sub-Saharan Africa', 'Low income', 1995,
+        31.634512195],
+       ['Somalia', 'SOM', 'Sub-Saharan Africa', 'Low income', 1996,
+        48.077609756],
+       ['Sierra Leone', 'SLE', 'Sub-Saharan Africa', 'Low income', 1998,
+        37.046804878],
+       ['United Arab Emirates', 'ARE', 'Middle East &amp; North Africa',
+        'High income', 1998, 73.920219512],
+       ['Oman', 'OMN', 'Middle East &amp; North Africa', 'High income', 1999,
+        71.910390244],
+       ['Virgin Islands (U.S.)', 'VIR', 'Latin America &amp; Caribbean',
+        'High income', 1999, 77.306170732],
+       ['Spain', 'ESP', 'Europe &amp; Central Asia', 'High income', 1999,
+        78.717073171],
+       ['Swaziland', 'SWZ', 'Sub-Saharan Africa', 'Lower middle income',
+        2001, 47.434097561],
+       ['Spain', 'ESP', 'Europe &amp; Central Asia', 'High income', 2001,
+        79.368292683],
+       ['United Arab Emirates', 'ARE', 'Middle East &amp; North Africa',
+        'High income', 2003, 75.217219512],
+       ['United States', 'USA', 'North America', 'High income', 2004,
+        77.487804878],
+       ['Lebanon', 'LBN', 'Middle East &amp; North Africa',
+        'Upper middle income', 2006, 77.246707317],
+       ['Indonesia', 'IDN', 'East Asia &amp; Pacific', 'Lower middle income',
+        2006, 67.367487805],
+       ['Kazakhstan', 'KAZ', 'Europe &amp; Central Asia',
+        'Upper middle income', 2006, 66.16097561],
+       ['Canada', 'CAN', 'North America', 'High income', 2006,
+        80.292682927],
+       ['Mauritania', 'MRT', 'Sub-Saharan Africa', 'Lower middle income',
+        2007, 61.139731707],
+       ['Puerto Rico', 'PRI', 'Latin America &amp; Caribbean', 'High income',
+        2008, 77.906463415],
+       ['Togo', 'TGO', 'Sub-Saharan Africa', 'Low income', 2008,
+        56.005902439],
+       ['Bangladesh', 'BGD', 'South Asia', 'Lower middle income', 2008,
+        69.277853659],
+       ['Qatar', 'QAT', 'Middle East &amp; North Africa', 'High income',
+        2008, 77.448756098],
+       ['Hungary', 'HUN', 'Europe &amp; Central Asia', 'High income', 2008,
+        73.702439024],
+       ['Fiji', 'FJI', 'East Asia &amp; Pacific', 'Upper middle income',
+        2009, 69.202853659],
+       ['Aruba', 'ABW', 'Latin America &amp; Caribbean', 'High income', 2009,
+        74.818146341],
+       ['Malaysia', 'MYS', 'East Asia &amp; Pacific', 'Upper middle income',
+        2009, 74.038414634],
+       ['Canada', 'CAN', 'North America', 'High income', 2010,
+        81.197560976],
+       ['Nicaragua', 'NIC', 'Latin America &amp; Caribbean',
+        'Lower middle income', 2010, 73.581731707],
+       ['United States', 'USA', 'North America', 'High income', 2011,
+        78.641463415],
+       ['Bangladesh', 'BGD', 'South Asia', 'Lower middle income', 2011,
+        70.47195122],
+       ['Seychelles', 'SYC', 'Sub-Saharan Africa', 'High income', 2011,
+        72.724390244],
+       ['Ireland', 'IRL', 'Europe &amp; Central Asia', 'High income', 2012,
+        80.846341463],
+       ['India', 'IND', 'South Asia', 'Lower middle income', 2012,
+        67.289878049],
+       ['New Zealand', 'NZL', 'East Asia &amp; Pacific', 'High income', 2013,
+        81.407317073],
+       ['Bermuda', 'BMU', 'North America', 'High income', 2013,
+        80.572439024],
+       ['Myanmar', 'MMR', 'East Asia &amp; Pacific', 'Lower middle income',
+        2014, 65.857853659],
+       ['Pakistan', 'PAK', 'South Asia', 'Lower middle income', 2014,
+        66.183365854],
+       ['Czech Republic', 'CZE', 'Europe &amp; Central Asia', 'High income',
+        2014, 78.824390244],
+       ['Malaysia', 'MYS', 'East Asia &amp; Pacific', 'Upper middle income',
+        2014, 74.718292683],
+       ['Canada', 'CAN', 'North America', 'High income', 2014,
+        81.956609756],
+       ['Oman', 'OMN', 'Middle East &amp; North Africa', 'High income', 2014,
+        77.085097561],
+       ['Comoros', 'COM', 'Sub-Saharan Africa', 'Low income', 2015,
+        63.55402439]], dtype=object)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">isinstance</span>(df_mix, np.ndarray) <span class="co"># an ndarray of Python objects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Use a subset by using <code>loc</code> indexing with <code>to_numpy</code>:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sample.loc[:, numeric_cols].to_numpy()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>array([[1960.        ,   67.6804878 ],
+       [1960.        ,   69.77073171],
+       [1961.        ,   46.22321951],
+       [1961.        ,   70.97317073],
+       [1961.        ,   49.26980488],
+       [1962.        ,   59.19907317],
+       [1962.        ,   47.08397561],
+       [1962.        ,   65.13821951],
+       [1962.        ,   68.57780488],
+       [1962.        ,   67.86585366],
+       [1963.        ,   62.052     ],
+       [1963.        ,   36.42517073],
+       [1963.        ,   62.4595122 ],
+       [1963.        ,   58.78158537],
+       [1963.        ,   44.10078049],
+       [1963.        ,   62.99258537],
+       [1964.        ,   39.80690244],
+       [1964.        ,   47.81126829],
+       [1964.        ,   52.6747561 ],
+       [1965.        ,   40.49602439],
+       [1965.        ,   64.715     ],
+       [1967.        ,   72.20780488],
+       [1967.        ,   45.31687805],
+       [1968.        ,   51.56868293],
+       [1969.        ,   50.15834146],
+       [1970.        ,   54.9695122 ],
+       [1970.        ,   54.44346341],
+       [1970.        ,   40.50443902],
+       [1970.        ,   70.29      ],
+       [1971.        ,   61.81917073],
+       [1971.        ,   65.26039024],
+       [1971.        ,   63.44317073],
+       [1971.        ,   52.57014634],
+       [1971.        ,   41.08814634],
+       [1972.        ,   72.93390244],
+       [1972.        ,   49.15112195],
+       [1973.        ,   39.2874878 ],
+       [1973.        ,   55.758     ],
+       [1974.        ,   71.95609756],
+       [1974.        ,   69.4997561 ],
+       [1975.        ,   65.27317073],
+       [1975.        ,   69.14282927],
+       [1975.        ,   49.2705122 ],
+       [1976.        ,   72.85609756],
+       [1976.        ,   39.57570732],
+       [1977.        ,   42.60082927],
+       [1977.        ,   48.20839024],
+       [1977.        ,   61.87890244],
+       [1978.        ,   56.39151219],
+       [1978.        ,   72.1047561 ],
+       [1978.        ,   61.92519512],
+       [1979.        ,   62.50690244],
+       [1979.        ,   73.80487805],
+       [1979.        ,   54.14907317],
+       [1979.        ,   52.88729268],
+       [1979.        ,   57.64136585],
+       [1980.        ,   74.75680488],
+       [1980.        ,   72.79165854],
+       [1980.        ,   72.30463415],
+       [1980.        ,   73.70229268],
+       [1981.        ,   55.33439024],
+       [1981.        ,   73.08736585],
+       [1982.        ,   73.21951219],
+       [1982.        ,   58.7997561 ],
+       [1982.        ,   63.19268293],
+       [1983.        ,   60.82295122],
+       [1984.        ,   63.11712195],
+       [1984.        ,   49.82563415],
+       [1984.        ,   68.06341463],
+       [1984.        ,   45.98436585],
+       [1984.        ,   75.        ],
+       [1984.        ,   50.5442439 ],
+       [1985.        ,   55.86090244],
+       [1985.        ,   63.79856098],
+       [1985.        ,   66.79756098],
+       [1985.        ,   70.07663415],
+       [1986.        ,   66.94243902],
+       [1987.        ,   74.76585366],
+       [1987.        ,   41.50802439],
+       [1988.        ,   50.89848781],
+       [1988.        ,   76.80926829],
+       [1988.        ,   42.96207317],
+       [1988.        ,   67.60790244],
+       [1989.        ,   61.70465854],
+       [1989.        ,   69.53434146],
+       [1990.        ,   72.53953658],
+       [1990.        ,   75.21463415],
+       [1991.        ,   75.36585366],
+       [1991.        ,   69.59219512],
+       [1991.        ,   65.48126829],
+       [1991.        ,   70.396     ],
+       [1992.        ,   69.27507317],
+       [1992.        ,   71.90080488],
+       [1993.        ,   60.41880488],
+       [1993.        ,   75.41951219],
+       [1993.        ,   53.52482927],
+       [1994.        ,   73.5357561 ],
+       [1994.        ,   57.59482927],
+       [1994.        ,   77.86195122],
+       [1995.        ,   61.48529268],
+       [1995.        ,   31.63451219],
+       [1996.        ,   48.07760976],
+       [1998.        ,   37.04680488],
+       [1998.        ,   73.92021951],
+       [1999.        ,   71.91039024],
+       [1999.        ,   77.30617073],
+       [1999.        ,   78.71707317],
+       [2001.        ,   47.43409756],
+       [2001.        ,   79.36829268],
+       [2003.        ,   75.21721951],
+       [2004.        ,   77.48780488],
+       [2006.        ,   77.24670732],
+       [2006.        ,   67.3674878 ],
+       [2006.        ,   66.16097561],
+       [2006.        ,   80.29268293],
+       [2007.        ,   61.13973171],
+       [2008.        ,   77.90646342],
+       [2008.        ,   56.00590244],
+       [2008.        ,   69.27785366],
+       [2008.        ,   77.4487561 ],
+       [2008.        ,   73.70243902],
+       [2009.        ,   69.20285366],
+       [2009.        ,   74.81814634],
+       [2009.        ,   74.03841463],
+       [2010.        ,   81.19756098],
+       [2010.        ,   73.58173171],
+       [2011.        ,   78.64146342],
+       [2011.        ,   70.47195122],
+       [2011.        ,   72.72439024],
+       [2012.        ,   80.84634146],
+       [2012.        ,   67.28987805],
+       [2013.        ,   81.40731707],
+       [2013.        ,   80.57243902],
+       [2014.        ,   65.85785366],
+       [2014.        ,   66.18336585],
+       [2014.        ,   78.82439024],
+       [2014.        ,   74.71829268],
+       [2014.        ,   81.95660976],
+       [2014.        ,   77.08509756],
+       [2015.        ,   63.55402439]])</code></pre>
+</div>
+</div>
+<p>There is a nonnumeric column in our example dataset. Let’s convert <code>income_group</code> to dummy variables. But this can be error prone.</p>
+<div class="cell" data-scrolled="true" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dummies <span class="op">=</span> pd.get_dummies(sample.income_group, prefix<span class="op">=</span><span class="st">'income_group'</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data_with_dummies <span class="op">=</span> sample.drop(<span class="st">'income_group'</span>, axis<span class="op">=</span><span class="dv">1</span>).join(dummies)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>data_with_dummies</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>country</th>
+      <th>country_code</th>
+      <th>region</th>
+      <th>year</th>
+      <th>life_expectancy</th>
+      <th>income_group_High income</th>
+      <th>income_group_Low income</th>
+      <th>income_group_Lower middle income</th>
+      <th>income_group_Upper middle income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>187</th>
+      <td>Poland</td>
+      <td>POL</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>1960</td>
+      <td>67.680488</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>248</th>
+      <td>United States</td>
+      <td>USA</td>
+      <td>North America</td>
+      <td>1960</td>
+      <td>69.770732</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>Pakistan</td>
+      <td>PAK</td>
+      <td>South Asia</td>
+      <td>1961</td>
+      <td>46.223220</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>Australia</td>
+      <td>AUS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>1961</td>
+      <td>70.973171</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>Indonesia</td>
+      <td>IDN</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>1961</td>
+      <td>49.269805</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>14254</th>
+      <td>Czech Republic</td>
+      <td>CZE</td>
+      <td>Europe &amp; Central Asia</td>
+      <td>2014</td>
+      <td>78.824390</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14368</th>
+      <td>Malaysia</td>
+      <td>MYS</td>
+      <td>East Asia &amp; Pacific</td>
+      <td>2014</td>
+      <td>74.718293</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>14235</th>
+      <td>Canada</td>
+      <td>CAN</td>
+      <td>North America</td>
+      <td>2014</td>
+      <td>81.956610</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14381</th>
+      <td>Oman</td>
+      <td>OMN</td>
+      <td>Middle East &amp; North Africa</td>
+      <td>2014</td>
+      <td>77.085098</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14509</th>
+      <td>Comoros</td>
+      <td>COM</td>
+      <td>Sub-Saharan Africa</td>
+      <td>2015</td>
+      <td>63.554024</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>140 rows × 9 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="creating-model-descriptions-with-patsy" class="level2">
+<h2 class="anchored" data-anchor-id="creating-model-descriptions-with-patsy">Creating Model Descriptions with Patsy</h2>
+<p>Patsy is a Python package that allows data transformations using arbitrary Python code.</p>
+<p>Patsy describes statistical models with a string-based “formula syntax”:</p>
+<pre><code>y ~ x0 + x1</code></pre>
+<p>where <code>x0</code>, <code>x1</code> are terms in the design matrix created for the model.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year'</span>, data<span class="op">=</span>sample</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>outcome</code> is a <code>DesignMatrix</code> object that represents <code>life_expectancy</code> which is the variable we want to predict.</p>
+<div class="cell" data-scrolled="true" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>outcome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>DesignMatrix with shape (140, 1)
+  life_expectancy
+         67.68049
+         69.77073
+         46.22322
+         70.97317
+         49.26980
+         59.19907
+         47.08398
+         65.13822
+         68.57780
+         67.86585
+         62.05200
+         36.42517
+         62.45951
+         58.78159
+         44.10078
+         62.99259
+         39.80690
+         47.81127
+         52.67476
+         40.49602
+         64.71500
+         72.20780
+         45.31688
+         51.56868
+         50.15834
+         54.96951
+         54.44346
+         40.50444
+         70.29000
+         61.81917
+  [110 rows omitted]
+  Terms:
+    'life_expectancy' (column 0)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p><code>predictors</code> is a <code>DesignMatrix</code> object that represents the combination of <code>income_group</code>, <code>region</code>, <code>year</code>.</p>
+<p>We have 140 examples, 11 features:</p>
+<ul>
+<li>Intercept (column 0): an array of 1s</li>
+<li><code>income group</code>: columns 1 - 4</li>
+<li><code>region</code>: columns 4-10</li>
+<li><code>year</code>: columns 10</li>
+</ul>
+<p>The extra columns for <code>income_group</code> and <code>regions</code> are from One-Hot encoding, a process by which categorical variables are converted into a form that could be provided to ML algorithms.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>DesignMatrix with shape (140, 11)
+  Columns:
+    ['Intercept',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'year']
+  Terms:
+    'Intercept' (column 0)
+    'income_group' (columns 1:4)
+    'region' (columns 4:10)
+    'year' (column 10)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>These Patsy DesignMatrix instances are NumPy ndarrays with additional metadata:</p>
+<div class="cell" data-scrolled="true" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>np.asarray(predictors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>array([[1.000e+00, 0.000e+00, 0.000e+00, ..., 0.000e+00, 0.000e+00,
+        1.960e+03],
+       [1.000e+00, 0.000e+00, 0.000e+00, ..., 0.000e+00, 0.000e+00,
+        1.960e+03],
+       [1.000e+00, 0.000e+00, 1.000e+00, ..., 1.000e+00, 0.000e+00,
+        1.961e+03],
+       ...,
+       [1.000e+00, 0.000e+00, 0.000e+00, ..., 0.000e+00, 0.000e+00,
+        2.014e+03],
+       [1.000e+00, 0.000e+00, 0.000e+00, ..., 0.000e+00, 0.000e+00,
+        2.014e+03],
+       [1.000e+00, 1.000e+00, 0.000e+00, ..., 0.000e+00, 1.000e+00,
+        2.015e+03]])</code></pre>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>np.asarray(outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>array([[67.6804878 ],
+       [69.77073171],
+       [46.22321951],
+       [70.97317073],
+       [49.26980488],
+       [59.19907317],
+       [47.08397561],
+       [65.13821951],
+       [68.57780488],
+       [67.86585366],
+       [62.052     ],
+       [36.42517073],
+       [62.4595122 ],
+       [58.78158537],
+       [44.10078049],
+       [62.99258537],
+       [39.80690244],
+       [47.81126829],
+       [52.6747561 ],
+       [40.49602439],
+       [64.715     ],
+       [72.20780488],
+       [45.31687805],
+       [51.56868293],
+       [50.15834146],
+       [54.9695122 ],
+       [54.44346341],
+       [40.50443902],
+       [70.29      ],
+       [61.81917073],
+       [65.26039024],
+       [63.44317073],
+       [52.57014634],
+       [41.08814634],
+       [72.93390244],
+       [49.15112195],
+       [39.2874878 ],
+       [55.758     ],
+       [71.95609756],
+       [69.4997561 ],
+       [65.27317073],
+       [69.14282927],
+       [49.2705122 ],
+       [72.85609756],
+       [39.57570732],
+       [42.60082927],
+       [48.20839024],
+       [61.87890244],
+       [56.39151219],
+       [72.1047561 ],
+       [61.92519512],
+       [62.50690244],
+       [73.80487805],
+       [54.14907317],
+       [52.88729268],
+       [57.64136585],
+       [74.75680488],
+       [72.79165854],
+       [72.30463415],
+       [73.70229268],
+       [55.33439024],
+       [73.08736585],
+       [73.21951219],
+       [58.7997561 ],
+       [63.19268293],
+       [60.82295122],
+       [63.11712195],
+       [49.82563415],
+       [68.06341463],
+       [45.98436585],
+       [75.        ],
+       [50.5442439 ],
+       [55.86090244],
+       [63.79856098],
+       [66.79756098],
+       [70.07663415],
+       [66.94243902],
+       [74.76585366],
+       [41.50802439],
+       [50.89848781],
+       [76.80926829],
+       [42.96207317],
+       [67.60790244],
+       [61.70465854],
+       [69.53434146],
+       [72.53953658],
+       [75.21463415],
+       [75.36585366],
+       [69.59219512],
+       [65.48126829],
+       [70.396     ],
+       [69.27507317],
+       [71.90080488],
+       [60.41880488],
+       [75.41951219],
+       [53.52482927],
+       [73.5357561 ],
+       [57.59482927],
+       [77.86195122],
+       [61.48529268],
+       [31.63451219],
+       [48.07760976],
+       [37.04680488],
+       [73.92021951],
+       [71.91039024],
+       [77.30617073],
+       [78.71707317],
+       [47.43409756],
+       [79.36829268],
+       [75.21721951],
+       [77.48780488],
+       [77.24670732],
+       [67.3674878 ],
+       [66.16097561],
+       [80.29268293],
+       [61.13973171],
+       [77.90646342],
+       [56.00590244],
+       [69.27785366],
+       [77.4487561 ],
+       [73.70243902],
+       [69.20285366],
+       [74.81814634],
+       [74.03841463],
+       [81.19756098],
+       [73.58173171],
+       [78.64146342],
+       [70.47195122],
+       [72.72439024],
+       [80.84634146],
+       [67.28987805],
+       [81.40731707],
+       [80.57243902],
+       [65.85785366],
+       [66.18336585],
+       [78.82439024],
+       [74.71829268],
+       [81.95660976],
+       [77.08509756],
+       [63.55402439]])</code></pre>
+</div>
+</div>
+<p>Suppress the intercept by adding the term + 0 to the model:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>y, X <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year + 0'</span>, data<span class="op">=</span>sample</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>DesignMatrix with shape (140, 11)
+  Columns:
+    ['income_group[High income]',
+     'income_group[Low income]',
+     'income_group[Lower middle income]',
+     'income_group[Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'year']
+  Terms:
+    'income_group' (columns 0:4)
+    'region' (columns 4:10)
+    'year' (column 10)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>The Patsy objects can be passed directly into algorithms like <code>numpy.linalg.lstsq</code>, which performs an ordinary least squares regression. The model metadata is retained in the design_info attribute:</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>coef, resid, _, _ <span class="op">=</span> np.linalg.lstsq(outcome, predictors)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_133/2774571045.py:1: FutureWarning: `rcond` parameter will change to the default of machine precision times ``max(M, N)`` where M and N are the input matrix dimensions.
+To use the future default and silence this warning we advise to pass `rcond=None`, to keep using the old, explicitly pass `rcond=-1`.
+  coef, resid, _, _ = np.linalg.lstsq(outcome, predictors)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>array([[1.51964589e-02, 9.81119953e-04, 4.41412174e-03, 2.65860943e-03,
+        2.40182610e-03, 2.29746257e-03, 2.26362465e-03, 2.58305159e-03,
+        1.77260076e-03, 1.76133204e-03, 3.02004208e+01]])</code></pre>
+</div>
+</div>
+<p>You can reattach the model column names to the fitted coefficients to obtain a Series, for example:</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>coef <span class="op">=</span> pd.Series(coef.squeeze(), index<span class="op">=</span>outcome.design_info.column_names)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: Length of values (11) does not match length of index (1)</code></pre>
+</div>
+</div>
+<section id="data-transformations-in-patsy-formulas" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformations-in-patsy-formulas">Data Transformations in Patsy Formulas</h3>
+<p>You can mix Python code into your Patsy formulas:</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'np.round(life_expectancy) ~ income_group + region + year'</span>, data<span class="op">=</span>sample</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>outcome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>DesignMatrix with shape (140, 1)
+  np.round(life_expectancy)
+                         68
+                         70
+                         46
+                         71
+                         49
+                         59
+                         47
+                         65
+                         69
+                         68
+                         62
+                         36
+                         62
+                         59
+                         44
+                         63
+                         40
+                         48
+                         53
+                         40
+                         65
+                         72
+                         45
+                         52
+                         50
+                         55
+                         54
+                         41
+                         70
+                         62
+  [110 rows omitted]
+  Terms:
+    'np.round(life_expectancy)' (column 0)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>Some commonly used variable transformations include standardizing (to mean 0 and variance 1) and centering (subtracting the mean). Patsy has built-in functions for this purpose:</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + center(year)'</span>, data<span class="op">=</span>sample</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>DesignMatrix with shape (140, 11)
+  Columns:
+    ['Intercept',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'center(year)']
+  Terms:
+    'Intercept' (column 0)
+    'income_group' (columns 1:4)
+    'region' (columns 4:10)
+    'center(year)' (column 10)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>The patsy.build_design_matrices function can apply transformations to new out-of-sample data using the saved information from the original in-sample dataset:</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + center(year)'</span>, data<span class="op">=</span>sample</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>new_df <span class="op">=</span> df.groupby(<span class="st">"region"</span>).sample(n<span class="op">=</span><span class="dv">20</span>).sort_values(by<span class="op">=</span><span class="st">"year"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>new_predictors <span class="op">=</span> patsy.build_design_matrices([predictors.design_info], new_df)</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>new_predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>[DesignMatrix with shape (140, 11)
+   Columns:
+     ['Intercept',
+      'income_group[T.Low income]',
+      'income_group[T.Lower middle income]',
+      'income_group[T.Upper middle income]',
+      'region[T.Europe &amp; Central Asia]',
+      'region[T.Latin America &amp; Caribbean]',
+      'region[T.Middle East &amp; North Africa]',
+      'region[T.North America]',
+      'region[T.South Asia]',
+      'region[T.Sub-Saharan Africa]',
+      'center(year)']
+   Terms:
+     'Intercept' (column 0)
+     'income_group' (columns 1:4)
+     'region' (columns 4:10)
+     'center(year)' (column 10)
+   (to view full data, use np.asarray(this_obj))]</code></pre>
+</div>
+</div>
+<p>When you want to add columns from a dataset by name, you must wrap them in the special I function:</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + I(year + year)'</span>, data<span class="op">=</span>sample <span class="co"># nonsense</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="categorical-data-and-patsy" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-data-and-patsy">Categorical Data and Patsy</h2>
+<p>When you use nonnumeric terms in a Patsy formula, they are converted to dummy variables by default.</p>
+<div class="cell" data-scrolled="true" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year'</span>, data<span class="op">=</span>sample</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>DesignMatrix with shape (140, 11)
+  Columns:
+    ['Intercept',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'year']
+  Terms:
+    'Intercept' (column 0)
+    'income_group' (columns 1:4)
+    'region' (columns 4:10)
+    'year' (column 10)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>If you omit the intercept from the model, then columns for each category value will be included in the model design matrix:</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ region + income_group + year + 0'</span>, data<span class="op">=</span>sample <span class="co"># will have all levels but only for the FIRST categorical variable</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>DesignMatrix with shape (140, 11)
+  Columns:
+    ['region[East Asia &amp; Pacific]',
+     'region[Europe &amp; Central Asia]',
+     'region[Latin America &amp; Caribbean]',
+     'region[Middle East &amp; North Africa]',
+     'region[North America]',
+     'region[South Asia]',
+     'region[Sub-Saharan Africa]',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'year']
+  Terms:
+    'region' (columns 0:7)
+    'income_group' (columns 7:10)
+    'year' (column 10)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>Numeric columns can be interpreted as categorical with the C function:</p>
+<div class="cell" data-scrolled="true" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + C(year)'</span>, data<span class="op">=</span>sample</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>DesignMatrix with shape (140, 60)
+  Columns:
+    ['Intercept',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'C(year)[T.1961]',
+     'C(year)[T.1962]',
+     'C(year)[T.1963]',
+     'C(year)[T.1964]',
+     'C(year)[T.1965]',
+     'C(year)[T.1967]',
+     'C(year)[T.1968]',
+     'C(year)[T.1969]',
+     'C(year)[T.1970]',
+     'C(year)[T.1971]',
+     'C(year)[T.1972]',
+     'C(year)[T.1973]',
+     'C(year)[T.1974]',
+     'C(year)[T.1975]',
+     'C(year)[T.1976]',
+     'C(year)[T.1977]',
+     'C(year)[T.1978]',
+     'C(year)[T.1979]',
+     'C(year)[T.1980]',
+     'C(year)[T.1981]',
+     'C(year)[T.1982]',
+     'C(year)[T.1983]',
+     'C(year)[T.1984]',
+     'C(year)[T.1985]',
+     'C(year)[T.1986]',
+     'C(year)[T.1987]',
+     'C(year)[T.1988]',
+     'C(year)[T.1989]',
+     'C(year)[T.1990]',
+     'C(year)[T.1991]',
+     'C(year)[T.1992]',
+     'C(year)[T.1993]',
+     'C(year)[T.1994]',
+     'C(year)[T.1995]',
+     'C(year)[T.1996]',
+     'C(year)[T.1998]',
+     'C(year)[T.1999]',
+     'C(year)[T.2001]',
+     'C(year)[T.2003]',
+     'C(year)[T.2004]',
+     'C(year)[T.2006]',
+     'C(year)[T.2007]',
+     'C(year)[T.2008]',
+     'C(year)[T.2009]',
+     'C(year)[T.2010]',
+     'C(year)[T.2011]',
+     'C(year)[T.2012]',
+     'C(year)[T.2013]',
+     'C(year)[T.2014]',
+     'C(year)[T.2015]']
+  Terms:
+    'Intercept' (column 0)
+    'income_group' (columns 1:4)
+    'region' (columns 4:10)
+    'C(year)' (columns 10:60)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+<p>Include interaction terms of the form <code>key1:key2</code>:</p>
+<div class="cell" data-scrolled="true" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year + income_group:region'</span>, data<span class="op">=</span>sample</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>predictors</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>DesignMatrix with shape (140, 29)
+  Columns:
+    ['Intercept',
+     'income_group[T.Low income]',
+     'income_group[T.Lower middle income]',
+     'income_group[T.Upper middle income]',
+     'region[T.Europe &amp; Central Asia]',
+     'region[T.Latin America &amp; Caribbean]',
+     'region[T.Middle East &amp; North Africa]',
+     'region[T.North America]',
+     'region[T.South Asia]',
+     'region[T.Sub-Saharan Africa]',
+     'income_group[T.Low income]:region[T.Europe &amp; Central Asia]',
+     'income_group[T.Lower middle income]:region[T.Europe &amp; Central Asia]',
+     'income_group[T.Upper middle income]:region[T.Europe &amp; Central Asia]',
+     'income_group[T.Low income]:region[T.Latin America &amp; Caribbean]',
+     'income_group[T.Lower middle income]:region[T.Latin America &amp; Caribbean]',
+     'income_group[T.Upper middle income]:region[T.Latin America &amp; Caribbean]',
+     'income_group[T.Low income]:region[T.Middle East &amp; North Africa]',
+     'income_group[T.Lower middle income]:region[T.Middle East &amp; North Africa]',
+     'income_group[T.Upper middle income]:region[T.Middle East &amp; North Africa]',
+     'income_group[T.Low income]:region[T.North America]',
+     'income_group[T.Lower middle income]:region[T.North America]',
+     'income_group[T.Upper middle income]:region[T.North America]',
+     'income_group[T.Low income]:region[T.South Asia]',
+     'income_group[T.Lower middle income]:region[T.South Asia]',
+     'income_group[T.Upper middle income]:region[T.South Asia]',
+     'income_group[T.Low income]:region[T.Sub-Saharan Africa]',
+     'income_group[T.Lower middle income]:region[T.Sub-Saharan Africa]',
+     'income_group[T.Upper middle income]:region[T.Sub-Saharan Africa]',
+     'year']
+  Terms:
+    'Intercept' (column 0)
+    'income_group' (columns 1:4)
+    'region' (columns 4:10)
+    'income_group:region' (columns 10:28)
+    'year' (column 28)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+</section>
+<section id="introduction-to-statsmodels" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-statsmodels">Introduction to statsmodels</h2>
+<p>statsmodels is a Python library for fitting many kinds of statistical models, performing statistical tests, and data exploration and visualization.</p>
+<ul>
+<li>Linear models, generalized linear models, and robust linear models</li>
+<li>Linear mixed effects models</li>
+<li>Analysis of variance (ANOVA) methods</li>
+<li>Time series processes and state space models</li>
+<li>Generalized method of moments</li>
+</ul>
+<p>The sm.add_constant function can add an intercept column to an existing matrix:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>predictor_model <span class="op">=</span> sm.add_constant(predictors)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>predictor_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The sm.OLS class can fit an ordinary least squares linear regression. The model’s fit method returns a regression results object containing estimated model parameters and other diagnostics:</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year'</span>, data<span class="op">=</span>sample</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>predictors_org <span class="op">=</span> np.asarray(predictors)</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>rng <span class="op">=</span> np.random.default_rng(seed<span class="op">=</span><span class="dv">12345</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dnorm(mean, variance, size<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(size, <span class="bu">int</span>):</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>        size <span class="op">=</span> size,</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> mean <span class="op">+</span> np.sqrt(variance) <span class="op">*</span> rng.standard_normal(<span class="op">*</span>size)</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>predictors <span class="op">=</span> np.c_[np.hstack(<span class="bu">tuple</span>(predictors_org[:, [<span class="dv">2</span>]])),</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>                   np.hstack(<span class="bu">tuple</span>(predictors_org[:, [<span class="dv">0</span>]])),</span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>                   np.hstack(<span class="bu">tuple</span>(predictors_org[:, [<span class="dv">1</span>]]))]</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a>predictors <span class="op">=</span> np.asarray(predictors)</span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>eps <span class="op">=</span> dnorm(<span class="dv">0</span>, <span class="fl">0.1</span>, size<span class="op">=</span><span class="bu">len</span>(sample))</span>
+<span id="cb48-21"><a href="#cb48-21" aria-hidden="true" tabindex="-1"></a>beta <span class="op">=</span> dnorm(<span class="dv">45</span>,<span class="dv">82</span>, size<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb48-22"><a href="#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-23"><a href="#cb48-23" aria-hidden="true" tabindex="-1"></a>outcome <span class="op">=</span> np.dot(predictors, beta) <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>X_model <span class="op">=</span> sm.add_constant(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> sm.OLS(y, X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> model.fit()</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(results.summary())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:        life_expectancy   R-squared:                       0.835
+Model:                            OLS   Adj. R-squared:                  0.823
+Method:                 Least Squares   F-statistic:                     65.48
+Date:                Fri, 28 Oct 2022   Prob (F-statistic):           1.19e-45
+Time:                        20:29:40   Log-Likelihood:                -420.62
+No. Observations:                 140   AIC:                             863.2
+Df Residuals:                     129   BIC:                             895.6
+Df Model:                          10                                         
+Covariance Type:            nonrobust                                         
+========================================================================================================
+                                           coef    std err          t      P&gt;|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------------------------
+income_group[High income]             -601.0677     53.808    -11.171      0.000    -707.527    -494.608
+income_group[Low income]              -620.7862     53.651    -11.571      0.000    -726.936    -514.637
+income_group[Lower middle income]     -609.9033     53.643    -11.370      0.000    -716.038    -503.769
+income_group[Upper middle income]     -606.9144     53.554    -11.333      0.000    -712.872    -500.957
+region[T.Europe &amp; Central Asia]          5.3402      1.741      3.066      0.003       1.895       8.786
+region[T.Latin America &amp; Caribbean]      3.2563      1.712      1.903      0.059      -0.130       6.643
+region[T.Middle East &amp; North Africa]     1.4021      1.675      0.837      0.404      -1.913       4.717
+region[T.North America]                  6.2191      1.894      3.283      0.001       2.471       9.967
+region[T.South Asia]                    -4.7101      1.684     -2.797      0.006      -8.042      -1.378
+region[T.Sub-Saharan Africa]            -5.0216      1.824     -2.753      0.007      -8.630      -1.413
+year                                     0.3371      0.027     12.481      0.000       0.284       0.391
+==============================================================================
+Omnibus:                       11.871   Durbin-Watson:                   1.996
+Prob(Omnibus):                  0.003   Jarque-Bera (JB):               13.271
+Skew:                          -0.586   Prob(JB):                      0.00131
+Kurtosis:                       3.950   Cond. No.                     4.96e+05
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.96e+05. This might indicate that there are
+strong multicollinearity or other numerical problems.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> smf.ols(<span class="st">'life_expectancy ~ income_group + region + year'</span>, data<span class="op">=</span>sample).fit()</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>results.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>Intercept                              -601.067727
+income_group[T.Low income]              -19.718427
+income_group[T.Lower middle income]      -8.835585
+income_group[T.Upper middle income]      -5.846721
+region[T.Europe &amp; Central Asia]           5.340173
+region[T.Latin America &amp; Caribbean]       3.256349
+region[T.Middle East &amp; North Africa]      1.402143
+region[T.North America]                   6.219114
+region[T.South Asia]                     -4.710066
+region[T.Sub-Saharan Africa]             -5.021556
+year                                      0.337079
+dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>results.tvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>Intercept                              -11.170682
+income_group[T.Low income]              -9.011465
+income_group[T.Lower middle income]     -6.207760
+income_group[T.Upper middle income]     -4.309918
+region[T.Europe &amp; Central Asia]          3.066470
+region[T.Latin America &amp; Caribbean]      1.902550
+region[T.Middle East &amp; North Africa]     0.836912
+region[T.North America]                  3.283279
+region[T.South Asia]                    -2.797053
+region[T.Sub-Saharan Africa]            -2.753270
+year                                    12.480643
+dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>results.predict(sample[:<span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>187    64.948099
+248    65.827040
+444    46.399354
+274    59.945005
+367    51.109421
+dtype: float64</code></pre>
+</div>
+</div>
+</section>
+<section id="estimating-time-series-processes" class="level2">
+<h2 class="anchored" data-anchor-id="estimating-time-series-processes">Estimating Time Series Processes</h2>
+<p>Another class of models in statsmodels is for time series analysis.</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>init_x <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>values <span class="op">=</span> [init_x, init_x]</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">1000</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a><span class="co"># AR(2) structure with two lags</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>b0 <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>b1 <span class="op">=</span> <span class="op">-</span><span class="fl">0.4</span></span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>noise <span class="op">=</span> dnorm(<span class="dv">0</span>, <span class="fl">0.1</span>, N)</span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>    new_x <span class="op">=</span> values[<span class="op">-</span><span class="dv">1</span>] <span class="op">*</span> b0 <span class="op">+</span> values[<span class="op">-</span><span class="dv">2</span>] <span class="op">*</span> b1 <span class="op">+</span> noise[i]</span>
+<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>    values.append(new_x)</span>
+<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a><span class="co"># fit with more lags</span></span>
+<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>MAXLAGS <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> AutoReg(values, MAXLAGS)</span>
+<span id="cb59-18"><a href="#cb59-18" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> model.fit()</span>
+<span id="cb59-19"><a href="#cb59-19" aria-hidden="true" tabindex="-1"></a>results.params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>array([ 0.01141668,  0.8278958 , -0.42492365, -0.01487685,  0.03721318,
+       -0.03644228])</code></pre>
+</div>
+</div>
+</section>
+<section id="introduction-to-scikit-learn" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-scikit-learn">Introduction to scikit-learn</h2>
+<p>scikit-learn is one of the most widely used and trusted general-purpose Python machine learning toolkits.</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>    sample[[<span class="st">'income_group'</span>, <span class="st">'region'</span>, <span class="st">'year'</span>]], sample[[<span class="st">'life_expectancy'</span>]], test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make sure there are no missing values</span></span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(X_test.isna().<span class="bu">sum</span>())</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_test.isna().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>income_group    0
+region          0
+year            0
+dtype: int64
+life_expectancy    0
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># can also do it with patsy</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>outcome, predictors <span class="op">=</span> patsy.dmatrices(</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'life_expectancy ~ income_group + region + year'</span>, data<span class="op">=</span>sample</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>X_train, X_test, y_train, y_test <span class="op">=</span> train_test_split(</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    predictors, outcome, test_size<span class="op">=</span><span class="fl">0.2</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>y_train <span class="op">=</span> y_train.squeeze()</span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>y_test <span class="op">=</span> y_test.squeeze()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># impute_value = train['Age'].median()</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="co"># train['Age'] = train['Age'].fillna(impute_value)</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="co"># test['Age'] = test['Age'].fillna(impute_value)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression().fit(X_train, y_train)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>model.fit(X_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br>On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden=""><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked=""><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div>
+</div>
+</div>
+<div class="cell" data-scrolled="true" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>y_predict <span class="op">=</span> model.predict(X_test)</span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>y_predict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>array([78.63905681, 41.6710372 , 61.07560873, 77.12346239, 56.24225717,
+       60.82576811, 42.99395169, 41.6710372 , 74.1469048 , 75.46981928,
+       75.04709887, 71.69375575, 63.94037441, 51.82387157, 83.87519146,
+       42.66322307, 35.6275935 , 37.94269386, 63.56521171, 80.89863386,
+       50.99752407, 62.57302584, 58.22662891, 51.61205646, 77.52772236,
+       52.57565731, 79.10783413, 73.92796809])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>outcome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>DesignMatrix with shape (140, 1)
+  life_expectancy
+         67.68049
+         69.77073
+         46.22322
+         70.97317
+         49.26980
+         59.19907
+         47.08398
+         65.13822
+         68.57780
+         67.86585
+         62.05200
+         36.42517
+         62.45951
+         58.78159
+         44.10078
+         62.99259
+         39.80690
+         47.81127
+         52.67476
+         40.49602
+         64.71500
+         72.20780
+         45.31688
+         51.56868
+         50.15834
+         54.96951
+         54.44346
+         40.50444
+         70.29000
+         61.81917
+  [110 rows omitted]
+  Terms:
+    'life_expectancy' (column 0)
+  (to view full data, use np.asarray(this_obj))</code></pre>
+</div>
+</div>
+</section>
+<section id="going-rogue" class="level2">
+<h2 class="anchored" data-anchor-id="going-rogue">Going rogue</h2>
+<p>Using yellowbrick:</p>
+<ul>
+<li>y is the real avalues</li>
+<li>y hat is predicted</li>
+<li>black dotted line is fitted line created by the model</li>
+<li>grey dotted line is if the predicted values == real values</li>
+</ul>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>visualizer <span class="op">=</span> prediction_error(model, X_train, y_train, X_test, y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="12_notes_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./12_main.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">12. Introduction to Modeling Libraries in Python</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./12_video.html" class="pagination-link">
+        <span class="nav-page-text">Video</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-right">1850 depiction of Ptilocercus lowii</div>
+  </div>
+</footer>
+
+
+
+</body></html>
