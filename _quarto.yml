@@ -4,7 +4,7 @@ project:
 
 book:
   title: "Python for Data Analysis Book Club"
-  subtitle: "The R4DS Online Learning Community"
+  subtitle: "The Data Science Learning Community"
   site-url: https://wesmckinney.com/book/
   repo-url: https://github.com/r4ds/bookclub-py4da
   sharing: [twitter, facebook, linkedin]

@@ -1,14 +1,14 @@
-# R4DS Python for Data Analysis Book Club
+# DSLC Python for Data Analysis Book Club
 
-Welcome to the R4DS Python for Data Analysis Book Club!
+Welcome to the DSLC Python for Data Analysis Book Club!
 
 We are working together to read [_Python for Data Analysis_](https://wesmckinney.com/book/) by Wes McKinney (O'Reilly Media, Inc., copyright 2022, [9781098104030](https://www.oreilly.com/library/view/python-for-data/9781098104023/)).
-Join the [#book_club-py4da](https://rfordatascience.slack.com/archives/C03P2J90L30) channel on the [R4DS Slack](https://r4ds.io/join) to participate.
-As we read, we are producing [notes about the book](https://r4ds.io/py4da).
+Join the [#book_club-py4da](https://dslcio.slack.com/archives/C03P2J90L30) channel on the [DSLC Slack](https://dslc.io/join) to participate.
+As we read, we are producing [notes about the book](https://dslc.io/py4da).
 
 ## Meeting Schedule
 
-If you would like to present, please see the sign-up sheet for your cohort (linked below, and pinned in the [#book_club-py4da](https://rfordatascience.slack.com/archives/C03P2J90L30) channel on Slack)!
+If you would like to present, please see the sign-up sheet for your cohort (linked below, and pinned in the [#book_club-py4da](https://dslcio.slack.com/archives/C03P2J90L30) channel on Slack)!
 
 - Cohort 1 (started 2022-08-05, finished 2022-11-11): [meeting videos](https://www.youtube.com/playlist?list=PL3x6DOfs2NGh7IQIQ_pXNkjLVKa-7lgCw)
 
@@ -50,7 +50,7 @@ quarto render --to html
 Once you are ready to finalize your changes:
 
 * Commit your changes.
-* Push your changes to your forked repo and then create a pull request for the R4DS admins to merge your changes.
+* Push your changes to your forked repo and then create a pull request for the DSLC admins to merge your changes.
 * (If they request changes, make them)
 * When your PR has been accepted ("merged"), close out your branch and prepare your local repository for future work.
 
