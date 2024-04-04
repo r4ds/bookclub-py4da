@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python for Data Analysis Book Club - Notes</title>
+<title>Python for Data Analysis Book Club - 1&nbsp; Notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,11 +17,12 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -110,7 +81,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -119,8 +96,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -131,11 +110,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Notes</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_main.html">1. Preliminaries</a></li><li class="breadcrumb-item"><a href="./01_notes.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -143,299 +127,338 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Python for Data Analysis Book Club</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/r4ds/bookclub-py4da" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="" title="Share" id="sidebar-tool-dropdown-0" class="sidebar-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-share"></i></a>
-    <ul class="dropdown-menu" aria-labelledby="sidebar-tool-dropdown-0">
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-            <i class="bi bi-bi-twitter pe-1"></i>
-          Twitter
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-            <i class="bi bi-bi-facebook pe-1"></i>
-          Facebook
-          </a>
-        </li>
-        <li>
-          <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-            <i class="bi bi-bi-linkedin pe-1"></i>
-          LinkedIn
-          </a>
-        </li>
-    </ul>
+    <a href="https://github.com/r4ds/bookclub-py4da" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Welcome</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./01_main.html" class="sidebar-item-text sidebar-link">1. Preliminaries</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./01_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Preliminaries</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_notes.html" class="sidebar-item-text sidebar-link active">Notes</a>
+  <a href="./01_notes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./01_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./02_main.html" class="sidebar-item-text sidebar-link">2. Python Language Basics, IPython, and Jupyter Notebooks</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./02_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Python Language Basics, IPython, and Jupyter Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./02_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./03_main.html" class="sidebar-item-text sidebar-link">3. Built-in Data Structures, Functions, and Files</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./03_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Built-in Data Structures, Functions, and Files</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Data Structures and Sequences</span></a>
+  <a href="./03_notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data Structures and Sequences</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./03_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./04_main.html" class="sidebar-item-text sidebar-link">4. NumPy Basics: Arrays and Vectorized Computation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+            <a href="./04_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. NumPy Basics: Arrays and Vectorized Computation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./04_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./05_main.html" class="sidebar-item-text sidebar-link">5. Getting Started with pandas</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+            <a href="./05_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5. Getting Started with pandas</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./05_notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./05_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./06_main.html" class="sidebar-item-text sidebar-link">6. Data Loading, Storage, and File Formats</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+            <a href="./06_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6. Data Loading, Storage, and File Formats</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./06_notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./06_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./07_main.html" class="sidebar-item-text sidebar-link">7. Data Cleaning and Preparation</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true">
+            <a href="./07_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7. Data Cleaning and Preparation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./07_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./08_main.html" class="sidebar-item-text sidebar-link">8. Data Wrangling: Join, Combine, and Reshape</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true">
+            <a href="./08_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8. Data Wrangling: Join, Combine, and Reshape</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./08_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./09_main.html" class="sidebar-item-text sidebar-link">9. Plotting and Visualization</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
+            <a href="./09_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9. Plotting and Visualization</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./09_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./10_main.html" class="sidebar-item-text sidebar-link">10. Data Aggregation and Group Operations</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true">
+            <a href="./10_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10. Data Aggregation and Group Operations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./10_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./11_main.html" class="sidebar-item-text sidebar-link">11. Time Series</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+            <a href="./11_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11. Time Series</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./11_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./12_main.html" class="sidebar-item-text sidebar-link">12. Introduction to Modeling Libraries in Python</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true">
+            <a href="./12_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12. Introduction to Modeling Libraries in Python</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_notes.html" class="sidebar-item-text sidebar-link">Notes</a>
+  <a href="./12_notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Notes</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./12_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./12_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./13_main.html" class="sidebar-item-text sidebar-link">13. Data Analysis Examples</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true">
+            <a href="./13_main.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13. Data Analysis Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_video.html" class="sidebar-item-text sidebar-link">Video</a>
+  <a href="./13_video.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Video</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./examples.html" class="sidebar-item-text sidebar-link">Examples</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+            <a href="./examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Examples</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./example_quarto.html" class="sidebar-item-text sidebar-link">Example Quarto Document</a>
+  <a href="./example_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Quarto Document</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./example_python.html" class="sidebar-item-text sidebar-link">Example Jupyter Notebook</a>
+  <a href="./example_python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">NumPy</span></span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">Appendices</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./how-to.html" class="sidebar-item-text sidebar-link">How to add to the book</a>
+  <a href="./how-to.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to add to the book</span></a>
   </div>
 </li>
       </ul>
@@ -443,40 +466,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-python-for-data-analysis-data-science" id="toc-why-python-for-data-analysis-data-science" class="nav-link active" data-scroll-target="#why-python-for-data-analysis-data-science">Why Python for Data Analysis (Data Science)?</a></li>
-  <li><a href="#solving-the-two-language-problem" id="toc-solving-the-two-language-problem" class="nav-link" data-scroll-target="#solving-the-two-language-problem">Solving the “Two-Language” Problem</a></li>
-  <li><a href="#what-kinds-of-data" id="toc-what-kinds-of-data" class="nav-link" data-scroll-target="#what-kinds-of-data">What Kinds of Data?</a></li>
-  <li><a href="#essential-python-libraries" id="toc-essential-python-libraries" class="nav-link" data-scroll-target="#essential-python-libraries">Essential Python Libraries</a></li>
-  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy">Numpy</a></li>
-  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas">Pandas</a></li>
-  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">Matplotlib</a></li>
-  <li><a href="#ipython-and-jupyter" id="toc-ipython-and-jupyter" class="nav-link" data-scroll-target="#ipython-and-jupyter">IPython and Jupyter</a></li>
-  <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy">SciPy</a></li>
-  <li><a href="#scikit-learn" id="toc-scikit-learn" class="nav-link" data-scroll-target="#scikit-learn">Scikit-learn</a></li>
-  <li><a href="#statsmodels" id="toc-statsmodels" class="nav-link" data-scroll-target="#statsmodels">Statsmodels</a></li>
-  <li><a href="#other-packages" id="toc-other-packages" class="nav-link" data-scroll-target="#other-packages">Other Packages</a></li>
-  <li><a href="#installing-necessary-packages" id="toc-installing-necessary-packages" class="nav-link" data-scroll-target="#installing-necessary-packages">Installing Necessary Packages</a></li>
-  <li><a href="#mini-conda" id="toc-mini-conda" class="nav-link" data-scroll-target="#mini-conda">Mini-conda</a></li>
-  <li><a href="#mini-forge" id="toc-mini-forge" class="nav-link" data-scroll-target="#mini-forge">Mini-forge</a></li>
-  <li><a href="#should-i-use-pip-or-conda" id="toc-should-i-use-pip-or-conda" class="nav-link" data-scroll-target="#should-i-use-pip-or-conda">Should I use Pip or Conda ?</a></li>
-  <li><a href="#what-can-we-do-with-conda" id="toc-what-can-we-do-with-conda" class="nav-link" data-scroll-target="#what-can-we-do-with-conda">What can we do with Conda?</a></li>
-  <li><a href="#navigating-this-book" id="toc-navigating-this-book" class="nav-link" data-scroll-target="#navigating-this-book">Navigating This Book</a></li>
-  <li><a href="#import-conventions" id="toc-import-conventions" class="nav-link" data-scroll-target="#import-conventions">Import Conventions</a></li>
+  <li><a href="#why-python-for-data-analysis-data-science" id="toc-why-python-for-data-analysis-data-science" class="nav-link active" data-scroll-target="#why-python-for-data-analysis-data-science"><span class="header-section-number">1.0.1</span> Why Python for Data Analysis (Data Science)?</a></li>
+  <li><a href="#solving-the-two-language-problem" id="toc-solving-the-two-language-problem" class="nav-link" data-scroll-target="#solving-the-two-language-problem"><span class="header-section-number">1.0.2</span> Solving the “Two-Language” Problem</a></li>
+  <li><a href="#what-kinds-of-data" id="toc-what-kinds-of-data" class="nav-link" data-scroll-target="#what-kinds-of-data"><span class="header-section-number">1.0.3</span> What Kinds of Data?</a></li>
+  <li><a href="#essential-python-libraries" id="toc-essential-python-libraries" class="nav-link" data-scroll-target="#essential-python-libraries"><span class="header-section-number">1.1</span> Essential Python Libraries</a></li>
+  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy"><span class="header-section-number">1.2</span> Numpy</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link" data-scroll-target="#pandas"><span class="header-section-number">1.3</span> Pandas</a></li>
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib"><span class="header-section-number">1.4</span> Matplotlib</a></li>
+  <li><a href="#ipython-and-jupyter" id="toc-ipython-and-jupyter" class="nav-link" data-scroll-target="#ipython-and-jupyter"><span class="header-section-number">1.5</span> IPython and Jupyter</a></li>
+  <li><a href="#scipy" id="toc-scipy" class="nav-link" data-scroll-target="#scipy"><span class="header-section-number">1.6</span> SciPy</a></li>
+  <li><a href="#scikit-learn" id="toc-scikit-learn" class="nav-link" data-scroll-target="#scikit-learn"><span class="header-section-number">1.7</span> Scikit-learn</a></li>
+  <li><a href="#statsmodels" id="toc-statsmodels" class="nav-link" data-scroll-target="#statsmodels"><span class="header-section-number">1.8</span> Statsmodels</a></li>
+  <li><a href="#other-packages" id="toc-other-packages" class="nav-link" data-scroll-target="#other-packages"><span class="header-section-number">1.9</span> Other Packages</a></li>
+  <li><a href="#installing-necessary-packages" id="toc-installing-necessary-packages" class="nav-link" data-scroll-target="#installing-necessary-packages"><span class="header-section-number">1.10</span> Installing Necessary Packages</a></li>
+  <li><a href="#mini-conda" id="toc-mini-conda" class="nav-link" data-scroll-target="#mini-conda"><span class="header-section-number">1.11</span> Mini-conda</a></li>
+  <li><a href="#mini-forge" id="toc-mini-forge" class="nav-link" data-scroll-target="#mini-forge"><span class="header-section-number">1.12</span> Mini-forge</a></li>
+  <li><a href="#should-i-use-pip-or-conda" id="toc-should-i-use-pip-or-conda" class="nav-link" data-scroll-target="#should-i-use-pip-or-conda"><span class="header-section-number">1.13</span> Should I use Pip or Conda ?</a></li>
+  <li><a href="#what-can-we-do-with-conda" id="toc-what-can-we-do-with-conda" class="nav-link" data-scroll-target="#what-can-we-do-with-conda"><span class="header-section-number">1.14</span> What can we do with Conda?</a></li>
+  <li><a href="#navigating-this-book" id="toc-navigating-this-book" class="nav-link" data-scroll-target="#navigating-this-book"><span class="header-section-number">1.15</span> Navigating This Book</a></li>
+  <li><a href="#import-conventions" id="toc-import-conventions" class="nav-link" data-scroll-target="#import-conventions"><span class="header-section-number">1.16</span> Import Conventions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_main.html">1. Preliminaries</a></li><li class="breadcrumb-item"><a href="./01_notes.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Notes</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Notes</span></h1>
 </div>
 
 
@@ -484,30 +508,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
 
+
 </header>
 
-<section id="why-python-for-data-analysis-data-science" class="level3">
-<h3 class="anchored" data-anchor-id="why-python-for-data-analysis-data-science">Why Python for Data Analysis (Data Science)?</h3>
+
+<section id="why-python-for-data-analysis-data-science" class="level3" data-number="1.0.1">
+<h3 data-number="1.0.1" class="anchored" data-anchor-id="why-python-for-data-analysis-data-science"><span class="header-section-number">1.0.1</span> Why Python for Data Analysis (Data Science)?</h3>
 <blockquote class="blockquote">
 <p>One of the most important languages for data science, machine learning, and general software development in academia and industry.</p>
 </blockquote>
 </section>
-<section id="solving-the-two-language-problem" class="level3">
-<h3 class="anchored" data-anchor-id="solving-the-two-language-problem">Solving the “Two-Language” Problem</h3>
+<section id="solving-the-two-language-problem" class="level3" data-number="1.0.2">
+<h3 data-number="1.0.2" class="anchored" data-anchor-id="solving-the-two-language-problem"><span class="header-section-number">1.0.2</span> Solving the “Two-Language” Problem</h3>
 <blockquote class="blockquote">
 <p>Python is a suitable language not only for doing research and prototyping but also for building the production systems (also Julia programming language).</p>
 </blockquote>
 </section>
-<section id="what-kinds-of-data" class="level3">
-<h3 class="anchored" data-anchor-id="what-kinds-of-data">What Kinds of Data?</h3>
+<section id="what-kinds-of-data" class="level3" data-number="1.0.3">
+<h3 data-number="1.0.3" class="anchored" data-anchor-id="what-kinds-of-data"><span class="header-section-number">1.0.3</span> What Kinds of Data?</h3>
 <p><img src="./images/structured_data2.png" class="img-fluid"></p>
 </section>
-<section id="essential-python-libraries" class="level2">
-<h2 class="anchored" data-anchor-id="essential-python-libraries">Essential Python Libraries</h2>
+<section id="essential-python-libraries" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="essential-python-libraries"><span class="header-section-number">1.1</span> Essential Python Libraries</h2>
 <ul>
 <li>NumPy ( Numerical Python)</li>
 <li>Pandas</li>
@@ -518,14 +545,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>StatsModel</li>
 </ul>
 </section>
-<section id="numpy" class="level2">
-<h2 class="anchored" data-anchor-id="numpy">Numpy</h2>
+<section id="numpy" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="numpy"><span class="header-section-number">1.2</span> Numpy</h2>
 <blockquote class="blockquote">
 <p>Short for Numerical Python, has long been a cornerstone of numerical computing in Python. It provides the data structures, algorithms, and library glue needed for most scientific applications involving numerical data in Python</p>
 </blockquote>
 </section>
-<section id="pandas" class="level2">
-<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<section id="pandas" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="pandas"><span class="header-section-number">1.3</span> Pandas</h2>
 <blockquote class="blockquote">
 <p>pandas provides high-level data structures and functions designed to make working with structured or tabular data intuitive and flexible.</p>
 </blockquote>
@@ -534,32 +561,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_r.html">See R vs Pandas comparison</a></p></li>
 </ul>
 </section>
-<section id="matplotlib" class="level2">
-<h2 class="anchored" data-anchor-id="matplotlib">Matplotlib</h2>
+<section id="matplotlib" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="matplotlib"><span class="header-section-number">1.4</span> Matplotlib</h2>
 <blockquote class="blockquote">
 <p>is the most popular Python library for producing plots and other two-dimensional data visualizations</p>
 </blockquote>
 </section>
-<section id="ipython-and-jupyter" class="level2">
-<h2 class="anchored" data-anchor-id="ipython-and-jupyter">IPython and Jupyter</h2>
+<section id="ipython-and-jupyter" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="ipython-and-jupyter"><span class="header-section-number">1.5</span> IPython and Jupyter</h2>
 <ul>
 <li>The IPython system can now be used as a kernel (a programming language mode) for using Python with Jupyter.</li>
 </ul>
 </section>
-<section id="scipy" class="level2">
-<h2 class="anchored" data-anchor-id="scipy">SciPy</h2>
+<section id="scipy" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="scipy"><span class="header-section-number">1.6</span> SciPy</h2>
 <blockquote class="blockquote">
 <p>SciPy is a collection of packages addressing a number of foundational problems in scientific computing.</p>
 </blockquote>
 </section>
-<section id="scikit-learn" class="level2">
-<h2 class="anchored" data-anchor-id="scikit-learn">Scikit-learn</h2>
+<section id="scikit-learn" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="scikit-learn"><span class="header-section-number">1.7</span> Scikit-learn</h2>
 <blockquote class="blockquote">
 <p>general-purpose machine learning toolkit for Python programmers.</p>
 </blockquote>
 </section>
-<section id="statsmodels" class="level2">
-<h2 class="anchored" data-anchor-id="statsmodels">Statsmodels</h2>
+<section id="statsmodels" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="statsmodels"><span class="header-section-number">1.8</span> Statsmodels</h2>
 <blockquote class="blockquote">
 <p>is a statistical analysis package</p>
 </blockquote>
@@ -567,14 +594,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Compared with scikit-learn, statsmodels contains algorithms for classical (primarily frequentist) statistics and econometrics.</li>
 </ul>
 </section>
-<section id="other-packages" class="level2">
-<h2 class="anchored" data-anchor-id="other-packages">Other Packages</h2>
+<section id="other-packages" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="other-packages"><span class="header-section-number">1.9</span> Other Packages</h2>
 <ul>
 <li>TensorFlow or PyTorch or Keras</li>
 </ul>
 </section>
-<section id="installing-necessary-packages" class="level2">
-<h2 class="anchored" data-anchor-id="installing-necessary-packages">Installing Necessary Packages</h2>
+<section id="installing-necessary-packages" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="installing-necessary-packages"><span class="header-section-number">1.10</span> Installing Necessary Packages</h2>
 <blockquote class="blockquote">
 <p>We can install Python packages using “Pip” or “Conda”. Read more about <a href="https://pythonspeed.com/articles/conda-vs-pip/">pip vs python</a></p>
 </blockquote>
@@ -584,15 +611,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>This book uses Python 3.10 throughout.</p></li>
 </ul>
 </section>
-<section id="mini-conda" class="level2">
-<h2 class="anchored" data-anchor-id="mini-conda">Mini-conda</h2>
+<section id="mini-conda" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="mini-conda"><span class="header-section-number">1.11</span> Mini-conda</h2>
 <blockquote class="blockquote">
 <p>Conda is a packaging tool and installer that aims to do more than what pip does; handle library dependencies outside of the Python packages as well as the Python packages themselves. Conda also creates a virtual environment, like virtualenv does</p>
 </blockquote>
 <p><img src="./images/conda_vs_pip.png" class="img-fluid"></p>
 </section>
-<section id="mini-forge" class="level2">
-<h2 class="anchored" data-anchor-id="mini-forge">Mini-forge</h2>
+<section id="mini-forge" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="mini-forge"><span class="header-section-number">1.12</span> Mini-forge</h2>
 <ul>
 <li><p>miniforge is the community (conda-forge) driven minimalistic conda installer. Subsequent package installations come thus from conda-forge channel. <a href="https://github.com/conda-forge/miniforge">Mini-forge</a></p></li>
 <li><p>miniconda is the Anaconda (company) driven minimalistic conda installer. Subsequent package installations come from the anaconda channels (default or otherwise).</p></li>
@@ -603,7 +630,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>The first step is to configure conda-forge as your default package channel by running the following commands in a shell:</p>
 </blockquote>
-<div class="cell" data-execution_count="4">
+<div id="cell-37" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span> conda config <span class="op">--</span>add channels conda<span class="op">-</span>forge</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span> conda config <span class="op">--</span><span class="bu">set</span> channel_priority strict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -611,7 +638,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>Now, we will install the essential packages used throughout the book (along with their dependencies) with conda install</p>
-<div class="cell">
+<div id="cell-39" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>conda create <span class="op">-</span>y <span class="op">-</span>n pydata<span class="op">-</span>book python<span class="op">=</span><span class="fl">3.10</span> <span class="co"># create enviroment with python 3.10 installed</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>conda activate pydata<span class="op">-</span>book <span class="co"># activate enviroment </span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>(pydata<span class="op">-</span>book) $ conda install <span class="op">-</span>y pandas jupyter matplotlib <span class="co"># install a</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -621,8 +648,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 requests sqlalchemy seaborn scipy statsmodels<br>
 patsy scikit-learn pyarrow pytables numba</p>
 </section>
-<section id="should-i-use-pip-or-conda" class="level2">
-<h2 class="anchored" data-anchor-id="should-i-use-pip-or-conda">Should I use Pip or Conda ?</h2>
+<section id="should-i-use-pip-or-conda" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="should-i-use-pip-or-conda"><span class="header-section-number">1.13</span> Should I use Pip or Conda ?</h2>
 <blockquote class="blockquote">
 <p>While you can use both conda and pip to install packages, you should avoid updating packages originally installed with conda using pip (and vice versa), as doing so can lead to environment problems. I recommend sticking to conda if you can and falling back on pip only for packages which are unavailable with conda install.</p>
 </blockquote>
@@ -630,15 +657,15 @@ patsy scikit-learn pyarrow pytables numba</p>
 <p>conda install should always be preferred, but some packages are not available through conda so if conda install $package_name fails, try pip install $package_name.</p>
 </blockquote>
 </section>
-<section id="what-can-we-do-with-conda" class="level2">
-<h2 class="anchored" data-anchor-id="what-can-we-do-with-conda">What can we do with Conda?</h2>
+<section id="what-can-we-do-with-conda" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="what-can-we-do-with-conda"><span class="header-section-number">1.14</span> What can we do with Conda?</h2>
 <ul>
 <li><p>Many commands : create env, activate env, delete env, lists env</p></li>
 <li><p>Install tldr (https://github.com/tldr-pages/tldr) : The tldr-pages project is a collection of community-maintained help pages for command-line tools, that aims to be a simpler, more approachable complement to traditional</p></li>
 </ul>
 </section>
-<section id="navigating-this-book" class="level2">
-<h2 class="anchored" data-anchor-id="navigating-this-book">Navigating This Book</h2>
+<section id="navigating-this-book" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="navigating-this-book"><span class="header-section-number">1.15</span> Navigating This Book</h2>
 <blockquote class="blockquote">
 <p>Chapter two and three: provides prerequisite knowledge for the remainder of the book. If you have Python experienc you can skip</p>
 </blockquote>
@@ -664,12 +691,12 @@ patsy scikit-learn pyarrow pytables numba</p>
 <p>Chapter 10 : Data agreegation and Group operation</p>
 </blockquote>
 </section>
-<section id="import-conventions" class="level2">
-<h2 class="anchored" data-anchor-id="import-conventions">Import Conventions</h2>
+<section id="import-conventions" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="import-conventions"><span class="header-section-number">1.16</span> Import Conventions</h2>
 <blockquote class="blockquote">
 <p>The Python community has adopted a number of naming conventions for commonly used modules:</p>
 </blockquote>
-<div class="cell">
+<div id="cell-58" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -682,7 +709,7 @@ patsy scikit-learn pyarrow pytables numba</p>
 <blockquote class="blockquote">
 <p>This means that when you see np.arange, this is a reference to the arange function in NumPy. This is done because it’s considered bad practice in Python software development to import everything (from numpy import *) from a large package like NumPy</p>
 </blockquote>
-<div class="cell">
+<div id="cell-60" class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.random((<span class="dv">64</span>, <span class="dv">3</span>, <span class="dv">32</span>, <span class="dv">10</span>)) </span>
@@ -722,9 +749,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -736,17 +777,51 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/wesmckinney\.com\/book\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -756,8 +831,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -769,38 +853,292 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_main.html" class="pagination-link">
+      <a href="./01_main.html" class="pagination-link" aria-label="1. Preliminaries">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Preliminaries</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01_video.html" class="pagination-link">
+      <a href="./01_video.html" class="pagination-link" aria-label="Video">
         <span class="nav-page-text">Video</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
@@ -808,9 +1146,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-right">1850 depiction of Ptilocercus lowii</div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>1850 depiction of Ptilocercus lowii</p>
+</div>
   </div>
 </footer>
+
 
 
 
