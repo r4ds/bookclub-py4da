@@ -11,6 +11,7 @@ As we read, we are producing [notes about the book](https://dslc.io/py4da).
 If you would like to present, please see the sign-up sheet for your cohort (linked below, and pinned in the [#book_club-py4da](https://dslcio.slack.com/archives/C03P2J90L30) channel on Slack)!
 
 - Cohort 1 (started 2022-08-05, finished 2022-11-11): [meeting videos](https://www.youtube.com/playlist?list=PL3x6DOfs2NGh7IQIQ_pXNkjLVKa-7lgCw)
+- Cohort 2 (started 2023-12-02, finished 2024-09-21): [meeting videos](https://www.youtube.com/playlist?list=PL3x6DOfs2NGhGabQ06OuWkiDt8oQA9dX9)
 
 <hr>
 
